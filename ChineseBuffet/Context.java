@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class Context
 {
-    protected ArrayList<POI> attractions = new ArrayList<POI>();
+    //protected ArrayList<POI> attractions = new ArrayList<POI>();
     protected String name;
     protected String state;
     protected int id_num;

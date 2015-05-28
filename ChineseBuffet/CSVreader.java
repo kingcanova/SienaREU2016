@@ -39,12 +39,7 @@ public class CSVreader {
                 
                 test.cities.add(new Context(Integer.parseInt(context[0]), context[1], context[2],
                                 Double.parseDouble(context[3]), Double.parseDouble(context[4])));
-                // 
-                //                 for(int i = 0; i < params.length; i++)
-                //                 {
-                //                     System.out.print(params[i] + " " + context[i] + " ");
-                //                 }
-                //                 System.out.println();
+                
             }
             
             br = new BufferedReader(new FileReader(csvFile + pois));
@@ -57,14 +52,7 @@ public class CSVreader {
                 // use comma as separator
                 String[] context = line.split(cvsSplitBy);
                 
-                test.cities.add(new Context(Integer.parseInt(context[0]), context[1], context[2],
-                                Double.parseDouble(context[3]), Double.parseDouble(context[4])));
-                // 
-                //                 for(int i = 0; i < params.length; i++)
-                //                 {
-                //                     System.out.print(params[i] + " " + context[i] + " ");
-                //                 }
-                //                 System.out.println();
+                
             }
 
         } 

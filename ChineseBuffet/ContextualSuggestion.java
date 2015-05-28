@@ -22,7 +22,7 @@ public class ContextualSuggestion
      */
     public ContextualSuggestion()
     {
-
+        
     }
 
     /**
@@ -35,7 +35,7 @@ public class ContextualSuggestion
     {
         for(Profile person : people)
         {
-            for(Context city : person.cities)
+            for(Context city : person.ratings)
             {
                 for(POI attraction : city.attractions)
                 {
@@ -47,6 +47,4 @@ public class ContextualSuggestion
             }
         }
     }
-
-
 }

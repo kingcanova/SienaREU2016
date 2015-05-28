@@ -12,7 +12,6 @@ public class POI
     protected String title;
     protected String description;
     protected String url;
-    protected int rank = 0;
     
     public POI(String title, String description, String url)
     {
