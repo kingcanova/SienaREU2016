@@ -5,11 +5,18 @@ import java.io.IOException;
 import javax.swing.*;
 import java.util.*;
 
-public class CSVreader {
-
-    public void run() {
-        ContextualSuggestion test = new ContextualSuggestion();
-
+public class CSVreader 
+{
+    protected ContextualSuggestion test = new ContextualSuggestion();
+    int first = -1;
+    /**
+     * Reads in all the data from the four files containing the profile info (2 files),
+     * list of cities, and the list of attractions.
+     * 
+     * 
+     */
+    public void run() 
+    {
         String csvFile = "/Users/Trees/Desktop/REU/contextual_suggestion/2014example/";
         //id, city, state, lat, long
         String locations = "contexts2014.csv";
@@ -23,39 +30,20 @@ public class CSVreader {
 
         BufferedReader br = null;
         String line = "";
-        String cvsSplitBy = ",";
 
         try {
-
             br = new BufferedReader(new FileReader(csvFile + locations));
-
-            line = br.readLine();
-            String[] params = line.split(cvsSplitBy);
-
-            while ((line = br.readLine()) != null) {
-
-                // use comma as separator
-                String[] context = line.split(cvsSplitBy);
-                
-                test.cities.add(new Context(Integer.parseInt(context[0]), context[1], context[2],
-                                Double.parseDouble(context[3]), Double.parseDouble(context[4])));
-                
-            }
+            buildLocation(br);
             
             br = new BufferedReader(new FileReader(csvFile + pois));
+            buildPOI(br);
 
-            line = br.readLine();
-            params = line.split(cvsSplitBy);
+            br = new BufferedReader(new FileReader(csvFile + profile100));
+            buildProfile(br);
 
-            while ((line = br.readLine()) != null) {
-
-                // use comma as separator
-                String[] context = line.split(cvsSplitBy);
-                
-                
-            }
-
-        } 
+            br = new BufferedReader(new FileReader(csvFile + profile70));
+            buildProfile(br);
+        }
         catch (FileNotFoundException e) 
         {
             e.printStackTrace();
@@ -64,20 +52,105 @@ public class CSVreader {
         {
             e.printStackTrace();
         }
-        finally 
+        finally
         {
-            if (br != null) {
-                try {
+            if (br != null) 
+            {
+                try 
+                {
                     br.close();
-                } catch (IOException e) {
+                } 
+                catch (IOException e) 
+                {
                     e.printStackTrace();
                 }
             }
         }
+        test.suggest();
         System.out.println("Done");
     }
 
-    public static void main(String[] args) {
+    /**
+     * Creates the Context objects given the file listing the cities
+     */
+    public void buildLocation(BufferedReader br) throws IOException
+    {
+        String line = "";
+        line = br.readLine();
+        String[] params = line.split(",");
+        while ((line = br.readLine()) != null) 
+        {
+            // use comma as separator
+            String[] context = line.split(",");
+            test.cities.add(new Context(Integer.parseInt(context[0]), context[1], context[2],
+                    Double.parseDouble(context[3]), Double.parseDouble(context[4])));
+        }
+        br.close();
+    }
+
+    /**
+     * Creates the POI objects given the file listing the attractions
+     * because of commas in the description the first second and last are located
+     */
+    public void buildPOI(BufferedReader br) throws IOException
+    {
+        String line = "";
+        line = br.readLine();
+        String[] params = line.split(",");
+        while ((line = br.readLine()) != null) 
+        {
+            // use comma as separator
+            String[] context = new String[4];
+            int first = line.indexOf(",");
+            int second = line.indexOf(",", first+1);
+            int last = line.lastIndexOf(",");
+            context[0] = line.substring(0,first);
+            context[1] = line.substring(first+1, second);
+            context[2] = line.substring(second+1, last);
+            context[3] = line.substring(last+1);
+            test.attractions.add(new POI(Integer.parseInt(context[0]), context[1], context[2], context[3]));
+        }
+        br.close();
+    }
+
+    /**
+     * Creates the Profile objects and adds the associated ratings
+     * given the file on profiles. 
+     */
+    public void buildProfile(BufferedReader br) throws IOException
+    {
+        String line = "";
+        line = br.readLine();
+        String[] params = line.split(",");
+        int person_id = -1;
+        
+        int start = test.attractions.get(0).id_num;
+        while ((line = br.readLine()) != null) 
+        {
+            // use comma as separator
+            String[] context = line.split(",");
+            int num = Integer.parseInt(context[0]);
+            if(num != person_id)
+            {
+                person_id = num;
+                test.people.add(new Profile(num));
+                if(first == -1)
+                {
+                    first = person_id;
+                }
+            }
+            int att_id = Integer.parseInt(context[1]);
+            int t_rating = Integer.parseInt(context[2]);
+            int u_rating = Integer.parseInt(context[3]);
+            Profile person = test.people.get(num-first);
+            person.ratings[att_id - start][0] = t_rating;
+            person.ratings[att_id - start][1] = u_rating;
+        }
+        br.close();
+    }
+
+    public static void main(String[] args) 
+    {
         CSVreader obj = new CSVreader();
         obj.run();
 

@@ -9,12 +9,14 @@
  */
 public class POI
 {
+    protected int id_num;
     protected String title;
     protected String description;
     protected String url;
     
-    public POI(String title, String description, String url)
+    public POI(int id, String title, String description, String url)
     {
+        this.id_num = id;
         this.title = title;
         this.description = description;
         this.url = url;

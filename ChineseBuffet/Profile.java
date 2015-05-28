@@ -9,12 +9,15 @@ import java.util.*;
  */
 public class Profile
 {
-   protected int[][] ratings = new int[100][2];
-   protected int user_id;
-   
-   public Profile(int id)
-   {
-       this.user_id = id;
-       Arrays.fill(ratings, -1);
-   }
+    protected int[][] ratings = new int[100][2];
+    protected int user_id;
+
+    public Profile(int id)
+    {
+        this.user_id = id;
+        for(int[] p : ratings)
+        {
+            Arrays.fill(p, -1);
+        }
+    }
 }

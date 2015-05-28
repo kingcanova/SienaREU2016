@@ -22,28 +22,29 @@ public class ContextualSuggestion
      */
     public ContextualSuggestion()
     {
-        
+        people = new ArrayList<Profile>();
+        cities = new ArrayList<Context>();
+        attractions = new ArrayList<POI>();
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Print out all the attractions that the person has rated
+     * testing before final version of writing to a csv file
      * 
      * @param  y   a sample parameter for a method
      * @return     the sum of x and y 
      */
     public void suggest()
     {
-        for(Profile person : people)
+        for(Profile person : this.people)
         {
-            for(Context city : person.ratings)
+            for(int i = 0; i< person.ratings.length; i++)
             {
-                for(POI attraction : city.attractions)
-                {
-                    System.out.println(groupID + ", " + runID + ", " + person.user_id + ", " +
-                        city.id_num + ", " + attraction.rank + ", " + 
-                        attraction.title + ", " + attraction.description + ", " +
-                        attraction.url + ", \n");
-                }
+                System.out.println(groupID + "," + runID + "," + person.user_id + ",(" + attractions.get(i).id_num + ")"
+                    + "unkownCity" + "," + person.ratings[i][0] + " " + person.ratings[i][1] + ", \t" + 
+                    attractions.get(i).title + "," + "description" + "," +
+                    attractions.get(i).url + ",");
+
             }
         }
     }
