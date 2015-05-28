@@ -40,10 +40,14 @@ public class ContextualSuggestion
         {
             for(int i = 0; i< person.ratings.length; i++)
             {
-                System.out.println(groupID + "," + runID + "," + person.user_id + ",(" + attractions.get(i).id_num + ")"
-                    + "unkownCity" + "," + person.ratings[i][0] + " " + person.ratings[i][1] + ", \t" + 
-                    attractions.get(i).title + "," + "description" + "," +
-                    attractions.get(i).url + ",");
+                //                 System.out.println(groupID + "," + runID + "," + person.user_id + ",(" + attractions.get(i).id_num + ")"
+                //                     + "unkownCity" + "," + person.ratings[i][0] + " " + person.ratings[i][1] + ", \t" + 
+                //                     attractions.get(i).title + "," + "description" + "," +
+                //                     attractions.get(i).url + ",");
+                
+                System.out.println(person.user_id + " - " + attractions.get(i).id_num 
+                    + "\t" + person.ratings[i][0] + " " + person.ratings[i][1] + " \t" + 
+                    attractions.get(i).title + "," + attractions.get(i).url );
 
             }
         }
