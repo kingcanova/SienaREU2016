@@ -55,9 +55,15 @@ target1.x=350
 target1.y=90
 target2.editor.height=700
 <<<<<<< HEAD
+<<<<<<< HEAD
 target2.editor.width=1138
 target2.editor.x=80
 target2.editor.y=27
+=======
+target2.editor.width=900
+target2.editor.x=75
+target2.editor.y=44
+>>>>>>> origin/master
 =======
 target2.editor.width=900
 target2.editor.x=75
