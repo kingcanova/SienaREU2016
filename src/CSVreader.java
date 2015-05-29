@@ -65,7 +65,6 @@ public class CSVreader
             }
         }
         test.suggest();
-        System.out.println("Done");
     }
 
     /**
@@ -99,13 +98,7 @@ public class CSVreader
         {
             // use comma as separator
             String[] context = new String[4];
-            int first = line.indexOf(",");
-            int second = line.indexOf(",", first+1);
-            int last = line.lastIndexOf(",");
-            context[0] = line.substring(0,first);
-            context[1] = line.substring(first+1, second);
-            context[2] = line.substring(second+1, last);
-            context[3] = line.substring(last+1);
+            context = CVSSplitter.split(line, 4);
             test.attractions.add(new POI(Integer.parseInt(context[0]), context[1], context[2], context[3]));
         }
         br.close();

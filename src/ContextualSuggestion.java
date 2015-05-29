@@ -44,8 +44,10 @@ public class ContextualSuggestion
             {
                 for(int i = 0; i< person.ratings.length; i++)
                 {
+                    int rating = i+1;
+                    if(rating>50){rating -= 50;}
                     out_file.println("group44" + "," + "run44a" + "," + person.user_id + "," 
-                        + attractions.get(i).context + "," + person.ratings[i][0] + "," + 
+                        + (attractions.get(i).context + i/50)  + "," + rating + "," + 
                         attractions.get(i).title + "," + "description" + "," +
                         attractions.get(i).url + ",");
 
