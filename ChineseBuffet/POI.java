@@ -13,7 +13,7 @@ public class POI
     protected String title;
     protected String description;
     protected String url;
-    
+    protected int context = 101;
     public POI(int id, String title, String description, String url)
     {
         this.id_num = id;

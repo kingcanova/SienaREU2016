@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 /**
  * Read in a profile ratings, cities, and attractions and return a CSV file of 
@@ -31,25 +32,36 @@ public class ContextualSuggestion
      * Print out all the attractions that the person has rated
      * testing before final version of writing to a csv file
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
      */
     public void suggest()
     {
-        for(Profile person : this.people)
+        try
         {
-            for(int i = 0; i< person.ratings.length; i++)
-            {
-                //                 System.out.println(groupID + "," + runID + "," + person.user_id + ",(" + attractions.get(i).id_num + ")"
-                //                     + "unkownCity" + "," + person.ratings[i][0] + " " + person.ratings[i][1] + ", \t" + 
-                //                     attractions.get(i).title + "," + "description" + "," +
-                //                     attractions.get(i).url + ",");
-                
-                System.out.println(person.user_id + " - " + attractions.get(i).id_num 
-                    + "\t" + person.ratings[i][0] + " " + person.ratings[i][1] + " \t" + 
-                    attractions.get(i).title + "," + attractions.get(i).url );
+            PrintWriter out_file = new PrintWriter( "out_file.csv"); //change to csv for final copy
 
+            out_file.println("groupid,runid,profile,context,rank,title,description,url,docId");
+            for(Profile person : this.people)
+            {
+                for(int i = 0; i< person.ratings.length; i++)
+                {
+                    out_file.println("group44" + "," + "run44a" + "," + person.user_id + "," 
+                        + attractions.get(i).context + "," + person.ratings[i][0] + "," + 
+                        attractions.get(i).title + "," + "description" + "," +
+                        attractions.get(i).url + ",");
+
+                    //                     out_file.println(person.user_id + " - " + attractions.get(i).id_num 
+                    //                         + "\t" + person.ratings[i][0] + " " + person.ratings[i][1] + " \t" + 
+                    //                         attractions.get(i).title + "," + attractions.get(i).url );
+
+                }
             }
+
+            out_file.close();
+        }
+        catch (IOException e)
+        {
+            System.out.println("Error creating output file");
+            System.exit(-1);
         }
     }
 }
