@@ -21,14 +21,5 @@ public class CVSSplitter
         }
         return vals;
     }
-
-    public static void main(String args[]) {
-        String line = "test,test2,test3,\"test4,stilltest4\",test5";
-        String[] linevals = CVSSplitter.split(line, 5);
-        for (String val : linevals)
-        {
-            System.out.println(val);
-        }
-    }
 }
 
