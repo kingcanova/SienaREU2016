@@ -12,8 +12,6 @@ public class CSVreader
     /**
      * Reads in all the data from the four files containing the profile info (2 files),
      * list of cities, and the list of attractions.
-     * 
-     * 
      */
     public void run() 
     {
