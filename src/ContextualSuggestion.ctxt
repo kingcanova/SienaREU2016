@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=
-comment0.target=ContextualSuggestion()
-comment0.text=\n\ read\ in\ all\ people\ and\ cities;\n
-comment1.params=
-comment1.target=void\ suggest()
-comment1.text=\n\ Print\ out\ all\ the\ attractions\ that\ the\ person\ has\ rated\n\ testing\ before\ final\ version\ of\ writing\ to\ a\ csv\ file\n\ \n
-numComments=2
