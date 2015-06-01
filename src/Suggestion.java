@@ -13,22 +13,22 @@ public class Suggestion
     String phoneIn, String addressIn)
     {
         rating = ratingIn;
-        name.replaceAll("\"", "");
+        nameIn = nameIn.replaceAll("\"", "");
         name = nameIn;
-        url.replaceAll("\"", "");
+        urlIn = urlIn.replaceAll("\"", "");
         url = urlIn;
-        categoriesIn.replaceAll("[", "");
-        categoriesIn.replaceAll("]", "");
-        categoriesIn.replaceAll("\"", "");
-        categoriesIn.replaceAll(" ", "");
+        categoriesIn = categoriesIn.replaceAll("\\[", "");          
+        categoriesIn = categoriesIn.replaceAll("\\]", "");
+        categoriesIn = categoriesIn.replaceAll("\"", "");
+        categoriesIn = categoriesIn.replaceAll(" ", "");
         categories = categoriesIn.split(",");
-        phoneIn.replaceAll("\"", "");
-        phoneIn.replaceAll("+", "");
-        phoneIn.replaceAll("-", "");
+        phoneIn = phoneIn.replaceAll("\"", "");
+        phoneIn = phoneIn.replaceAll("\\+", "");
+        phoneIn = phoneIn.replaceAll("\\-", "");
         phone = phoneIn;
-        addressIn.replaceAll("[", "");
-        addressIn.replaceAll("]", "");
-        addressIn.replaceAll("\"", "");
+        addressIn = addressIn.replaceAll("\\[", "");
+        addressIn = addressIn.replaceAll("\\]", "");
+        addressIn = addressIn.replaceAll("\"", "");
         address = addressIn;       
     }
     
@@ -47,5 +47,10 @@ public class Suggestion
         }
         
         return output + "\n";
+    }
+    
+    public void print()
+    {
+        System.out.println(this.toString());
     }
 }

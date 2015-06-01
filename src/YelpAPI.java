@@ -197,6 +197,12 @@ public class YelpAPI {
         new JCommander(yelpApiCli, args);
 
         YelpAPI yelpApi = new YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET);
-        //queryAPI(yelpApi, yelpApiCli, suggestions);
+        
+        ArrayList<Suggestion> s = new ArrayList<Suggestion>();
+        queryAPI(yelpApi, yelpApiCli, s);
+        for(Suggestion sug : s)
+        {
+            sug.print();
+        }
     }
 }
