@@ -20,4 +20,5 @@ public class TwoStepOAuth extends DefaultApi10a {
   public String getRequestTokenEndpoint() {
     return null;
   }
+
 }

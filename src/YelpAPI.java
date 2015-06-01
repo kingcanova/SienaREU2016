@@ -47,7 +47,6 @@ public class YelpAPI {
     Token accessToken;
 
     protected ArrayList<Suggestion> suggestions = new ArrayList<Suggestion>();
-
     /**
      * Setup the Yelp API OAuth credentials.
      * 
@@ -198,6 +197,6 @@ public class YelpAPI {
         new JCommander(yelpApiCli, args);
 
         YelpAPI yelpApi = new YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET);
-        queryAPI(yelpApi, yelpApiCli, suggestions);
+        //queryAPI(yelpApi, yelpApiCli, suggestions);
     }
 }
