@@ -13,8 +13,8 @@ public class FSqAPI
 {
     public void searchVenues(String ll) throws FoursquareApiException {
         // First we need a initialize FoursquareApi. 
-        FoursquareApi foursquareApi = new FoursquareApi("0UXKNKMOAUUDQZNUEB3FFOZ2DJXIZMNPZQS1UWZXCFFM4KNB",
-                "SZTVMMSNH4EUXUWT2TF3UQBMYQJHSLEB54Z2THED5G5AI0QG", 
+        FoursquareApi foursquareApi = new FoursquareApi("",
+                "", 
                 "http://www.siena.edu");
 
         foursquareApi.setVersion("20150601");
