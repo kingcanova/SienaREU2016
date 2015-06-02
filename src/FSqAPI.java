@@ -17,6 +17,8 @@ public class FSqAPI
                 "SZTVMMSNH4EUXUWT2TF3UQBMYQJHSLEB54Z2THED5G5AI0QG", 
                 "http://www.siena.edu");
 
+        foursquareApi.setVersion("20150601");
+
         // After client has been initialized we can make queries.
         Result<VenuesSearchResult> result = 
             foursquareApi.venuesSearch(ll, null, null, null, null, null, null, null, null, null, null);
@@ -40,7 +42,7 @@ public class FSqAPI
     {
         FSqAPI test = new FSqAPI();
         try{
-            test.searchVenues("Albany");
+            test.searchVenues("42.65,-73.75");
         }
         catch (FoursquareApiException p)
         {
