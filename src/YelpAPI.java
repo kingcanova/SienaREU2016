@@ -45,8 +45,6 @@ public class YelpAPI {
 
     OAuthService service;
     Token accessToken;
-
-    protected ArrayList<Suggestion> suggestions = new ArrayList<Suggestion>();
     /**
      * Setup the Yelp API OAuth credentials.
      * 
@@ -138,6 +136,7 @@ public class YelpAPI {
             System.out.println(searchResponseJSON);
             System.exit(1);
         }
+        System.out.println(response);
         for(int i = 0; i < SEARCH_LIMIT; i++)
         {
             JSONArray businesses = (JSONArray) response.get("businesses");
@@ -157,7 +156,7 @@ public class YelpAPI {
             String[] yelpTerms = new String[]{"\"rating\"", "\"name\"", "\"url\"", "\"categories\"",
                     "\"display_phone\"", "\"display_address\""};
 
-            String[] elements = new String[6];            
+            String[] elements = new String[6];
             for(int j=0; j<6; j++)
             {
                 String term = yelpTerms[j];
