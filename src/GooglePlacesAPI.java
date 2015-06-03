@@ -11,11 +11,12 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.client.methods.*;
-import org.apache.http.util.*; 
+import org.apache.http.util.*;
 
 public class GooglePlacesAPI
 {
-    private static final String GOOGLE_API_KEY  = "";
+    private final String GOOGLE_API_KEY  = Secret.GOOGLE_API_KEY;
+
     private final HttpClient client = HttpClientBuilder.create().build();
 
     public void performSearch(final String types, final double lat, final double lon, ArrayList<Suggestion> sugg) throws ParseException, IOException, URISyntaxException
@@ -26,7 +27,7 @@ public class GooglePlacesAPI
         builder.addParameter("radius", "15000");//radius in meters
         builder.addParameter("types", types);
         //builder.addParameter("sensor", "true"); -> googleplaces states "sensor" is no longer needed
-        builder.addParameter("key", GooglePlacesAPI.GOOGLE_API_KEY);
+        builder.addParameter("key", GOOGLE_API_KEY);
 
         final HttpUriRequest request = new HttpGet(builder.build());
 

@@ -42,6 +42,10 @@ public class YelpAPI {
     private static final String CONSUMER_SECRET = "";
     private static final String TOKEN = "";
     private static final String TOKEN_SECRET = "";
+    private static final String CONSUMER_KEY = Secret.YELP_CONSUMER_KEY;
+    private static final String CONSUMER_SECRET = Secret.YELP_CONSUMER_SECRET;
+    private static final String TOKEN = Secret.YELP_TOKEN;
+    private static final String TOKEN_SECRET = Secret.YELP_TOKEN_SECRET;
 
     OAuthService service;
     Token accessToken;
@@ -204,4 +208,4 @@ public class YelpAPI {
             sug.print();
         }
     }
-}
+}}
