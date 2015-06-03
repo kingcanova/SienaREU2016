@@ -7,10 +7,11 @@
  */
 public class Suggestion
 {
-    private String rating, name, url, categories[], phone, address;
+    private String rating, name, url, categories[], phone, address, lat, lng, id, 
+                    placeId, vicinity;
 
     public Suggestion(String ratingIn, String nameIn, String urlIn, String categoriesIn, 
-    String phoneIn, String addressIn)
+    String phoneIn, String addressIn)//YelpAPI
     {
         rating = ratingIn;
         nameIn = nameIn.replaceAll("\"", "");
@@ -30,6 +31,33 @@ public class Suggestion
         addressIn = addressIn.replaceAll("\\]", "");
         addressIn = addressIn.replaceAll("\"", "");
         address = addressIn;       
+        lat ="";
+        lng="";
+        id="";
+        placeId="";
+    }
+    
+    public Suggestion(String latIn, String lngIn, String idIn, String nameIn, 
+    String placeIdIn, String ratingIn, String typesIn, String vicinityIn)//GooglePlacesAPI
+    {
+        lat = latIn;
+        lng =latIn;
+        idIn = idIn.replaceAll("\"", "");
+        id = idIn;
+        nameIn = nameIn.replaceAll("\"", "");
+        name = nameIn;
+        placeIdIn = placeIdIn.replaceAll("\"", "");
+        placeId = placeIdIn;
+        rating = ratingIn;
+        typesIn = typesIn.replaceAll("\\[", "");          
+        typesIn = typesIn.replaceAll("\\]", "");
+        typesIn = typesIn.replaceAll("\"", "");
+        typesIn = typesIn.replaceAll(" ", "");
+        categories = typesIn.split(",");
+        vicinityIn = vicinityIn.replaceAll("\"", "");
+        address= vicinityIn;
+        url="";
+        phone="";
     }
     
     public String toString()
@@ -40,6 +68,10 @@ public class Suggestion
         output += ("URL: " + this.url + "\n");
         output += ("Phone: " + this.phone + "\n");
         output += ("Address: " + this.address + "\n");
+        output += ("Latitude: " + this.lat + "\n");
+        output += ("Longitude: " + this.lng + "\n");
+        output += ("Id: " + this.id + "\n");
+        output += ("Place ID: " + this.placeId + "\n");
         output += "Categories: ";
         for (String s : categories)
         {
