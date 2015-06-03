@@ -12,6 +12,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import javax.json.JsonReader;
 import javax.json.Json;
+import java.util.Scanner;
 
 /**
  * Write a description of class FoursquareApi here.
@@ -51,7 +52,13 @@ public class FSqAPI
         }
     }
 
-    public String buildURL(String ll, String query)
+    /**
+     * returns a string representing the json or maybe a JSON object
+     * @param ll lat/long
+     * @param query thing to search for
+     * @return a string representing the json or maybe a JSON object
+     */
+    public String buildURL(String ll, String query) throws java.net.MalformedURLException, IOException
     {
         String url = String.format("https://api.foursquare.com/v2/venues/search" +
                 "?client_id=%s" +
@@ -60,33 +67,46 @@ public class FSqAPI
                 "&ll=%s" + 
                 "&query=%s", 
                 client_id, client_secret, version, ll, query);
-
-        InputStream in = new URL(url).openStream();
-        JSONObject object = null;
+        String jsontext = "Error - not initialized";
         try {
-            JsonReader jsonReader = Json.createReader(in);
-            object = jsonReader.readObject();
-            jsonReader.close();
+            InputStream source = new URL(url).openStream();
+            jsontext = new Scanner(source).useDelimiter("\\A").next();
+            // gets the entire source into a string -- courtesy of
+            // https://weblogs.java.net/blog/pat/archive/2004/10/stupid_scanner.html
+        } catch (java.net.MalformedURLException e) {
+            System.err.println(e);
+        } catch (IOException e) {
+            System.err.println(e);
         }
-        catch(Error e)
-        {
-            System.out.println(e);
-        }
-        finally
-        {
-            in.close();
-        }
+        return jsontext;
 
-        JSONParser parser = new JSONParser();
-        JSONObject response = null;
-        try {
-            response = (JSONObject) parser.parse(object);
-        } catch (ParseException pe) {
-            System.out.println("Error: could not parse JSON response:");
-            System.out.println(object);
-            System.exit(1);
-        }        
-        return jsono.toString();
+        // marked for deletion (old)
+        // InputStream in = new URL(url).openStream();
+        // JSONObject object = null;
+        // try {
+        //     JsonReader jsonReader = Json.createReader(in);
+        //     object = jsonReader.readObject();
+        //     jsonReader.close();
+        // }
+        // catch(Error e)
+        // {
+        //     System.out.println(e);
+        // }
+        // finally
+        // {
+        //     in.close();
+        // }
+
+        // JSONParser parser = new JSONParser();
+        // JSONObject response = null;
+        // try {
+        //     response = (JSONObject) parser.parse(object);
+        // } catch (ParseException pe) {
+        //     System.out.println("Error: could not parse JSON response:");
+        //     System.out.println(object);
+        //     System.exit(1);
+        // }        
+        // return jsono.toString();
     }
 
     public static void main(String[] args)
@@ -99,7 +119,11 @@ public class FSqAPI
         //         {
         //             System.out.println(p);
         //         }
-        String text = test.buildURL("42.65,-73.75", "burrito");
-        System.out.println(text);
+        try {
+            String text = test.buildURL("42.65,-73.75", "burrito");
+            System.out.println(text);
+        } catch (Exception e) {
+            System.err.println("AHHH!\n" + e);
+        }
     }
 }
