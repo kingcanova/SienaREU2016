@@ -22,14 +22,14 @@ import java.util.Scanner;
  */
 public class FSqAPI
 {
-    protected String client_id = "0UXKNKMOAUUDQZNUEB3FFOZ2DJXIZMNPZQS1UWZXCFFM4KNB";
-    protected String client_secret = "SZTVMMSNH4EUXUWT2TF3UQBMYQJHSLEB54Z2THED5G5AI0QG";
+    protected String client_id = Secret.FOURSQUARE_CLIENT_ID;
+    protected String client_secret = Secret.FOURSQUARE_CLIENT_SECRET;
     protected String version = "20120609";
 
     public void searchVenues(String ll) throws FoursquareApiException {
         // First we need a initialize FoursquareApi. 
-        FoursquareApi foursquareApi = new FoursquareApi("0UXKNKMOAUUDQZNUEB3FFOZ2DJXIZMNPZQS1UWZXCFFM4KNB", 
-                "SZTVMMSNH4EUXUWT2TF3UQBMYQJHSLEB54Z2THED5G5AI0QG", "http://www.siena.edu");
+        FoursquareApi foursquareApi = new FoursquareApi(client_id, 
+                client_secret, "http://www.siena.edu");
 
         foursquareApi.setVersion("20120609");
 
