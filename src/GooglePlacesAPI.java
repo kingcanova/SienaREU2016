@@ -51,21 +51,24 @@ public class GooglePlacesAPI
         JSONArray results = (JSONArray) response.get("results");
         for(int i = 0; i<results.size(); i++)
         {
-            String[] temp = new String[googleTerms.length];
-            for(int j = 0; j < googleTerms.length; j++)
+            String[] temp = new String[googleTerms.length+1];
+            JSONObject unk = (JSONObject) results.get(i);
+            for(int j = 0; j < googleTerms.length-1; j++)
             {
-                JSONObject unk = (JSONObject) results.get(i);
                 if(unk.get(googleTerms[j]) != null)
                 {
                     temp[j] = (unk.get(googleTerms[j])).toString();
+                    //System.out.println(temp[j]);
                 }
             }
+            temp[googleTerms.length-1] = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lat")).toString();
+            temp[googleTerms.length-0] = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lng")).toString();
             list.add(temp);
         }
         
         for(int i = 0; i < list.size(); i++)
         {
-            sugg.add(new Suggestion(list.get(i)[0],list.get(i)[1], list.get(i)[2], list.get(i)[3], list.get(i)[4], list.get(i)[5], list.get(i)[6]));
+            sugg.add(new Suggestion(list.get(i)[0],list.get(i)[1], list.get(i)[2], list.get(i)[3], list.get(i)[4], list.get(i)[5], list.get(i)[6],list.get(i)[7]));
         }
         
     }
