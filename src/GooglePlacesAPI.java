@@ -35,7 +35,7 @@ public class GooglePlacesAPI
 
         final String r = EntityUtils.toString(execute.getEntity());
 
-        System.out.println(r);
+        //System.out.println(r);
 
         JSONParser parser = new JSONParser();
         JSONObject response = null;
@@ -46,6 +46,7 @@ public class GooglePlacesAPI
             System.out.println(r);
             System.exit(1);
         }
+
         String[] googleTerms = new String[]{"name", "rating", "types",
                 "vicinity", "id", "place_id", "geometry", };
         ArrayList<String[]> list = new ArrayList<String[]>();
@@ -64,50 +65,27 @@ public class GooglePlacesAPI
             }
             list.add(temp);
         }
+        String[] elements = new String[7];
         for(int i = 0; i < list.size(); i++)
         {
             for(int j = 0; j < googleTerms.length; j++)
             {
-                System.out.println(googleTerms[j] + ":\t" + list.get(i)[j]);
+                //System.out.println(googleTerms[j] + ":\t" + list.get(i)[j]);
+                elements[j] = list.get(i)[j];
             }
-            System.out.println("\n");
+            sugg.add(new Suggestion(elements[0], elements[1], elements[2], elements[3], elements[4], elements[5], elements[6]));
+            //System.out.println("\n");   
         }
-
-        //         for(int i = 0; i < businesses.size(); i++)
-        //         {
-        //             JSONObject currBusiness = (JSONObject) businesses.get(i);
-        //             //String firstBusinessID = firstBusiness.get("id").toString();
-        //             //             System.out.println(String.format(
-        //             //                     "%s businesses found, querying business info for the top result \"%s\" ...",
-        //             //                     businesses.size(), firstBusinessID));
-        // 
-        //             // Select the first business and display business details
-        //             //String businessResponseJSON = yelpApi.searchByBusinessId(firstBusinessID.toString());
-        //             //             System.out.println(String.format("Result for business \"%s\" found:", firstBusinessID));
-        //             //System.out.println(businessResponseJSON);
-        //             //Scanner in = new Scanner(businessResponseJSON);
-        // 
-        //             String[] googleTerms = new String[]{"rating", "name", "types",
-        //                     "vicinity", "id", "place_id", "geometry", };
-        // 
-        //             String[] elements = new String[googleTerms.length];
-        //             for(int j=0; j<googleTerms.length; j++)
-        //             {
-        //                 elements[i] = currBusiness.get(googleTerms[j]).toString();
-        //                 System.out.println(elements[i]);
-        //             }
-        // 
-        //         }
+        
     }
-
     public static void main(final String[] args) throws ParseException, IOException, URISyntaxException
     {
         ArrayList<Suggestion> s = new ArrayList<Suggestion>();
         new GooglePlacesAPI().performSearch("restaurant",42.6525793, -73.7562317,s); //albany,ny
-        //         for(Suggestion sug : s)
-        //         {
-        //             sug.print();
-        //         }
+        for(Suggestion sug : s)
+        {
+            sug.print();
+        }
 
     }
 }

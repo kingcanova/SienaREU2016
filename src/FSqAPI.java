@@ -52,6 +52,10 @@ public class FSqAPI
         }
     }
 
+<<<<<<< Updated upstream
+=======
+    public String buildURL(String ll, String query);
+>>>>>>> Stashed changes
     /**
      * returns a string representing the json or maybe a JSON object
      * @param ll lat/long
