@@ -26,7 +26,6 @@ public class GooglePlacesAPI
         builder.addParameter("location", lat + "," + lon);
         builder.addParameter("radius", "15000");//radius in meters
         builder.addParameter("types", types);
-        //builder.addParameter("sensor", "true"); -> googleplaces states "sensor" is no longer needed
         builder.addParameter("key", GOOGLE_API_KEY);
 
         final HttpUriRequest request = new HttpGet(builder.build());
@@ -47,8 +46,7 @@ public class GooglePlacesAPI
             System.exit(1);
         }
 
-        String[] googleTerms = new String[]{"name", "rating", "types",
-                "vicinity", "id", "place_id", "geometry", };
+        String[] googleTerms = new String[]{"name", "rating", "types","vicinity", "id", "place_id", "geometry", };
         ArrayList<String[]> list = new ArrayList<String[]>();
         JSONArray results = (JSONArray) response.get("results");
         for(int i = 0; i<results.size(); i++)
@@ -60,21 +58,14 @@ public class GooglePlacesAPI
                 if(unk.get(googleTerms[j]) != null)
                 {
                     temp[j] = (unk.get(googleTerms[j])).toString();
-                    //System.out.println(temp[j]);
                 }
             }
             list.add(temp);
         }
-        String[] elements = new String[7];
+        
         for(int i = 0; i < list.size(); i++)
         {
-            for(int j = 0; j < googleTerms.length; j++)
-            {
-                //System.out.println(googleTerms[j] + ":\t" + list.get(i)[j]);
-                elements[j] = list.get(i)[j];
-            }
-            sugg.add(new Suggestion(elements[0], elements[1], elements[2], elements[3], elements[4], elements[5], elements[6]));
-            //System.out.println("\n");   
+            sugg.add(new Suggestion(list.get(i)[0],list.get(i)[1], list.get(i)[2], list.get(i)[3], list.get(i)[4], list.get(i)[5], list.get(i)[6]));
         }
         
     }
@@ -86,6 +77,7 @@ public class GooglePlacesAPI
         {
             sug.print();
         }
+     
 
     }
 }
