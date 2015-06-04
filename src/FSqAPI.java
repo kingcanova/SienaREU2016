@@ -81,45 +81,11 @@ public class FSqAPI
         }
         return jsontext;
 
-        // marked for deletion (old)
-        // InputStream in = new URL(url).openStream();
-        // JSONObject object = null;
-        // try {
-        //     JsonReader jsonReader = Json.createReader(in);
-        //     object = jsonReader.readObject();
-        //     jsonReader.close();
-        // }
-        // catch(Error e)
-        // {
-        //     System.out.println(e);
-        // }
-        // finally
-        // {
-        //     in.close();
-        // }
-
-        // JSONParser parser = new JSONParser();
-        // JSONObject response = null;
-        // try {
-        //     response = (JSONObject) parser.parse(object);
-        // } catch (ParseException pe) {
-        //     System.out.println("Error: could not parse JSON response:");
-        //     System.out.println(object);
-        //     System.exit(1);
-        // }        
-        // return jsono.toString();
     }
 
     public static void main(String[] args)
     {
         FSqAPI test = new FSqAPI();
-        //         try{
-        //             test.searchVenues("42.65,-73.75");
-        //         }
-        //         catch (FoursquareApiException p)
-        //         {
-        //             System.out.println(p);
-        //         }
         try {
             String text = test.buildURL("42.65,-73.75", "burrito");
             System.out.println(text);
