@@ -93,10 +93,10 @@ public class FSqAPI
             System.exit(1);
         }
 
-        //         String bob = (response.toString()).replace('{','\n');
-        //         bob = bob.replace(',', '\t');
-        //         bob = bob.replace('}', '\n');
-        //         System.out.println(bob);
+        String bob = (response.toString()).replace('{','\n');
+        bob = bob.replace(',', '\t');
+        bob = bob.replace('}', '\n');
+        System.out.println(bob);
 
         String[] fqTerms = new String[]{"name", "location", "id", "contact", "categories"};
         ArrayList<String[]> list = new ArrayList<String[]>();
@@ -104,27 +104,25 @@ public class FSqAPI
         JSONArray results = (JSONArray) venues.get("venues");
         for(int i = 0; i<results.size(); i++)
         {
-            String[] temp = new String[fqTerms.length];
-            for(int j = 0; j < fqTerms.length; j++)
-            {
-                JSONObject unk = (JSONObject) results.get(i);
-                if(unk.get(fqTerms[j]) != null)
-                {
-                    temp[j] = (unk.get(fqTerms[j])).toString();
-                    //System.out.println(temp[j]);
-                }
-            }
+            String[] temp = new String[7];//name, lat, lng, id, contact, categoriesID, catName
+            JSONObject curr = (JSONObject) results.get(i);
+            temp[0] = (curr.get("name")).toString();
+            temp[1] = ((JSONObject)(curr.get("location"))).get("lat").toString();
+            temp[2] = ((JSONObject)(curr.get("location"))).get("lng").toString();
+            temp[3] = (curr.get("id")).toString();
+            temp[4] = (curr.get("contact")).toString();
+            temp[5] = ((JSONObject)(curr.get("categories"))).get("id").toString();
+            temp[6] = ((JSONObject)(curr.get("categories"))).get("name").toString();
             list.add(temp);
         }
         for(int i = 0; i < list.size(); i++)
         {
-            for(int j = 0; j < fqTerms.length; j++)
+            for(int j = 0; j < list.get(0).length; j++)
             {
-                System.out.println(fqTerms[j] + ":\t" + list.get(i)[j]);
+                System.out.println(list.get(i)[j]);
             }
             System.out.println("\n");
         }
-
     }
 
     public static void main(String[] args)
@@ -134,7 +132,7 @@ public class FSqAPI
             String text = test.buildURL("42.65,-73.75", "burrito");
             test.stringToJson(text);
         } catch (Exception e) {
-            System.err.println("AHHH!\n" + e);
+            System.err.println(e);
         }
     }
 }
