@@ -62,7 +62,7 @@ public class GooglePlacesAPI
                 }
             }
             temp[googleTerms.length-1] = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lat")).toString();
-            temp[googleTerms.length  ] = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lng")).toString();
+            temp[googleTerms.length]   = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lng")).toString();
             list.add(temp);
         }
         
