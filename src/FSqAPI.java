@@ -14,6 +14,8 @@ import javax.json.JsonReader;
 import javax.json.Json;
 import java.util.Scanner;
 
+import java.util.*;
+
 /**
  * Write a description of class FoursquareApi here.
  * 
@@ -22,16 +24,12 @@ import java.util.Scanner;
  */
 public class FSqAPI
 {
-    protected String client_id = "0UXKNKMOAUUDQZNUEB3FFOZ2DJXIZMNPZQS1UWZXCFFM4KNB";
-    protected String client_secret = "SZTVMMSNH4EUXUWT2TF3UQBMYQJHSLEB54Z2THED5G5AI0QG";
     protected String client_id = Secret.FOURSQUARE_CLIENT_ID;
     protected String client_secret = Secret.FOURSQUARE_CLIENT_SECRET;
     protected String version = "20120609";
 
     public void searchVenues(String ll) throws FoursquareApiException {
         // First we need a initialize FoursquareApi. 
-        FoursquareApi foursquareApi = new FoursquareApi("0UXKNKMOAUUDQZNUEB3FFOZ2DJXIZMNPZQS1UWZXCFFM4KNB", 
-                "SZTVMMSNH4EUXUWT2TF3UQBMYQJHSLEB54Z2THED5G5AI0QG", "http://www.siena.edu");
         FoursquareApi foursquareApi = new FoursquareApi(client_id, 
                 client_secret, "http://www.siena.edu");
 
@@ -56,7 +54,6 @@ public class FSqAPI
         }
     }
 
-    public String buildURL(String ll, String query)
     /**
      * returns a string representing the json or maybe a JSON object
      * @param ll lat/long
@@ -72,22 +69,8 @@ public class FSqAPI
                 "&ll=%s" + 
                 "&query=%s", 
                 client_id, client_secret, version, ll, query);
-
-        InputStream in = new URL(url).openStream();
-        JSONObject object = null;
         String jsontext = "Error - not initialized";
         try {
-            JsonReader jsonReader = Json.createReader(in);
-            object = jsonReader.readObject();
-            jsonReader.close();
-        }
-        catch(Error e)
-        {
-            System.out.println(e);
-        }
-        finally
-        {
-            in.close();
             InputStream source = new URL(url).openStream();
             jsontext = new Scanner(source).useDelimiter("\\A").next();
             // gets the entire source into a string -- courtesy of
@@ -99,16 +82,6 @@ public class FSqAPI
         }
         return jsontext;
 
-        JSONParser parser = new JSONParser();
-        JSONObject response = null;
-        try {
-            response = (JSONObject) parser.parse(object);
-        } catch (ParseException pe) {
-            System.out.println("Error: could not parse JSON response:");
-            System.out.println(object);
-            System.exit(1);
-        }        
-        return jsono.toString();
         // marked for deletion (old)
         // InputStream in = new URL(url).openStream();
         // JSONObject object = null;
@@ -138,6 +111,51 @@ public class FSqAPI
         // return jsono.toString();
     }
 
+    public void stringToJson(String in)
+    {
+        JSONParser parser = new JSONParser();
+        JSONObject response = null;
+        try {
+            response = (JSONObject) parser.parse(in);
+        } catch (ParseException pe) {
+            System.out.println("Error: could not parse JSON response:");
+            System.exit(1);
+        }
+
+        //         String bob = (response.toString()).replace('{','\n');
+        //         bob = bob.replace(',', '\t');
+        //         bob = bob.replace('}', '\n');
+        //         System.out.println(bob);
+
+        String[] fqTerms = new String[]{"name", "location", "id", "contact", "categories"};
+        ArrayList<String[]> list = new ArrayList<String[]>();
+        JSONObject venues = (JSONObject) response.get("response");
+        JSONArray results = (JSONArray) venues.get("venues");
+        for(int i = 0; i<results.size(); i++)
+        {
+            String[] temp = new String[fqTerms.length];
+            for(int j = 0; j < fqTerms.length; j++)
+            {
+                JSONObject unk = (JSONObject) results.get(i);
+                if(unk.get(fqTerms[j]) != null)
+                {
+                    temp[j] = (unk.get(fqTerms[j])).toString();
+                    //System.out.println(temp[j]);
+                }
+            }
+            list.add(temp);
+        }
+        for(int i = 0; i < list.size(); i++)
+        {
+            for(int j = 0; j < fqTerms.length; j++)
+            {
+                System.out.println(fqTerms[j] + ":\t" + list.get(i)[j]);
+            }
+            System.out.println("\n");
+        }
+
+    }
+
     public static void main(String[] args)
     {
         FSqAPI test = new FSqAPI();
@@ -148,11 +166,9 @@ public class FSqAPI
         //         {
         //             System.out.println(p);
         //         }
-        String text = test.buildURL("42.65,-73.75", "burrito");
-        System.out.println(text);
         try {
             String text = test.buildURL("42.65,-73.75", "burrito");
-            System.out.println(text);
+            test.stringToJson(text);
         } catch (Exception e) {
             System.err.println("AHHH!\n" + e);
         }
