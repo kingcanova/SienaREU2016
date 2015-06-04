@@ -58,16 +58,17 @@ public class GooglePlacesAPI
                 if(unk.get(googleTerms[j]) != null)
                 {
                     temp[j] = (unk.get(googleTerms[j])).toString();
+                    //System.out.println(temp[j]);
                 }
             }
-            temp[googleTerms.length-2] = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lat")).toString();
-            temp[googleTerms.length-1] = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lng")).toString();
+            temp[googleTerms.length-1] = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lat")).toString();
+            temp[googleTerms.length]   = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lng")).toString();
             list.add(temp);
         }
         
         for(int i = 0; i < list.size(); i++)
         {
-            sugg.add(new Suggestion(list.get(i)[0],list.get(i)[1], list.get(i)[2], list.get(i)[3], list.get(i)[4], list.get(i)[5], list.get(i)[6]));
+            sugg.add(new Suggestion(list.get(i)[0],list.get(i)[1], list.get(i)[2], list.get(i)[3], list.get(i)[4], list.get(i)[5], list.get(i)[6],list.get(i)[7]));
         }
         
     }

@@ -7,7 +7,7 @@
  */
 public class Suggestion
 {
-    private String rating, name, url, categories[], phone, address, geometry, id, 
+    private String rating, name, url, categories[], phone, address, lat, lng, id, 
                     placeId, vicinity;
 
     public Suggestion(String ratingIn, String nameIn, String urlIn, String categoriesIn, 
@@ -31,15 +31,17 @@ public class Suggestion
         addressIn = addressIn.replaceAll("\\]", "");
         addressIn = addressIn.replaceAll("\"", "");
         address = addressIn;       
-        geometry ="";
+        lat="";
+        lng="";
         id="";
         placeId="";
     }
     
     public Suggestion(String nameIn, String ratingIn, String typesIn, String vicinityIn, 
-    String idIn, String placeIdIn, String geometryIn)//GooglePlacesAPI
+    String idIn, String placeIdIn, String latIn, String lngIn)//GooglePlacesAPI
     {
-        geometry = geometryIn;
+        lat = latIn;
+        lng = lngIn;
         idIn = idIn.replaceAll("\"", "");
         id = idIn;
         nameIn = nameIn.replaceAll("\"", "");
@@ -66,7 +68,8 @@ public class Suggestion
         output += ("URL: " + this.url + "\n");
         output += ("Phone: " + this.phone + "\n");
         output += ("Address: " + this.address + "\n");
-        output += ("Geometry: " + this.geometry + "\n");
+        output += ("Latitude: " + this.lat + "\n");
+        output += ("Longitude: " + this.lng + "\n");
         output += ("Id: " + this.id + "\n");
         output += ("Place ID: " + this.placeId + "\n");
         output += "Categories: ";
