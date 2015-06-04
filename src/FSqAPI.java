@@ -22,13 +22,12 @@ import java.util.Scanner;
  */
 public class FSqAPI
 {
-    protected String client_id = Secret.FOURSQUARE_CLIENT_ID;
-    protected String client_secret = Secret.FOURSQUARE_CLIENT_SECRET;
-    protected String version = "20120609";
+    protected String client_id = Secret.FOURSQUARE_CLIENT_ID, 
+        client_secret = Secret.FOURSQUARE_CLIENT_SECRET,
+        version = "20120609";
 
     public void searchVenues(String ll) throws FoursquareApiException {
-        // First we need a initialize FoursquareApi.
-        
+        // First we need a initialize FoursquareApi. 
         FoursquareApi foursquareApi = new FoursquareApi(client_id, 
                 client_secret, "http://www.siena.edu");
 
@@ -53,7 +52,6 @@ public class FSqAPI
         }
     }
 
-    public String buildURL(String ll, String query)
     /**
      * returns a string representing the json or maybe a JSON object
      * @param ll lat/long
@@ -69,22 +67,8 @@ public class FSqAPI
                 "&ll=%s" + 
                 "&query=%s", 
                 client_id, client_secret, version, ll, query);
-
-        InputStream in = new URL(url).openStream();
-        JSONObject object = null;
         String jsontext = "Error - not initialized";
         try {
-            JsonReader jsonReader = Json.createReader(in);
-            object = jsonReader.readObject();
-            jsonReader.close();
-        }
-        catch(Error e)
-        {
-            System.out.println(e);
-        }
-        finally
-        {
-            in.close();
             InputStream source = new URL(url).openStream();
             jsontext = new Scanner(source).useDelimiter("\\A").next();
             // gets the entire source into a string -- courtesy of
@@ -96,16 +80,6 @@ public class FSqAPI
         }
         return jsontext;
 
-        JSONParser parser = new JSONParser();
-        JSONObject response = null;
-        try {
-            response = (JSONObject) parser.parse(object);
-        } catch (ParseException pe) {
-            System.out.println("Error: could not parse JSON response:");
-            System.out.println(object);
-            System.exit(1);
-        }        
-        return jsono.toString();
         // marked for deletion (old)
         // InputStream in = new URL(url).openStream();
         // JSONObject object = null;
@@ -145,8 +119,6 @@ public class FSqAPI
         //         {
         //             System.out.println(p);
         //         }
-        String text = test.buildURL("42.65,-73.75", "burrito");
-        System.out.println(text);
         try {
             String text = test.buildURL("42.65,-73.75", "burrito");
             System.out.println(text);
