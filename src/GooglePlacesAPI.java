@@ -48,24 +48,29 @@ public class GooglePlacesAPI
         String[] googleTerms = new String[]{"name", "rating", "types","vicinity", "id", "place_id", "geometry", };
         ArrayList<String[]> list = new ArrayList<String[]>();
         JSONArray results = (JSONArray) response.get("results");
-        for(int i = 0; i<results.size(); i++)
+        if(results.size() == 0)
+            System.out.println("Sorry, no results were found for your request.");
+        else
         {
-            String[] temp = new String[googleTerms.length+1];
-            JSONObject unk = (JSONObject) results.get(i);
-
-            for(int j = 0; j < googleTerms.length-1; j++)
+            for(int i = 0; i<results.size(); i++)
             {
-                if(unk.get(googleTerms[j]) != null)
+                String[] temp = new String[googleTerms.length+1];
+                JSONObject unk = (JSONObject) results.get(i);
+
+                for(int j = 0; j < googleTerms.length-1; j++)
                 {
-                    temp[j] = (unk.get(googleTerms[j])).toString();
+                    if(unk.get(googleTerms[j]) != null)
+                    {
+                        temp[j] = (unk.get(googleTerms[j])).toString();
+                    }
                 }
+                temp[googleTerms.length-1] = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lat")).toString();
+                temp[googleTerms.length]   = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lng")).toString();
+                sugg.add(new Suggestion(temp[0],temp[1], temp[2], temp[3], temp[4], temp[5], temp[6],temp[7]));
             }
-            temp[googleTerms.length-1] = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lat")).toString();
-            temp[googleTerms.length]   = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lng")).toString();
-            sugg.add(new Suggestion(temp[0],temp[1], temp[2], temp[3], temp[4], temp[5], temp[6],temp[7]));
         }
     }
-    
+
     public static void main(final String[] args) throws ParseException, IOException, URISyntaxException
     {
         ArrayList<Suggestion> googleResults = new ArrayList<Suggestion>();

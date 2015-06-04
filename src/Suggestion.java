@@ -8,7 +8,7 @@
 public class Suggestion
 {
     private String rating, name, url, categories[], phone, address, lat, lng, id, 
-                    placeId, vicinity;
+    placeId, vicinity;
 
     public Suggestion(String ratingIn, String nameIn, String urlIn, String categoriesIn, 
     String phoneIn, String addressIn)//YelpAPI
@@ -31,12 +31,12 @@ public class Suggestion
         addressIn = addressIn.replaceAll("\\]", "");
         addressIn = addressIn.replaceAll("\"", "");
         address = addressIn;       
-        lat="";
-        lng="";
-        id="";
-        placeId="";
+        lat="N/A";
+        lng="N/A";
+        id="N/A";
+        placeId="N/A";
     }
-    
+
     public Suggestion(String nameIn, String ratingIn, String typesIn, String vicinityIn, 
     String idIn, String placeIdIn, String latIn, String lngIn)//GooglePlacesAPI
     {
@@ -56,31 +56,31 @@ public class Suggestion
         categories = typesIn.split(",");
         vicinityIn = vicinityIn.replaceAll("\"", "");
         address= vicinityIn;
-        url="";
-        phone="";
+        url="N/A";
+        phone="N/A";
     }
-    
+
     public String toString()
     {
         String output = "";
         output += ("Name: " + this.name + "\n");
         output += ("Rating: " + this.rating + "\n");
         output += ("URL: " + this.url + "\n");
-        output += ("Phone: " + this.phone + "\n");
         output += ("Address: " + this.address + "\n");
         output += ("Latitude: " + this.lat + "\n");
         output += ("Longitude: " + this.lng + "\n");
-        output += ("Id: " + this.id + "\n");
+        output += ("Phone: " + this.phone + "\n");
+        output += ("ID: " + this.id + "\n");
         output += ("Place ID: " + this.placeId + "\n");
         output += "Categories: ";
         for (String s : categories)
         {
             output += (s + ", ");
         }
-        
+
         return output + "\n";
     }
-    
+
     public void print()
     {
         System.out.println(this.toString());
