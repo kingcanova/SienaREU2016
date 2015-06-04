@@ -24,16 +24,16 @@ import java.util.*;
  */
 public class FSqAPI
 {
-    protected String client_id = Secret.FOURSQUARE_CLIENT_ID;
-    protected String client_secret = Secret.FOURSQUARE_CLIENT_SECRET;
-    protected String version = "20120609";
+    protected String client_id = Secret.FOURSQUARE_CLIENT_ID, 
+        client_secret = Secret.FOURSQUARE_CLIENT_SECRET,
+        version = "20120609";
 
     public void searchVenues(String ll) throws FoursquareApiException {
         // First we need a initialize FoursquareApi. 
         FoursquareApi foursquareApi = new FoursquareApi(client_id, 
                 client_secret, "http://www.siena.edu");
 
-        foursquareApi.setVersion("20120609");
+        foursquareApi.setVersion(version);
 
         // After client has been initialized we can make queries.
         Result<VenuesSearchResult> result = 
@@ -53,7 +53,6 @@ public class FSqAPI
             System.out.println("  detail: " + result.getMeta().getErrorDetail()); 
         }
     }
-
     /**
      * returns a string representing the json or maybe a JSON object
      * @param ll lat/long
@@ -81,34 +80,6 @@ public class FSqAPI
             System.err.println(e);
         }
         return jsontext;
-
-        // marked for deletion (old)
-        // InputStream in = new URL(url).openStream();
-        // JSONObject object = null;
-        // try {
-        //     JsonReader jsonReader = Json.createReader(in);
-        //     object = jsonReader.readObject();
-        //     jsonReader.close();
-        // }
-        // catch(Error e)
-        // {
-        //     System.out.println(e);
-        // }
-        // finally
-        // {
-        //     in.close();
-        // }
-
-        // JSONParser parser = new JSONParser();
-        // JSONObject response = null;
-        // try {
-        //     response = (JSONObject) parser.parse(object);
-        // } catch (ParseException pe) {
-        //     System.out.println("Error: could not parse JSON response:");
-        //     System.out.println(object);
-        //     System.exit(1);
-        // }        
-        // return jsono.toString();
     }
 
     public void stringToJson(String in)
@@ -159,13 +130,6 @@ public class FSqAPI
     public static void main(String[] args)
     {
         FSqAPI test = new FSqAPI();
-        //         try{
-        //             test.searchVenues("42.65,-73.75");
-        //         }
-        //         catch (FoursquareApiException p)
-        //         {
-        //             System.out.println(p);
-        //         }
         try {
             String text = test.buildURL("42.65,-73.75", "burrito");
             test.stringToJson(text);

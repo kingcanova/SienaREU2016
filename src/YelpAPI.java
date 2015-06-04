@@ -42,7 +42,6 @@ public class YelpAPI {
     private static final String CONSUMER_SECRET = Secret.YELP_CONSUMER_SECRET;
     private static final String TOKEN = Secret.YELP_TOKEN;
     private static final String TOKEN_SECRET = Secret.YELP_TOKEN_SECRET;
-
     OAuthService service;
     Token accessToken;
     /**
