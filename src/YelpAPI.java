@@ -42,8 +42,9 @@ public class YelpAPI {
     private static final String CONSUMER_SECRET = Secret.YELP_CONSUMER_SECRET;
     private static final String TOKEN = Secret.YELP_TOKEN;
     private static final String TOKEN_SECRET = Secret.YELP_TOKEN_SECRET;
-    OAuthService service;
-    Token accessToken;
+    OAuthService service = new ServiceBuilder().provider(TwoStepOAuth.class).apiKey(CONSUMER_KEY)
+        .apiSecret(CONSUMER_SECRET).build();
+    Token accessToken = new Token(TOKEN, TOKEN_SECRET);
     /**
      * Setup the Yelp API OAuth credentials.
      * 
@@ -52,11 +53,8 @@ public class YelpAPI {
      * @param token Token
      * @param tokenSecret Token secret
      */
-    public YelpAPI(String consumerKey, String consumerSecret, String token, String tokenSecret) {
-        this.service =
-        new ServiceBuilder().provider(TwoStepOAuth.class).apiKey(consumerKey)
-        .apiSecret(consumerSecret).build();
-        this.accessToken = new Token(token, tokenSecret);
+    public YelpAPI() {
+        
     }
 
     /**
@@ -194,7 +192,7 @@ public class YelpAPI {
         YelpAPICLI yelpApiCli = new YelpAPICLI();
         new JCommander(yelpApiCli, args);
 
-        YelpAPI yelpApi = new YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET);
+        YelpAPI yelpApi = new YelpAPI();
         
         ArrayList<Suggestion> s = new ArrayList<Suggestion>();
         queryAPI(yelpApi, yelpApiCli, s);

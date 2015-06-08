@@ -8,7 +8,7 @@
 public class Suggestion
 {
     private String rating, name, url, categories[], phone, address, lat, lng, id, 
-                    placeId, vicinity;
+    placeId, vicinity;
 
     public Suggestion(String ratingIn, String nameIn, String urlIn, String categoriesIn, 
     String phoneIn, String addressIn)//YelpAPI
@@ -36,7 +36,7 @@ public class Suggestion
         id="";
         placeId="";
     }
-    
+
     public Suggestion(String nameIn, String ratingIn, String typesIn, String vicinityIn, 
     String idIn, String placeIdIn, String latIn, String lngIn)//GooglePlacesAPI
     {
@@ -59,7 +59,21 @@ public class Suggestion
         url="";
         phone="";
     }
-    
+
+    public Suggestion(String nameIn, String latIn, String lngIn, String idIn,
+                        String contact, String[] types) //foursquare
+    {
+        name = nameIn;
+        lat = latIn;
+        lng = lngIn;
+        id = idIn;
+        phone = contact;
+        categories = types;
+        url = "";
+        address = "";
+        rating = "";
+    }
+
     public String toString()
     {
         String output = "";
@@ -77,10 +91,10 @@ public class Suggestion
         {
             output += (s + ", ");
         }
-        
+
         return output + "\n";
     }
-    
+
     public void print()
     {
         System.out.println(this.toString());

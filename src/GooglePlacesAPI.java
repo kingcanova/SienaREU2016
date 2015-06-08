@@ -19,13 +19,18 @@ public class GooglePlacesAPI
 
     private final HttpClient client = HttpClientBuilder.create().build();
 
-    public void performSearch(final String types, final double lat, final double lon, ArrayList<Suggestion> sugg) throws ParseException, IOException, URISyntaxException
+    public ArrayList<Suggestion> performSearch(final String types, final double lat, 
+                              final double lon) 
+                              throws ParseException, IOException, URISyntaxException
     {
-        final URIBuilder builder = new URIBuilder().setScheme("https").setHost("maps.googleapis.com").setPath("/maps/api/place/nearbysearch/json");
+        ArrayList<Suggestion> sugg = new ArrayList<Suggestion>();
+        
+        final URIBuilder builder = new URIBuilder().setScheme("https").setHost("maps." + 
+                                        "googleapis.com").setPath("/maps/api/place/nearbysearch/json");
 
         builder.addParameter("location", lat + "," + lon);
         builder.addParameter("radius", "15000");//radius in meters
-        builder.addParameter("types", types);
+        builder.addParameter("type", types);
         builder.addParameter("key", GOOGLE_API_KEY);
 
         final HttpUriRequest request = new HttpGet(builder.build());
@@ -63,24 +68,18 @@ public class GooglePlacesAPI
             }
             temp[googleTerms.length-1] = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lat")).toString();
             temp[googleTerms.length]   = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lng")).toString();
-            list.add(temp);
+            sugg.add(new Suggestion(temp[0],temp[1], temp[2], 
+                        temp[3], temp[4], temp[5], temp[6],temp[7]));
         }
-        
-        for(int i = 0; i < list.size(); i++)
-        {
-            sugg.add(new Suggestion(list.get(i)[0],list.get(i)[1], list.get(i)[2], list.get(i)[3], list.get(i)[4], list.get(i)[5], list.get(i)[6],list.get(i)[7]));
-        }
-        
+        return sugg;
     }
     public static void main(final String[] args) throws ParseException, IOException, URISyntaxException
     {
         ArrayList<Suggestion> s = new ArrayList<Suggestion>();
-        new GooglePlacesAPI().performSearch("restaurant",42.6525793, -73.7562317,s); //albany,ny
+        s = new GooglePlacesAPI().performSearch("bar",42.6525793, -73.7562317); //albany,ny
         for(Suggestion sug : s)
         {
             sug.print();
         }
-     
-
     }
 }
