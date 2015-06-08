@@ -43,17 +43,6 @@ public class YelpAPI {
     OAuthService service = new ServiceBuilder().provider(TwoStepOAuth.class).apiKey(CONSUMER_KEY)
         .apiSecret(CONSUMER_SECRET).build();
     Token accessToken = new Token(TOKEN, TOKEN_SECRET);
-    /**
-     * Setup the Yelp API OAuth credentials.
-     * 
-     * @param consumerKey Consumer key
-     * @param consumerSecret Consumer secret
-     * @param token Token
-     * @param tokenSecret Token secret
-     */
-    public YelpAPI() {
-        
-    }
 
     /**
      * Creates and sends a request to the Search API by term and location.
