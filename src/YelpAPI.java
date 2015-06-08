@@ -53,7 +53,7 @@ public class YelpAPI {
     public YelpAPI(String consumerKey, String consumerSecret, String token, String tokenSecret) {
         this.service =
         new ServiceBuilder().provider(TwoStepOAuth.class).apiKey(consumerKey)
-        .apiSecret(consumerSecret).build();
+            .apiSecret(consumerSecret).build();
         this.accessToken = new Token(token, tokenSecret);
     }
 
