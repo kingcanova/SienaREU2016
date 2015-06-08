@@ -20,13 +20,18 @@ public class GooglePlacesAPI
 
     private final HttpClient client = HttpClientBuilder.create().build();
 
-    public void performSearch(final String name, final double lat, final double lon, ArrayList<Suggestion> sugg) throws ParseException, IOException, URISyntaxException
+    public ArrayList<Suggestion> performSearch(final String types, final double lat, 
+                              final double lon) 
+                              throws ParseException, IOException, URISyntaxException
     {
-        final URIBuilder builder = new URIBuilder().setScheme("https").setHost("maps.googleapis.com").setPath("/maps/api/place/nearbysearch/json");
+        ArrayList<Suggestion> sugg = new ArrayList<Suggestion>();
+        
+        final URIBuilder builder = new URIBuilder().setScheme("https").setHost("maps." + 
+                                        "googleapis.com").setPath("/maps/api/place/nearbysearch/json");
 
         builder.addParameter("location", lat + "," + lon);
         builder.addParameter("radius", "15000");//radius in meters
-        builder.addParameter("name", name);
+        builder.addParameter("type", types);
         builder.addParameter("key", GOOGLE_API_KEY);
 
         final HttpUriRequest request = new HttpGet(builder.build());
@@ -69,13 +74,14 @@ public class GooglePlacesAPI
                 sugg.add(new Suggestion(temp[0],temp[1], temp[2], temp[3], temp[4], temp[5], temp[6],temp[7]));
             }
         }
+        return sugg;
     }
 
     public static void main(final String[] args) throws ParseException, IOException, URISyntaxException
     {
         ArrayList<Suggestion> googleResults = new ArrayList<Suggestion>();
         String locationTitle = JOptionPane.showInputDialog("Search for:", null);
-        new GooglePlacesAPI().performSearch(locationTitle,42.6525793, -73.7562317, googleResults); //albany,ny
+        googleResults = new GooglePlacesAPI().performSearch(locationTitle,42.6525793, -73.7562317); //albany,ny
         for(Suggestion sug : googleResults)
         {
             sug.print();

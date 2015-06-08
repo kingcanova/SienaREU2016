@@ -60,6 +60,20 @@ public class Suggestion
         phone="N/A";
     }
 
+    public Suggestion(String nameIn, String latIn, String lngIn, String idIn,
+                        String contact, String[] types) //foursquare
+    {
+        name = nameIn;
+        lat = latIn;
+        lng = lngIn;
+        id = idIn;
+        phone = contact;
+        categories = types;
+        url = "";
+        address = "";
+        rating = "";
+    }
+
     public String toString()
     {
         String output = "";

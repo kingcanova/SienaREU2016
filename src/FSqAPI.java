@@ -4,7 +4,7 @@ import fi.foyt.foursquare.api.Result;
 import fi.foyt.foursquare.api.entities.CompactVenue;
 import fi.foyt.foursquare.api.entities.VenuesSearchResult;
 import java.io.*;
-import java.net.URL;
+import java.net.*;
 import java.nio.charset.Charset;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -14,6 +14,13 @@ import javax.json.JsonReader;
 import javax.json.Json;
 import java.util.Scanner;
 
+import org.apache.http.Header;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.client.methods.*;
+import org.apache.http.util.*;
 import java.util.*;
 
 /**
@@ -25,8 +32,8 @@ import java.util.*;
 public class FSqAPI
 {
     protected String client_id = Secret.FOURSQUARE_CLIENT_ID, 
-        client_secret = Secret.FOURSQUARE_CLIENT_SECRET,
-        version = "20120609";
+    client_secret = Secret.FOURSQUARE_CLIENT_SECRET,
+    version = "20120609";
 
     public void searchVenues(String ll) throws FoursquareApiException {
         // First we need a initialize FoursquareApi. 
@@ -53,6 +60,28 @@ public class FSqAPI
             System.out.println("  detail: " + result.getMeta().getErrorDetail()); 
         }
     }
+
+    public String alternate(String ll, String name) throws URISyntaxException, IOException
+    {
+        final URIBuilder builder = 
+            new URIBuilder().setScheme("https").setHost("api.foursquare.com").setPath("/v2/venues/search");
+
+        builder.addParameter("client_id", client_id);
+        builder.addParameter("client_secret", client_secret);//radius in meters
+        builder.addParameter("v", version);
+        builder.addParameter("ll", ll);
+        builder.addParameter("query", name);
+
+        final HttpUriRequest request = new HttpGet(builder.build());
+
+        HttpClient client = HttpClientBuilder.create().build();
+        final HttpResponse execute = client.execute(request);
+
+        final String r = EntityUtils.toString(execute.getEntity());
+
+        return r;
+    }
+
     /**
      * returns a string representing the json or maybe a JSON object
      * @param ll lat/long
@@ -82,8 +111,10 @@ public class FSqAPI
         return jsontext;
     }
 
-    public void stringToJson(String in)
+    public ArrayList<Suggestion> stringToJson(String in)
     {
+        ArrayList<Suggestion> s = new ArrayList<Suggestion>();
+
         JSONParser parser = new JSONParser();
         JSONObject response = null;
         try {
@@ -93,10 +124,10 @@ public class FSqAPI
             System.exit(1);
         }
 
-        String bob = (response.toString()).replace('{','\n');
-        bob = bob.replace(',', '\t');
-        bob = bob.replace('}', '\n');
-        System.out.println(bob);
+        //         String bob = (response.toString()).replace('{','\n');
+        //         bob = bob.replace(',', '\t');
+        //         bob = bob.replace('}', '\n');
+        //         System.out.println(bob);
 
         String[] fqTerms = new String[]{"name", "location", "id", "contact", "categories"};
         ArrayList<String[]> list = new ArrayList<String[]>();
@@ -110,29 +141,47 @@ public class FSqAPI
             temp[1] = ((JSONObject)(curr.get("location"))).get("lat").toString();
             temp[2] = ((JSONObject)(curr.get("location"))).get("lng").toString();
             temp[3] = (curr.get("id")).toString();
-            temp[4] = (curr.get("contact")).toString();
-            temp[5] = ((JSONObject)(curr.get("categories"))).get("id").toString();
-            temp[6] = ((JSONObject)(curr.get("categories"))).get("name").toString();
-            list.add(temp);
-        }
-        for(int i = 0; i < list.size(); i++)
-        {
-            for(int j = 0; j < list.get(0).length; j++)
+            temp[4] = "";
+            JSONObject four = ((JSONObject)(curr.get("contact")));
+            
+            if(four.size() != 0)
             {
-                System.out.println(list.get(i)[j]);
+                temp[4] = (((JSONObject)(curr.get("contact"))).get("phone")).toString();
             }
-            System.out.println("\n");
+            JSONArray cats = ((JSONArray)(curr.get("categories")));
+            String[] types = new String[cats.size()];
+            for(int x = 0; x < cats.size(); x++)
+            {
+                types[x] = ((JSONObject)cats.get(x)).get("shortName").toString();
+            }
+            s.add(new Suggestion(temp[0],temp[1],temp[2],temp[3],
+                    temp[4],types));
+
         }
+        return s;
     }
 
     public static void main(String[] args)
     {
-        FSqAPI test = new FSqAPI();
-        try {
-            String text = test.buildURL("42.65,-73.75", "burrito");
-            test.stringToJson(text);
-        } catch (Exception e) {
-            System.err.println(e);
+        try
+        {
+            FSqAPI test = new FSqAPI();
+            ArrayList<Suggestion> s = 
+                test.stringToJson(test.alternate("42.65,-73.75", "burrito"));
+            for(Suggestion sug : s)
+            {
+                sug.print();
+            }
         }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        //         try {
+        //             String text = test.buildURL("42.65,-73.75", "burrito");
+        //             test.stringToJson(text);
+        //         } catch (Exception e) {
+        //             System.err.println(e);
+        //         }
     }
 }
