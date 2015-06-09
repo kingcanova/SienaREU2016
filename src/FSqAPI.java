@@ -34,7 +34,7 @@ public class FSqAPI
     protected String client_id = Secret.FOURSQUARE_CLIENT_ID, 
     client_secret = Secret.FOURSQUARE_CLIENT_SECRET,
     version = "20120609";
-    
+
     public String queryAPI(String ll, String name) throws URISyntaxException, IOException
     {
         final URIBuilder builder = 
@@ -55,7 +55,7 @@ public class FSqAPI
 
         return r;
     }
-    
+
     public ArrayList<Suggestion> stringToJson(String in)
     {
         ArrayList<Suggestion> s = new ArrayList<Suggestion>();
@@ -69,10 +69,10 @@ public class FSqAPI
             System.exit(1);
         }
 
-        //         String bob = (response.toString()).replace('{','\n');
-        //         bob = bob.replace(',', '\t');
-        //         bob = bob.replace('}', '\n');
-        //         System.out.println(bob);
+        String bob = (response.toString()).replace('{','\n');
+        bob = bob.replace(',', '\t');
+        bob = bob.replace('}', '\n');
+        System.out.println(bob);
 
         String[] fqTerms = new String[]{"name", "location", "id", "contact", "categories"};
         ArrayList<String[]> list = new ArrayList<String[]>();
@@ -88,7 +88,7 @@ public class FSqAPI
             temp[3] = (curr.get("id")).toString();
             temp[4] = "";
             JSONObject four = ((JSONObject)(curr.get("contact")));
-            
+
             if(four.size() != 0)
             {
                 temp[4] = (((JSONObject)(curr.get("contact"))).get("phone")).toString();

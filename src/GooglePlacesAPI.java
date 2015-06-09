@@ -20,7 +20,7 @@ public class GooglePlacesAPI
 
     private final HttpClient client = HttpClientBuilder.create().build();
 
-    public ArrayList<Suggestion> performSearch(final String types, final double lat, 
+    public ArrayList<Suggestion> performSearch(final String name, final double lat, 
                               final double lon) 
                               throws ParseException, IOException, URISyntaxException
     {
@@ -31,7 +31,7 @@ public class GooglePlacesAPI
 
         builder.addParameter("location", lat + "," + lon);
         builder.addParameter("radius", "15000");//radius in meters
-        builder.addParameter("name", types);
+        builder.addParameter("name", name);
         builder.addParameter("key", GOOGLE_API_KEY);
 
         final HttpUriRequest request = new HttpGet(builder.build());
