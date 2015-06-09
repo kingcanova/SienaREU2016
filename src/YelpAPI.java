@@ -30,7 +30,7 @@ public class YelpAPI {
     private static final String DEFAULT_LOCATION = "Albany, NY";
     private static final String SEARCH_PATH = "/v2/search";
     private static final String BUSINESS_PATH = "/v2/business";
-    
+
     private static String queryTerm;
     /*
      * Update OAuth credentials below from the Yelp Developers API site:
@@ -54,11 +54,11 @@ public class YelpAPI {
      * @param location <tt>String</tt> of the location
      * @return <tt>String</tt> JSON Response
      */
-    public String searchForBusinessesByLocation(String term, String location, String offset) {
+    public String searchForBusinessesByLocation(String term, String location, int limit){
         OAuthRequest request = createOAuthRequest(SEARCH_PATH);
         request.addQuerystringParameter("term", term);
         request.addQuerystringParameter("location", location);
-        request.addQuerystringParameter("offset", offset);
+        request.addQuerystringParameter("limit", limit+"");
         return sendRequestAndGetResponse(request);
     }
 
@@ -108,61 +108,57 @@ public class YelpAPI {
      * @param yelpApiCli <tt>YelpAPICLI</tt> command line arguments
      */
     private static void queryAPI(YelpAPI yelpApi, YelpAPICLI yelpApiCli, ArrayList<Suggestion> list) {
-        int offset = 0;
-        while(offset <=20)//returns top 40 results
-        {
-            String searchResponseJSON =
-                yelpApi.searchForBusinessesByLocation(yelpApiCli.term, yelpApiCli.location, String.valueOf(offset));
 
-            JSONParser parser = new JSONParser();
-            JSONObject response = null;
-            try {
-                response = (JSONObject) parser.parse(searchResponseJSON);
-            } catch (ParseException pe) {
-                System.out.println("Error: could not parse JSON response:");
-                System.out.println(searchResponseJSON);
-                System.exit(1);
-            }
-            System.out.println(response);
-            JSONArray businesses = (JSONArray) response.get("businesses");
-            for(int i = 0; i < businesses.size(); i++)
-            {
-                JSONObject firstBusiness = (JSONObject) businesses.get(i);
-                String firstBusinessID = firstBusiness.get("id").toString();
-                //             System.out.println(String.format(
-                //                     "%s businesses found, querying business info for the top result \"%s\" ...",
-                //                     businesses.size(), firstBusinessID));
+        String searchResponseJSON =
+            yelpApi.searchForBusinessesByLocation(yelpApiCli.term, yelpApiCli.location, 3);
 
-                // Select the first business and display business details
-                String businessResponseJSON = yelpApi.searchByBusinessId(firstBusinessID.toString());
-                //             System.out.println(String.format("Result for business \"%s\" found:", firstBusinessID));
-                //System.out.println(businessResponseJSON);
-                Scanner in = new Scanner(businessResponseJSON);
-                String current_sequence_of_characters = "";
-
-                String[] yelpTerms = new String[]{"\"rating\"", "\"name\"", "\"url\"", "\"categories\"",
-                        "\"display_phone\"", "\"display_address\""};
-
-                String[] elements = new String[6];
-                for(int j=0; j<6; j++)
-                {
-                    String term = yelpTerms[j];
-                    int start = businessResponseJSON.indexOf(term); //find start of tag
-                    int fcolon = start + term.length() + 1; //after the colon folowing the tag
-                    int scolon = businessResponseJSON.indexOf("\":", fcolon); //next colon's index
-                    String contents = businessResponseJSON.substring(fcolon, scolon); 
-                    //substring of (:) -> (":)
-                    int end = contents.lastIndexOf("\""); //index of the " at the end
-
-                    contents = businessResponseJSON.substring(fcolon, fcolon + end - 2);
-                    elements[j] = contents;
-                }
-                list.add(new Suggestion(elements[0],elements[1], elements[2], elements[3],
-                        elements[4], elements[5]));
-            }
-            offset+=20;
+        JSONParser parser = new JSONParser();
+        JSONObject response = null;
+        try {
+            response = (JSONObject) parser.parse(searchResponseJSON);
+        } catch (ParseException pe) {
+            System.out.println("Error: could not parse JSON response:");
+            System.out.println(searchResponseJSON);
+            System.exit(1);
         }
-    }   
+        System.out.println(response);
+        JSONArray businesses = (JSONArray) response.get("businesses");
+        for(int i = 0; i < businesses.size(); i++)
+        {
+            JSONObject firstBusiness = (JSONObject) businesses.get(i);
+            String firstBusinessID = firstBusiness.get("id").toString();
+            //             System.out.println(String.format(
+            //                     "%s businesses found, querying business info for the top result \"%s\" ...",
+            //                     businesses.size(), firstBusinessID));
+
+            // Select the first business and display business details
+            String businessResponseJSON = yelpApi.searchByBusinessId(firstBusinessID.toString());
+            //             System.out.println(String.format("Result for business \"%s\" found:", firstBusinessID));
+            //System.out.println(businessResponseJSON);
+            Scanner in = new Scanner(businessResponseJSON);
+            String current_sequence_of_characters = "";
+
+            String[] yelpTerms = new String[]{"\"rating\"", "\"name\"", "\"url\"", "\"categories\"",
+                    "\"display_phone\"", "\"display_address\""};
+
+            String[] elements = new String[6];
+            for(int j=0; j<6; j++)
+            {
+                String term = yelpTerms[j];
+                int start = businessResponseJSON.indexOf(term); //find start of tag
+                int fcolon = start + term.length() + 1; //after the colon folowing the tag
+                int scolon = businessResponseJSON.indexOf("\":", fcolon); //next colon's index
+                String contents = businessResponseJSON.substring(fcolon, scolon); 
+                //substring of (:) -> (":)
+                int end = contents.lastIndexOf("\""); //index of the " at the end
+
+                contents = businessResponseJSON.substring(fcolon, fcolon + end - 2);
+                elements[j] = contents;
+            }
+            list.add(new Suggestion(elements[0],elements[1], elements[2], elements[3],
+                    elements[4], elements[5]));
+        }
+    }
 
     /**
      * Command-line interface for the sample Yelp API runner.
@@ -186,7 +182,7 @@ public class YelpAPI {
         new JCommander(yelpApiCli, args);
 
         YelpAPI yelpApi = new YelpAPI();
-        
+
         ArrayList<Suggestion> s = new ArrayList<Suggestion>();
         queryAPI(yelpApi, yelpApiCli, s);
         for(Suggestion sug : s)

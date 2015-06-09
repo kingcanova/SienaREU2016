@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class Something
+public class Merge
 {
     /**
      * just gets the first thing for now

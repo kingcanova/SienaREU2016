@@ -31,7 +31,7 @@ public class GooglePlacesAPI
 
         builder.addParameter("location", lat + "," + lon);
         builder.addParameter("radius", "15000");//radius in meters
-        builder.addParameter("type", types);
+        builder.addParameter("name", types);
         builder.addParameter("key", GOOGLE_API_KEY);
 
         final HttpUriRequest request = new HttpGet(builder.build());
