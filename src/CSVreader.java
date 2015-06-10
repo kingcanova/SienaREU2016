@@ -148,7 +148,6 @@ public class CSVreader
         Scanner s = new Scanner(csvFile);
         while ((line = s.nextLine()) != null) {
             String lineID = getCSVElement(1, line);
-            System.out.println(lineID);
             if (id.compareTo(lineID) < 0) // passed ID 
                 break;
             else if (id.equals(lineID))
@@ -164,7 +163,7 @@ public class CSVreader
     }
 
     public static void test() throws IOException {
-        ArrayList<String> lol = getLocations("777", new File("../test.csv"));
+        ArrayList<String> lol = getLocations("777", new File("../collection_sorted_2015.csv"));
         for (String lel : lol)
             System.out.println(lel);
         System.out.println("done");
