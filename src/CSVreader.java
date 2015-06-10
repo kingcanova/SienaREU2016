@@ -146,7 +146,8 @@ public class CSVreader
         String line;
         ArrayList<String> arr = new ArrayList<>();
         Scanner s = new Scanner(csvFile);
-        while ((line = s.nextLine()) != null) {
+        while (s.hasNextLine) {
+            line = s.nextLine();
             String lineID = getCSVElement(1, line);
             if (id.compareTo(lineID) < 0) // passed ID 
                 break;
