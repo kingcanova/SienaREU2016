@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import javax.swing.*;
 import java.util.*;
 
@@ -140,10 +137,42 @@ public class CSVreader
         br.close();
     }
 
+    /**
+     * csv file must be sorted 
+     */
+    public static ArrayList<String> getLocations(String id, File csvFile) throws IOException
+    {
+        // TODO: binary-serachify this
+        String line;
+        ArrayList<String> arr = new ArrayList<>();
+        Scanner s = new Scanner(csvFile);
+        while ((line = s.nextLine()) != null) {
+            String lineID = getCSVElement(1, line);
+            System.out.println(lineID);
+            if (id.compareTo(lineID) < 0) // passed ID 
+                break;
+            else if (id.equals(lineID))
+                arr.add(line);
+        }
+        s.close();
+        return arr;
+    }
+
+    public static String getCSVElement(int elemIndex, String csvLine)
+    {
+        return csvLine.split(",", elemIndex + 2)[elemIndex];
+    }
+
+    public static void test() throws IOException {
+        ArrayList<String> lol = getLocations("777", new File("../test.csv"));
+        for (String lel : lol)
+            System.out.println(lel);
+        System.out.println("done");
+    }
+
     public static void main(String[] args) 
     {
         CSVreader obj = new CSVreader();
         obj.run();
-
     }
 }
