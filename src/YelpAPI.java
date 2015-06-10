@@ -122,33 +122,34 @@ public class YelpAPI {
      * @param yelpApi <tt>YelpAPI</tt> service instance
      * @param yelpApiCli <tt>YelpAPICLI</tt> command line arguments
      */
-    private static void queryAPI(YelpAPI yelpApi, YelpAPICLI yelpApiCli, ArrayList<Suggestion> list) {
+    public static Suggestion queryAPI(YelpAPI yelpApi, String term, String locationName) {
 
         String searchResponseJSON =
-            yelpApi.searchForBusinessesByLocation(yelpApiCli.term, yelpApiCli.location, 3);
+            yelpApi.searchForBusinessesByLocation(term, locationName, 3);
 
         JSONObject response = yelpApi.stringToJson(searchResponseJSON);
         JSONArray businesses = (JSONArray) response.get("businesses");
-        for(int i = 0; i < businesses.size(); i++)
-        {
-            JSONObject firstBusiness = (JSONObject) businesses.get(i);
-            String firstBusinessID = firstBusiness.get("id").toString();
-            //             System.out.println(String.format(
-            //                     "%s businesses found, querying business info for the top result \"%s\" ...",
-            //                     businesses.size(), firstBusinessID));
+        //for(int i = 0; i < businesses.size(); i++)
+        //{
+        JSONObject firstBusiness = (JSONObject) businesses.get(0);
+        String firstBusinessID = firstBusiness.get("id").toString();
+        //             System.out.println(String.format(
+        //                     "%s businesses found, querying business info for the top result \"%s\" ...",
+        //                     businesses.size(), firstBusinessID));
 
-            // Select the first business and display business details
-            String businessResponseJSON = yelpApi.searchByBusinessId(firstBusinessID.toString());
-            JSONObject bRep = yelpApi.stringToJson(businessResponseJSON);
-            list.add(yelpApi.splitJSON(bRep));
-        }
+        // Select the first business and display business details
+        String businessResponseJSON = yelpApi.searchByBusinessId(firstBusinessID.toString());
+        JSONObject bRep = yelpApi.stringToJson(businessResponseJSON);
+        //list.add(yelpApi.splitJSON(bRep));
+        return yelpApi.splitJSON(bRep);
+        //}
     }
 
     public Suggestion splitJSON(JSONObject business)
     {
         //System.out.println((business).toString());
-        
-        System.out.println(((JSONObject)(business.get("location"))).get("city").toString());
+
+        //System.out.println(((JSONObject)(business.get("location"))).get("city").toString());
 
         return new Suggestion(
             (business.get("name")).toString(),
@@ -158,19 +159,19 @@ public class YelpAPI {
             (business.get("rating")).toString(),
             ((JSONObject)((JSONObject)(business.get("location"))).get("coordinate")).get("latitude").toString(),
             ((JSONObject)((JSONObject)(business.get("location"))).get("coordinate")).get("longitude").toString()
-            );
+        );
     }
-
-    /**
-     * Command-line interface for the sample Yelp API runner.
-     */
-    private static class YelpAPICLI {
-        @Parameter(names = {"-q", "--term"}, description = "Search Query Term")
-        public String term = queryTerm;
-
-        @Parameter(names = {"-l", "--location"}, description = "Location to be Queried")
-        public String location = DEFAULT_LOCATION;
-    }
+    // 
+    //     /**
+    //      * Command-line interface for the sample Yelp API runner.
+    //      */
+    //     private static class YelpAPICLI {
+    //         @Parameter(names = {"-q", "--term"}, description = "Search Query Term")
+    //         public String term = queryTerm;
+    // 
+    //         @Parameter(names = {"-l", "--location"}, description = "Location to be Queried")
+    //         public String location = DEFAULT_LOCATION;
+    //     }
 
     /**
      * Main entry for sample Yelp API requests.
@@ -178,17 +179,17 @@ public class YelpAPI {
      * After entering your OAuth credentials, execute <tt><b>run.sh</b></tt> to run this example.
      */
     public static void main(String[] args) {
-        queryTerm= JOptionPane.showInputDialog("Search for:", null);
-        YelpAPICLI yelpApiCli = new YelpAPICLI();
-        new JCommander(yelpApiCli, args);
+        //queryTerm= JOptionPane.showInputDialog("Search for:", null);
+        //YelpAPICLI yelpApiCli = new YelpAPICLI();
+        //new JCommander(yelpApiCli, args);
 
-        YelpAPI yelpApi = new YelpAPI();
-
-        ArrayList<Suggestion> s = new ArrayList<Suggestion>();
-        queryAPI(yelpApi, yelpApiCli, s);
-        for(Suggestion sug : s)
-        {
-            sug.print();
-        }
+        //         YelpAPI yelpApi = new YelpAPI();
+        // 
+        //         ArrayList<Suggestion> s = new ArrayList<Suggestion>();
+        //         queryAPI(yelpApi, "bombers", DEFAULT_LOCATION, s);
+        //         for(Suggestion sug : s)
+        //         {
+        //             sug.print();
+        //         }
     }
 }

@@ -56,7 +56,7 @@ public class FSqAPI
         return r;
     }
 
-    public ArrayList<Suggestion> stringToJson(String in)
+    public Suggestion stringToJson(String in)
     {
         ArrayList<Suggestion> s = new ArrayList<Suggestion>();
 
@@ -69,58 +69,57 @@ public class FSqAPI
             System.exit(1);
         }
 
-        String bob = (response.toString()).replace('{','\n');
-        bob = bob.replace(',', '\t');
-        bob = bob.replace('}', '\n');
-        System.out.println(bob);
+        //         String bob = (response.toString()).replace('{','\n');
+        //         bob = bob.replace(',', '\t');
+        //         bob = bob.replace('}', '\n');
+        //         System.out.println(bob);
 
         String[] fqTerms = new String[]{"name", "location", "id", "contact", "categories"};
         ArrayList<String[]> list = new ArrayList<String[]>();
         JSONObject venues = (JSONObject) response.get("response");
         JSONArray results = (JSONArray) venues.get("venues");
-        for(int i = 0; i<results.size(); i++)
+        //         for(int i = 0; i<results.size(); i++)
+        //         {
+        String[] temp = new String[7];//name, lat, lng, id, contact, categoriesID, catName
+        JSONObject curr = (JSONObject) results.get(0);
+        temp[0] = (curr.get("name")).toString();
+        temp[1] = ((JSONObject)(curr.get("location"))).get("lat").toString();
+        temp[2] = ((JSONObject)(curr.get("location"))).get("lng").toString();
+        temp[3] = (curr.get("id")).toString();
+        temp[4] = "";
+        JSONObject four = ((JSONObject)(curr.get("contact")));
+
+        if(four.size() != 0)
         {
-            String[] temp = new String[7];//name, lat, lng, id, contact, categoriesID, catName
-            JSONObject curr = (JSONObject) results.get(i);
-            temp[0] = (curr.get("name")).toString();
-            temp[1] = ((JSONObject)(curr.get("location"))).get("lat").toString();
-            temp[2] = ((JSONObject)(curr.get("location"))).get("lng").toString();
-            temp[3] = (curr.get("id")).toString();
-            temp[4] = "";
-            JSONObject four = ((JSONObject)(curr.get("contact")));
-
-            if(four.size() != 0)
-            {
-                temp[4] = (((JSONObject)(curr.get("contact"))).get("phone")).toString();
-            }
-            JSONArray cats = ((JSONArray)(curr.get("categories")));
-            String[] types = new String[cats.size()];
-            for(int x = 0; x < cats.size(); x++)
-            {
-                types[x] = ((JSONObject)cats.get(x)).get("shortName").toString();
-            }
-            s.add(new Suggestion(temp[0],temp[1],temp[2],temp[3],
-                    temp[4],types));
-
+            temp[4] = (((JSONObject)(curr.get("contact"))).get("phone")).toString();
         }
-        return s;
+        JSONArray cats = ((JSONArray)(curr.get("categories")));
+        String[] types = new String[cats.size()];
+        for(int x = 0; x < cats.size(); x++)
+        {
+            types[x] = ((JSONObject)cats.get(x)).get("shortName").toString();
+        }
+        return new Suggestion(temp[0],temp[1],temp[2],temp[3],temp[4],types);
+
+        //}
+        //return s;
     }
 
     public static void main(String[] args)
     {
-        try
-        {
-            FSqAPI test = new FSqAPI();
-            ArrayList<Suggestion> s = 
-                test.stringToJson(test.queryAPI("42.65,-73.75", "bombers"));
-            for(Suggestion sug : s)
-            {
-                sug.print();
-            }
-        }
-        catch(Exception e)
-        {
-            System.err.println(e);
-        }
+        //         try
+        //         {
+        //             FSqAPI test = new FSqAPI();
+        //             ArrayList<Suggestion> s = 
+        //                 test.stringToJson(test.queryAPI("42.65,-73.75", "bombers"));
+        //             for(Suggestion sug : s)
+        //             {
+        //                 sug.print();
+        //             }
+        //         }
+        //         catch(Exception e)
+        //         {
+        //             System.err.println(e);
+        //         }
     }
 }
