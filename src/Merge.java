@@ -1,9 +1,11 @@
-import org.json.simple.*;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class Something
+public class Merge
 {
     /**
      * just gets the first thing for now
@@ -30,15 +32,15 @@ public class Something
     }
 
     public static JSONObject combine(JSONObject google, JSONObject yelp, JSONObject foursquare) {
-        JSONObject comb = new JSONObject();
-        comb.put("geometry", google.get("geometry"));
-        comb.put("name", google.get("name"));
-        JSONArray categories = new JSONArray();
-        categories.add(google.get("types")); // uggghhh
-        categories.add(((JSONObject)yelp.get("categories")).get("shortName"));
-        comb.put("categories", categories);
-        comb.put("popularity", yelp.get("checkinsCount"));
-        return comb;
+         JSONObject comb = new JSONObject();
+//         comb.put("geometry", google.get("geometry"));
+//         comb.put("name", google.get("name"));
+         JSONArray categories = new JSONArray();
+//         categories.add(google.get("types")); // uggghhh
+         categories.add(((JSONObject)yelp.get("categories")).get("shortName"));
+//         comb.put("categories", categories);
+//         comb.put("popularity", yelp.get("checkinsCount"));
+         return comb;
     }
 
     public static void main(String args[]) {
@@ -52,8 +54,8 @@ public class Something
         }
         while (s.hasNextLine())
             sb.append(s.nextLine() + "\n");
-        String str = sb.toString();
-        JSONObject jo = foursquareExtract(str);
-        System.out.println(jo);
+        //String str = sb.toString();
+        //JSONObject jo = foursquareExtract(str);
+        //System.out.println(jo);
     }
 }

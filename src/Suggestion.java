@@ -36,6 +36,25 @@ public class Suggestion
         id="N/A";
         placeId="N/A";
     }
+    
+    public Suggestion(String nameIn, String urlIn, String phoneIn, String categoriesIn, 
+    String ratingIn, String latIn, String lngIn)//YelpAPI alternate
+    {
+        rating = ratingIn;
+        name = nameIn;
+        url = urlIn;
+        categoriesIn = categoriesIn.replaceAll("\\[", "");          
+        categoriesIn = categoriesIn.replaceAll("\\]", "");
+        categoriesIn = categoriesIn.replaceAll("\"", "");
+        categoriesIn = categoriesIn.replaceAll(" ", "");
+        categories = categoriesIn.split(",");
+        phone = phoneIn;
+        address = "N/A";
+        lat= latIn;
+        lng= lngIn;
+        id="N/A";
+        placeId="N/A";
+    }
 
     public Suggestion(String nameIn, String ratingIn, String typesIn, String vicinityIn, 
     String idIn, String placeIdIn, String latIn, String lngIn)//GooglePlacesAPI
