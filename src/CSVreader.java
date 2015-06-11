@@ -95,7 +95,7 @@ public class CSVreader
         {
             // use comma as separator
             String[] context = new String[4];
-            context = CVSSplitter.split(line, 4);
+            context = CSVSplitter.split(line, 4);
             test.attractions.add(new POI(Integer.parseInt(context[0]), context[1], context[2], context[3]));
         }
         br.close();

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-public class CVSSplitter
+public class CSVSplitter
 {
     public static String[] split(String cvsline, int len)
     {
