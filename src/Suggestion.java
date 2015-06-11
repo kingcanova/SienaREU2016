@@ -7,7 +7,7 @@
  */
 public class Suggestion
 {
-    private String rating, name, url, categories[], phone, address, lat, lng, id, 
+    protected String rating, name, url, categories[], phone, address, lat, lng, id, 
     placeId, vicinity;
 
     public Suggestion(String ratingIn, String nameIn, String urlIn, String categoriesIn, 

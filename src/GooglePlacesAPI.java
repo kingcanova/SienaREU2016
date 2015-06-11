@@ -20,14 +20,14 @@ public class GooglePlacesAPI
 
     private final HttpClient client = HttpClientBuilder.create().build();
 
-    public ArrayList<Suggestion> performSearch(final String name, final double lat, 
-                              final double lon) 
-                              throws ParseException, IOException, URISyntaxException
+    public Suggestion performSearch(final String name, final double lat, 
+    final double lon) 
+    throws ParseException, IOException, URISyntaxException
     {
-        ArrayList<Suggestion> sugg = new ArrayList<Suggestion>();
-        
+        //ArrayList<Suggestion> sugg = new ArrayList<Suggestion>();
+
         final URIBuilder builder = new URIBuilder().setScheme("https").setHost("maps." + 
-                                        "googleapis.com").setPath("/maps/api/place/nearbysearch/json");
+                "googleapis.com").setPath("/maps/api/place/nearbysearch/json");
 
         builder.addParameter("location", lat + "," + lon);
         builder.addParameter("radius", "15000");//radius in meters
@@ -57,34 +57,34 @@ public class GooglePlacesAPI
             System.out.println("Sorry, no results were found for your request.");
         else
         {
-            for(int i = 0; i<results.size(); i++)
-            {
-                String[] temp = new String[googleTerms.length+1];
-                JSONObject unk = (JSONObject) results.get(i);
+            //for(int i = 0; i<results.size(); i++)
+            //{
+            String[] temp = new String[googleTerms.length+1];
+            JSONObject unk = (JSONObject) results.get(0);
 
-                for(int j = 0; j < googleTerms.length-1; j++)
+            for(int j = 0; j < googleTerms.length-1; j++)
+            {
+                if(unk.get(googleTerms[j]) != null)
                 {
-                    if(unk.get(googleTerms[j]) != null)
-                    {
-                        temp[j] = (unk.get(googleTerms[j])).toString();
-                    }
+                    temp[j] = (unk.get(googleTerms[j])).toString();
                 }
-                temp[googleTerms.length-1] = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lat")).toString();
-                temp[googleTerms.length]   = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lng")).toString();
-                sugg.add(new Suggestion(temp[0],temp[1], temp[2], temp[3], temp[4], temp[5], temp[6],temp[7]));
             }
+            temp[googleTerms.length-1] = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lat")).toString();
+            temp[googleTerms.length]   = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lng")).toString();
+            return new Suggestion(temp[0],temp[1], temp[2], temp[3], temp[4], temp[5], temp[6],temp[7]);
+            //}
         }
-        return sugg;
+        return null;
     }
 
     public static void main(final String[] args) throws ParseException, IOException, URISyntaxException
     {
-        ArrayList<Suggestion> googleResults = new ArrayList<Suggestion>();
-        String locationTitle = JOptionPane.showInputDialog("Search for:", null);
-        googleResults = new GooglePlacesAPI().performSearch(locationTitle,42.6525793, -73.7562317); //albany,ny
-        for(Suggestion sug : googleResults)
-        {
-            sug.print();
-        }
+        //         ArrayList<Suggestion> googleResults = new ArrayList<Suggestion>();
+        //         String locationTitle = JOptionPane.showInputDialog("Search for:", null);
+        //         googleResults = new GooglePlacesAPI().performSearch(locationTitle,42.6525793, -73.7562317); //albany,ny
+        //         for(Suggestion sug : googleResults)
+        //         {
+        //             sug.print();
+        //         }
     }
 }
