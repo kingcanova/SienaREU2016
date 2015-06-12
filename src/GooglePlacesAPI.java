@@ -54,7 +54,10 @@ public class GooglePlacesAPI
         ArrayList<String[]> list = new ArrayList<String[]>();
         JSONArray results = (JSONArray) response.get("results");
         if(results.size() == 0)
+        {
             System.out.println("Sorry, no results were found for your request.");
+            return new Suggestion();
+        }
         else
         {
             //for(int i = 0; i<results.size(); i++)
@@ -74,7 +77,6 @@ public class GooglePlacesAPI
             return new Suggestion(temp[0],temp[1], temp[2], temp[3], temp[4], temp[5], temp[6],temp[7]);
             //}
         }
-        return null;
     }
 
     public static void main(final String[] args) throws ParseException, IOException, URISyntaxException
