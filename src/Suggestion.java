@@ -1,4 +1,4 @@
-
+import java.util.*;
 /**
  * Write a description of class Suggestion here.
  * 
@@ -10,6 +10,34 @@ public class Suggestion
     protected String rating, name, url, categories[], phone, address, lat, lng, id, 
     placeId, vicinity;
 
+    protected String title;
+    protected double rate;
+    protected double latitude;
+    protected double longitude;
+    protected ArrayList<String> category;
+    
+    public Suggestion(String a, double b, double c, double d, ArrayList<String> e)
+    {
+        title = a;
+        rate = b;
+        latitude = c;
+        longitude = d;
+        category = e;
+    }
+    
+    public void printFinal()
+    {
+        System.out.println("Name: " + title);
+        System.out.println("Rating: " + rate);
+        System.out.println("Latitude: " + latitude);
+        System.out.println("Longitude: " + longitude);
+        System.out.println("Categories: ");
+        for(String cat : category)
+        {
+            System.out.println("\t" + cat);
+        }
+    }
+    
     public Suggestion(String ratingIn, String nameIn, String urlIn, String categoriesIn, 
     String phoneIn, String addressIn)//YelpAPI
     {

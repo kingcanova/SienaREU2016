@@ -84,7 +84,99 @@ public class Merging
 
     public void mergeApis(Suggestion yelp, Suggestion four, Suggestion goog)
     {
-        //if( (yelp.name).equals(four.name)
+        int yelp_count = 0;
+        int four_count = 0;
+        int goog_count = 0;
+
+        String name = yelp.name; //default
+        if( (yelp.name).equals(four.name) && (yelp.name).equals(goog.name) ) {
+            name = yelp.name;
+        }
+        else if( (yelp.name).equals(four.name) ) {
+            name = yelp.name;
+            goog_count -= 1;
+        }
+        else if( (yelp.name).equals(goog.name) ) {
+            name = yelp.name;
+            four_count -= 1;
+        }
+        else if( (four.name).equals(goog.name) ) {
+            name = four.name;
+            yelp_count -= 1;
+        }
+
+        double ylat = Double.parseDouble(yelp.lat) + (yelp_count * 100);
+        double flat = Double.parseDouble(four.lat) + (four_count * 100);
+        double glat = Double.parseDouble(goog.lat) + (goog_count * 100);
+        double ylng = Double.parseDouble(yelp.lng) + (yelp_count * 100);
+        double flng = Double.parseDouble(four.lng) + (four_count * 100);
+        double glng = Double.parseDouble(goog.lng) + (goog_count * 100);
+
+        double lat = glat; //default
+        double lng = glng; //default
+        if(Math.abs(ylat-flat) < 0.01){lat = ylat;}
+        else if(Math.abs(ylat-glat) < 0.01){lat = ylat;}
+        else if(Math.abs(flat-glat) < 0.01){lat = flat;}
+
+        if(Math.abs(ylng-flng) < 0.01){lng = ylng;}
+        else if(Math.abs(ylng-glng) < 0.01){lng = ylng;}
+        else if(Math.abs(flng-glng) < 0.01){lng = flng;}
+
+        double rating = 0.0;
+        double yelp_rating = 0.0;
+        double four_rating = 0.0;
+        double goog_rating = 0.0;
+        try{
+            if(yelp_count == 0) {
+                yelp_rating = Double.parseDouble(yelp.rating);
+                rating += 1;
+            }
+        } catch(Exception e){}
+        try{
+            if(four_count == 0) {
+                four_rating = Double.parseDouble(four.rating);
+                rating += 1;
+            }
+        } catch(Exception e){}
+        try{
+            if(goog_count == 0) {
+                goog_rating = Double.parseDouble(goog.rating);
+                rating += 1;
+            }
+        } catch(Exception e){}
+        rating = (yelp_rating + four_rating + goog_rating) / rating;
+
+        ArrayList<String> cats = new ArrayList<String>();
+        if(yelp_count == 0) {
+            for(String cat : yelp.categories)
+            {
+                if(!cats.contains(cat))
+                {
+                    cats.add(cat);
+                }
+            }
+        }
+        if(four_count == 0) {
+            for(String cat : four.categories)
+            {
+                if(!cats.contains(cat))
+                {
+                    cats.add(cat);
+                }
+            }
+        }
+        if(goog_count == 0) {
+            for(String cat : goog.categories)
+            {
+                if(!cats.contains(cat))
+                {
+                    cats.add(cat);
+                }
+            }
+        }
+
+        Suggestion result = new Suggestion(name, rating, lat, lng, cats);
+        result.printFinal();
     }
 
     public static void main(String[] args)
