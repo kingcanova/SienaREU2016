@@ -29,7 +29,7 @@ public class CSVreader
         try {
             br = new BufferedReader(new FileReader(csvFile + locations));
             buildLocation(br);
-            
+
             br = new BufferedReader(new FileReader(csvFile + pois));
             buildPOI(br);
 
@@ -111,7 +111,7 @@ public class CSVreader
         line = br.readLine();
         String[] params = line.split(",");
         int person_id = -1;
-        
+
         int start = test.attractions.get(0).id_num;
         while ((line = br.readLine()) != null) 
         {

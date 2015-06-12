@@ -16,6 +16,15 @@ public class Suggestion
     protected double longitude;
     protected ArrayList<String> category;
     
+    public Suggestion()
+    {
+        name = "";
+        rating = "";
+        lat = "0.0";
+        lng = "0.0";
+        categories = new String[0];
+    }
+    
     public Suggestion(String a, double b, double c, double d, ArrayList<String> e)
     {
         title = a;

@@ -188,8 +188,8 @@ public class Merging
         String city = "Albany, NY";
         Double lati = Double.parseDouble(lat);
         Double lngi = Double.parseDouble(lng);
-        Suggestion yelp = m.searchFourSq((lat + "," + lng), name);
-        Suggestion four = m.searchYelp(city, name);
+        Suggestion four = m.searchFourSq((lat + "," + lng), name);
+        Suggestion yelp = m.searchYelp(city, name);
         Suggestion goog = m.searchGoogle(lati, lngi, name);
         m.mergeApis(yelp, four, goog);
     }

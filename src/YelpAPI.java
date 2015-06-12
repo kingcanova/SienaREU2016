@@ -129,6 +129,10 @@ public class YelpAPI {
 
         JSONObject response = yelpApi.stringToJson(searchResponseJSON);
         JSONArray businesses = (JSONArray) response.get("businesses");
+        if(businesses.size() == 0)
+        {
+            return new Suggestion();
+        }
         //for(int i = 0; i < businesses.size(); i++)
         //{
         JSONObject firstBusiness = (JSONObject) businesses.get(0);

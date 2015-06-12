@@ -78,6 +78,10 @@ public class FSqAPI
         ArrayList<String[]> list = new ArrayList<String[]>();
         JSONObject venues = (JSONObject) response.get("response");
         JSONArray results = (JSONArray) venues.get("venues");
+        if(results.size() == 0)
+        {
+            return new Suggestion();
+        }
         //         for(int i = 0; i<results.size(); i++)
         //         {
         String[] temp = new String[7];//name, lat, lng, id, contact, categoriesID, catName
