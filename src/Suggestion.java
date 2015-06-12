@@ -15,16 +15,16 @@ public class Suggestion
     protected double latitude;
     protected double longitude;
     protected ArrayList<String> category;
-    
+
     public Suggestion()
     {
-        this.name = "";
-        this.lat = "0.0";
-        this.lng = "0.0";
-        this.categories = new String[0];
-        this.rating = "";
+        name = "";
+        rating = "";
+        lat = "0.0";
+        lng = "0.0";
+        categories = new String[0];
     }
-    
+
     public Suggestion(String a, double b, double c, double d, ArrayList<String> e)
     {
         title = a;
@@ -33,7 +33,7 @@ public class Suggestion
         longitude = d;
         category = e;
     }
-    
+
     public void printFinal()
     {
         System.out.println("Name: " + title);
@@ -46,7 +46,7 @@ public class Suggestion
             System.out.println("\t" + cat);
         }
     }
-    
+
     public Suggestion(String ratingIn, String nameIn, String urlIn, String categoriesIn, 
     String phoneIn, String addressIn)//YelpAPI
     {
@@ -73,7 +73,7 @@ public class Suggestion
         id="N/A";
         placeId="N/A";
     }
-    
+
     public Suggestion(String nameIn, String urlIn, String phoneIn, String categoriesIn, 
     String ratingIn, String latIn, String lngIn)//YelpAPI alternate
     {
@@ -117,7 +117,7 @@ public class Suggestion
     }
 
     public Suggestion(String nameIn, String latIn, String lngIn, String idIn,
-                        String contact, String[] types) //foursquare
+    String contact, String[] types) //foursquare
     {
         name = nameIn;
         lat = latIn;
