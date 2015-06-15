@@ -82,7 +82,7 @@ public class Merging
         }
     }
 
-    public void mergeApis(Suggestion yelp, Suggestion four, Suggestion goog)
+    public Suggestion mergeApis(Suggestion yelp, Suggestion four, Suggestion goog)
     {
         int yelp_count = 0;
         int four_count = 0;
@@ -175,11 +175,11 @@ public class Merging
             }
         }
 
-        Suggestion result = new Suggestion(name, rating, lat, lng, cats);
-        result.printFinal();
+        return new Suggestion(name, rating, lat, lng, cats);
+        //result.printFinal();
     }
 
-    public static void main(String[] args)
+    public static Suggestion merge(String[] args)
     {
         Merging m = new Merging();
         String name = JOptionPane.showInputDialog("Attraction?:", null);
@@ -191,6 +191,6 @@ public class Merging
         Suggestion four = m.searchFourSq((lat + "," + lng), name);
         Suggestion yelp = m.searchYelp(city, name);
         Suggestion goog = m.searchGoogle(lati, lngi, name);
-        m.mergeApis(yelp, four, goog);
+        return m.mergeApis(yelp, four, goog);        
     }
 }

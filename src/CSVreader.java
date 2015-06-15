@@ -1,6 +1,8 @@
 import java.io.*;
 import javax.swing.*;
 import java.util.*;
+import java.nio.*;
+import java.nio.file.*;
 
 public class CSVreader 
 {
@@ -12,11 +14,13 @@ public class CSVreader
      */
     public void run() 
     {
-        String csvFile = "/Users/Trees/Desktop/REU/contextual_suggestion/2014example/";
+        String trecData = "../TRECData/";
+
+        String collection = "collection_2015.csv";
         //id, city, state, lat, long
-        String locations = "contexts2014.csv";
+        String locations = "contexts2015.csv";
+        String coordinates = "contexts2015coordinates.csv";
         //id, attraction, description, website
-        String profile70 = "profiles2014-70.csv";
         String profile100 = "profiles2014-100.csv";
         //id, title, description, url
         String pois = "examples2014.csv";
@@ -24,20 +28,22 @@ public class CSVreader
         //String csvFile = JOptionPane.showInputDialog("Path to locate file: ", null);
 
         BufferedReader br = null;
+        BufferedReader br2 = null;
         String line = "";
 
         try {
-            br = new BufferedReader(new FileReader(csvFile + locations));
-            buildLocation(br);
+            br = new BufferedReader(new FileReader(Paths.get(trecData + locations).toFile()));
+            br2 = new BufferedReader(new FileReader(Paths.get(trecData + coordinates).toFile()));
+            buildLocation(br, br2);
 
-            br = new BufferedReader(new FileReader(csvFile + pois));
+            br = new BufferedReader(new FileReader(Paths.get(trecData + pois).toFile()));
             buildPOI(br);
 
-            br = new BufferedReader(new FileReader(csvFile + profile100));
+            br = new BufferedReader(new FileReader(Paths.get(trecData + profile100).toFile()));
             buildProfile(br);
 
-            br = new BufferedReader(new FileReader(csvFile + profile70));
-            buildProfile(br);
+            br = new BufferedReader(new FileReader(Paths.get(trecData + collection).toFile()));
+            //build(br);
         }
         catch (FileNotFoundException e) 
         {
@@ -67,18 +73,23 @@ public class CSVreader
     /**
      * Creates the Context objects given the file listing the cities
      */
-    public void buildLocation(BufferedReader br) throws IOException
+    public void buildLocation(BufferedReader br, BufferedReader br2) throws IOException
     {
+        //read in the id's and ignore result
         String line = "";
-        line = br.readLine();
-        String[] params = line.split(",");
-        while ((line = br.readLine()) != null) 
+        br.readLine();
+        br2.readLine();
+        while (line != null)
         {
+            line = br.readLine();
+            if (line == null) { break; }
+            line += ",";
+            line += br2.readLine();
             // use comma as separator
-            String[] context = line.split(",");
+            String[] context = CSVSplitter.split(line,6);
             ContextualSuggestion.cities.add(new Context(Integer.parseInt(context[0]), context[1], context[2],
-                    Double.parseDouble(context[3]), Double.parseDouble(context[4])));
-        }
+                    Double.parseDouble(context[4]), Double.parseDouble(context[5])));
+        } 
         br.close();
     }
 
@@ -89,8 +100,7 @@ public class CSVreader
     public void buildPOI(BufferedReader br) throws IOException
     {
         String line = "";
-        line = br.readLine();
-        String[] params = line.split(",");
+        br.readLine();
         while ((line = br.readLine()) != null) 
         {
             // use comma as separator
