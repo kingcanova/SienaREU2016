@@ -87,7 +87,8 @@ public class CSVreader
             line += br2.readLine();
             // use comma as separator
             String[] context = CSVSplitter.split(line,6);
-            ContextualSuggestion.contexts.put(Integer.parseInt(context[0]), new Context(Integer.parseInt(context[0]), context[1], context[2],
+            ContextualSuggestion.contexts.put(Integer.parseInt(context[0]), 
+                    new Context(Integer.parseInt(context[0]), context[1], context[2],
                     Double.parseDouble(context[4]), Double.parseDouble(context[5])));
         } 
         br.close();
@@ -106,7 +107,8 @@ public class CSVreader
             // use comma as separator
             String[] context = new String[5];
             context = CSVSplitter.split(line, 5);
-            ContextualSuggestion.pois.put(Integer.parseInt(context[0]), Merging.merge(context[2], Integer.parseInt(context[1])));
+            ContextualSuggestion.pois.put(Integer.parseInt(context[0]), 
+                                        Merging.merge(context[2], Integer.parseInt(context[1])));
         }
         br.close();
     }
