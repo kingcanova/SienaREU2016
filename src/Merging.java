@@ -175,19 +175,21 @@ public class Merging
             }
         }
 
-        return new Suggestion(name, rating, lat, lng, cats);
-        //result.printFinal();
+        Suggestion result = new Suggestion(name, rating, lat, lng, cats);
+        result.printFinal();
+        return result;
     }
 
-    public static Suggestion merge(String[] args)
+    public static Suggestion merge(String attr, int contextID)
     {
         Merging m = new Merging();
-        String name = JOptionPane.showInputDialog("Attraction?:", null);
-        String lat = "42.65";
-        String lng = "-73.75";
-        String city = "Albany, NY";
-        Double lati = Double.parseDouble(lat);
-        Double lngi = Double.parseDouble(lng);
+        String name = attr;
+        Context cur = ContextualSuggestion.contexts.get(contextID);
+        String lat = cur.latitude + "";
+        String lng = cur.longitude + "";
+        String city = cur.name + ", " + cur.state;
+        Double lati = cur.latitude;
+        Double lngi = cur.longitude;
         Suggestion four = m.searchFourSq((lat + "," + lng), name);
         Suggestion yelp = m.searchYelp(city, name);
         Suggestion goog = m.searchGoogle(lati, lngi, name);
