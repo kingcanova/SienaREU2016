@@ -68,6 +68,12 @@ public class FSqAPI
             System.err.println("Error: could not parse JSON response:");
             System.exit(1);
         }
+        catch (NullPointerException e)
+        {
+            System.err.println(e);
+            System.out.println(e);
+            System.exit(1);
+        }
 
         //         String bob = (response.toString()).replace('{','\n');
         //         bob = bob.replace(',', '\t');

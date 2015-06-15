@@ -23,7 +23,7 @@ public class Merging
         {
             //ArrayList<Suggestion> fsqResults = 
             Suggestion result = fsqApi.stringToJson(fsqApi.queryAPI(ll, name));
-            result.print();
+            //result.print();
             return result;
             //             for(Suggestion sug : fsqResults)
             //             {
@@ -34,7 +34,7 @@ public class Merging
         {
             System.err.println(e);
             System.out.println(e);
-            return null;
+            return new Suggestion();
         }
     }
 
@@ -45,7 +45,7 @@ public class Merging
         {
             //ArrayList<Suggestion> yelpResults = new ArrayList<Suggestion>();
             Suggestion result = yelpApi.queryAPI(yelpApi, name, cityName);
-            result.print();
+            //result.print();
             return result;
             //             for(Suggestion sug : yelpResults)
             //             {
@@ -56,7 +56,7 @@ public class Merging
         {
             System.err.println(e);
             System.out.println(e);
-            return null;
+            return new Suggestion();
         }
     }
 
@@ -67,7 +67,7 @@ public class Merging
         {
             //ArrayList<Suggestion> googleResults = new ArrayList<Suggestion>();
             Suggestion result = googleApi.performSearch(name, lat, lng);
-            result.print();
+            //result.print();
             return result;
             //             for(Suggestion sug : googleResults)
             //             {
@@ -78,7 +78,7 @@ public class Merging
         {
             System.err.println(e);
             System.out.println(e);
-            return null;
+            return new Suggestion();
         }
     }
 
@@ -176,7 +176,7 @@ public class Merging
         }
 
         Suggestion result = new Suggestion(name, rating, lat, lng, cats);
-        result.printFinal();
+        //result.printFinal();
         return result;
     }
 
