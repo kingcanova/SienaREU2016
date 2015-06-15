@@ -61,7 +61,7 @@ public class CSVreader
                 }
             }
         }
-        test.suggest();
+        ContextualSuggestion.suggest();
     }
 
     /**
@@ -76,7 +76,7 @@ public class CSVreader
         {
             // use comma as separator
             String[] context = line.split(",");
-            test.cities.add(new Context(Integer.parseInt(context[0]), context[1], context[2],
+            ContextualSuggestion.cities.add(new Context(Integer.parseInt(context[0]), context[1], context[2],
                     Double.parseDouble(context[3]), Double.parseDouble(context[4])));
         }
         br.close();
@@ -96,7 +96,7 @@ public class CSVreader
             // use comma as separator
             String[] context = new String[4];
             context = CSVSplitter.split(line, 4);
-            test.attractions.add(new POI(Integer.parseInt(context[0]), context[1], context[2], context[3]));
+            ContextualSuggestion.attractions.add(new POI(Integer.parseInt(context[0]), context[1], context[2], context[3]));
         }
         br.close();
     }
@@ -112,7 +112,7 @@ public class CSVreader
         String[] params = line.split(",");
         int person_id = -1;
 
-        int start = test.attractions.get(0).id_num;
+        int start = ContextualSuggestion.attractions.get(0).id_num;
         while ((line = br.readLine()) != null) 
         {
             // use comma as separator
@@ -121,7 +121,7 @@ public class CSVreader
             if(num != person_id)
             {
                 person_id = num;
-                test.people.add(new Profile(num));
+                ContextualSuggestion.people.add(new Profile(num));
                 if(first == -1)
                 {
                     first = person_id;
@@ -130,7 +130,7 @@ public class CSVreader
             int att_id = Integer.parseInt(context[1]);
             int t_rating = Integer.parseInt(context[2]);
             int u_rating = Integer.parseInt(context[3]);
-            Profile person = test.people.get(num-first);
+            Profile person = ContextualSuggestion.people.get(num-first);
             person.ratings[att_id - start][0] = t_rating;
             person.ratings[att_id - start][1] = u_rating;
         }

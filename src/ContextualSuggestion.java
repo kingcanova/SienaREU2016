@@ -11,9 +11,9 @@ import java.io.*;
 public class ContextualSuggestion
 {
 
-    protected ArrayList<Profile> people;
-    protected ArrayList<Context> cities;
-    protected ArrayList<POI> attractions;
+    protected static ArrayList<Profile> people;
+    protected static ArrayList<Context> cities;
+    protected static ArrayList<POI> attractions;
 
     protected String groupID = "Siena";
     protected String runID = "test";
@@ -33,14 +33,14 @@ public class ContextualSuggestion
      * testing before final version of writing to a csv file
      * 
      */
-    public void suggest()
+    public static void suggest()
     {
         try
         {
             PrintWriter out_file = new PrintWriter( "out_file.csv"); //change to csv for final copy
 
             out_file.println("groupid,runid,profile,context,rank,title,description,url,docId");
-            for(Profile person : this.people)
+            for(Profile person : people)
             {
                 for(int i = 0; i< person.ratings.length; i++)
                 {
