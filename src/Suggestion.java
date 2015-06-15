@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class Suggestion
 {
-    protected String rating, name, url, categories[], phone, address, lat, lng, id, 
+    protected String rating, name, url, categories[], phone, address, lat, lng, id,
     placeId, vicinity;
 
     protected String title;

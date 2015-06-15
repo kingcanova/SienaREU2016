@@ -176,7 +176,7 @@ public class Merging
         }
 
         Suggestion result = new Suggestion(name, rating, lat, lng, cats);
-        //result.printFinal();
+        result.printFinal();
         return result;
     }
 

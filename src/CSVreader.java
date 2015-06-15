@@ -25,13 +25,12 @@ public class CSVreader
         //id, title, description, url
         String pois = "examples2014.csv";
 
-        //String csvFile = JOptionPane.showInputDialog("Path to locate file: ", null);
-
         BufferedReader br = null;
         BufferedReader br2 = null;
         String line = "";
 
         try {
+            //br for context csv and br2 for coordinates csv
             br = new BufferedReader(new FileReader(Paths.get(trecData + locations).toFile()));
             br2 = new BufferedReader(new FileReader(Paths.get(trecData + coordinates).toFile()));
             buildLocation(br, br2);
@@ -75,18 +74,20 @@ public class CSVreader
      */
     public void buildLocation(BufferedReader br, BufferedReader br2) throws IOException
     {
-        //read in the id's and ignore result
         String line = "";
+        //read in parameters to ignore them and jump to next line 
         br.readLine();
         br2.readLine();
         while (line != null)
         {
+            //combine city id, name, state, and coordinates into one String
             line = br.readLine();
             if (line == null) { break; }
             line += ",";
             line += br2.readLine();
-            // use comma as separator
+            //Separate String by every 6 commas to place values in "context" array.
             String[] context = CSVSplitter.split(line,6);
+            //Populate hashtable using context ID as a key to reference a Context object
             ContextualSuggestion.contexts.put(Integer.parseInt(context[0]), new Context(Integer.parseInt(context[0]), context[1], context[2],
                     Double.parseDouble(context[4]), Double.parseDouble(context[5])));
         } 
@@ -100,12 +101,14 @@ public class CSVreader
     public void buildPOI(BufferedReader br) throws IOException
     {
         String line = "";
+        //read in paramters to skip them
         br.readLine();
         while ((line = br.readLine()) != null) 
         {
-            // use comma as separator
+            //separate string by commas, place data into "context" array
             String[] context = new String[5];
             context = CSVSplitter.split(line, 5);
+            //populate hashtable using attr ID as a key to reference the merged Suggestion object
             ContextualSuggestion.pois.put(Integer.parseInt(context[0]), Merging.merge(context[2], Integer.parseInt(context[1])));
         }
         br.close();
