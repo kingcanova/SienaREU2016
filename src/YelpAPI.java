@@ -27,7 +27,6 @@ import javax.swing.*;
 public class YelpAPI {
 
     private static final String API_HOST = "api.yelp.com";
-    private static final String DEFAULT_LOCATION = "Albany, NY";
     private static final String SEARCH_PATH = "/v2/search";
     private static final String BUSINESS_PATH = "/v2/business";
 
@@ -132,30 +131,17 @@ public class YelpAPI {
         
         if (businesses.size() == 0)
         {
+            System.out.println("Yelp could find no results");
             return new Suggestion();
         }
-        //for(int i = 0; i < businesses.size(); i++)
-        //{
+        
         JSONObject firstBusiness = (JSONObject) businesses.get(0);
         String firstBusinessID = firstBusiness.get("id").toString();
-        //             System.out.println(String.format(
-        //                     "%s businesses found, querying business info for the top result \"%s\" ...",
-        //                     businesses.size(), firstBusinessID));
-
+        
         // Select the first business and display business details
         String businessResponseJSON = yelpApi.searchByBusinessId(firstBusinessID.toString());
-        JSONObject bRep = yelpApi.stringToJson(businessResponseJSON);
-        //list.add(yelpApi.splitJSON(bRep));
-        return yelpApi.splitJSON(bRep);
-        //}
-    }
-
-    public Suggestion splitJSON(JSONObject business)
-    {
-        //System.out.println((business).toString());
-
-        //System.out.println(((JSONObject)(business.get("location"))).get("city").toString());
-
+        JSONObject business = yelpApi.stringToJson(businessResponseJSON);
+        
         return new Suggestion(
             (business.get("name")).toString(),
             (business.get("url")).toString(),
@@ -166,18 +152,7 @@ public class YelpAPI {
             ((JSONObject)((JSONObject)(business.get("location"))).get("coordinate")).get("longitude").toString()
         );
     }
-    // 
-    //     /**
-    //      * Command-line interface for the sample Yelp API runner.
-    //      */
-    //     private static class YelpAPICLI {
-    //         @Parameter(names = {"-q", "--term"}, description = "Search Query Term")
-    //         public String term = queryTerm;
-    // 
-    //         @Parameter(names = {"-l", "--location"}, description = "Location to be Queried")
-    //         public String location = DEFAULT_LOCATION;
-    //     }
-
+    
     /**
      * Main entry for sample Yelp API requests.
      * <p>
@@ -187,18 +162,5 @@ public class YelpAPI {
         YelpAPI yelpApi = new YelpAPI();
         Suggestion s = queryAPI(yelpApi, "Neo", "Chicago, IL");
         s.print();
-        
-        //queryTerm= JOptionPane.showInputDialog("Search for:", null);
-        //YelpAPICLI yelpApiCli = new YelpAPICLI();
-        //new JCommander(yelpApiCli, args);
-
-        //         YelpAPI yelpApi = new YelpAPI();
-        // 
-        //         ArrayList<Suggestion> s = new ArrayList<Suggestion>();
-        //         queryAPI(yelpApi, "bombers", DEFAULT_LOCATION, s);
-        //         for(Suggestion sug : s)
-        //         {
-        //             sug.print();
-        //         }
     }
 }

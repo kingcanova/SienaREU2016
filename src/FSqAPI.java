@@ -26,7 +26,7 @@ import java.util.*;
 /**
  * Write a description of class FoursquareApi here.
  * 
- * @author Aidan 
+ * @author Aidan, Tom, Kevin, Zach
  * @version Whatever version Aidan wants it to be
  */
 public class FSqAPI
@@ -35,10 +35,11 @@ public class FSqAPI
     client_secret = Secret.FOURSQUARE_CLIENT_SECRET,
     version = "20120609";
 
-    public String queryAPI(String ll, String name) throws URISyntaxException, IOException
+    public Suggestion queryAPI(String ll, String name) throws URISyntaxException, IOException
     {
         final URIBuilder builder = 
-            new URIBuilder().setScheme("https").setHost("api.foursquare.com").setPath("/v2/venues/search");
+            new URIBuilder().setScheme("https").setHost(
+            "api.foursquare.com").setPath("/v2/venues/search");
 
         builder.addParameter("client_id", client_id);
         builder.addParameter("client_secret", client_secret);//radius in meters
@@ -53,32 +54,21 @@ public class FSqAPI
 
         final String r = EntityUtils.toString(execute.getEntity());
 
-        return r;
-    }
-
-    public Suggestion stringToJson(String in)
-    {
-        ArrayList<Suggestion> s = new ArrayList<Suggestion>();
-
         JSONParser parser = new JSONParser();
         JSONObject response = null;
         try {
-            response = (JSONObject) parser.parse(in);
+            response = (JSONObject) parser.parse(r);
         } catch (ParseException pe) {
             System.err.println("Error: could not parse JSON response:");
             System.exit(1);
         }
         catch (NullPointerException e)
         {
-            System.err.println(e);
+            //System.err.println(e);
             System.out.println(e);
-            System.exit(1);
+            return new Suggestion();
+            //System.exit(1);
         }
-
-        //         String bob = (response.toString()).replace('{','\n');
-        //         bob = bob.replace(',', '\t');
-        //         bob = bob.replace('}', '\n');
-        //         System.out.println(bob);
 
         String[] fqTerms = new String[]{"name", "location", "id", "contact", "categories"};
         ArrayList<String[]> list = new ArrayList<String[]>();
@@ -89,8 +79,7 @@ public class FSqAPI
         {
             return new Suggestion();
         }
-        //         for(int i = 0; i<results.size(); i++)
-        //         {
+        
         String[] temp = new String[7];//name, lat, lng, id, contact, categoriesID, catName
         JSONObject curr = (JSONObject) results.get(0);
         temp[0] = (curr.get("name")).toString();
@@ -111,26 +100,5 @@ public class FSqAPI
             types[x] = ((JSONObject)cats.get(x)).get("shortName").toString();
         }
         return new Suggestion(temp[0],temp[1],temp[2],temp[3],temp[4],types);
-
-        //}
-        //return s;
-    }
-
-    public static void main(String[] args)
-    {
-        //         try
-        //         {
-        //             FSqAPI test = new FSqAPI();
-        //             ArrayList<Suggestion> s = 
-        //                 test.stringToJson(test.queryAPI("42.65,-73.75", "bombers"));
-        //             for(Suggestion sug : s)
-        //             {
-        //                 sug.print();
-        //             }
-        //         }
-        //         catch(Exception e)
-        //         {
-        //             System.err.println(e);
-        //         }
     }
 }
