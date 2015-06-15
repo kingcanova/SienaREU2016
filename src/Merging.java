@@ -18,7 +18,7 @@ public class Merging
 
     public Suggestion searchFourSq(String ll, String name)
     {
-        System.out.println("Searching FourSquare for: " + name);
+        //System.out.println("Searching FourSquare for: " + name);
         try
         {
             //ArrayList<Suggestion> fsqResults = 
@@ -40,7 +40,7 @@ public class Merging
 
     public Suggestion searchYelp(String cityName, String name)
     {
-        System.out.println("Searching Yelp for: " + name);
+        //System.out.println("Searching Yelp for: " + name);
         try
         {
             //ArrayList<Suggestion> yelpResults = new ArrayList<Suggestion>();
@@ -62,7 +62,7 @@ public class Merging
 
     public Suggestion searchGoogle(double lat, double lng, String name) 
     {
-        System.out.println("Searching GooglePlaces for: " + name);
+        //System.out.println("Searching GooglePlaces for: " + name);
         try
         {
             //ArrayList<Suggestion> googleResults = new ArrayList<Suggestion>();

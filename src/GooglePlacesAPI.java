@@ -55,7 +55,7 @@ public class GooglePlacesAPI
         JSONArray results = (JSONArray) response.get("results");
         if(results.size() == 0)
         {
-            System.out.println("Sorry, no results were found for your request.");
+            //System.out.println("Sorry, no results were found for your request.");
             return new Suggestion();
         }
         else
