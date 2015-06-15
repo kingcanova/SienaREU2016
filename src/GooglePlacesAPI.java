@@ -81,12 +81,8 @@ public class GooglePlacesAPI
 
     public static void main(final String[] args) throws ParseException, IOException, URISyntaxException
     {
-        //         ArrayList<Suggestion> googleResults = new ArrayList<Suggestion>();
-        //         String locationTitle = JOptionPane.showInputDialog("Search for:", null);
-        //         googleResults = new GooglePlacesAPI().performSearch(locationTitle,42.6525793, -73.7562317); //albany,ny
-        //         for(Suggestion sug : googleResults)
-        //         {
-        //             sug.print();
-        //         }
+        GooglePlacesAPI g = new GooglePlacesAPI();
+        Suggestion s = g.performSearch("Neo", 41.8369, 87.6847);
+        s.print();
     }
 }

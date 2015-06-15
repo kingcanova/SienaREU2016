@@ -184,6 +184,10 @@ public class YelpAPI {
      * After entering your OAuth credentials, execute <tt><b>run.sh</b></tt> to run this example.
      */
     public static void main(String[] args) {
+        YelpAPI yelpApi = new YelpAPI();
+        Suggestion s = queryAPI(yelpApi, "Neo", "Chicago, IL");
+        s.print();
+        
         //queryTerm= JOptionPane.showInputDialog("Search for:", null);
         //YelpAPICLI yelpApiCli = new YelpAPICLI();
         //new JCommander(yelpApiCli, args);
