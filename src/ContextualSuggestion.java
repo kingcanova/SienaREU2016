@@ -13,6 +13,7 @@ public class ContextualSuggestion
     protected static Hashtable<Integer, Context> contexts = new Hashtable<Integer, Context>();
     protected static Hashtable<Integer, Suggestion> pois = new Hashtable<Integer, Suggestion>();
     protected static Hashtable<Integer, Profile> profiles = new Hashtable<Integer, Profile>();
+    protected static Hashtable<Integer, Suggestion> theCollection = new Hashtable<Integer, Suggestion>();
 
     protected String groupID = "Siena";
     protected String runID = "test";
