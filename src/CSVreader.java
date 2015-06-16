@@ -42,7 +42,7 @@ public class CSVreader
             buildProfile(br);
 
             br = new BufferedReader(new FileReader(Paths.get(trecData + collection).toFile()));
-            //build(br);
+            buildCollection(br);
         }
         catch (FileNotFoundException e) 
         {
@@ -103,7 +103,9 @@ public class CSVreader
         String line = "";
         //read in paramters to skip them
         br.readLine();
-        while ((line = br.readLine()) != null) 
+        //         while ((line = br.readLine()) != null) 
+        //         {
+        for (int i=0; i<10; i++)
         {
             //separate string by commas, place data into "context" array
             String[] context = new String[5];
@@ -111,6 +113,7 @@ public class CSVreader
             //populate hashtable using attr ID as a key to reference the merged Suggestion object
             ContextualSuggestion.pois.put(Integer.parseInt(context[0]), Merging.merge(context[2], Integer.parseInt(context[1])));
         }
+        //         }
         br.close();
     }
 
@@ -121,7 +124,7 @@ public class CSVreader
     public void buildProfile(BufferedReader br) throws IOException
     {
         //         String line = "";
-        //         line = br.readLine();
+        //         br.readLine();
         //         String[] params = line.split(",");
         //         int person_id = -1;
         // 
@@ -148,6 +151,25 @@ public class CSVreader
         //             person.ratings[att_id - start][1] = u_rating;
         //         }
         //         br.close();
+    }
+
+    public void buildCollection(BufferedReader br) throws IOException
+    {
+        String line = "";
+        //read in paramters to skip them
+        br.readLine();
+        //         while ((line = br.readLine()) != null) 
+        //         {
+        for (int i=0; i<10; i++)
+        {
+            //separate string by commas, place data into "context" array
+            String[] context = CSVSplitter.split(line, 4);
+            String attrID = (context[0].split("-"))[1];
+            //populate hashtable using attr ID as a key to reference the merged Suggestion object
+            ContextualSuggestion.pois.put(Integer.parseInt(attrID), Merging.merge(context[3], Integer.parseInt(context[1])));
+        }
+        //         }
+        br.close();
     }
 
     /**
