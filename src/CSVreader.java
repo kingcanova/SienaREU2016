@@ -103,13 +103,16 @@ public class CSVreader
         String line = "";
         //read in paramters to skip them
         br.readLine();
-        while ((line = br.readLine()) != null) 
+       // while ((line = br.readLine()) != null) 
+       for(int i=0;i<10;i++)
         {
+            line = br.readLine();
             //separate string by commas, place data into "context" array
             String[] context = new String[5];
             context = CSVSplitter.split(line, 5);
             //populate hashtable using attr ID as a key to reference the merged Suggestion object
             ContextualSuggestion.pois.put(Integer.parseInt(context[0]), Merging.merge(context[2], Integer.parseInt(context[1])));
+            i++;
         }
         br.close();
     }
