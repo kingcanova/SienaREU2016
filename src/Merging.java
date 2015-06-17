@@ -13,7 +13,7 @@ import java.net.*;
 public class Merging
 {
     FSqAPI fsqApi = new FSqAPI();
-    //YelpAPI yelpApi = new YelpAPI();
+    YPAPI ypApi = new YPAPI();
     GooglePlacesAPI googleApi = new GooglePlacesAPI();
 
     /**
@@ -42,29 +42,26 @@ public class Merging
     }
 
     /**
-     * Call the yelp api 
+     * Call the yp api 
      * @param "City, State abbr"
      * @param "Name of attraction"
      * @return Suggestion object created by api
      * 
      */
-    public Suggestion searchYelp(String cityName, String name)
+    public Suggestion searchYP(Double lat, Double lng, String name)
     {
-        //         //System.out.println("Searching Yelp for: " + name);
-        //         try
-        //         {
-        //             //ArrayList<Suggestion> yelpResults = new ArrayList<Suggestion>();
-        //             Suggestion result = yelpApi.queryAPI(yelpApi, name, cityName);
-        //             //result.print();
-        //             return result;
-        //         }
-        //         catch(Exception e)
-        //         {
-        //             System.err.println(e);
-        //             System.out.println(e);
-        //             return new Suggestion();
-        //         }
-        return null;
+        //System.out.println("Searching Yellow Pages for: " + name);
+        try
+        {
+            Suggestion result = ypApi.performSearch(name, lat, lng);
+            return result;
+        }
+        catch(Exception e)
+        {
+            System.err.println(e);
+            System.out.println(e);
+            return new Suggestion();
+        }
     }
 
     /**
@@ -101,38 +98,40 @@ public class Merging
      * @return merged Suggestion object
      * 
      */
-    public Suggestion mergeApis(Suggestion four, Suggestion goog)
+    public Suggestion mergeApis(Suggestion four, Suggestion goog, Suggestion yp)
     {
-        //int yelp_count = 0;
+        int yp_count = 0;
         int four_count = 0;
         int goog_count = 0;
 
         String name = four.name; //use foursquare by default
         //use the most common name
         //make not of api not being used by decrementing api_count variable
-        if(four.name == null)
-        {
-            name = goog.name;
+        //         if(four.name == null)
+        //         {
+        //             name = goog.name;
+        //         }
+        if((yp.name).equals(four.name) && (yp.name).equals(goog.name)) {
+            name = yp.name;
+        }
+        else if( (yp.name).equals(four.name) ) {
+            name = yp.name;
+            goog_count -= 1;
+        }
+        else if( (yp.name).equals(goog.name) ) {
+            name = yp.name;
+            four_count -= 1;
+        }
+        else if( (four.name).equals(goog.name) ) {
+            name = four.name;
+            yp_count -= 1;
         }
 
-        //         else if( (yelp.name).equals(four.name) ) {
-        //             name = yelp.name;
-        //             goog_count -= 1;
-        //         }
-        //         else if( (yelp.name).equals(goog.name) ) {
-        //             name = yelp.name;
-        //             four_count -= 1;
-        //         }
-        //         else if( (four.name).equals(goog.name) ) {
-        //             name = four.name;
-        //             yelp_count -= 1;
-        //         }
-
         //save lat/lng, if their count is not zero lat/lng will be 100 degrees off
-        //         double ylat = Double.parseDouble(yelp.lat) + (yelp_count * 100);
+        double ylat = Double.parseDouble(yp.lat) + (yp_count * 100);
         double flat = Double.parseDouble(four.lat) + (four_count * 100);
         double glat = Double.parseDouble(goog.lat) + (goog_count * 100);
-        //         double ylng = Double.parseDouble(yelp.lng) + (yelp_count * 100);
+        double ylng = Double.parseDouble(yp.lng) + (yp_count * 100);
         double flng = Double.parseDouble(four.lng) + (four_count * 100);
         double glng = Double.parseDouble(goog.lng) + (goog_count * 100);
 
@@ -141,27 +140,27 @@ public class Merging
 
         //compare lat's with a tolerance of 0.01 degrees
         //use most common lat
-        //         if(Math.abs(ylat-flat) < 0.01){lat = ylat;}
-        //         else if(Math.abs(ylat-glat) < 0.01){lat = ylat;}
-        //         else if(Math.abs(flat-glat) < 0.01){lat = flat;}
+        if(Math.abs(ylat-flat) < 0.01){lat = ylat;}
+        else if(Math.abs(ylat-glat) < 0.01){lat = ylat;}
+        else if(Math.abs(flat-glat) < 0.01){lat = flat;}
 
-        //         if(Math.abs(ylng-flng) < 0.01){lng = ylng;}
-        //         else if(Math.abs(ylng-glng) < 0.01){lng = ylng;}
-        //         else if(Math.abs(flng-glng) < 0.01){lng = flng;}
+        if(Math.abs(ylng-flng) < 0.01){lng = ylng;}
+        else if(Math.abs(ylng-glng) < 0.01){lng = ylng;}
+        else if(Math.abs(flng-glng) < 0.01){lng = flng;}
 
         double rating = 0.0;
-        //        double yelp_rating = 0.0;
+        double yp_rating = 0.0;
         double four_rating = 0.0;
         double goog_rating = 0.0;
         //look at each rating and 
         //increment rating variable if using a rating
         //rating may or may not exist, ignore if doesn't
-        //         try{
-        //             if(yelp_count == 0) {
-        //                 yelp_rating = Double.parseDouble(yelp.rating);
-        //                 rating += 1;
-        //             }
-        //         } catch(Exception e){}
+        try{
+            if(yp_count == 0) {
+                yp_rating = Double.parseDouble(yp.rating);
+                rating += 1;
+            }
+        } catch(Exception e){}
         try{
             if(four_count == 0) {
                 four_rating = Double.parseDouble(four.rating);
@@ -175,19 +174,19 @@ public class Merging
             }
         } catch(Exception e){}
         //take average of all used ratings
-        rating = (four_rating + goog_rating) / rating;
+        rating = (four_rating + goog_rating + yp_rating) / rating;
 
         //add all categories of used api's into unified list
         ArrayList<String> cats = new ArrayList<String>();
-        //         if(yelp_count == 0) {
-        //             for(String cat : yelp.categories)
-        //             {
-        //                 if(!cats.contains(cat))
-        //                 {
-        //                     cats.add(cat);
-        //                 }
-        //             }
-        //         }
+        if(yp_count == 0) {
+            for(String cat : yp.categories)
+            {
+                if(!cats.contains(cat))
+                {
+                    cats.add(cat);
+                }
+            }
+        }
         if(four_count == 0) {
             for(String cat : four.categories)
             {
@@ -232,9 +231,9 @@ public class Merging
         Double lngi = cur.longitude;
         //search the three api's
         Suggestion four = m.searchFourSq((lat + "," + lng), name);
-        //Suggestion yelp = m.searchYelp(city, name);
+        Suggestion yp = m.searchYP(lati, lngi, name);
         Suggestion goog = m.searchGoogle(lati, lngi, name);
         System.out.println();
-        return m.mergeApis(four, goog);        
+        return m.mergeApis(four, goog, yp);        
     }
 }

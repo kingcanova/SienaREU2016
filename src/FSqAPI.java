@@ -70,7 +70,7 @@ public class FSqAPI
             //System.exit(1);
         }
         
-        System.out.println(response);
+        //System.out.println(response);
 
         String[] fqTerms = new String[]{"name", "location", "id", "contact", "categories"};
         ArrayList<String[]> list = new ArrayList<String[]>();

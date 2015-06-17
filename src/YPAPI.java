@@ -74,9 +74,10 @@ public class YPAPI
                 if(unk.get(ypTerms[j]) != null)
                 {
                     temp[j] = (unk.get(ypTerms[j])).toString();
+                    System.out.println(temp[j]);
                 }
             }
-            //retrieve lng and lat, which were under two sub categories. Create Suggestion object with collected info
+            //Create Suggestion object with collected info
             return new Suggestion(temp[0],temp[1], temp[2], temp[3], temp[4]);
         }
     }
