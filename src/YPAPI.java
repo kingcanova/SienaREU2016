@@ -69,7 +69,7 @@ public class YPAPI
             //obtain information for first business and place data in array "temp"
             String[] temp = new String[ypTerms.length];
             JSONObject unk = (JSONObject) results.get(0);
-            for(int j = 0; j < ypTerms.length-1; j++)
+            for(int j = 0; j < ypTerms.length; j++)
             {
                 if(unk.get(ypTerms[j]) != null)
                 {

@@ -85,6 +85,7 @@ public class Suggestion
         categoriesIn = categoriesIn.replaceAll("\\]", "");
         categoriesIn = categoriesIn.replaceAll("\"", "");
         categoriesIn = categoriesIn.replaceAll(" ", "");
+        categoriesIn = categoriesIn.toLowerCase();
         categories = categoriesIn.split(",");
         phone = phoneIn;
         address = "N/A";
@@ -110,6 +111,7 @@ public class Suggestion
         typesIn = typesIn.replaceAll("\\]", "");
         typesIn = typesIn.replaceAll("\"", "");
         typesIn = typesIn.replaceAll(" ", "");
+        typesIn = typesIn.toLowerCase();
         categories = typesIn.split(",");
         vicinityIn = vicinityIn.replaceAll("\"", "");
         address= vicinityIn;
@@ -136,7 +138,9 @@ public class Suggestion
         name = nameIn;
         lat = latIn;
         lng = lngIn;
-        c = categoriesIn;
+        categoriesIn = categoriesIn.replaceAll(" ", "");
+        categoriesIn = categoriesIn.toLowerCase();
+        categories = categoriesIn.split("\\|");
         rating = ratingIn;
         url = "";
         address = "";
@@ -150,23 +154,18 @@ public class Suggestion
         String output = "";
         output += ("Name: " + this.name + "\n");
         output += ("Rating: " + this.rating + "\n");
-        output += ("URL: " + this.url + "\n");
-        output += ("Address: " + this.address + "\n");
+        //         output += ("URL: " + this.url + "\n");
+        //         output += ("Address: " + this.address + "\n");
         output += ("Latitude: " + this.lat + "\n");
         output += ("Longitude: " + this.lng + "\n");
-        output += ("Phone: " + this.phone + "\n");
-        output += ("ID: " + this.id + "\n");
-        output += ("Place ID: " + this.placeId + "\n");
-        output += "Categories: ";
-        if(categories!=null)
+        //         output += ("Phone: " + this.phone + "\n");
+        //         output += ("ID: " + this.id + "\n");
+        //         output += ("Place ID: " + this.placeId + "\n");
+        output += "Categories:\n";
+        for (String s : categories)
         {
-            for (String s : categories)
-            {
-                output += (s + ", ");
-            }
+            output += (s + "\n");
         }
-        else{
-            output += ("\nYP Categories: " + this.c);}
         return output + "\n";
     }
 
