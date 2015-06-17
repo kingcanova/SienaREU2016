@@ -15,6 +15,7 @@ public class Suggestion
     protected double latitude;
     protected double longitude;
     protected ArrayList<String> category;
+    protected String c;
 
     public Suggestion()
     {
@@ -130,6 +131,20 @@ public class Suggestion
         rating = "";
     }
 
+    public Suggestion(String nameIn, String ratingIn, String latIn, String lngIn, String categoriesIn) //YP
+    {
+        name = nameIn;
+        lat = latIn;
+        lng = lngIn;
+        c = categoriesIn;
+        rating = ratingIn;
+        url = "";
+        address = "";
+        phone = "";
+        id = ""; 
+
+    }
+
     public String toString()
     {
         String output = "";
@@ -143,11 +158,15 @@ public class Suggestion
         output += ("ID: " + this.id + "\n");
         output += ("Place ID: " + this.placeId + "\n");
         output += "Categories: ";
-        for (String s : categories)
+        if(categories!=null)
         {
-            output += (s + ", ");
+            for (String s : categories)
+            {
+                output += (s + ", ");
+            }
         }
-
+        else{
+            output += ("\nYP Categories: " + this.c);}
         return output + "\n";
     }
 

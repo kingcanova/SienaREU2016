@@ -35,7 +35,7 @@ public class YPAPI
         final HttpUriRequest request = new HttpGet(builder.build());
         final HttpResponse execute = this.client.execute(request);
         final String r = EntityUtils.toString(execute.getEntity());
-        //System.out.println(r);
+        System.out.println(r);
 
         //turn String into JSON
         JSONParser parser = new JSONParser();
@@ -52,7 +52,7 @@ public class YPAPI
         //System.out.println(response);
 
         //array of terms used by GooglePlacesAPI inside of the JSON response to separate data
-        String[] googleTerms = new String[]{"businessName", "averageRating", "latitude", 
+        String[] ypTerms = new String[]{"businessName", "averageRating", "latitude", 
                                             "longitude","categories"};
 
         //retrieves JSON data for all businesses found
@@ -67,24 +67,24 @@ public class YPAPI
         else
         {
             //obtain information for first business and place data in array "temp"
-            String[] temp = new String[googleTerms.length+1];
+            String[] temp = new String[ypTerms.length];
             JSONObject unk = (JSONObject) results.get(0);
-            for(int j = 0; j < googleTerms.length-1; j++)
+            for(int j = 0; j < ypTerms.length-1; j++)
             {
-                if(unk.get(googleTerms[j]) != null)
+                if(unk.get(ypTerms[j]) != null)
                 {
-                    temp[j] = (unk.get(googleTerms[j])).toString();
+                    temp[j] = (unk.get(ypTerms[j])).toString();
                 }
             }
             //retrieve lng and lat, which were under two sub categories. Create Suggestion object with collected info
-            return new Suggestion(temp[0],temp[1], temp[2], temp[3], temp[4], temp[5], temp[6],temp[7]);
+            return new Suggestion(temp[0],temp[1], temp[2], temp[3], temp[4]);
         }
     }
 
     public static void main(final String[] args) throws ParseException, IOException, URISyntaxException
     {
         YPAPI g = new YPAPI();
-        Suggestion s = g.performSearch("Tina Maries Dance Academy", 42.652580, -73.756233);
+        Suggestion s = g.performSearch("Bombers", 42.652580, -73.756233);
         s.print();
     }
 }
