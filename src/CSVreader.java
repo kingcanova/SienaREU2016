@@ -155,8 +155,7 @@ public class CSVreader
     public void buildCollection(BufferedReader br) throws IOException
     {
         String line = "";
-        //read in paramters to skip them
-        br.readLine();
+       //no paramters in collection
         for (int i=0; i<5; i++)
         {
             line = br.readLine();
