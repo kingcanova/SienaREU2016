@@ -13,7 +13,7 @@ import java.net.*;
 public class Merging
 {
     FSqAPI fsqApi = new FSqAPI();
-    YelpAPI yelpApi = new YelpAPI();
+    //YelpAPI yelpApi = new YelpAPI();
     GooglePlacesAPI googleApi = new GooglePlacesAPI();
 
     /**
@@ -50,20 +50,21 @@ public class Merging
      */
     public Suggestion searchYelp(String cityName, String name)
     {
-        //System.out.println("Searching Yelp for: " + name);
-        try
-        {
-            //ArrayList<Suggestion> yelpResults = new ArrayList<Suggestion>();
-            Suggestion result = yelpApi.queryAPI(yelpApi, name, cityName);
-            //result.print();
-            return result;
-        }
-        catch(Exception e)
-        {
-            System.err.println(e);
-            System.out.println(e);
-            return new Suggestion();
-        }
+        //         //System.out.println("Searching Yelp for: " + name);
+        //         try
+        //         {
+        //             //ArrayList<Suggestion> yelpResults = new ArrayList<Suggestion>();
+        //             Suggestion result = yelpApi.queryAPI(yelpApi, name, cityName);
+        //             //result.print();
+        //             return result;
+        //         }
+        //         catch(Exception e)
+        //         {
+        //             System.err.println(e);
+        //             System.out.println(e);
+        //             return new Suggestion();
+        //         }
+        return null;
     }
 
     /**
@@ -137,7 +138,7 @@ public class Merging
 
         double lat = glat; //default
         double lng = glng; //default
-     
+
         //compare lat's with a tolerance of 0.01 degrees
         //use most common lat
         //         if(Math.abs(ylat-flat) < 0.01){lat = ylat;}
