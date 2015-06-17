@@ -29,6 +29,7 @@ public class CSVreader
         BufferedReader br2 = null;
         String line = "";
 
+        //using 2014 for testing
         try {
             //br for context csv and br2 for coordinates csv
             br = new BufferedReader(new FileReader(Paths.get(trecData + locations).toFile()));
@@ -103,7 +104,7 @@ public class CSVreader
         String line = "";
         //read in paramters to skip them
         br.readLine();
-        for (int i=0; i<10; i++)//Limit search to first 5 examples to avoid going over quota
+        for (int i=0; i<5; i++)//Limit search to first 5 examples to avoid going over quota
         {
             line = br.readLine();
             //separate string by commas, place data into "context" array
@@ -111,7 +112,6 @@ public class CSVreader
             context = CSVSplitter.split(line, 5);
             //populate hashtable using attr ID as a key to reference the merged Suggestion object
             ContextualSuggestion.pois.put(Integer.parseInt(context[0]), Merging.merge(context[2], Integer.parseInt(context[1])));
-            i++;
         }
         br.close();
     }
@@ -155,7 +155,7 @@ public class CSVreader
     public void buildCollection(BufferedReader br) throws IOException
     {
         String line = "";
-       //no paramters in collection
+        //no paramters in collection
         for (int i=0; i<5; i++)
         {
             line = br.readLine();

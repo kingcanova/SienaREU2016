@@ -48,42 +48,43 @@ public class YPAPI
             System.exit(1);
         }
 
-        System.out.println(response);
-        // 
-        //         //array of terms used by GooglePlacesAPI inside of the JSON response to separate data
-        //         String[] googleTerms = new String[]{"name", "rating", "types","vicinity", "id", "place_id", "geometry", };
-        // 
-        //         //retrieves JSON data for all businesses found
-        //         JSONArray results = (JSONArray) response.get("results");
-        //         if(results.size() == 0)
-        //         {
-        //             //System.out.println("Sorry, no results were found for your request.");
-        //             return new Suggestion();
-        //         }
-        //         else
-        //         {
-        //             //obtain information for first business and place data in array "temp"
-        //             String[] temp = new String[googleTerms.length+1];
-        //             JSONObject unk = (JSONObject) results.get(0);
-        //             for(int j = 0; j < googleTerms.length-1; j++)
-        //             {
-        //                 if(unk.get(googleTerms[j]) != null)
-        //                 {
-        //                     temp[j] = (unk.get(googleTerms[j])).toString();
-        //                 }
-        //             }
-        //             //retrieve lng and lat, which were under two sub categories. Create Suggestion object with collected info
-        //             temp[googleTerms.length-1] = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lat")).toString();
-        //             temp[googleTerms.length]   = (((JSONObject)((JSONObject)unk.get("geometry")).get("location")).get("lng")).toString();
-        //             return new Suggestion(temp[0],temp[1], temp[2], temp[3], temp[4], temp[5], temp[6],temp[7]);
-        //         }
-        return null;
+        //System.out.println(r);
+        //System.out.println(response);
+
+        //array of terms used by GooglePlacesAPI inside of the JSON response to separate data
+        String[] googleTerms = new String[]{"businessName", "averageRating", "latitude", 
+                                            "longitude","categories"};
+
+        //retrieves JSON data for all businesses found
+        JSONObject cur = (JSONObject) response.get("searchResult");
+        cur = (JSONObject) cur.get("searchListings");
+        JSONArray results = (JSONArray) (cur.get("searchListing"));
+        if(results.size() == 0)
+        {
+            //System.out.println("Sorry, no results were found for your request.");
+            return new Suggestion();
+        }
+        else
+        {
+            //obtain information for first business and place data in array "temp"
+            String[] temp = new String[googleTerms.length+1];
+            JSONObject unk = (JSONObject) results.get(0);
+            for(int j = 0; j < googleTerms.length-1; j++)
+            {
+                if(unk.get(googleTerms[j]) != null)
+                {
+                    temp[j] = (unk.get(googleTerms[j])).toString();
+                }
+            }
+            //retrieve lng and lat, which were under two sub categories. Create Suggestion object with collected info
+            return new Suggestion(temp[0],temp[1], temp[2], temp[3], temp[4], temp[5], temp[6],temp[7]);
+        }
     }
 
     public static void main(final String[] args) throws ParseException, IOException, URISyntaxException
     {
         YPAPI g = new YPAPI();
-        Suggestion s = g.performSearch("Bombers", 42.652580, -73.756233);
+        Suggestion s = g.performSearch("Tina Maries Dance Academy", 42.652580, -73.756233);
         s.print();
     }
 }

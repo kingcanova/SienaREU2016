@@ -69,6 +69,8 @@ public class FSqAPI
             return new Suggestion();
             //System.exit(1);
         }
+        
+        System.out.println(response);
 
         String[] fqTerms = new String[]{"name", "location", "id", "contact", "categories"};
         ArrayList<String[]> list = new ArrayList<String[]>();
@@ -100,5 +102,11 @@ public class FSqAPI
             types[x] = ((JSONObject)cats.get(x)).get("shortName").toString();
         }
         return new Suggestion(temp[0],temp[1],temp[2],temp[3],temp[4],types);
+    }
+    
+    public static void main(String[] args) throws ParseException, IOException, URISyntaxException
+    {
+        FSqAPI f = new FSqAPI();
+        f.queryAPI("42.652580, -73.756233", "Bombers");
     }
 }
