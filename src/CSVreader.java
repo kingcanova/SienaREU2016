@@ -6,8 +6,6 @@ import java.nio.file.*;
 
 public class CSVreader 
 {
-    protected ContextualSuggestion test = new ContextualSuggestion();
-    int first = -1;
     /**
      * Reads in all the data from the four files containing the profile info (2 files),
      * list of cities, and the list of attractions.
@@ -27,7 +25,6 @@ public class CSVreader
 
         BufferedReader br = null;
         BufferedReader br2 = null;
-        String line = "";
 
         try {
             //br for context csv and br2 for coordinates csv
@@ -88,7 +85,8 @@ public class CSVreader
             //Separate String by every 6 commas to place values in "context" array.
             String[] context = CSVSplitter.split(line,6);
             //Populate hashtable using context ID as a key to reference a Context object
-            ContextualSuggestion.contexts.put(Integer.parseInt(context[0]), new Context(Integer.parseInt(context[0]), context[1], context[2],
+            ContextualSuggestion.contexts.put(Integer.parseInt(context[0]), 
+                    new Context(Integer.parseInt(context[0]), context[1], context[2],
                     Double.parseDouble(context[4]), Double.parseDouble(context[5])));
         } 
         br.close();
@@ -110,48 +108,58 @@ public class CSVreader
             String[] context = new String[5];
             context = CSVSplitter.split(line, 5);
             //populate hashtable using attr ID as a key to reference the merged Suggestion object
-            ContextualSuggestion.pois.put(Integer.parseInt(context[0]), Merging.merge(context[2], Integer.parseInt(context[1])));
+            ContextualSuggestion.pois.put(Integer.parseInt(context[0]), 
+                    Merging.merge(context[2], Integer.parseInt(context[1])));
             i++;
         }
         br.close();
     }
 
     /**
-     * Creates the Profile objects and adds the associated ratings
-     * given the file on profiles. 
+     * Creates the Profile objects and adds the associated ratings for the att title
+     *  --- Yet to implement creating the category rating
+     * @param Profile100 buffered reader 
      */
     public void buildProfile(BufferedReader br) throws IOException
     {
-        //         String line = "";
-        //         br.readLine();
-        //         String[] params = line.split(",");
-        //         int person_id = -1;
-        // 
-        //         int start = ContextualSuggestion.attractions.get(0).id_num;
-        //         while ((line = br.readLine()) != null) 
-        //         {
-        //             // use comma as separator
-        //             String[] context = line.split(",");
-        //             int num = Integer.parseInt(context[0]);
-        //             if(num != person_id)
-        //             {
-        //                 person_id = num;
-        //                 ContextualSuggestion.people.add(new Profile(num));
-        //                 if(first == -1)
-        //                 {
-        //                     first = person_id;
-        //                 }
-        //             }
-        //             int att_id = Integer.parseInt(context[1]);
-        //             int t_rating = Integer.parseInt(context[2]);
-        //             int u_rating = Integer.parseInt(context[3]);
-        //             Profile person = ContextualSuggestion.people.get(num-first);
-        //             person.ratings[att_id - start][0] = t_rating;
-        //             person.ratings[att_id - start][1] = u_rating;
-        //         }
-        //         br.close();
+        String line = "";
+        br.readLine();
+        int person_id = -1;
+
+        //int start = ContextualSuggestion.attractions.get(0).id_num;
+        while ((line = br.readLine()) != null) 
+        {
+            // use comma as separator
+            String[] context = line.split(",");
+            int num = Integer.parseInt(context[0]);
+            if(num != person_id)
+            {
+                person_id = num;
+                ContextualSuggestion.profiles.put(num, new Profile(num));
+            }
+            int att_id = Integer.parseInt(context[1]);
+            int t_rating = Integer.parseInt(context[2]);
+            int u_rating = Integer.parseInt(context[3]);
+            Profile person = ContextualSuggestion.profiles.get(num);
+            person.attr_ratings.put(att_id, t_rating); //only title rating for now
+            //person.ratings[att_id][1] = u_rating;
+
+            //             Suggestion curr = ContextualSuggestion.pois.get(att_id);
+            //             for(String cat : curr.category)
+            //             {
+            //                 person.cat_rating.put(cat, t_rating);
+            //             }
+        }
+        br.close();
     }
 
+    /**
+     * Read in the collection and creat the suggestion objects for all entries
+     * 
+     * ---Currently limited to first 10 for testing purposes
+     * 
+     * @param Collection Buffered Reader
+     */
     public void buildCollection(BufferedReader br) throws IOException
     {
         String line = "";
@@ -163,7 +171,8 @@ public class CSVreader
             String[] context = CSVSplitter.split(line, 4);
             String attrID = (context[0].split("-"))[1];
             //populate hashtable using attr ID as a key to reference the merged Suggestion object
-            ContextualSuggestion.pois.put(Integer.parseInt(attrID), Merging.merge(context[3], Integer.parseInt(context[1])));
+            ContextualSuggestion.theCollection.put(Integer.parseInt(attrID), 
+                    Merging.merge(context[3], Integer.parseInt(context[1])));
         }
         br.close();
     }
