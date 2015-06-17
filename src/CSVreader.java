@@ -103,9 +103,6 @@ public class CSVreader
         String line = "";
         //read in paramters to skip them
         br.readLine();
-
-        //         while ((line = br.readLine()) != null) 
-        //         {
         for (int i=0; i<10; i++)//Limit search to first 5 examples to avoid going over quota
         {
             line = br.readLine();
@@ -116,7 +113,6 @@ public class CSVreader
             ContextualSuggestion.pois.put(Integer.parseInt(context[0]), Merging.merge(context[2], Integer.parseInt(context[1])));
             i++;
         }
-        //         }
         br.close();
     }
 
@@ -161,17 +157,15 @@ public class CSVreader
         String line = "";
         //read in paramters to skip them
         br.readLine();
-        //         while ((line = br.readLine()) != null) 
-        //         {
-        for (int i=0; i<10; i++)
+        for (int i=0; i<5; i++)
         {
+            line = br.readLine();
             //separate string by commas, place data into "context" array
             String[] context = CSVSplitter.split(line, 4);
             String attrID = (context[0].split("-"))[1];
             //populate hashtable using attr ID as a key to reference the merged Suggestion object
             ContextualSuggestion.pois.put(Integer.parseInt(attrID), Merging.merge(context[3], Integer.parseInt(context[1])));
         }
-        //         }
         br.close();
     }
 
