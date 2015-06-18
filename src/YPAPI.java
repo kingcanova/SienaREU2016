@@ -37,8 +37,12 @@ public class YPAPI
         final HttpUriRequest request = new HttpGet(builder.build());
         final HttpResponse execute = this.client.execute(request);
         final String r = EntityUtils.toString(execute.getEntity());
-        System.out.println(r);
+<<<<<<< HEAD
+       
+=======
+        //System.out.println(r);
 
+>>>>>>> origin/master
         //turn String into JSON
         JSONParser parser = new JSONParser();
         JSONObject response = null;
@@ -76,7 +80,6 @@ public class YPAPI
                 if(unk.get(ypTerms[j]) != null)
                 {
                     temp[j] = (unk.get(ypTerms[j])).toString();
-                    System.out.println(temp[j]);
                 }
             }
             //Create Suggestion object with collected info
@@ -88,7 +91,7 @@ public class YPAPI
         throws ParseException, IOException, URISyntaxException
     {
         YPAPI g = new YPAPI();
-        Suggestion s = g.performSearch("Bombers", 42.652580, -73.756233);
+        Suggestion s = g.performSearch("Bostons Restaurant  Sports Bar",  47.492874, -111.295362);
         s.print();
     }
 }
