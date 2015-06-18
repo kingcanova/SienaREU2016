@@ -230,6 +230,7 @@ public class Merging
         //create the unified suggestion
         Suggestion result = new Suggestion(name, rating, lat, lng, cats);
         result.printFinal();
+        System.out.println();
         return result;
     }
 

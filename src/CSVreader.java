@@ -117,7 +117,7 @@ public class CSVreader
     /**
      * Creates the Profile objects and adds the associated ratings for the att title
      *  --- Yet to implement creating the category rating
-     * @param Profile100 buffered reader 
+     * @param br Profile100 buffered reader 
      */
     public void buildProfile(BufferedReader br) throws IOException
     {
@@ -130,16 +130,16 @@ public class CSVreader
         {
             // use comma as separator
             String[] context = line.split(",");
-            int num = Integer.parseInt(context[0]);
-            if(num != person_id)
+            int temp = Integer.parseInt(context[0]);
+            if(temp != person_id)
             {
-                person_id = num;
-                ContextualSuggestion.profiles.put(num, new Profile(num));
+                person_id = temp;
+                ContextualSuggestion.profiles.put(person_id, new Profile(person_id));
             }
             int att_id = Integer.parseInt(context[1]);
             int t_rating = Integer.parseInt(context[2]);
             int u_rating = Integer.parseInt(context[3]);
-            Profile person = ContextualSuggestion.profiles.get(num);
+            Profile person = ContextualSuggestion.profiles.get(person_id);
             person.attr_ratings.put(att_id, t_rating); //only title rating for now
             //person.ratings[att_id][1] = u_rating;
 

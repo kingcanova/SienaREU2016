@@ -39,7 +39,7 @@ public class FSqAPI
     {
         final URIBuilder builder = 
             new URIBuilder().setScheme("https").setHost(
-            "api.foursquare.com").setPath("/v2/venues/search");
+                "api.foursquare.com").setPath("/v2/venues/search");
 
         builder.addParameter("client_id", client_id);
         builder.addParameter("client_secret", client_secret);//radius in meters
@@ -69,26 +69,34 @@ public class FSqAPI
             return new Suggestion();
             //System.exit(1);
         }
-        
+
         //System.out.println(response);
 
-        String[] fqTerms = new String[]{"name", "location", "id", "contact", "categories"};
+        String[] fqTerms = new String[]{"name", "location", "id", "contact","rating", "categories"};
         ArrayList<String[]> list = new ArrayList<String[]>();
         JSONObject venues = (JSONObject) response.get("response");
         JSONArray results = (JSONArray) venues.get("venues");
-        
+
         if (results.size() == 0)
         {
             return new Suggestion();
         }
-        
+
         String[] temp = new String[7];//name, lat, lng, id, contact, categoriesID, catName
         JSONObject curr = (JSONObject) results.get(0);
         temp[0] = (curr.get("name")).toString();
         temp[1] = ((JSONObject)(curr.get("location"))).get("lat").toString();
         temp[2] = ((JSONObject)(curr.get("location"))).get("lng").toString();
         temp[3] = (curr.get("id")).toString();
-        temp[4] = "";
+        temp[4] = ""; 
+        if(curr.get("rating") == null)
+        {
+            temp[5] = "";
+        }
+        else
+        {
+            temp[5] = (curr.get("rating")).toString();
+        }
         JSONObject four = ((JSONObject)(curr.get("contact")));
 
         if(four.size() != 0)
@@ -101,14 +109,14 @@ public class FSqAPI
         {
             types[x] = ((JSONObject)cats.get(x)).get("shortName").toString().toLowerCase().replace(" ","");
         }
-        return new Suggestion(temp[0],temp[1],temp[2],temp[3],temp[4],types);
+        return new Suggestion(temp[0],temp[1],temp[2],temp[3],temp[4],temp[5],types);
     }
-    
+
     public static void main(String[] args) throws ParseException, IOException, URISyntaxException
     {
         FSqAPI f = new FSqAPI();
-        Suggestion s = f.queryAPI("42.652580, -73.756233", "Bombers");
+        Suggestion s = f.queryAPI("42.652580, -73.756233","Bombers");
         s.print();
-        
+
     }
 }

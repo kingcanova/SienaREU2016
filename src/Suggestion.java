@@ -17,6 +17,7 @@ public class Suggestion
     protected ArrayList<String> category;
     protected String c;
 
+    //constructors
     public Suggestion()
     {
         name = "";
@@ -26,7 +27,7 @@ public class Suggestion
         categories = new String[0];
     }
 
-    public Suggestion(String a, double b, double c, double d, ArrayList<String> e)
+    public Suggestion(String a, double b, double c, double d, ArrayList<String> e) //merged suggestion
     {
         title = a;
         rate = b;
@@ -46,53 +47,6 @@ public class Suggestion
         {
             System.out.println("\t" + cat);
         }
-    }
-
-    public Suggestion(String ratingIn, String nameIn, String urlIn, String categoriesIn, 
-    String phoneIn, String addressIn)//YelpAPI
-    {
-        rating = ratingIn;
-        nameIn = nameIn.replaceAll("\"", "");
-        name = nameIn;
-        urlIn = urlIn.replaceAll("\"", "");
-        url = urlIn;
-        categoriesIn = categoriesIn.replaceAll("\\[", "");          
-        categoriesIn = categoriesIn.replaceAll("\\]", "");
-        categoriesIn = categoriesIn.replaceAll("\"", "");
-        categoriesIn = categoriesIn.replaceAll(" ", "");
-        categories = categoriesIn.split(",");
-        phoneIn = phoneIn.replaceAll("\"", "");
-        phoneIn = phoneIn.replaceAll("\\+", "");
-        phoneIn = phoneIn.replaceAll("\\-", "");
-        phone = phoneIn;
-        addressIn = addressIn.replaceAll("\\[", "");
-        addressIn = addressIn.replaceAll("\\]", "");
-        addressIn = addressIn.replaceAll("\"", "");
-        address = addressIn;       
-        lat="N/A";
-        lng="N/A";
-        id="N/A";
-        placeId="N/A";
-    }
-
-    public Suggestion(String nameIn, String urlIn, String phoneIn, String categoriesIn, 
-    String ratingIn, String latIn, String lngIn)//YelpAPI alternate
-    {
-        rating = ratingIn;
-        name = nameIn;
-        url = urlIn;
-        categoriesIn = categoriesIn.replaceAll("\\[", "");          
-        categoriesIn = categoriesIn.replaceAll("\\]", "");
-        categoriesIn = categoriesIn.replaceAll("\"", "");
-        categoriesIn = categoriesIn.replaceAll(" ", "");
-        categoriesIn = categoriesIn.toLowerCase();
-        categories = categoriesIn.split(",");
-        phone = phoneIn;
-        address = "N/A";
-        lat= latIn;
-        lng= lngIn;
-        id="N/A";
-        placeId="N/A";
     }
 
     public Suggestion(String nameIn, String ratingIn, String typesIn, String vicinityIn, 
@@ -120,7 +74,7 @@ public class Suggestion
     }
 
     public Suggestion(String nameIn, String latIn, String lngIn, String idIn,
-    String contact, String[] types) //foursquare
+    String contact, String rate, String[] types) //Foursquare
     {
         name = nameIn;
         lat = latIn;
@@ -130,10 +84,13 @@ public class Suggestion
         categories = types;
         url = "";
         address = "";
-        rating = "";
+        //foursquare ratings are rated 1-10, the rest of our APIs are rated 1-5
+        double tempRating = Double.parseDouble(rating);
+        tempRating = tempRating/2.0;
+        rating = Double.toString(tempRating);
     }
 
-    public Suggestion(String nameIn, String ratingIn, String latIn, String lngIn, String categoriesIn) //YP
+    public Suggestion(String nameIn, String ratingIn, String latIn, String lngIn, String categoriesIn) //Yellow Pages
     {
         name = nameIn;
         lat = latIn;
@@ -149,28 +106,29 @@ public class Suggestion
 
     }
 
-    public String toString()
+    public void print()//for individual API
     {
-        String output = "";
-        output += ("Name: " + this.name + "\n");
-        output += ("Rating: " + this.rating + "\n");
-        //         output += ("URL: " + this.url + "\n");
-        //         output += ("Address: " + this.address + "\n");
-        output += ("Latitude: " + this.lat + "\n");
-        output += ("Longitude: " + this.lng + "\n");
-        //         output += ("Phone: " + this.phone + "\n");
-        //         output += ("ID: " + this.id + "\n");
-        //         output += ("Place ID: " + this.placeId + "\n");
-        output += "Categories:\n";
-        for (String s : categories)
+        System.out.println("Name: " + name);
+        System.out.println("Rating: " + rating);
+        System.out.println("Latitude: " + lat);
+        System.out.println("Longitude: " + lng);
+        System.out.println("Categories: ");
+        for(String s : categories)
         {
-            output += (s + "\n");
+            System.out.print(s + "\n");
         }
-        return output + "\n";
     }
 
-    public void print()
+    public void printFinal() //for merged suggestion
     {
-        System.out.println(this.toString());
+        System.out.println("Name: " + title);
+        System.out.println("Rating: " + rate);
+        System.out.println("Latitude: " + latitude);
+        System.out.println("Longitude: " + longitude);
+        System.out.println("Categories: ");
+        for(String cat : category)
+        {
+            System.out.println("\t" + cat);
+        }
     }
 }
