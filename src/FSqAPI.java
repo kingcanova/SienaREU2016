@@ -27,7 +27,7 @@ import java.util.*;
  * Write a description of class FoursquareApi here.
  * 
  * @author Aidan, Tom, Kevin, Zach
- * @version Whatever version Aidan wants it to be
+ * @version Final
  */
 public class FSqAPI
 {

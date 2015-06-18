@@ -50,10 +50,11 @@ public class Merging
      */
     public Suggestion searchYP(Double lat, Double lng, String name)
     {
-        //System.out.println("Searching Yellow Pages for: " + name);
+        System.out.println("Searching Yellow Pages for: " + name);
         try
         {
             Suggestion result = ypApi.performSearch(name, lat, lng);
+            result.print();
             return result;
         }
         catch(Exception e)
@@ -90,42 +91,59 @@ public class Merging
         }
     }
 
+    public static String simplify(String original)
+    {
+        original = original.toLowerCase();
+        original = original.replaceAll(" ", "");
+        original = original.replaceAll("[^a-z0-9]+", "");
+        original = original.replaceAll("and", "");
+        System.out.println(original);
+        return original;
+    }
+
     /**
      * Call the foursquare api 
+     * @param the original name being searched for
      * @param Suggestion result from yelp
      * @param Suggestion result from foursquare
      * @param Suggestion result from google
      * @return merged Suggestion object
      * 
      */
-    public Suggestion mergeApis(Suggestion four, Suggestion goog, Suggestion yp)
+    public Suggestion mergeApis(String original, Suggestion four, Suggestion goog, Suggestion yp)
     {
-        int yp_count = 0;
-        int four_count = 0;
-        int goog_count = 0;
+        int yp_count = -1;
+        int four_count = -1;
+        int goog_count = -1;
 
-        String name = four.name; //use foursquare by default
+        String o = Merging.simplify(original); 
+        String f = Merging.simplify(four.name); 
+        String g = Merging.simplify(goog.name); 
+        String y = Merging.simplify(yp.name); 
+
         //use the most common name
-        //make not of api not being used by decrementing api_count variable
-        //         if(four.name == null)
-        //         {
-        //             name = goog.name;
+        //keep track of which api's have accurate names
+        //use original by default
+        String name = original;
+        if( y.contains(o) || o.contains(y) && !y.equals("")) { yp_count += 1;}
+        if( f.contains(o) || o.contains(f) && !f.equals("")) { four_count += 1;}
+        if( g.contains(o) || o.contains(g) && !g.equals("")) { goog_count += 1;}
+        //         
+        //         if((y).equals(f) && (y).equals(g)) {
+        //             name = yp.name;
         //         }
-        if((yp.name).equals(four.name) && (yp.name).equals(goog.name)) {
-            name = yp.name;
-        }
-        else if( (yp.name).equals(four.name) ) {
-            name = yp.name;
-            goog_count -= 1;
-        }
-        else if( (yp.name).equals(goog.name) ) {
-            name = yp.name;
-            four_count -= 1;
-        }
-        else if( (four.name).equals(goog.name) ) {
-            name = four.name;
-            yp_count -= 1;
-        }
+        //         else if( (y).equals(f) ) {
+        //             name = yp.name;
+        //             goog_count -= 1;
+        //         }
+        //         else if( (y).equals(g) ) {
+        //             name = yp.name;
+        //             four_count -= 1;
+        //         }
+        //         else if( (f).equals(g) ) {
+        //             name = four.name;
+        //             yp_count -= 1;
+        //         }
 
         //save lat/lng, if their count is not zero lat/lng will be 100 degrees off
         double ylat = Double.parseDouble(yp.lat) + (yp_count * 100);
@@ -158,19 +176,22 @@ public class Merging
         try{
             if(yp_count == 0) {
                 yp_rating = Double.parseDouble(yp.rating);
-                rating += 1;
+                if(yp_rating != 0)
+                    rating += 1;
             }
         } catch(Exception e){}
         try{
             if(four_count == 0) {
                 four_rating = Double.parseDouble(four.rating);
-                rating += 1;
+                if(four_rating != 0)
+                    rating += 1;
             }
         } catch(Exception e){}
         try{
             if(goog_count == 0) {
                 goog_rating = Double.parseDouble(goog.rating);
-                rating += 1;
+                if(goog_rating != 0)
+                    rating += 1;
             }
         } catch(Exception e){}
         //take average of all used ratings
@@ -220,6 +241,8 @@ public class Merging
      */
     public static Suggestion merge(String attr, int contextID)
     {
+        System.out.println();
+
         Merging m = new Merging();
         String name = attr;
         //get the Context object from the hashtable
@@ -229,11 +252,14 @@ public class Merging
         String city = cur.name + ", " + cur.state;
         Double lati = cur.latitude;
         Double lngi = cur.longitude;
+
+        System.out.println("Attr:\t" + attr);
+        System.out.println("City:\t" + city);
         //search the three api's
         Suggestion four = m.searchFourSq((lat + "," + lng), name);
         Suggestion yp = m.searchYP(lati, lngi, name);
         Suggestion goog = m.searchGoogle(lati, lngi, name);
         System.out.println();
-        return m.mergeApis(four, goog, yp);        
+        return m.mergeApis(attr, four, goog, yp);        
     }
 }
