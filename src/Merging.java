@@ -50,10 +50,11 @@ public class Merging
      */
     public Suggestion searchYP(Double lat, Double lng, String name)
     {
-        //System.out.println("Searching Yellow Pages for: " + name);
+        System.out.println("Searching Yellow Pages for: " + name);
         try
         {
             Suggestion result = ypApi.performSearch(name, lat, lng);
+            result.print();
             return result;
         }
         catch(Exception e)
@@ -208,7 +209,7 @@ public class Merging
 
         //create the unified suggestion
         Suggestion result = new Suggestion(name, rating, lat, lng, cats);
-        result.printFinal();
+        result.print();
         return result;
     }
 

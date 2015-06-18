@@ -142,15 +142,15 @@ public class YelpAPI {
         String businessResponseJSON = yelpApi.searchByBusinessId(firstBusinessID.toString());
         JSONObject business = yelpApi.stringToJson(businessResponseJSON);
         
-        return new Suggestion(
-            (business.get("name")).toString(),
-            (business.get("url")).toString(),
-            (business.get("phone")).toString(),
-            (business.get("categories")).toString(),
-            (business.get("rating")).toString(),
-            ((JSONObject)((JSONObject)(business.get("location"))).get("coordinate")).get("latitude").toString(),
-            ((JSONObject)((JSONObject)(business.get("location"))).get("coordinate")).get("longitude").toString()
-        );
+        return new Suggestion();
+//             (business.get("name")).toString(),
+//             (business.get("url")).toString(),
+//             (business.get("phone")).toString(),
+//             (business.get("categories")).toString(),
+//             (business.get("rating")).toString(),
+//             ((JSONObject)((JSONObject)(business.get("location"))).get("coordinate")).get("latitude").toString(),
+//             ((JSONObject)((JSONObject)(business.get("location"))).get("coordinate")).get("longitude").toString()
+//         );
     }
     
     /**

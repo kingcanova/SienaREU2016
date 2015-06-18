@@ -35,7 +35,7 @@ public class YPAPI
         final HttpUriRequest request = new HttpGet(builder.build());
         final HttpResponse execute = this.client.execute(request);
         final String r = EntityUtils.toString(execute.getEntity());
-        System.out.println(r);
+        //System.out.println(r);
 
         //turn String into JSON
         JSONParser parser = new JSONParser();
@@ -74,7 +74,6 @@ public class YPAPI
                 if(unk.get(ypTerms[j]) != null)
                 {
                     temp[j] = (unk.get(ypTerms[j])).toString();
-                    System.out.println(temp[j]);
                 }
             }
             //Create Suggestion object with collected info
