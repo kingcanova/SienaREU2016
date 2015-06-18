@@ -61,7 +61,7 @@ public class Suggestion
     }
 
     public Suggestion(String nameIn, String latIn, String lngIn, String idIn,
-    String contact, String[] types) //Foursquare
+    String contact, String rate, String[] types) //Foursquare
     {
         name = nameIn;
         lat = latIn;
@@ -71,7 +71,10 @@ public class Suggestion
         categories = types;
         url = "";
         address = "";
-        rating = "";
+        //foursquare ratings are rated 1-10, the rest of our APIs are rated 1-5
+        double tempRating = Double.parseDouble(rating);
+        tempRating = tempRating/2.0;
+        rating = Double.toString(tempRating);
     }
 
     public Suggestion(String nameIn, String ratingIn, String latIn, String lngIn, String categoriesIn) //Yellow Pages
