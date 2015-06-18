@@ -26,7 +26,7 @@ public class Suggestion
         lng = "0.0";
         categories = new String[0];
     }
-    
+
     public Suggestion(String a, double b, double c, double d, ArrayList<String> e) //merged suggestion
     {
         title = a;
@@ -35,7 +35,7 @@ public class Suggestion
         longitude = d;
         category = e;
     }
-    
+
     public Suggestion(String nameIn, String ratingIn, String typesIn, String vicinityIn, 
     String idIn, String placeIdIn, String latIn, String lngIn)//GooglePlacesAPI
     {
@@ -89,7 +89,7 @@ public class Suggestion
         id = ""; 
 
     }
-    
+
     public void print()//for individual API
     {
         System.out.println("Name: " + name);
@@ -99,10 +99,10 @@ public class Suggestion
         System.out.println("Categories: ");
         for(String s : categories)
         {
-            System.out.println(s);
+            System.out.print(s + "\n");
         }
     }
-    
+
     public void printFinal() //for merged suggestion
     {
         System.out.println("Name: " + title);

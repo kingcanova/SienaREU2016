@@ -209,7 +209,8 @@ public class Merging
 
         //create the unified suggestion
         Suggestion result = new Suggestion(name, rating, lat, lng, cats);
-        result.print();
+        result.printFinal();
+        System.out.println();
         return result;
     }
 
