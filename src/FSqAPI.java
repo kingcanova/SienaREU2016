@@ -1,19 +1,18 @@
+import java.util.*;
+import java.io.*;
+import java.net.*;
+import javax.json.JsonReader;
+import javax.json.Json;
+import java.nio.charset.Charset;
 import fi.foyt.foursquare.api.FoursquareApi;
 import fi.foyt.foursquare.api.FoursquareApiException;
 import fi.foyt.foursquare.api.Result;
 import fi.foyt.foursquare.api.entities.CompactVenue;
 import fi.foyt.foursquare.api.entities.VenuesSearchResult;
-import java.io.*;
-import java.net.*;
-import java.nio.charset.Charset;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import javax.json.JsonReader;
-import javax.json.Json;
-import java.util.Scanner;
-
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -21,7 +20,6 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.client.methods.*;
 import org.apache.http.util.*;
-import java.util.*;
 
 /**
  * Write a description of class FoursquareApi here.
@@ -39,7 +37,7 @@ public class FSqAPI
     {
         final URIBuilder builder = 
             new URIBuilder().setScheme("https").setHost(
-            "api.foursquare.com").setPath("/v2/venues/search");
+                "api.foursquare.com").setPath("/v2/venues/search");
 
         builder.addParameter("client_id", client_id);
         builder.addParameter("client_secret", client_secret);//radius in meters
@@ -48,26 +46,20 @@ public class FSqAPI
         builder.addParameter("query", name);
 
         final HttpUriRequest request = new HttpGet(builder.build());
-
         HttpClient client = HttpClientBuilder.create().build();
         final HttpResponse execute = client.execute(request);
-
         final String r = EntityUtils.toString(execute.getEntity());
-
         JSONParser parser = new JSONParser();
         JSONObject response = null;
+
         try {
             response = (JSONObject) parser.parse(r);
         } catch (ParseException pe) {
             System.err.println("Error: could not parse JSON response:");
             System.exit(1);
-        }
-        catch (NullPointerException e)
-        {
-            //System.err.println(e);
-            System.out.println(e);
+        } catch (NullPointerException e) {
+            System.err.println("Error: null pointer in FSqAPI query:\n" + e);
             return new Suggestion();
-            //System.exit(1);
         }
         
         //System.out.println(response);

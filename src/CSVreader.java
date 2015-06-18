@@ -197,6 +197,12 @@ public class CSVreader
         return arr;
     }
 
+    /**
+     * Get the n'th element of a csv line starting at zero (no quotes)
+     * @param elemIndex n
+     * @param csvLine csv line
+     * @return the n'th element of a csv line starting at zero
+     */
     public static String getCSVElement(int elemIndex, String csvLine)
     {
         return csvLine.split(",", elemIndex + 2)[elemIndex];

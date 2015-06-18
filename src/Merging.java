@@ -1,5 +1,4 @@
 import java.util.*;
-
 import javax.swing.*;
 import java.io.IOException;
 import org.json.simple.parser.ParseException;
@@ -21,7 +20,6 @@ public class Merging
      * @param "latitude, longitude"
      * @param "Name of attraction"
      * @return Suggestion object created by api
-     * 
      */
     public Suggestion searchFourSq(String ll, String name)
     {
@@ -46,7 +44,6 @@ public class Merging
      * @param "City, State abbr"
      * @param "Name of attraction"
      * @return Suggestion object created by api
-     * 
      */
     public Suggestion searchYP(Double lat, Double lng, String name)
     {
@@ -59,7 +56,6 @@ public class Merging
         catch(Exception e)
         {
             System.err.println(e);
-            System.out.println(e);
             return new Suggestion();
         }
     }
@@ -70,7 +66,6 @@ public class Merging
      * @param longitude
      * @param "Name of attraction"
      * @return Suggestion object created by api
-     * 
      */
     public Suggestion searchGoogle(double lat, double lng, String name) 
     {
@@ -85,7 +80,6 @@ public class Merging
         catch(Exception e)
         {
             System.err.println(e);
-            System.out.println(e);
             return new Suggestion();
         }
     }
@@ -96,7 +90,6 @@ public class Merging
      * @param Suggestion result from foursquare
      * @param Suggestion result from google
      * @return merged Suggestion object
-     * 
      */
     public Suggestion mergeApis(Suggestion four, Suggestion goog, Suggestion yp)
     {
@@ -111,18 +104,18 @@ public class Merging
         //         {
         //             name = goog.name;
         //         }
-        if((yp.name).equals(four.name) && (yp.name).equals(goog.name)) {
+        if ((yp.name).equals(four.name) && (yp.name).equals(goog.name)) {
             name = yp.name;
         }
-        else if( (yp.name).equals(four.name) ) {
+        else if ((yp.name).equals(four.name)) {
             name = yp.name;
             goog_count -= 1;
         }
-        else if( (yp.name).equals(goog.name) ) {
+        else if ((yp.name).equals(goog.name)) {
             name = yp.name;
             four_count -= 1;
         }
-        else if( (four.name).equals(goog.name) ) {
+        else if ((four.name).equals(goog.name)) {
             name = four.name;
             yp_count -= 1;
         }
@@ -140,13 +133,19 @@ public class Merging
 
         //compare lat's with a tolerance of 0.01 degrees
         //use most common lat
-        if(Math.abs(ylat-flat) < 0.01){lat = ylat;}
-        else if(Math.abs(ylat-glat) < 0.01){lat = ylat;}
-        else if(Math.abs(flat-glat) < 0.01){lat = flat;}
+        if (Math.abs(ylat-flat) < 0.01)
+            lat = ylat;
+        else if (Math.abs(ylat-glat) < 0.01)
+            lat = ylat;
+        else if (Math.abs(flat-glat) < 0.01)
+            lat = flat;
 
-        if(Math.abs(ylng-flng) < 0.01){lng = ylng;}
-        else if(Math.abs(ylng-glng) < 0.01){lng = ylng;}
-        else if(Math.abs(flng-glng) < 0.01){lng = flng;}
+        if (Math.abs(ylng-flng) < 0.01)
+            lng = ylng;
+        else if (Math.abs(ylng-glng) < 0.01)
+            lng = ylng;
+        else if (Math.abs(flng-glng) < 0.01)
+            lng = flng;
 
         double rating = 0.0;
         double yp_rating = 0.0;

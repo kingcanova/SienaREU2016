@@ -8,14 +8,10 @@ import java.util.*;
 public class Suggestion
 {
     protected String rating, name, url, categories[], phone, address, lat, lng, id,
-    placeId, vicinity;
-
-    protected String title;
-    protected double rate;
-    protected double latitude;
-    protected double longitude;
+        placeId, vicinity;
+    protected String title, c;
+    protected double rate, latitude, longitude;
     protected ArrayList<String> category;
-    protected String c;
 
     public Suggestion()
     {
@@ -49,7 +45,7 @@ public class Suggestion
     }
 
     public Suggestion(String ratingIn, String nameIn, String urlIn, String categoriesIn, 
-    String phoneIn, String addressIn)//YelpAPI
+                      String phoneIn, String addressIn) //YelpAPI
     {
         rating = ratingIn;
         nameIn = nameIn.replaceAll("\"", "");
@@ -76,7 +72,7 @@ public class Suggestion
     }
 
     public Suggestion(String nameIn, String urlIn, String phoneIn, String categoriesIn, 
-    String ratingIn, String latIn, String lngIn)//YelpAPI alternate
+                      String ratingIn, String latIn, String lngIn)//YelpAPI alternate
     {
         rating = ratingIn;
         name = nameIn;
@@ -96,7 +92,7 @@ public class Suggestion
     }
 
     public Suggestion(String nameIn, String ratingIn, String typesIn, String vicinityIn, 
-    String idIn, String placeIdIn, String latIn, String lngIn)//GooglePlacesAPI
+                      String idIn, String placeIdIn, String latIn, String lngIn) //GooglePlacesAPI
     {
         lat = latIn;
         lng = lngIn;
@@ -120,7 +116,7 @@ public class Suggestion
     }
 
     public Suggestion(String nameIn, String latIn, String lngIn, String idIn,
-    String contact, String[] types) //foursquare
+                      String contact, String[] types) //foursquare
     {
         name = nameIn;
         lat = latIn;
@@ -133,7 +129,8 @@ public class Suggestion
         rating = "";
     }
 
-    public Suggestion(String nameIn, String ratingIn, String latIn, String lngIn, String categoriesIn) //YP
+    public Suggestion(String nameIn, String ratingIn, String latIn,
+                      String lngIn, String categoriesIn) //YP
     {
         name = nameIn;
         lat = latIn;

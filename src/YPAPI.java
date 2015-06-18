@@ -5,6 +5,7 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.net.*;
 import java.util.*;
+import javax.swing.*;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -12,21 +13,22 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.client.methods.*;
 import org.apache.http.util.*;
-import javax.swing.*;
 
 public class YPAPI
 {
     private final String YP_KEY  = Secret.YP_KEY;
     private final HttpClient client = HttpClientBuilder.create().build();
 
-    public Suggestion performSearch(final String name, final double lat, 
-    final double lon) throws ParseException, IOException, URISyntaxException
-    {      
-        final URIBuilder builder = new URIBuilder().setScheme("http").setHost("api2." + 
-                "yp.com").setPath("/listings/v1/search");
+    public Suggestion performSearch(String name, double lat, double lon)
+        throws ParseException, IOException, URISyntaxException
+    {
+        final URIBuilder builder = new URIBuilder()
+            .setScheme("http")
+            .setHost("api2.yp.com")
+            .setPath("/listings/v1/search");
         //necessary paramaters to add for a GooglePlacesAPI search. Max for radius is 50,000 meters
         builder.addParameter("searchloc", lat + "," + lon);
-        builder.addParameter("radius", "50");//radius in meters
+        builder.addParameter("radius", "50"); //radius in meters
         builder.addParameter("term", name);
         builder.addParameter("key", YP_KEY);
         builder.addParameter("format", "json");
@@ -52,8 +54,8 @@ public class YPAPI
         //System.out.println(response);
 
         //array of terms used by GooglePlacesAPI inside of the JSON response to separate data
-        String[] ypTerms = new String[]{"businessName", "averageRating", "latitude", 
-                                            "longitude","categories"};
+        String[] ypTerms = new String[]{ "businessName", "averageRating", "latitude", 
+                                         "longitude", "categories" };
 
         //retrieves JSON data for all businesses found
         JSONObject cur = (JSONObject) response.get("searchResult");
@@ -82,7 +84,8 @@ public class YPAPI
         }
     }
 
-    public static void main(final String[] args) throws ParseException, IOException, URISyntaxException
+    public static void main(String[] args)
+        throws ParseException, IOException, URISyntaxException
     {
         YPAPI g = new YPAPI();
         Suggestion s = g.performSearch("Bombers", 42.652580, -73.756233);
