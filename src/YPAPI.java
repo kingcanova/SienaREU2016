@@ -37,12 +37,8 @@ public class YPAPI
         final HttpUriRequest request = new HttpGet(builder.build());
         final HttpResponse execute = this.client.execute(request);
         final String r = EntityUtils.toString(execute.getEntity());
-<<<<<<< HEAD
-       
-=======
-        //System.out.println(r);
 
->>>>>>> origin/master
+        //System.out.println(r);
         //turn String into JSON
         JSONParser parser = new JSONParser();
         JSONObject response = null;

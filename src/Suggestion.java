@@ -32,19 +32,6 @@ public class Suggestion
         category = e;
     }
 
-    public void printFinal()
-    {
-        System.out.println("Name: " + title);
-        System.out.println("Rating: " + rate);
-        System.out.println("Latitude: " + latitude);
-        System.out.println("Longitude: " + longitude);
-        System.out.println("Categories: ");
-        for(String cat : category)
-        {
-            System.out.println("\t" + cat);
-        }
-    }
-
     public Suggestion(String nameIn, String ratingIn, String typesIn, String vicinityIn, 
                       String idIn, String placeIdIn, String latIn, String lngIn) //GooglePlacesAPI
     {
