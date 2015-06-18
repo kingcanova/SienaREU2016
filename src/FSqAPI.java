@@ -22,7 +22,7 @@ import org.apache.http.client.methods.*;
 import org.apache.http.util.*;
 
 /**
- * Write a description of class FoursquareApi here.
+ * Searches the Four Square API for a specific attraction in a specific context
  * 
  * @author Aidan, Tom, Kevin, Zach
  * @version Final
@@ -33,47 +33,63 @@ public class FSqAPI
     client_secret = Secret.FOURSQUARE_CLIENT_SECRET,
     version = "20120609";
 
+    /**
+     * Query the API 
+     * @param ll a string of the latitude and longitude of the context
+     * @param name a string of the attraction to search
+     * @return a suggestion object of the search results
+     */
     public Suggestion queryAPI(String ll, String name) throws URISyntaxException, IOException
     {
         final URIBuilder builder = 
             new URIBuilder().setScheme("https").setHost(
                 "api.foursquare.com").setPath("/v2/venues/search");
-
+        
+        //necessary paramaters to add for a FourSquareAPI search       
         builder.addParameter("client_id", client_id);
-        builder.addParameter("client_secret", client_secret);//radius in meters
+        builder.addParameter("client_secret", client_secret);
         builder.addParameter("v", version);
-        builder.addParameter("ll", ll);
+        builder.addParameter("ll", ll);//latitude and longitude
         builder.addParameter("query", name);
 
+        //conduct search with above paramters and recieve String response
         final HttpUriRequest request = new HttpGet(builder.build());
         HttpClient client = HttpClientBuilder.create().build();
         final HttpResponse execute = client.execute(request);
         final String r = EntityUtils.toString(execute.getEntity());
+        
+        //turn String into JSON
         JSONParser parser = new JSONParser();
         JSONObject response = null;
 
         try {
             response = (JSONObject) parser.parse(r);
-        } catch (ParseException pe) {
+        } 
+        catch (ParseException pe) {
             System.err.println("Error: could not parse JSON response:");
+            System.out.println(r);
             System.exit(1);
-        } catch (NullPointerException e) {
+        } 
+        catch (NullPointerException e) {
             System.err.println("Error: null pointer in FSqAPI query:\n" + e);
             return new Suggestion();
         }
-
-        //System.out.println(response);
-
+        
+        //array of terms used by FourSquareAPI inside of the JSON response to separate data
         String[] fqTerms = new String[]{"name", "location", "id", "contact","rating", "categories"};
-        ArrayList<String[]> list = new ArrayList<String[]>();
+        
+        //retrieves JSON data for all businesses found
         JSONObject venues = (JSONObject) response.get("response");
         JSONArray results = (JSONArray) venues.get("venues");
 
+        //Check if Yellow Pages returned any results
         if (results.size() == 0)
         {
+            //No results found, return a blank suggestion
             return new Suggestion();
         }
 
+        //obtain information for first business and place data in array "temp"
         String[] temp = new String[7];//name, lat, lng, id, contact, categoriesID, catName
         JSONObject curr = (JSONObject) results.get(0);
         temp[0] = (curr.get("name")).toString();

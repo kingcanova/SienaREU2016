@@ -14,6 +14,12 @@ import org.apache.http.client.methods.*;
 import org.apache.http.util.*;
 import javax.swing.*;
 
+/**
+ * Searches the Google Places API for a specific attraction in a specific context
+ * 
+ * @author Aidan, Tom, Kevin, Zach
+ * @version Final
+ */
 public class GooglePlacesAPI
 {
     private final String GOOGLE_API_KEY  = Secret.GOOGLE_API_KEY;

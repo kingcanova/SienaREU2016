@@ -45,7 +45,7 @@ public class Merging
      * @param "Name of attraction"
      * @return Suggestion object created by api
      */
-    public Suggestion searchYP(Double lat, Double lng, String name)
+    public Suggestion searchYP(double lat, double lng, String name)
     {
         System.out.println("Searching Yellow Pages for: " + name);
         try

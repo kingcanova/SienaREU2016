@@ -8,7 +8,7 @@ import java.util.*;
 public class Suggestion
 {
     protected String rating, name, url, categories[], phone, address, lat, lng, id,
-        placeId, vicinity;
+    placeId, vicinity;
     protected String title, c;
     protected double rate, latitude, longitude;
     protected ArrayList<String> category;
@@ -33,7 +33,7 @@ public class Suggestion
     }
 
     public Suggestion(String nameIn, String ratingIn, String typesIn, String vicinityIn, 
-                      String idIn, String placeIdIn, String latIn, String lngIn) //GooglePlacesAPI
+    String idIn, String placeIdIn, String latIn, String lngIn) //GooglePlacesAPI
     {
         lat = latIn;
         lng = lngIn;
@@ -57,7 +57,7 @@ public class Suggestion
     }
 
     public Suggestion(String nameIn, String latIn, String lngIn, String idIn,
-                      String contact, String rate, String[] types) // Foursquare
+    String contact, String rate, String[] types) // Foursquare
     {
         name = nameIn;
         lat = latIn;
@@ -68,13 +68,20 @@ public class Suggestion
         url = "";
         address = "";
         //foursquare ratings are rated 1-10, the rest of our APIs are rated 1-5
-        double tempRating = Double.parseDouble(rating);
-        tempRating = tempRating/2.0;
-        rating = Double.toString(tempRating);
+        if (!rate.equals(""))
+        {
+            double tempRating = Double.parseDouble(rate);
+            tempRating = tempRating/2.0;
+            rating = Double.toString(tempRating);
+        }
+        else
+        {
+            rating = "0";
+        }
     }
 
     public Suggestion(String nameIn, String ratingIn, String latIn,
-                      String lngIn, String categoriesIn) //Yellow Pages
+    String lngIn, String categoriesIn) //Yellow Pages
     {
         name = nameIn;
         lat = latIn;
