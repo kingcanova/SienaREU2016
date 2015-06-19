@@ -14,10 +14,22 @@ public class ContextualSuggestion
     protected static Hashtable<Integer, Suggestion> pois = new Hashtable<Integer, Suggestion>();
     protected static Hashtable<Integer, Profile> profiles = new Hashtable<Integer, Profile>();
     protected static Hashtable<Integer, Suggestion> theCollection = new Hashtable<Integer, Suggestion>();
+    // maybe have the collection so a city ID gets all the venues in that city?
+    protected static Hashtable<Integer, ArrayList<Suggestion>> otherCollection = new Hashtable<>();
 
     protected String groupID = "Siena";
     protected String runID = "test";
 
+    public ArrayList<Suggestion> getNearbyVenues(Integer cityID)
+    {
+        return otherCollection.get(cityID);
+    }
+
+    // public void rank(Profile user, ArrayList<Suggestion> venues)
+    // {
+    //     return;
+    // }
+   
     /**
      * Print out all the attractions that the person has rated
      * testing before final version of writing to a csv file
