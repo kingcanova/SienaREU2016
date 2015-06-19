@@ -17,7 +17,7 @@ public class Suggestion
     public Suggestion()
     {
         name = "";
-        rating = "";
+        rating = "0";
         lat = "0.0";
         lng = "0.0";
         categories = new String[0];
