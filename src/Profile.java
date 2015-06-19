@@ -1,5 +1,4 @@
-import java.util.Hashtable;
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * Every person has a profile, containing a list of cities
@@ -11,15 +10,16 @@ import java.util.Arrays;
 public class Profile
 {
     protected int[][] ratings = new int[100][2]; 
-    
+
     //saves the ratings of each profile example attraction
     protected Hashtable<Integer, Integer> attr_ratings = new Hashtable<Integer, Integer>();
-    
+
     //saves the categories of those attractions and the matching rating
     protected Hashtable<String, Integer> cat_ratings = new Hashtable<String, Integer>();
-    
-    protected int user_id;
+    protected ArrayList<String> posAttrTypes = new ArrayList<String>();
+    protected ArrayList<String> negAttrTypes = new ArrayList<String>();
 
+    protected int user_id;
     public Profile(int id)
     {
         this.user_id = id;

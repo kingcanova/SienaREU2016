@@ -149,11 +149,22 @@ public class CSVreader
             person.attr_ratings.put(att_id, t_rating); //only title rating for now
             //person.ratings[att_id][1] = u_rating;
 
-            //             Suggestion curr = ContextualSuggestion.pois.get(att_id);
-            //             for(String cat : curr.category)
-            //             {
-            //                 person.cat_rating.put(cat, t_rating);
-            //             }
+            //if attr rank is 3 or 4, place in positive category array for profile
+            //id attr rank is 0 or 1, place in negative catrgory array for profile
+            Suggestion curr = ContextualSuggestion.pois.get(att_id);
+            for(String cat : curr.category)
+            {
+                if(t_rating >=3)
+                {
+                    if(!person.posAttrTypes.contains(cat))
+                        person.posAttrTypes.add(cat);
+                }
+                else if(t_rating <=1)
+                {
+                    if(!person.negAttrTypes.contains(cat))
+                        person.negAttrTypes.add(cat);
+                }
+            }
         }
         br.close();
     }
