@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.Hashtable;
+import java.util.Arrays;
 
 /**
  * Every person has a profile, containing a list of cities
@@ -22,9 +23,17 @@ public class Profile
     public Profile(int id)
     {
         this.user_id = id;
-        for(int[] p : ratings)
+        for (int[] p : ratings)
         {
             Arrays.fill(p, -1);
         }
+    }
+
+    public Integer getCatRating(String cat) {
+        return cat_ratings.get(cat);
+    }
+
+    public Integer getAttrRating(Integer id) {
+        return attr_ratings.get(id);
     }
 }
