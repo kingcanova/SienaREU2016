@@ -41,10 +41,11 @@ public class FSqAPI
      */
     public Suggestion queryAPI(String ll, String name) throws URISyntaxException, IOException
     {
-        final URIBuilder builder = 
-            new URIBuilder().setScheme("https").setHost(
-                "api.foursquare.com").setPath("/v2/venues/search");
-        
+        final URIBuilder builder = new URIBuilder()
+            .setScheme("https")
+            .setHost("api.foursquare.com")
+            .setPath("/v2/venues/search");
+
         //necessary paramaters to add for a FourSquareAPI search       
         builder.addParameter("client_id", client_id);
         builder.addParameter("client_secret", client_secret);
@@ -57,7 +58,7 @@ public class FSqAPI
         HttpClient client = HttpClientBuilder.create().build();
         final HttpResponse execute = client.execute(request);
         final String r = EntityUtils.toString(execute.getEntity());
-        
+
         //turn String into JSON
         JSONParser parser = new JSONParser();
         JSONObject response = null;
@@ -74,10 +75,10 @@ public class FSqAPI
             System.err.println("Error: null pointer in FSqAPI query:\n" + e);
             return new Suggestion();
         }
-        
+
         //array of terms used by FourSquareAPI inside of the JSON response to separate data
         String[] fqTerms = new String[]{"name", "location", "id", "contact","rating", "categories"};
-        
+
         //retrieves JSON data for all businesses found
         JSONObject venues = (JSONObject) response.get("response");
         JSONArray results = (JSONArray) venues.get("venues");

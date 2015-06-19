@@ -25,11 +25,21 @@ public class GooglePlacesAPI
     private final String GOOGLE_API_KEY  = Secret.GOOGLE_API_KEY;
     private final HttpClient client = HttpClientBuilder.create().build();
 
-    public Suggestion performSearch(final String name, final double lat, 
-    final double lon) throws ParseException, IOException, URISyntaxException
+    /**
+     * Query the API 
+     * @param name a string of the attraction to search
+     * @param lat a double of the latitude of the context
+     * @param lon a double of the longitude of the context
+     * @return a suggestion object of the search results
+     */
+    public Suggestion performSearch(String name, double lat, double lon) 
+    throws ParseException, IOException, URISyntaxException
     {
-        final URIBuilder builder = new URIBuilder().setScheme("https").setHost("maps." + 
-                "googleapis.com").setPath("/maps/api/place/nearbysearch/json");
+        final URIBuilder builder = new URIBuilder()
+            .setScheme("https")
+            .setHost("maps." + "googleapis.com")
+            .setPath("/maps/api/place/nearbysearch/json");
+            
         //necessary paramaters to add for a GooglePlacesAPI search. Max for radius is 50,000 meters
         builder.addParameter("location", lat + "," + lon);
         builder.addParameter("radius", "15000");//radius in meters
@@ -40,7 +50,6 @@ public class GooglePlacesAPI
         final HttpUriRequest request = new HttpGet(builder.build());
         final HttpResponse execute = this.client.execute(request);
         final String r = EntityUtils.toString(execute.getEntity());
-        //System.out.println(r);
 
         //turn String into JSON
         JSONParser parser = new JSONParser();
@@ -48,19 +57,26 @@ public class GooglePlacesAPI
         try {
             response = (JSONObject) parser.parse(r);
         } catch (ParseException pe) {
-            System.out.println("Error: could not parse JSON response:");
+            System.err.println("Error: could not parse JSON response:");
             System.out.println(r);
             System.exit(1);
         }
+        catch (NullPointerException e) {
+            System.err.println("Error: null pointer in FSqAPI query:\n" + e);
+            return new Suggestion();
+        }
 
         //array of terms used by GooglePlacesAPI inside of the JSON response to separate data
-        String[] googleTerms = new String[]{"name", "rating", "types","vicinity", "id", "place_id", "geometry", };
+        String[] googleTerms = new String[]{"name", "rating", "types",
+                "vicinity", "id", "place_id", "geometry", };
 
         //retrieves JSON data for all businesses found
         JSONArray results = (JSONArray) response.get("results");
+        
+        //Check if Yellow Pages returned any results
         if(results.size() == 0)
         {
-            //System.out.println("Sorry, no results were found for your request.");
+            //No results found, return a blank suggestion
             return new Suggestion();
         }
         else
@@ -85,7 +101,7 @@ public class GooglePlacesAPI
     public static void main(final String[] args) throws ParseException, IOException, URISyntaxException
     {
         GooglePlacesAPI g = new GooglePlacesAPI();
-        Suggestion s = g.performSearch("Topolobampo/Frontera Grill", 41.85003, -87.65005);
+        Suggestion s = g.performSearch("Burger 21", 42.6525, 73.7572);
         s.print();
     }
 }

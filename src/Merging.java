@@ -5,10 +5,10 @@ import org.json.simple.parser.ParseException;
 import java.net.*;
 import java.math.*;
 /**
- * Write a description of class Merging here.
+ * Merges the results from each API into one suggestion object
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Aidan, Tom, Kevin, Zach
+ * @version Final
  */
 public class Merging
 {
@@ -86,6 +86,9 @@ public class Merging
         }
     }
 
+    /**
+     * Replace all spaces, "and"s, and punctuation from the attraction name
+     */
     public static String simplify(String original)
     {
         original = original.toLowerCase();
@@ -122,22 +125,7 @@ public class Merging
         if( y.contains(o) || o.contains(y) && !y.equals("")) { yp_count += 1;}
         if( f.contains(o) || o.contains(f) && !f.equals("")) { four_count += 1;}
         if( g.contains(o) || o.contains(g) && !g.equals("")) { goog_count += 1;}
-        //         
-        //         if((y).equals(f) && (y).equals(g)) {
-        //             name = yp.name;
-        //         }
-        //         else if( (y).equals(f) ) {
-        //             name = yp.name;
-        //             goog_count -= 1;
-        //         }
-        //         else if( (y).equals(g) ) {
-        //             name = yp.name;
-        //             four_count -= 1;
-        //         }
-        //         else if( (f).equals(g) ) {
-        //             name = four.name;
-        //             yp_count -= 1;
-        //         }
+        
         //save lat/lng, if their count is not zero lat/lng will be 100 degrees off
         double ylat = Double.parseDouble(yp.lat) + (yp_count * 100);
         double flat = Double.parseDouble(four.lat) + (four_count * 100);
@@ -175,7 +163,6 @@ public class Merging
         try{
             if(yp_count == 0) {
                 yp_rating = Double.parseDouble(yp.rating);
-
                 if(yp_rating != 0)
                     rating += 1;
             }
@@ -235,7 +222,10 @@ public class Merging
         System.out.println();
         return result;
     }
-    //round value to specific decimal place
+    
+    /**
+     * Round value to specific decimal place
+     */    
     public static double round(double value, int places) 
     {
         if (places < 0 || value == Double.NaN) 

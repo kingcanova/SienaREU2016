@@ -20,6 +20,9 @@ public class ContextualSuggestion
     protected String groupID = "Siena";
     protected String runID = "test";
 
+    /**
+     * Returns an arraylist of all the attractions located in a certain city
+     */
     public ArrayList<Suggestion> getNearbyVenues(Integer cityID)
     {
         return otherCollection.get(cityID);

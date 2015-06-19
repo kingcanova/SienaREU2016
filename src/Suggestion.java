@@ -1,9 +1,10 @@
 import java.util.*;
 /**
- * Write a description of class Suggestion here.
+ * Suggestion objects contain all information on a certain attraction merged
+ * from the three APIs
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Aidan, Tom, Kevin, Zach
+ * @version Final
  */
 public class Suggestion
 {
@@ -106,7 +107,7 @@ public class Suggestion
         System.out.println("Categories: ");
         for(String s : categories)
         {
-            System.out.print(s + "\n");
+            System.out.println(s);
         }
     }
 

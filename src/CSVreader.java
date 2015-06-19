@@ -4,6 +4,12 @@ import java.util.*;
 import java.nio.*;
 import java.nio.file.*;
 
+/**
+ * Reads in all the neccesary csv files and loads the data into the 
+ * 
+ * @author Aidan, Tom, Kevin, Zach
+ * @version Final
+ */
 public class CSVreader 
 {
     /**

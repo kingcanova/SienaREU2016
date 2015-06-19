@@ -38,6 +38,7 @@ public class YPAPI
             .setScheme("http")
             .setHost("api2.yp.com")
             .setPath("/listings/v1/search");
+            
         //necessary paramaters to add for a YellowPagesAPI search. Max search radius is 50 miles
         builder.addParameter("searchloc", lat + "," + lon);
         builder.addParameter("radius", "50"); //radius in miles
