@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.io.IOException;
 import org.json.simple.parser.ParseException;
 import java.net.*;
+import java.math.*;
 /**
  * Write a description of class Merging here.
  * 
@@ -174,6 +175,7 @@ public class Merging
         try{
             if(yp_count == 0) {
                 yp_rating = Double.parseDouble(yp.rating);
+
                 if(yp_rating != 0)
                     rating += 1;
             }
@@ -192,8 +194,10 @@ public class Merging
                     rating += 1;
             }
         } catch(Exception e){}
+        if(goog_rating == 0 && four_rating == 0 && yp_rating == 0)
+            rating+=1;
         //take average of all used ratings
-        rating = (four_rating + goog_rating + yp_rating) / rating;
+        rating =round(((four_rating + goog_rating + yp_rating) / rating),2);
 
         //add all categories of used api's into unified list
         ArrayList<String> cats = new ArrayList<String>();
@@ -230,6 +234,17 @@ public class Merging
         result.printFinal();
         System.out.println();
         return result;
+    }
+    //round value to specific decimal place
+    public static double round(double value, int places) 
+    {
+        if (places < 0 || value == Double.NaN) 
+        {
+            throw new IllegalArgumentException();
+        }
+        BigDecimal bd = new BigDecimal(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     /**
