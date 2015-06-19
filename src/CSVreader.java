@@ -46,7 +46,7 @@ public class CSVreader
             buildProfile(br);
 
             br = new BufferedReader(new FileReader(Paths.get(trecData + collection).toFile()));
-            buildCollection(br);
+            //buildCollection(br);
         }
         catch (FileNotFoundException e) 
         {
@@ -108,9 +108,8 @@ public class CSVreader
         String line = "";
         //read in paramters to skip them
         br.readLine();
-        for (int i=0; i<5; i++)//Limit search to first 5 examples to avoid going over quota
+        while((line = br.readLine())!=null)//Limit search to first 5 examples to avoid going over quota
         {
-            line = br.readLine();
             //separate string by commas, place data into "context" array
             String[] context = new String[5];
             context = CSVSplitter.split(line, 5);
@@ -166,6 +165,10 @@ public class CSVreader
                 }
             }
         }
+        Profile p = ContextualSuggestion.profiles.get(700);
+        for(int i=0; i<p.posAttrTypes.size(); i++)
+            System.out.println(p.posAttrTypes.get(i));
+        
         br.close();
     }
 
