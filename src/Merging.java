@@ -24,7 +24,7 @@ public class Merging
      */
     public Suggestion searchFourSq(String ll, String name)
     {
-//         System.out.println("Searching FourSquare for: " + name);
+        //         System.out.println("Searching FourSquare for: " + name);
         try
         {
             //ArrayList<Suggestion> fsqResults = 
@@ -48,7 +48,7 @@ public class Merging
      */
     public Suggestion searchYP(double lat, double lng, String name)
     {
-//         System.out.println("Searching Yellow Pages for: " + name);
+        //         System.out.println("Searching Yellow Pages for: " + name);
         try
         {
             Suggestion result = ypApi.performSearch(name, lat, lng);
@@ -71,12 +71,12 @@ public class Merging
      */
     public Suggestion searchGoogle(double lat, double lng, String name) 
     {
-//         System.out.println("Searching GooglePlaces for: " + name);
+        //         System.out.println("Searching GooglePlaces for: " + name);
         try
         {
             //ArrayList<Suggestion> googleResults = new ArrayList<Suggestion>();
             Suggestion result = googleApi.performSearch(name, lat, lng);
-//             result.print();
+            //             result.print();
             return result;
         }
         catch(Exception e)
@@ -95,7 +95,7 @@ public class Merging
         original = original.replaceAll(" ", "");
         original = original.replaceAll("[^a-z0-9]+", "");
         original = original.replaceAll("and", "");
-//         System.out.println(original);
+        //         System.out.println(original);
         return original;
     }
 
@@ -125,7 +125,7 @@ public class Merging
         if( y.contains(o) || o.contains(y) && !y.equals("")) { yp_count += 1;}
         if( f.contains(o) || o.contains(f) && !f.equals("")) { four_count += 1;}
         if( g.contains(o) || o.contains(g) && !g.equals("")) { goog_count += 1;}
-        
+
         //save lat/lng, if their count is not zero lat/lng will be 100 degrees off
         double ylat = Double.parseDouble(yp.lat) + (yp_count * 100);
         double flat = Double.parseDouble(four.lat) + (four_count * 100);
@@ -218,11 +218,11 @@ public class Merging
 
         //create the unified suggestion
         Suggestion result = new Suggestion(name, rating, lat, lng, cats);
-        result.printFinal();
-        System.out.println();
+        //result.printFinal();
+        //System.out.println();
         return result;
     }
-    
+
     /**
      * Round value to specific decimal place
      */    
@@ -257,13 +257,13 @@ public class Merging
         Double lati = cur.latitude;
         Double lngi = cur.longitude;
 
-        System.out.println("Attr:\t" + attr);
-        System.out.println("City:\t" + city);
+        //System.out.println("Attr:\t" + attr);
+        //System.out.println("City:\t" + city);
         //search the three api's
         Suggestion four = m.searchFourSq((lat + "," + lng), name);
         Suggestion yp = m.searchYP(lati, lngi, name);
         Suggestion goog = m.searchGoogle(lati, lngi, name);
-        System.out.println();
+        //System.out.println();
         return m.mergeApis(attr, four, goog, yp);        
     }
 }

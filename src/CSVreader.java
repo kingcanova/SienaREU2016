@@ -20,7 +20,8 @@ public class CSVreader
     {
         String trecData = "../TRECData/";
 
-        String collection = "collection_2015.csv";
+        //String collection = "collection_2015.csv";
+        String collection = "collection_nyc.csv";
         //id, city, state, lat, long
         String locations = "contexts2015.csv";
         String coordinates = "contexts2015coordinates.csv";
@@ -46,7 +47,7 @@ public class CSVreader
             buildProfile(br);
 
             br = new BufferedReader(new FileReader(Paths.get(trecData + collection).toFile()));
-            //buildCollection(br);
+            buildCollection(br);
         }
         catch (FileNotFoundException e) 
         {
@@ -185,18 +186,33 @@ public class CSVreader
     public void buildCollection(BufferedReader br) throws IOException
     {
         String line = "";
+        ArrayList<Suggestion> temp = null;
         //no paramters in collection
-        for (int i=0; i<5; i++)
+        //         for (int i=0; i<5; i++)
+        //         {
+        while ((line = br.readLine()) != null)
         {
-            line = br.readLine();
+            //line = br.readLine();
             //separate string by commas, place data into "context" array
             String[] context = CSVSplitter.split(line, 4);
             String attrID = (context[0].split("-"))[1];
+
             //populate hashtable using attr ID as a key to reference the merged Suggestion object
-            ContextualSuggestion.theCollection.put(Integer.parseInt(attrID), 
-                Merging.merge(context[3], Integer.parseInt(context[1])));
+            if (ContextualSuggestion.theCollection.get(Integer.parseInt(context[1])) == null)
+            {//If first spot is empty
+                temp = new ArrayList<Suggestion>();
+                temp.add(Merging.merge(context[3], Integer.parseInt(context[1])));
+                ContextualSuggestion.theCollection.put(Integer.parseInt(context[1]), temp);
+            }
+            else
+            {//Already contains an arraylist
+                temp = ContextualSuggestion.theCollection.get(Integer.parseInt(context[1]));
+                temp.add(Merging.merge(context[3], Integer.parseInt(context[1])));
+                ContextualSuggestion.theCollection.put(Integer.parseInt(context[1]), temp);
+            }
+            //         }
+            br.close();
         }
-        br.close();
     }
 
     /**

@@ -6,13 +6,14 @@ import java.util.*;
  * @author Aidan, Tom, Kevin, Zach
  * @version Final
  */
-public class Suggestion
+public class Suggestion implements Comparable<Suggestion>
 {
     protected String rating, name, url, categories[], phone, address, lat, lng, id,
     placeId, vicinity;
     protected String title, c;
     protected double rate, latitude, longitude;
     protected ArrayList<String> category;
+    protected int score;
 
     //constructors
     public Suggestion()
@@ -122,5 +123,18 @@ public class Suggestion
         {
             System.out.println("\t" + cat);
         }
+    }
+    
+    public int compareTo(Suggestion other)
+    {
+        if(this.score < other.score)
+        {
+            return -1;
+        }
+        else if (this.score > other.score)
+        {
+            return 1;
+        }
+        return 0;
     }
 }
