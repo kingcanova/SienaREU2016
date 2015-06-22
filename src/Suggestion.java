@@ -13,7 +13,7 @@ public class Suggestion implements Comparable<Suggestion>
     protected String title, c;
     protected double rate, latitude, longitude;
     protected ArrayList<String> category;
-    protected int score;
+    protected int score = 0;
 
     //constructors
     public Suggestion()
@@ -129,11 +129,11 @@ public class Suggestion implements Comparable<Suggestion>
     {
         if(this.score < other.score)
         {
-            return -1;
+            return 1;
         }
         else if (this.score > other.score)
         {
-            return 1;
+            return -1;
         }
         return 0;
     }

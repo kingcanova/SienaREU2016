@@ -35,7 +35,6 @@ public class Merging
         catch(Exception e)
         {
             System.err.println(e);
-            System.out.println(e);
             return new Suggestion();
         }
     }
@@ -245,8 +244,6 @@ public class Merging
      */
     public static Suggestion merge(String attr, int contextID)
     {
-        System.out.println();
-
         Merging m = new Merging();
         String name = attr;
         //get the Context object from the hashtable
@@ -263,7 +260,6 @@ public class Merging
         Suggestion four = m.searchFourSq((lat + "," + lng), name);
         Suggestion yp = m.searchYP(lati, lngi, name);
         Suggestion goog = m.searchGoogle(lati, lngi, name);
-        //System.out.println();
         return m.mergeApis(attr, four, goog, yp);        
     }
 }

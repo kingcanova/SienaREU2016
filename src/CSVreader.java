@@ -71,7 +71,7 @@ public class CSVreader
                 }
             }
         }
-        ContextualSuggestion.suggest();
+        //ContextualSuggestion.suggest();
     }
 
     /**
@@ -79,6 +79,8 @@ public class CSVreader
      */
     public void buildLocation(BufferedReader br, BufferedReader br2) throws IOException
     {
+        System.out.println("Building Contexts");
+        
         String line = "";
         //read in parameters to ignore them and jump to next line 
         br.readLine();
@@ -106,6 +108,7 @@ public class CSVreader
      */
     public void buildPOI(BufferedReader br) throws IOException
     {
+        System.out.println("Building Examples");
         String line = "";
         //read in paramters to skip them
         br.readLine();
@@ -127,6 +130,7 @@ public class CSVreader
      */
     public void buildProfile(BufferedReader br) throws IOException
     {
+        System.out.println("Building Profiles, ratings");
         String line = "";
         br.readLine();
         int person_id = -1;
@@ -185,6 +189,8 @@ public class CSVreader
      */
     public void buildCollection(BufferedReader br) throws IOException
     {
+        System.out.println("Building Collection");
+        
         String line = "";
         ArrayList<Suggestion> temp = null;
         //no paramters in collection
@@ -211,8 +217,8 @@ public class CSVreader
                 ContextualSuggestion.theCollection.put(Integer.parseInt(context[1]), temp);
             }
             //         }
-            br.close();
         }
+        br.close();
     }
 
     /**
