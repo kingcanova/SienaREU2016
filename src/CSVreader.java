@@ -155,20 +155,23 @@ public class CSVreader
             {
                 if(t_rating >=3)
                 {
-                    if(!person.posAttrTypes.contains(cat))
-                        person.posAttrTypes.add(cat);
+                    //Add 1 or 4 to the category total based on the rating
+                    if (person.cat_count.get(cat) == null)
+                        person.cat_count.put(cat, ((t_rating-3)*3)+1);                        
+                    else                        
+                        person.cat_count.put(cat, person.cat_count.get(cat)+(((t_rating-3)*3)+1));                    
                 }
                 else if(t_rating <=1)
-                {
-                    if(!person.negAttrTypes.contains(cat))
-                        person.negAttrTypes.add(cat);
+                { 
+                    //Subtract 1 or 4 to the category total based on the rating
+                    if (person.cat_count.get(cat) == null)
+                        person.cat_count.put(cat, ((t_rating-1)*3)-1);
+                    else
+                        person.cat_count.put(cat, person.cat_count.get(cat)+(((t_rating-1)*3)-1));
                 }
             }
         }
-        Profile p = ContextualSuggestion.profiles.get(700);
-        for(int i=0; i<p.posAttrTypes.size(); i++)
-            System.out.println(p.posAttrTypes.get(i));
-        
+
         br.close();
     }
 

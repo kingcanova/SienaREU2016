@@ -15,9 +15,9 @@ public class Profile
     protected Hashtable<Integer, Integer> attr_ratings = new Hashtable<Integer, Integer>();
 
     //saves the categories of those attractions and the matching rating
-    protected Hashtable<String, Integer> cat_ratings = new Hashtable<String, Integer>();
-    protected ArrayList<String> posAttrTypes = new ArrayList<String>();
-    protected ArrayList<String> negAttrTypes = new ArrayList<String>();
+    protected Hashtable<String, Integer> cat_count = new Hashtable<String, Integer>();
+    //protected ArrayList<String> posAttrTypes = new ArrayList<String>();
+    //protected ArrayList<String> negAttrTypes = new ArrayList<String>();
 
     protected int user_id;
     public Profile(int id)
@@ -30,7 +30,7 @@ public class Profile
     }
 
     public Integer getCatRating(String cat) {
-        return cat_ratings.get(cat);
+        return cat_count.get(cat);
     }
 
     public Integer getAttrRating(Integer id) {
