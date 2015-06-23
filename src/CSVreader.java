@@ -41,13 +41,15 @@ public class CSVreader
             buildLocation(br, br2);
 
             br = new BufferedReader(new FileReader(Paths.get(trecData + pois).toFile()));
-            buildPOI(br);
+            //buildPOI(br);
+            testBuildPOI();
 
             br = new BufferedReader(new FileReader(Paths.get(trecData + profile100).toFile()));
             buildProfile(br);
 
             br = new BufferedReader(new FileReader(Paths.get(trecData + collection).toFile()));
-            buildCollection(br);
+            //buildCollection(br);
+            testBuildCollection();
         }
         catch (FileNotFoundException e) 
         {
@@ -80,7 +82,7 @@ public class CSVreader
     public void buildLocation(BufferedReader br, BufferedReader br2) throws IOException
     {
         System.out.println("Building Contexts");
-        
+
         String line = "";
         //read in parameters to ignore them and jump to next line 
         br.readLine();
@@ -121,6 +123,33 @@ public class CSVreader
             ContextualSuggestion.pois.put(Integer.parseInt(context[0]), Merging.merge(context[2], Integer.parseInt(context[1])));
         }
         br.close();
+    }
+
+    /**
+     * Read examples from a text file instead of querying the APIs
+     */
+    public void testBuildPOI() throws IOException
+    {
+        Scanner in = new Scanner(new File("TestInputExamples.txt"));
+        String line = " ";
+        String name = "";
+        ArrayList<String> cats = new ArrayList<String>();
+        int index = 101;
+        //Read through the file
+        while (in.hasNextLine())
+        {
+            name = in.nextLine();
+            line = " ";
+            //Check for the blank line after the list of categories
+            while (!line.equals("") && in.hasNextLine())
+            {                
+                line = in.nextLine();
+                cats.add(line);
+            }
+            ContextualSuggestion.pois.put(index, new Suggestion(name, 1, 2, 3, cats));
+            index++;
+            cats = new ArrayList<String>();
+        }
     }
 
     /**
@@ -190,7 +219,7 @@ public class CSVreader
     public void buildCollection(BufferedReader br) throws IOException
     {
         System.out.println("Building Collection");
-        
+
         String line = "";
         ArrayList<Suggestion> temp = null;
         //no paramters in collection
@@ -219,6 +248,44 @@ public class CSVreader
             //         }
         }
         br.close();
+    }
+
+    /**
+     * Read colleciton from a text file instead of querying the APIs
+     */
+    public void testBuildCollection() throws IOException
+    {
+        Scanner in = new Scanner(new File("TestInputCollection.txt"));
+        String line = " ";
+        String name = "";
+        ArrayList<Suggestion> temp = null;
+        ArrayList<String> cats = new ArrayList<String>();
+        //Read through the file
+        while (in.hasNextLine())
+        {
+            name = in.nextLine();
+            line = " ";
+            //Check for the blank line after the list of categories
+            while (!line.equals("") && in.hasNextLine())
+            {
+                line = in.nextLine();
+                cats.add(line);
+            }
+
+            if (ContextualSuggestion.theCollection.get(151) == null)
+            {//If first spot is empty
+                temp = new ArrayList<Suggestion>();
+                temp.add(new Suggestion(name, 1, 2, 3, cats));
+                ContextualSuggestion.theCollection.put(151, temp);
+            }
+            else
+            {//Already contains an arraylist
+                temp = ContextualSuggestion.theCollection.get(151);
+                temp.add(new Suggestion(name, 1, 2, 3, cats));
+                ContextualSuggestion.theCollection.put(151, temp);
+            }
+            cats = new ArrayList<String>();
+        }
     }
 
     /**

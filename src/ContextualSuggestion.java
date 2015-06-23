@@ -44,23 +44,22 @@ public class ContextualSuggestion
 
         Profile person = profiles.get(700);
         ArrayList<Suggestion> attractions = theCollection.get(151);
-        
+
         System.out.println("Scoring Attractions");
         for (Suggestion s : attractions)
         {
             System.out.println(s.title);
             for (String cat : s.category)
             {
-                int temp = 0;
-                if(person.cat_count.get(cat) != null)
+                if(person.cat_count.get(cat) != null && !cat.equals("establishment") && !cat.equals("restaurant")
+                && !cat.equals("food"))
                 {
-                    temp = person.cat_count.get(cat);
+                    s.score += person.cat_count.get(cat);
                 }
-                s.score += temp;
-                System.out.println("\t" + cat + "\t" + temp);
+                System.out.println("\t" + cat + "\t" + person.cat_count.get(cat));
             }
         }
-        
+
         Collections.sort(attractions, null);
         System.out.println("50 Sorted Results: ");
         for (int i=0; i<50; i++)

@@ -190,6 +190,9 @@ public class Merging
         if(yp_count == 0) {
             for(String cat : yp.categories)
             {
+                cat = cat.trim();
+                if (cat.endsWith("s"))
+                    cat = cat.substring(0, cat.length()-1);
                 if(!cats.contains(cat))
                 {
                     cats.add(cat);
@@ -199,6 +202,9 @@ public class Merging
         if(four_count == 0) {
             for(String cat : four.categories)
             {
+                cat = cat.trim();
+                if (cat.endsWith("s"))
+                    cat = cat.substring(0, cat.length()-1);
                 if(!cats.contains(cat))
                 {
                     cats.add(cat);
@@ -208,6 +214,9 @@ public class Merging
         if(goog_count == 0) {
             for(String cat : goog.categories)
             {
+                cat = cat.trim();
+                if (cat.endsWith("s"))
+                    cat = cat.substring(0, cat.length()-1);
                 if(!cats.contains(cat))
                 {
                     cats.add(cat);
@@ -217,8 +226,8 @@ public class Merging
 
         //create the unified suggestion
         Suggestion result = new Suggestion(name, rating, lat, lng, cats);
-        //result.printFinal();
-        //System.out.println();
+        result.printFinal();
+        System.out.println();
         return result;
     }
 

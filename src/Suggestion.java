@@ -114,17 +114,17 @@ public class Suggestion implements Comparable<Suggestion>
 
     public void printFinal() //for merged suggestion
     {
-        System.out.println("Name: " + title);
-        System.out.println("Rating: " + rate);
-        System.out.println("Latitude: " + latitude);
-        System.out.println("Longitude: " + longitude);
-        System.out.println("Categories: ");
+        System.out.println(title);
+        //         System.out.println("Rating: " + rate);
+        //         System.out.println("Latitude: " + latitude);
+        //         System.out.println("Longitude: " + longitude);
+        //System.out.println("Categories: ");
         for(String cat : category)
         {
-            System.out.println("\t" + cat);
+            System.out.println(cat);
         }
     }
-    
+
     public int compareTo(Suggestion other)
     {
         if(this.score < other.score)
