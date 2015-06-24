@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class Suggestion implements Comparable<Suggestion>
 {
-    protected String rating, name, url, categories[], phone, address, lat, lng, id,
+    protected String url, phone, address,id,
     placeId, vicinity;
     protected String title, c;
     protected double rate, latitude, longitude;
@@ -18,11 +18,11 @@ public class Suggestion implements Comparable<Suggestion>
     //constructors
     public Suggestion()
     {
-        name = "";
-        rating = "0";
-        lat = "0.0";
-        lng = "0.0";
-        categories = new String[0];
+        title = "";
+        rate = 0;
+        latitude = 0.0;
+        longitude = 0.0;
+        category = new ArrayList<String>();
     }
 
     public Suggestion(String a, double b, double c, double d, ArrayList<String> e) //merged suggestion
@@ -37,21 +37,21 @@ public class Suggestion implements Comparable<Suggestion>
     public Suggestion(String nameIn, String ratingIn, String typesIn, String vicinityIn, 
     String idIn, String placeIdIn, String latIn, String lngIn) //GooglePlacesAPI
     {
-        lat = latIn;
-        lng = lngIn;
+        latitude = Double.parseDouble(latIn);
+        longitude = Double.parseDouble(lngIn);
         idIn = idIn.replaceAll("\"", "");
         id = idIn;
         nameIn = nameIn.replaceAll("\"", "");
-        name = nameIn;
+        title = nameIn;
         placeIdIn = placeIdIn.replaceAll("\"", "");
         placeId = placeIdIn;
-        rating = ratingIn;
+        rate = Double.parseDouble(ratingIn);
         typesIn = typesIn.replaceAll("\\[", "");          
         typesIn = typesIn.replaceAll("\\]", "");
         typesIn = typesIn.replaceAll("\"", "");
         typesIn = typesIn.replaceAll(" ", "");
         typesIn = typesIn.toLowerCase();
-        categories = typesIn.split(",");
+        category = new ArrayList<String>(Arrays.asList(typesIn.split(",")));
         vicinityIn = vicinityIn.replaceAll("\"", "");
         address= vicinityIn;
         url="N/A";
@@ -59,39 +59,39 @@ public class Suggestion implements Comparable<Suggestion>
     }
 
     public Suggestion(String nameIn, String latIn, String lngIn, String idIn,
-    String contact, String rate, String[] types) // Foursquare
+    String contact, String ratingIn, String[] types) // Foursquare
     {
-        name = nameIn;
-        lat = latIn;
-        lng = lngIn;
+        title = nameIn;
+        latitude = Double.parseDouble(latIn);
+        longitude = Double.parseDouble(lngIn);
         id = idIn;
         phone = contact;
-        categories = types;
+        category = new ArrayList<String>(Arrays.asList(types));
         url = "";
         address = "";
         //foursquare ratings are rated 1-10, the rest of our APIs are rated 1-5
-        if (!rate.equals(""))
+        if (!ratingIn.equals(""))
         {
-            double tempRating = Double.parseDouble(rate);
+            double tempRating = Double.parseDouble(ratingIn);
             tempRating = tempRating/2.0;
-            rating = Double.toString(tempRating);
+            rate = tempRating;
         }
         else
         {
-            rating = "0";
+            rate = 0;
         }
     }
 
     public Suggestion(String nameIn, String ratingIn, String latIn,
     String lngIn, String categoriesIn) //Yellow Pages
     {
-        name = nameIn;
-        lat = latIn;
-        lng = lngIn;
+        title = nameIn;
+        latitude = Double.parseDouble(latIn);
+        longitude = Double.parseDouble(lngIn);
         categoriesIn = categoriesIn.replaceAll(" ", "");
         categoriesIn = categoriesIn.toLowerCase();
-        categories = categoriesIn.split("\\|");
-        rating = ratingIn;
+        category = new ArrayList<String>(Arrays.asList(categoriesIn.split("\\|")));
+        rate = Double.parseDouble(ratingIn);
         url = "";
         address = "";
         phone = "";
@@ -99,20 +99,7 @@ public class Suggestion implements Comparable<Suggestion>
 
     }
 
-    public void print()//for individual API
-    {
-        System.out.println("Name: " + name);
-        System.out.println("Rating: " + rating);
-        System.out.println("Latitude: " + lat);
-        System.out.println("Longitude: " + lng);
-        System.out.println("Categories: ");
-        for(String s : categories)
-        {
-            System.out.println(s);
-        }
-    }
-
-    public void printFinal() //for merged suggestion
+    public void print() //for merged suggestion
     {
         System.out.println("Name: " + title);
         System.out.println("Rating: " + rate);
@@ -121,10 +108,10 @@ public class Suggestion implements Comparable<Suggestion>
         System.out.println("Categories: ");
         for(String cat : category)
         {
-            System.out.println("\t" + cat);
+            System.out.println(cat);
         }
     }
-    
+
     public int compareTo(Suggestion other)
     {
         if(this.score < other.score)

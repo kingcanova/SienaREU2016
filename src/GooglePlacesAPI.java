@@ -101,7 +101,7 @@ public class GooglePlacesAPI
     public static void main(final String[] args) throws ParseException, IOException, URISyntaxException
     {
         GooglePlacesAPI g = new GooglePlacesAPI();
-        Suggestion s = g.performSearch("Burger 21", 42.6525, 73.7572);
+        Suggestion s = g.performSearch("Bombers", 42.6525, -73.7572);
         s.print();
     }
 }

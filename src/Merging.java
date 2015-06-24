@@ -24,12 +24,12 @@ public class Merging
      */
     public Suggestion searchFourSq(String ll, String name)
     {
-        //         System.out.println("Searching FourSquare for: " + name);
+//                  System.out.println("Searching FourSquare for: " + name);
         try
         {
             //ArrayList<Suggestion> fsqResults = 
             Suggestion result = fsqApi.queryAPI(ll, name);
-            //result.print();
+//             result.print();
             return result;
         }
         catch(Exception e)
@@ -47,11 +47,11 @@ public class Merging
      */
     public Suggestion searchYP(double lat, double lng, String name)
     {
-        //         System.out.println("Searching Yellow Pages for: " + name);
+//                  System.out.println("Searching Yellow Pages for: " + name);
         try
         {
             Suggestion result = ypApi.performSearch(name, lat, lng);
-            //result.print();
+//             result.print();
             return result;
         }
         catch(Exception e)
@@ -70,12 +70,12 @@ public class Merging
      */
     public Suggestion searchGoogle(double lat, double lng, String name) 
     {
-        //         System.out.println("Searching GooglePlaces for: " + name);
+//                 System.out.println("Searching GooglePlaces for: " + name);
         try
         {
             //ArrayList<Suggestion> googleResults = new ArrayList<Suggestion>();
             Suggestion result = googleApi.performSearch(name, lat, lng);
-            //             result.print();
+//                         result.print();
             return result;
         }
         catch(Exception e)
@@ -113,9 +113,9 @@ public class Merging
         int goog_count = -1;
 
         String o = Merging.simplify(original); 
-        String f = Merging.simplify(four.name); 
-        String g = Merging.simplify(goog.name); 
-        String y = Merging.simplify(yp.name); 
+        String f = Merging.simplify(four.title); 
+        String g = Merging.simplify(goog.title); 
+        String y = Merging.simplify(yp.title); 
 
         //use the most common name
         //keep track of which api's have accurate names
@@ -126,12 +126,12 @@ public class Merging
         if( g.contains(o) || o.contains(g) && !g.equals("")) { goog_count += 1;}
 
         //save lat/lng, if their count is not zero lat/lng will be 100 degrees off
-        double ylat = Double.parseDouble(yp.lat) + (yp_count * 100);
-        double flat = Double.parseDouble(four.lat) + (four_count * 100);
-        double glat = Double.parseDouble(goog.lat) + (goog_count * 100);
-        double ylng = Double.parseDouble(yp.lng) + (yp_count * 100);
-        double flng = Double.parseDouble(four.lng) + (four_count * 100);
-        double glng = Double.parseDouble(goog.lng) + (goog_count * 100);
+        double ylat = yp.latitude + (yp_count * 100);
+        double flat = four.latitude + (four_count * 100);
+        double glat = goog.latitude + (goog_count * 100);
+        double ylng = yp.longitude + (yp_count * 100);
+        double flng = four.longitude + (four_count * 100);
+        double glng = goog.longitude + (goog_count * 100);
 
         double lat = glat; //default
         double lng = glng; //default
@@ -161,21 +161,21 @@ public class Merging
         //rating may or may not exist, ignore if doesn't
         try{
             if(yp_count == 0) {
-                yp_rating = Double.parseDouble(yp.rating);
+                yp_rating = yp.rate;
                 if(yp_rating != 0)
                     rating += 1;
             }
         } catch(Exception e){}
         try{
             if(four_count == 0) {
-                four_rating = Double.parseDouble(four.rating);
+                four_rating = four.rate;
                 if(four_rating != 0)
                     rating += 1;
             }
         } catch(Exception e){}
         try{
             if(goog_count == 0) {
-                goog_rating = Double.parseDouble(goog.rating);
+                goog_rating = goog.rate;
                 if(goog_rating != 0)
                     rating += 1;
             }
@@ -188,7 +188,7 @@ public class Merging
         //add all categories of used api's into unified list
         ArrayList<String> cats = new ArrayList<String>();
         if(yp_count == 0) {
-            for(String cat : yp.categories)
+            for(String cat : yp.category)
             {
                 if(!cats.contains(cat))
                 {
@@ -197,7 +197,7 @@ public class Merging
             }
         }
         if(four_count == 0) {
-            for(String cat : four.categories)
+            for(String cat : four.category)
             {
                 if(!cats.contains(cat))
                 {
@@ -206,7 +206,7 @@ public class Merging
             }
         }
         if(goog_count == 0) {
-            for(String cat : goog.categories)
+            for(String cat : goog.category)
             {
                 if(!cats.contains(cat))
                 {
@@ -217,7 +217,7 @@ public class Merging
 
         //create the unified suggestion
         Suggestion result = new Suggestion(name, rating, lat, lng, cats);
-        //result.printFinal();
+//         result.print();
         //System.out.println();
         return result;
     }
