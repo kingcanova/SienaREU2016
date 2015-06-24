@@ -101,7 +101,7 @@ public class Suggestion implements Comparable<Suggestion>
 
     public void print() //for merged suggestion
     {
-        System.out.println("Name: " + title);
+        System.out.println(title);
         System.out.println("Rating: " + rate);
         System.out.println("Latitude: " + latitude);
         System.out.println("Longitude: " + longitude);

@@ -27,7 +27,6 @@ public class Merging
 //                  System.out.println("Searching FourSquare for: " + name);
         try
         {
-            //ArrayList<Suggestion> fsqResults = 
             Suggestion result = fsqApi.queryAPI(ll, name);
 //             result.print();
             return result;
@@ -73,9 +72,9 @@ public class Merging
 //                 System.out.println("Searching GooglePlaces for: " + name);
         try
         {
-            //ArrayList<Suggestion> googleResults = new ArrayList<Suggestion>();
             Suggestion result = googleApi.performSearch(name, lat, lng);
-//                         result.print();
+            
+            //result.print();
             return result;
         }
         catch(Exception e)
@@ -94,7 +93,6 @@ public class Merging
         original = original.replaceAll(" ", "");
         original = original.replaceAll("[^a-z0-9]+", "");
         original = original.replaceAll("and", "");
-        //         System.out.println(original);
         return original;
     }
 
@@ -190,6 +188,9 @@ public class Merging
         if(yp_count == 0) {
             for(String cat : yp.category)
             {
+                cat = cat.trim();
+                if (cat.endsWith("s"))
+                    cat = cat.substring(0, cat.length()-1);
                 if(!cats.contains(cat))
                 {
                     cats.add(cat);
@@ -199,6 +200,9 @@ public class Merging
         if(four_count == 0) {
             for(String cat : four.category)
             {
+                cat = cat.trim();
+                if (cat.endsWith("s"))
+                    cat = cat.substring(0, cat.length()-1);
                 if(!cats.contains(cat))
                 {
                     cats.add(cat);
@@ -208,6 +212,9 @@ public class Merging
         if(goog_count == 0) {
             for(String cat : goog.category)
             {
+                cat = cat.trim();
+                if (cat.endsWith("s"))
+                    cat = cat.substring(0, cat.length()-1);
                 if(!cats.contains(cat))
                 {
                     cats.add(cat);
@@ -217,8 +224,8 @@ public class Merging
 
         //create the unified suggestion
         Suggestion result = new Suggestion(name, rating, lat, lng, cats);
-//         result.print();
-        //System.out.println();
+        result.print();
+        System.out.println();
         return result;
     }
 

@@ -1,0 +1,1135 @@
+﻿Millennium Park
+recreationcenter
+park
+establishment
+
+Topolobampo/Frontera Grill
+mexicanrestaurant
+bar&grill
+latinamericanrestaurant
+restaurant
+mexican
+
+Alinea
+americanrestaurant
+finediningrestaurant
+familystylerestaurant
+restaurant
+moleculargastronomy
+food
+establishment
+
+Willis Tower
+realestatemanagement
+realestateconsultant
+realestateagent
+historicsite
+establishment
+
+Billy Goat Tavern
+tavern
+bar
+americanrestaurant
+bar&grill
+caterer
+restaurant
+food
+establishment
+
+Hot Doug's
+hamburgers&hotdog
+takeoutrestaurant
+americanrestaurant
+familystylerestaurant
+restaurant
+hotdog
+
+Little Goat
+americanrestaurant
+bakerie
+bagel
+breakfast,brunch&lunchrestaurant
+coffeeshop
+takeoutrestaurant
+caterer
+restaurant
+diner
+food
+establishment
+
+Art Institute of Chicago
+museum
+office
+establishment
+
+Longman & Eagle
+seafoodrestaurant
+takeoutrestaurant
+bar
+tavern
+continentalrestaurant
+frenchrestaurant
+nightclub
+restaurant
+newamerican
+food
+establishment
+
+Navy Pier
+touristinformation&attraction
+movietheater
+pier
+establishment
+
+Sweet Maple Cafe
+coffeeshop
+breakfast,brunch&lunchrestaurant
+takeoutrestaurant
+americanrestaurant
+fastfoodrestaurant
+familystylerestaurant
+restaurant
+breakfast
+food
+establishment
+
+Hoosier Mama Pie Company
+bakerie
+takeoutrestaurant
+wholesalebakerie
+restaurant
+pieshop
+bakery
+store
+food
+establishment
+
+Logan Hardware
+recordshop
+store
+establishment
+
+Hopleaf
+bar&grill
+tavern
+bar
+takeoutrestaurant
+restaurant
+food
+establishment
+
+Signature Lounge
+lounge
+night_club
+bar
+establishment
+
+John Hancock Center
+lifeinsurance
+financialservice
+insurance
+healthinsurance
+building
+establishment
+
+Ruxbin
+kitchenaccessorie
+glassware
+american
+restaurant
+food
+establishment
+
+Hideout
+tavern
+bar
+bar&grill
+nightclub
+restaurant
+lounge
+establishment
+
+Lou Mitchell's
+breakfast,brunch&lunchrestaurant
+steakhouse
+chickenrestaurant
+dessertrestaurant
+boxlunche
+caterer
+restaurantmenu
+hamburgers&hotdog
+familystylerestaurant
+caterersmenu
+americanrestaurant
+seafoodrestaurant
+delicatessen
+restaurant
+diner
+bakery
+store
+meal_takeaway
+cafe
+food
+establishment
+
+Andy's Thai Kitchen
+thairestaurant
+healthfoodrestaurant
+asianrestaurant
+restaurant
+thai
+food
+establishment
+
+Crisp
+commerciallaundrie
+sandwiche
+restaurant
+food
+establishment
+
+Green Mill
+restaurant
+bar
+pizza
+night_club
+establishment
+
+Old Town Ale House
+tavern
+bar&grill
+bar
+brewpub
+restaurant
+divebar
+establishment
+
+Buddy Guy's Legends
+socialserviceorganization
+musicvenue
+night_club
+bar
+restaurant
+food
+establishment
+
+Adler Planetarium & Astronomy Museum
+planetarium
+touristinformation&attraction
+placesofinterest
+observatorie
+meeting&eventplanningservice
+educationalservice
+
+Metro
+movietheater
+studentcenter
+bar
+establishment
+
+Clark Street Ale House
+tavern
+bar&grill
+bar
+nightclub
+brewpub
+restaurant
+establishment
+
+Shedd Aquarium
+publicaquarium
+weddingreceptionlocations&service
+weddingchapels&ceremonie
+meeting&eventplanningservice
+familystylerestaurant
+restaurant
+marketingconsultant
+aquariums&aquariumsupplie
+touristinformation&attraction
+dataprocessingservice
+historicalplace
+marketingprograms&service
+placesofinterest
+city
+aquarium
+establishment
+
+Field Museum of Natural History
+museum
+sciencemuseum
+historicalplace
+meeting&eventplanningservice
+artgalleries,dealers&consultant
+touristinformation&attraction
+
+Humboldt Park
+seniorcitizensservices&organization
+park
+library
+establishment
+
+Lincoln Park Zoo
+zoo
+establishment
+
+Willie Dixon's Blues Heaven
+historicsite
+
+Chicago Cultural Center
+halls,auditoriums&ballroom
+theatre
+governmentoffice
+movietheater
+museum
+establishment
+
+Graceland Cemetery
+cemeterie
+funeralsupplies&service
+cemetery
+establishment
+
+River North Galleries
+
+Holy Name Cathedral
+religiousorganization
+church
+place_of_worship
+establishment
+
+National Museum of Mexican Art
+museum
+establishment
+
+Merchandise Mart
+physicaltherapyclinic
+physicaltherapist
+occupationaltherapist
+massagetherapist
+rehabilitationservice
+physicalfitnessconsultants&trainer
+building
+establishment
+
+Museum of Science & Industry
+museum
+sciencemuseum
+bus_station
+transit_station
+establishment
+
+Steppenwolf Theatre
+theatre
+theater
+establishment
+
+Garfield Park Conservatory
+historicalplace
+weddingreceptionlocations&service
+weddingchapels&ceremonie
+meeting&eventplanningservice
+botanicalgarden
+museum
+restaurant
+sunrooms&solarium
+generalcontractor
+arboretum
+campingequipment
+sportinggood
+touristinformation&attraction
+governmentconsultant
+recreationcenter
+governmentoffice
+garden
+food
+park
+establishment
+
+Chicago White Sox
+baseballfield
+establishment
+
+Chicago Theatre
+movietheater
+theatre
+halls,auditoriums&ballroom
+establishment
+
+Moody Church
+evangelicalcovenantchurche
+churches&placesofworship
+church
+place_of_worship
+establishment
+
+Kuma’s Corner
+
+Chicago Cubs
+radiostations&broadcastcompanie
+establishment
+
+Magnificent Mile
+hotel
+weddingreceptionlocations&service
+weddingchapels&ceremonie
+meeting&eventplanningservice
+motel
+corporatelodging
+healthresort
+lodging
+resort
+banquethalls&receptionfacilitie
+establishment
+
+Neo
+nightclub
+bar
+office
+night_club
+establishment
+
+Rory Lake’s Karaoke Dreams
+
+Santa Fe Opera
+operacompanie
+operahouse
+establishment
+
+Georgia O'Keeffe Museum
+artmuseum
+
+Santa Fe Indian Market
+arts&entertainment
+
+Cafe Pasqual's
+mexican
+restaurant
+art_gallery
+food
+establishment
+
+Coyote Café
+newamerican
+
+San Marcos Café
+breakfast
+
+El Farol
+mexicanrestaurant
+bar&grill
+caterer
+latinamericanrestaurant
+mediterraneanrestaurant
+spanishrestaurant
+familystylerestaurant
+bar
+tavern
+restaurant
+tapa
+food
+establishment
+
+New Wave Rafting Co
+
+Ski Santa Fe
+skiarea
+
+Loretto Chapel
+weddingchapels&ceremonie
+marriageceremonie
+churches&placesofworship
+church
+place_of_worship
+establishment
+
+St Francis Cathedral
+catholicchurche
+religiousorganization
+churches&placesofworship
+clergy
+romancatholicchurche
+
+Rancho de las Golondrinas
+museum
+touristinformation&attraction
+historicalplace
+educationalservice
+meeting&eventplanningservice
+otheroutdoor
+food
+establishment
+
+Palace of the Governors
+museum
+plaza
+library
+establishment
+
+Museum of Fine Arts
+
+Museum of International Folk Art
+museum
+artmuseum
+artgalleries,dealers&consultant
+meeting&eventplanningservice
+establishment
+
+New Mexico Museum of Art
+museum
+governmentoffice
+artmuseum
+establishment
+
+Morning Star Gallery
+artgallery
+art_gallery
+store
+finance
+establishment
+
+Santa Fe Southern Railway
+railroad
+train
+establishment
+
+"A Well-Born Guide/Have PhD, Will Travel"
+
+Compound
+american
+bar
+restaurant
+food
+establishment
+
+High Desert Angler
+fishingtackleparts&repair
+fishingbait
+fishingtackle
+fishingcharters&partie
+establishment
+
+SITE Santa Fe
+museum
+artgalleries,dealers&consultant
+artgallery
+establishment
+
+Shidoni Foundry
+artgalleries,dealers&consultant
+artgallery
+
+Cowgirl
+clothing-collectible,period,vintage
+restaurant
+bar
+food
+establishment
+
+Santacafé
+restaurant
+
+Second Street Brewery
+brewpub
+bar&grill
+tavern
+bar
+beer&ale
+familystylerestaurant
+restaurant
+brewery
+food
+establishment
+
+Tesuque Village Market
+grocerystore
+bakerie
+supermarkets&superstore
+diner
+restaurant
+food
+establishment
+
+Canyon Rd
+artgalleries,dealers&consultant
+artgallery
+
+Ristra
+frenchrestaurant
+americanrestaurant
+continentalrestaurant
+restaurant
+newamerican
+bar
+food
+establishment
+
+Gerald Peters Gallery
+artgalleries,dealers&consultant
+banquethalls&receptionfacilitie
+meeting&eventplanningservice
+commercialphotographer
+artgallery
+art_gallery
+store
+establishment
+
+Nambé Foundry Outlet
+
+Travel Bug
+travelagencie
+travel
+book_store
+store
+cafe
+food
+establishment
+
+Seret & Sons
+rug
+carpet&rugpads,linings&accessorie
+carpet&rugdealer
+floormaterial
+floormaterials-wholesale&manufacturer
+carpet&rugcleaner
+furniture/home
+home_goods_store
+furniture_store
+general_contractor
+store
+establishment
+
+Nedra Matteucci Galleries
+art_gallery
+establishment
+
+Museum of Contemporary Native Arts
+museum
+artmuseum
+store
+establishment
+
+Santa Fe Chamber Music Festival
+concerthall
+establishment
+
+Jackalope
+jeweler
+fleamarket
+home_goods_store
+book_store
+furniture_store
+general_contractor
+store
+establishment
+
+Santa Fe Baking Company
+
+Wheelwright Museum of the American Indian
+museum
+establishment
+
+Santa Fe Clay
+ceramics-equipment&supplie
+decorativeceramicproduct
+artgallery
+art_gallery
+establishment
+
+Ten Thousand Waves
+resort
+lodging
+spa
+health
+establishment
+
+Rodeo de Santa Fe
+rodeo
+eventspace
+establishment
+
+Santa Fe Desert Chorale
+musician
+entertainmentagencies&bureau
+performingart
+establishment
+
+Harry's Roadhouse
+americanrestaurant
+takeoutrestaurant
+caterer
+mexicanrestaurant
+breakfast,brunch&lunchrestaurant
+bar&grill
+restaurant
+american
+food
+establishment
+
+Kowboyz
+westernapparel&supplie
+bootstore
+hatshop
+clothingstore
+shoestore
+boutique
+clothing_store
+store
+establishment
+
+Nathalie
+arts&craft
+
+Tea House
+
+The Den
+nightclub
+bar
+establishment
+
+Del Charro Saloon
+mexicanrestaurant
+bar
+bar&grill
+latinamericanrestaurant
+tavern
+pizza
+breakfast,brunch&lunchrestaurant
+familystylerestaurant
+restaurant
+food
+establishment
+
+Jambo Cafe
+importer
+african
+cafe
+meal_takeaway
+restaurant
+food
+establishment
+
+Ballroom Dance Chicago
+dancestudio
+school
+establishment
+
+Building Profiles, ratings
+Building Collection
+Fat Cat
+poolhall
+bar
+restaurant
+office
+establishment
+
+55 Bar
+bar
+nightclub
+restaurant
+tavern
+jazzclub
+establishment
+
+Manitoba's
+bar&grill
+restaurant
+divebar
+bar
+establishment
+
+Nuyorican Poets Cafe
+cafeteria
+breakfast,brunch&lunchrestaurant
+restaurant
+theater
+bar
+establishment
+
+Cafe Habana
+cubanrestaurant
+takeoutrestaurant
+caterer
+latinamericanrestaurant
+caribbeanrestaurant
+restaurant
+cuban
+cafe
+bar
+food
+establishment
+
+The Magician
+magician
+bar
+establishment
+
+The Cock
+gaybar
+bar
+establishment
+
+S.O.B.'s
+americanrestaurant
+sandwichshop
+healthfoodrestaurant
+caterer
+bar
+caribbeanrestaurant
+latinamericanrestaurant
+restaurant
+
+Irving Plaza
+bar
+tavern
+musicvenue
+night_club
+establishment
+
+Raoul's Restaurant
+restaurant
+finediningrestaurant
+frenchrestaurant
+french
+
+Paddy Reilly's Music Bar
+pub
+establishment
+
+Tartine
+frenchrestaurant
+steakhouse
+bakerie
+breakfast,brunch&lunchrestaurant
+restaurant
+french
+food
+establishment
+
+Jules Bistro
+breakfast,brunch&lunchrestaurant
+seafoodrestaurant
+takeoutrestaurant
+familystylerestaurant
+continentalrestaurant
+restaurant
+french
+
+Temple Bar
+bar
+cocktaillounge
+nightclub
+restaurant
+establishment
+
+Tavern on Jane
+tavern
+bar
+caterer
+americanrestaurant
+bar&grill
+restaurant
+american
+food
+establishment
+
+Han's Deli
+delicatessen
+restaurant
+deli/bodega
+food
+store
+establishment
+
+Casa
+brazilianrestaurant
+familystylerestaurant
+takeoutrestaurant
+latinamericanrestaurant
+restaurant
+lounge
+bar
+food
+establishment
+
+Irving Farm Coffee Roasters
+coffee&tea
+coffeeshop
+bakery
+store
+meal_takeaway
+cafe
+restaurant
+food
+establishment
+
+Spring Lounge
+cocktaillounge
+tavern
+bar
+bar&grill
+restaurant
+night_club
+food
+establishment
+
+Niagara
+bar
+restaurant
+establishment
+
+Off The Wagon Bar & Grill
+bar
+nightclub
+restaurant
+
+Barrow Street Ale House
+bar
+brewpub
+tavern
+bar&grill
+nightclub
+restaurant
+sportsbar
+
+The Library
+bar&grill
+bar
+nightclub
+tavern
+restaurant
+establishment
+
+Macdougal St. Ale House
+sportsbar
+
+Down the Hatch
+nightclub
+bar
+tavern
+restaurant
+establishment
+
+St. Dymphna's
+tavern
+bar&grill
+restaurant
+bar
+food
+establishment
+
+Garage Restaurant & Cafe
+restaurant
+american
+bar
+food
+establishment
+
+Tomoe Sushi
+sushibar
+asianrestaurant
+takeoutrestaurant
+japaneserestaurant
+seafoodrestaurant
+restaurant
+food
+establishment
+
+Pianos
+pianos&organ
+musicalinstrument
+musicschool
+night_club
+bar
+establishment
+
+Boxcar Lounge
+bar
+establishment
+
+Mustang Sally's
+bar&grill
+bar
+tavern
+nightclub
+takeoutrestaurant
+caterer
+familystylerestaurant
+restaurant
+pub
+meal_takeaway
+food
+establishment
+
+Lucy's
+clothingstore
+boutique
+bar
+night_club
+establishment
+
+Once Upon a Tart
+caterer
+bakerie
+dessertrestaurant
+breakfast,brunch&lunchrestaurant
+familystylerestaurant
+restaurant
+sandwiche
+bakery
+store
+food
+establishment
+
+Trattoria Pesce Pasta
+italianrestaurant
+takeoutrestaurant
+pasta
+seafoodrestaurant
+mediterraneanrestaurant
+restaurant
+italian
+store
+meal_delivery
+food
+establishment
+
+Mona's
+tavern
+bar
+nightclub
+bar&grill
+restaurant
+establishment
+
+Le Jardin Bistro
+frenchrestaurant
+americanrestaurant
+continentalrestaurant
+restaurant
+
+Bleecker Street Records
+musicstore
+used&vintagemusicdealer
+recordshop
+clothing_store
+store
+establishment
+
+Caffe Buon Gusto
+restaurant
+italian
+meal_takeaway
+food
+establishment
+
+Yu Interiors
+homefurnishing
+furniturestore
+interiordesigners&decorator
+design
+home_goods_store
+furniture_store
+general_contractor
+store
+establishment
+
+Parkside Lounge
+cocktaillounge
+bar
+nightclub
+tavern
+restaurant
+night_club
+establishment
+
+Cafe Gitane at The Jane Hotel
+hotel
+lodging
+motel
+corporatelodging
+french
+
+Home Restaurant
+americanrestaurant
+familystylerestaurant
+takeoutrestaurant
+breakfast,brunch&lunchrestaurant
+restaurant
+american
+bar
+food
+establishment
+
+Apizz Restaurant
+familystylerestaurant
+pizza
+italianrestaurant
+restaurant
+italian
+
+26 Seats
+frenchrestaurant
+caterer
+restaurant
+french
+food
+establishment
+
+Isa
+restaurant
+salon/barbershop
+bar
+food
+establishment
+
+Tortilla Flats
+latinamericanrestaurant
+mexicanrestaurant
+takeoutrestaurant
+americanrestaurant
+caterer
+restaurant
+taco
+bar
+food
+establishment
+
+O'Hanlon's Bar
+bar&grill
+bar
+brewpub
+tavern
+restaurant
+pub
+
+Lifethyme Natural Market
+health&dietfoodproduct
+vitamins&foodsupplement
+grocerystore
+foodproduct
+coffee&tea
+healthfoodrestaurant
+organicgrocery
+
+Blue Water Grill
+seafoodrestaurant
+bar&grill
+takeoutrestaurant
+americanrestaurant
+japaneserestaurant
+sushibar
+asianrestaurant
+bar
+breakfast,brunch&lunchrestaurant
+nightclub
+restaurant
+seafood
+food
+establishment
+
+One & One
+cocktaillounge
+bar
+nightclub
+restaurant
+pub
