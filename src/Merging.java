@@ -27,7 +27,6 @@ public class Merging
         //         System.out.println("Searching FourSquare for: " + name);
         try
         {
-            //ArrayList<Suggestion> fsqResults = 
             Suggestion result = fsqApi.queryAPI(ll, name);
             //result.print();
             return result;
@@ -73,9 +72,8 @@ public class Merging
         //         System.out.println("Searching GooglePlaces for: " + name);
         try
         {
-            //ArrayList<Suggestion> googleResults = new ArrayList<Suggestion>();
             Suggestion result = googleApi.performSearch(name, lat, lng);
-            //             result.print();
+            //result.print();
             return result;
         }
         catch(Exception e)
@@ -94,7 +92,6 @@ public class Merging
         original = original.replaceAll(" ", "");
         original = original.replaceAll("[^a-z0-9]+", "");
         original = original.replaceAll("and", "");
-        //         System.out.println(original);
         return original;
     }
 

@@ -21,32 +21,34 @@ public class CSVreader
         String trecData = "../TRECData/";
 
         //String collection = "collection_2015.csv";
-        String collection = "collection_nyc.csv";
+        String collection = "collection_nyc.csv";//NYC subset used for testing
         //id, city, state, lat, long
         String locations = "contexts2015.csv";
         String coordinates = "contexts2015coordinates.csv";
         //id, attraction, description, website
-        String profile100 = "profiles2014-100.csv";
+        String profile100 = "profiles2014-100.csv";//2014 used for testing
         //id, title, description, url
-        String pois = "examples2014.csv";
+        String pois = "examples2014.csv";//2014 used for testing
 
         BufferedReader br = null;
         BufferedReader br2 = null;
 
-        //using 2014 for testing
         try {
             //br for context csv and br2 for coordinates csv
             br = new BufferedReader(new FileReader(Paths.get(trecData + locations).toFile()));
             br2 = new BufferedReader(new FileReader(Paths.get(trecData + coordinates).toFile()));
             buildLocation(br, br2);
 
+            //Reads in examples2014.csv which contains the attractions rated in the profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + pois).toFile()));
             //buildPOI(br);
             testBuildPOI();
 
+            //Reads in profiles2014-100.csv which contains all the example profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + profile100).toFile()));
             buildProfile(br);
 
+            //Reads in collection_2015.csv which contains all possible attractions to suggest
             br = new BufferedReader(new FileReader(Paths.get(trecData + collection).toFile()));
             //buildCollection(br);
             testBuildCollection();
@@ -87,11 +89,9 @@ public class CSVreader
         //read in parameters to ignore them and jump to next line 
         br.readLine();
         br2.readLine();
-        while (line != null)
+        while ((line = br.readLine()) != null)
         {
             //combine city id, name, state, and coordinates into one String
-            line = br.readLine();
-            if (line == null) { break; }
             line += ",";
             line += br2.readLine();
             //Separate String by every 6 commas to place values in "context" array.
@@ -164,11 +164,11 @@ public class CSVreader
         br.readLine();
         int person_id = -1;
 
-        //int start = ContextualSuggestion.attractions.get(0).id_num;
         while ((line = br.readLine()) != null) 
         {
             // use comma as separator
             String[] context = line.split(",");
+            //Get the profile id and check if it is the current profile
             int temp = Integer.parseInt(context[0]);
             if(temp != person_id)
             {
@@ -180,7 +180,6 @@ public class CSVreader
             int u_rating = Integer.parseInt(context[3]);
             Profile person = ContextualSuggestion.profiles.get(person_id);
             person.attr_ratings.put(att_id, t_rating); //only title rating for now
-            //person.ratings[att_id][1] = u_rating;
 
             //if attr rank is 3 or 4, place in positive category array for profile
             //id attr rank is 0 or 1, place in negative catrgory array for profile
@@ -222,7 +221,7 @@ public class CSVreader
 
         String line = "";
         ArrayList<Suggestion> temp = null;
-        //no paramters in collection
+        
         //         for (int i=0; i<5; i++)
         //         {
         while ((line = br.readLine()) != null)
