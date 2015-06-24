@@ -8,9 +8,8 @@ import java.util.*;
  */
 public class Suggestion implements Comparable<Suggestion>
 {
-    protected String url, phone, address,id,
-    placeId, vicinity;
-    protected String title, c;
+    protected String url, phone, address,id, placeId, vicinity;
+    protected String title;
     protected double rate, latitude, longitude;
     protected ArrayList<String> category;
     protected int score = 0;
@@ -54,8 +53,8 @@ public class Suggestion implements Comparable<Suggestion>
         category = new ArrayList<String>(Arrays.asList(typesIn.split(",")));
         vicinityIn = vicinityIn.replaceAll("\"", "");
         address= vicinityIn;
-        url="N/A";
-        phone="N/A";
+        url="";
+        phone="";
     }
 
     public Suggestion(String nameIn, String latIn, String lngIn, String idIn,
