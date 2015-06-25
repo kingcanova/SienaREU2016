@@ -37,37 +37,38 @@ public class ContextualSuggestion
         System.out.println("Running CSVReader");
         reader.run();
 
-        for (int i=0; i<=115; i++)
+        //         for (int i=0; i<=115; i++)
+        //         {
+        //             Profile person = profiles.get(700 + i);
+        Profile person = profiles.get(700);
+        ArrayList<Suggestion> attractions = theCollection.get(151);
+
+        //Give each attraction a score based one the rating and frequency of a category
+        System.out.println("Scoring Attractions");
+        for (Suggestion s : attractions)
         {
-            Profile person = profiles.get(700 + i);
-            ArrayList<Suggestion> attractions = theCollection.get(151);
-
-            //Give each attraction a score based one the rating and frequency of a category
-            System.out.println("Scoring Attractions");
-            for (Suggestion s : attractions)
+            System.out.println(s.title);
+            //Add the score of each category to the current suggestion's score
+            for (String cat : s.category)
             {
-                System.out.println(s.title);
-                //Add the score of each category to the current suggestion's score
-                for (String cat : s.category)
+                if(person.cat_count.get(cat) != null && !cat.equals("establishment") && !cat.equals("restaurant")
+                && !cat.equals("food"))
                 {
-                    if(person.cat_count.get(cat) != null && !cat.equals("establishment") && !cat.equals("restaurant")
-                    && !cat.equals("food"))
-                    {
-                        s.score += person.cat_count.get(cat);
-                    }
-                    System.out.println("\t" + cat + "\t" + person.cat_count.get(cat));
+                    s.score += person.cat_count.get(cat);
                 }
+                System.out.println("\t" + cat + "\t" + person.cat_count.get(cat));
             }
-
-            //Mergesorts the scored suggestion objects
-            Collections.sort(attractions, null);
-            
-            System.out.println("50 Sorted Results: ");
-            for (int k=0; k<50; k++)
-            {
-                System.out.println((k+1) + ". " + attractions.get(k).title + "\t" + attractions.get(k).score);
-            }
-
         }
+
+        //Mergesorts the scored suggestion objects
+        Collections.sort(attractions, null);
+
+        System.out.println("50 Sorted Results: ");
+        for (int k=0; k<50; k++)
+        {
+            System.out.println((k+1) + ". " + attractions.get(k).title + "\t" + attractions.get(k).score);
+        }
+
+        //     }
     }
 }
