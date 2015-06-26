@@ -416,3 +416,648 @@ bar
 nightclub
 restaurant
 pub
+
+Washington Square Park
+park
+picnicground
+playground
+establishment
+
+East Japanese Restaurant (Japas 27)
+sushi
+
+B-Side
+pizza
+restaurant
+bar
+
+Mulberry Street Bar
+bar&grill
+bar
+tavern
+restaurant
+establishment
+
+Madison Square Park
+park
+establishment
+
+McSwiggan's
+bar
+restaurant
+food
+establishment
+
+Dos Caminos
+mexicanrestaurant
+latinamericanrestaurant
+bar
+italianrestaurant
+breakfast,brunch&lunchrestaurant
+restaurant
+mexican
+night_club
+food
+establishment
+
+Cong Ly
+vietnameserestaurant
+takeoutrestaurant
+familystylerestaurant
+asianrestaurant
+restaurant
+ramen/noodle
+food
+establishment
+
+New Wonjo
+korean
+restaurant
+food
+establishment
+
+Seoul Garden Restaurant
+korean
+
+Landmarc
+nointernetheadingassigned
+american
+bar
+restaurant
+food
+establishment
+
+Village Yokocho
+japaneserestaurant
+seafoodrestaurant
+familystylerestaurant
+takeoutrestaurant
+restaurant
+japanese
+food
+establishment
+
+East River Bar
+bar&grill
+bar
+tavern
+restaurant
+divebar
+establishment
+
+Taj II Lounge
+thai
+
+Ruby's Cafe
+coffee&espressorestaurant
+continentalrestaurant
+restaurant
+australian
+cafe
+food
+establishment
+
+Kabin
+bar
+tavern
+cocktaillounge
+restaurant
+assistedliving
+
+Le Singe Vert
+frenchrestaurant
+breakfast,brunch&lunchrestaurant
+seafoodrestaurant
+restaurant
+french
+bar
+food
+establishment
+
+Chandni
+middleeasternrestaurant
+indianrestaurant
+takeoutrestaurant
+caterer
+restaurant
+indian
+food
+establishment
+
+Black & White
+cocktaillounge
+bar
+nightclub
+restaurant
+divebar
+establishment
+
+Bembe
+restaurant
+nightclub
+bar
+establishment
+
+Pangea
+restaurant
+restaurantmenu
+italianrestaurant
+italian
+bar
+food
+establishment
+
+Spice Market
+familystylerestaurant
+asianrestaurant
+mongolianrestaurant
+restaurant
+thai
+bar
+food
+establishment
+
+PUBLIC
+bar&grill
+restaurant
+library
+store
+establishment
+
+JHU Comic Books
+comicshop
+book_store
+store
+establishment
+
+St. Mark's Bookshop
+bookstore
+book_store
+store
+establishment
+
+St. Mark's Comics
+comicbook
+used&rarebook
+bookstore
+collectible
+comicshop
+book_store
+store
+establishment
+
+Bianca
+familystylerestaurant
+italianrestaurant
+seafoodrestaurant
+restaurant
+italian
+food
+establishment
+
+Vol de Nuit
+bar
+nightclub
+restaurant
+food
+night_club
+establishment
+
+Nowhere
+bar&grill
+bar
+tavern
+restaurant
+gaybar
+establishment
+
+EDRIS SALON
+beautysalon
+salon/barbershop
+
+Brooklyn Social
+tavern
+bar
+bar&grill
+restaurant
+cocktail
+establishment
+
+Hudson River Skate Park
+skatepark
+
+Fort Greene Park
+park
+picnicground
+tenniscourt
+playground
+establishment
+
+Panya Bakery
+bakerie
+restaurant
+bakery
+cafe
+store
+food
+establishment
+
+Lobo
+mexicanrestaurant
+latinamericanrestaurant
+takeoutrestaurant
+restaurantdeliveryservice
+restaurant
+mexican
+bar
+food
+establishment
+
+Upright Citizens Brigade Theatre
+comedyclub
+establishment
+
+GYM Sportsbar
+gaybar
+bar
+restaurant
+food
+establishment
+
+BAM Rose Cinemas
+movietheater
+theatre
+indietheater
+
+Artists Space
+artgalleries,dealers&consultant
+artgallery
+
+Pier 40
+amusementplaces&arcade
+touristinformation&attraction
+parking
+establishment
+
+Guitar Center
+musicalinstrumentsupplies&accessorie
+musicalinstrument
+guitars&amplifier
+musicalinstrumentrental
+musicstore
+store
+establishment
+
+NYU Grey Art Gallery
+artgalleries,dealers&consultant
+
+Brooklyn Academy of Music (BAM)
+musicinstruction-instrumental
+musicschool
+operahouse
+
+Hamilton Fish Recreation Center
+publicswimmingpool
+recreationcenter
+gym
+
+Yankee Stadium
+employeebenefitconsultingservice
+baseball
+stadium
+establishment
+
+New York Sports Club
+healthclub
+gym
+
+Secret Project Robot
+discjockey
+entertainmentagencies&bureau
+rockclub
+
+New Museum
+museum
+artmuseum
+establishment
+
+Rubin Museum of Art 
+museum
+artgalleries,dealers&consultant
+artmuseum
+establishment
+Versace for H&M Fashion Event
+nightlife
+
+CLAY Health Club + Spa
+healthclub
+dayspa
+personalfitnesstrainer
+exercise&physicalfitnessprogram
+gymnasium
+yogainstruction
+physicalfitnessconsultants&trainer
+pilatesinstruction&equipment
+healthresort
+gym
+health
+spa
+establishment
+
+Barnes & Noble
+bookstore
+magazine
+musicstore
+dvdsales&service
+book_store
+store
+establishment
+
+Borough of Manhattan Community College (BMCC)
+artgalleries,dealers&consultant
+communitycollege
+
+Kraine Theater
+theater
+establishment
+
+SoHo Park
+delicatessen
+familystylerestaurant
+restaurant
+burger
+food
+establishment
+
+Chelsea Waterside Park  Playground
+
+Yoga to the People
+yogainstruction
+exercise&physicalfitnessprogram
+sportsinstruction
+yogastudio
+establishment
+
+Academy Records & CDs
+used&vintagemusicdealer
+musicstore
+collectible
+recordshop
+store
+establishment
+
+Academy LPs
+recordshop
+
+New York Health and Racquet Club
+gym
+
+NYU Bobst Library
+library
+
+Highline Ballroom
+concerthall
+ballroom
+musicvenue
+bar
+night_club
+establishment
+
+Hamilton Fish Recreation Center
+publicswimmingpool
+recreationcenter
+gym
+
+Moonstruck on Second
+sandwichshop
+dessertrestaurant
+hamburgers&hotdog
+healthfoodrestaurant
+restaurant
+diner
+
+Mixed Greens Gallery
+artgalleries,dealers&consultant
+artgallery
+
+Sky Tobacco Co. LLC
+smokeshop
+
+Steuben Playground
+
+American Apparel
+clothingstore
+women'sclothing
+shoestore
+boysclothing
+girlsclothing
+men'sclothing
+apparel
+clothing_store
+store
+establishment
+
+Oak Clothing
+clothingstore
+men'sclothing
+generalmerchandise
+women'sclothing
+apparel
+
+The Greene Space at WNYC
+entertainment
+
+Eva's Supplements NYC
+healthfoodstore
+
+Bagels by the Park
+bagel
+bakerie
+delicatessen
+restaurant
+bakery
+store
+meal_takeaway
+food
+establishment
+
+Ed's Lobster Bar
+seafoodrestaurant
+americanrestaurant
+bar&grill
+breakfast,brunch&lunchrestaurant
+restaurant
+seafood
+bar
+food
+establishment
+
+Spoonbill & Sugartown Books
+used&rarebook
+bookstore
+book_store
+store
+establishment
+
+Manhattan Fruit Exchange
+fruit&vegetablemarket
+grocerystore
+farmersmarket
+supermarket
+grocery_or_supermarket
+food
+store
+establishment
+
+Tyler Rollins Fine Art
+artgalleries,dealers&consultant
+artgallery
+
+El Sol Brilliante Community Garden
+
+La Plaza Cultural Community Garden
+
+Cold Stone Creamery
+dessertrestaurant
+icecream&frozendessert
+coffeeshop
+bakery
+store
+restaurant
+food
+establishment
+
+Lucille Lortel Theatre
+theatre
+movietheater
+theater
+
+Landmark Vintage Bicycles
+movietheater
+bikeshop
+
+Chelsea Gardens Barber Shop
+salon/barbershop
+
+Freemans Sporting Club
+men'sclothing
+clothingstore
+salon/barbershop
+clothing_store
+store
+health
+hair_care
+establishment
+
+YogaWorks Soho
+yogainstruction
+exercise&physicalfitnessprogram
+yogastudio
+clothing_store
+store
+establishment
+
+Adidas Originals
+shoestore
+shoe
+shoe_store
+clothing_store
+store
+establishment
+
+Atrium NYC
+
+Levi's Store
+apparel
+clothing_store
+store
+establishment
+
+Games Workshop
+games&supplie
+hobby&modelshop
+arts&craftssupplie
+hobby&modelsupplies-wholesalemanufacturer
+craftsupplie
+hobbie
+store
+establishment
+
+David Barton Gym
+healthclub
+exercise&physicalfitnessprogram
+gymnasium
+physicalfitnessconsultants&trainer
+gym
+health
+establishment
+
+Jane's Carousel
+amusementplaces&arcade
+amusementparkridesequipment
+touristinformation&attraction
+themepark
+amusement_park
+establishment
+
+Governors Beach Club
+musicvenue
+
+Federal Hall National Memorial
+historicsite
+museum
+establishment
+
+Star Dog Park
+dogrun
+
+Ludlow Fitness
+healthclub
+exercise&physicalfitnessprogram
+personalfitnesstrainer
+gymnasium
+yogainstruction
+physicalfitnessconsultants&trainer
+gym
+
+Tompkins Square Park Dog Run
+publicswimmingpool
+city,village&townshipgovernment
+recreationcenter
+governmentoffice
+
+Wolfgang's Steakhouse
+steakhouse
+barbecuerestaurant
+takeoutrestaurant
+americanrestaurant
+seafoodrestaurant
+restaurant
+bar
+food
+establishment
+
+Barrow Street Theatre
+school
+privateschools(k-12)
+publicschool
+preschools&kindergarten
+childcare
+educationalservice
+theater
+movie_theater
+establishment
+
+Core Pilates NYC
+pilatesinstruction&equipment
+exercise&physicalfitnessprogram
+health&fitnessprogramconsultant
+sportsinstruction
+gym/fitnes
+
+Jalopy Theatre and School of Music
+theatricalagencie
+entertainmentagencies&bureau
+discjockey
+musicvenue
+establishment

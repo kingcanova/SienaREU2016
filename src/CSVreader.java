@@ -21,7 +21,7 @@ public class CSVreader
         String trecData = "../TRECData/";
 
         //String collection = "collection_2015.csv";
-        String collection = "collection_nyc.csv";//NYC subset used for testing
+        String collection = "collection_nyc3.csv";//NYC subset used for testing
         //id, city, state, lat, long
         String locations = "contexts2015.csv";
         String coordinates = "contexts2015coordinates.csv";
@@ -41,8 +41,8 @@ public class CSVreader
 
             //Reads in examples2014.csv which contains the attractions rated in the profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + pois).toFile()));
-            //buildPOI(br);
             testBuildPOI();
+            //testBuildPOI();
 
             //Reads in profiles2014-100.csv which contains all the example profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + profile100).toFile()));

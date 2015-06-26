@@ -40,7 +40,7 @@ public class ContextualSuggestion
         //         for (int i=0; i<=115; i++)
         //         {
         //             Profile person = profiles.get(700 + i);
-        Profile person = profiles.get(700);
+        Profile person = profiles.get(1);
         ArrayList<Suggestion> attractions = theCollection.get(151);
 
         //Give each attraction a score based one the rating and frequency of a category

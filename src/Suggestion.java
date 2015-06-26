@@ -100,11 +100,11 @@ public class Suggestion implements Comparable<Suggestion>
 
     public void print() //for merged suggestion
     {
-        System.out.println(title);
-        System.out.println("Rating: " + rate);
-        System.out.println("Latitude: " + latitude);
-        System.out.println("Longitude: " + longitude);
-        System.out.println("Categories: ");
+        System.out.println(title.replaceAll("\"", ""));
+        //System.out.println("Rating: " + rate);
+        //System.out.println("Latitude: " + latitude);
+        //System.out.println("Longitude: " + longitude);
+        //System.out.println("Categories: ");
         for(String cat : category)
         {
             System.out.println(cat);
