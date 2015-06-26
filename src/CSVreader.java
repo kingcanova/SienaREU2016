@@ -268,6 +268,8 @@ public class CSVreader
             while (!line.equals("") && in.hasNextLine())
             {
                 line = in.nextLine();
+                if(line.equals(""))
+                break;
                 cats.add(line);
             }
 

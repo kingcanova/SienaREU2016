@@ -55,8 +55,9 @@ public class ContextualSuggestion
                 && !cat.equals("food"))
                 {
                     s.score += person.cat_count.get(cat);
+                    System.out.println("\t" + cat + "\t" + person.cat_count.get(cat));
                 }
-                System.out.println("\t" + cat + "\t" + person.cat_count.get(cat));
+                
             }
         }
 
