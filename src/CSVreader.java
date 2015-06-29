@@ -21,7 +21,7 @@ public class CSVreader
         String trecData = "../TRECData/";
 
         //String collection = "collection_2015.csv";
-        String collection = "collection_nyc3.csv";//NYC subset used for testing
+        String collection = "collection_nyc.csv";//NYC subset used for testing
         //id, city, state, lat, long
         String locations = "contexts2015.csv";
         String coordinates = "contexts2015coordinates.csv";
