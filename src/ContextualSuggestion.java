@@ -33,6 +33,7 @@ public class ContextualSuggestion
      */
     public static void suggest()
     {
+        theCollection.clear();//resets scores since hashtables are static and are saved unless JVM is reset
         CSVreader reader = new CSVreader();
         System.out.println("Running CSVReader");
         reader.run();

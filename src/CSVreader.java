@@ -142,7 +142,9 @@ public class CSVreader
             line = " ";
             //Check for the blank line after the list of categories
             while (!line.equals("") && in.hasNextLine())
-            {                
+            {            
+                if(line.equals(""))
+                break;
                 line = in.nextLine();
                 cats.add(line);
             }
