@@ -19,7 +19,6 @@ public class CSVreader
     public void run() 
     {
         String trecData = "../TRECData/";
-
         //String collection = "collection_2015.csv";
         String collection = "collection_nyc.csv";//NYC subset used for testing
         //id, city, state, lat, long
@@ -223,8 +222,8 @@ public class CSVreader
             }         
 
         }
+        
         //go through each category in the hash table and divide by its frequency to get avg
-
         Set<Integer> people = ContextualSuggestion.profiles.keySet();
         for(Integer num : people)
         {
@@ -235,7 +234,6 @@ public class CSVreader
                 person.cat_count.put(cat, (person.cat_count.get(cat)/person.cat_occurance.get(cat)));
             }
         }
-
         br.close();
     }
 
@@ -252,9 +250,6 @@ public class CSVreader
 
         String line = "";
         ArrayList<Suggestion> temp = null;
-
-        //         for (int i=0; i<5; i++)
-        //         {
         while ((line = br.readLine()) != null)
         {
             //line = br.readLine();
@@ -275,7 +270,6 @@ public class CSVreader
                 temp.add(Merging.merge(context[3], Integer.parseInt(context[1])));
                 ContextualSuggestion.theCollection.put(Integer.parseInt(context[1]), temp);
             }
-            //         }
         }
         br.close();
     }
