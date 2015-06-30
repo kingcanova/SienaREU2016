@@ -38,10 +38,6 @@ public class ContextualSuggestion
         System.out.println("Running CSVReader");
         reader.run();
 
-        //         for (int i=0; i<=115; i++)
-        //         {
-        //             Profile person = profiles.get(700 + i);
-        //Profile person = profiles.get(1);
         Profile person = profiles.get(26);
         ArrayList<Suggestion> attractions = theCollection.get(151);
 
@@ -80,7 +76,5 @@ public class ContextualSuggestion
             System.out.printf("%2d, %-35s %5.2f\n",
                               k+1, attractions.get(k).title, attractions.get(k).score);
         }
-
-        //     }
     }
 }
