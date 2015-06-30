@@ -144,7 +144,7 @@ public class CSVreader
             while (!line.equals("") && in.hasNextLine())
             {            
                 if(line.equals(""))
-                break;
+                    break;
                 line = in.nextLine();
                 cats.add(line);
             }
@@ -186,25 +186,66 @@ public class CSVreader
             //if attr rank is 3 or 4, place in positive category array for profile
             //id attr rank is 0 or 1, place in negative catrgory array for profile
             Suggestion curr = ContextualSuggestion.pois.get(att_id);
+
             for(String cat : curr.category)
             {
                 if(t_rating >=3)
                 {
                     //Add 1 or 4 to the category total based on the rating
+                    //add one to the category's frequency
                     if (person.cat_count.get(cat) == null)
-                        person.cat_count.put(cat, ((t_rating-3)*3)+1);                        
-                    else                        
-                        person.cat_count.put(cat, person.cat_count.get(cat)+(((t_rating-3)*3)+1));                    
+                    {
+                        person.cat_count.put(cat, ((t_rating-3)*3)+1.0);
+                        person.cat_occurance.put(cat, 1);
+                    }
+                    else     
+                    {
+                        person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
+                        person.cat_count.put(cat, person.cat_count.get(cat)+((t_rating-3)*3)+1.0);
+                    }
                 }
                 else if(t_rating <=1)
                 { 
                     //Subtract 1 or 4 to the category total based on the rating
+                    //add one to the category's frequency
                     if (person.cat_count.get(cat) == null)
-                        person.cat_count.put(cat, ((t_rating-1)*3)-1);
+                    {
+                        person.cat_count.put(cat, ((t_rating-1)*3)-1.0);
+                        person.cat_occurance.put(cat, 1);
+                    }
                     else
+                    {
+                        person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
                         person.cat_count.put(cat, person.cat_count.get(cat)+(((t_rating-1)*3)-1));
-                }
+                    }
+                }                              
+            }         
+            //go through each category in the hash table and divide by its frequency to get avg
+            Set<String> keys = person.cat_occurance.keySet();
+            for(String cat: keys)
+            {
+                person.cat_count.put(cat, (person.cat_count.get(cat)/person.cat_occurance.get(cat)));
             }
+
+            //             for(String cat : curr.category)
+            //             {
+            //                 if(t_rating >=3)
+            //                 {
+            //                     //Add 1 or 4 to the category total based on the rating
+            //                     if (person.cat_count.get(cat) == null)
+            //                         person.cat_count.put(cat, ((t_rating-3)*3)+1);                        
+            //                     else                        
+            //                         person.cat_count.put(cat, person.cat_count.get(cat)+(((t_rating-3)*3)+1));                    
+            //                 }
+            //                 else if(t_rating <=1)
+            //                 { 
+            //                     //Subtract 1 or 4 to the category total based on the rating
+            //                     if (person.cat_count.get(cat) == null)
+            //                         person.cat_count.put(cat, ((t_rating-1)*3)-1);
+            //                     else
+            //                         person.cat_count.put(cat, person.cat_count.get(cat)+(((t_rating-1)*3)-1));
+            //                 }
+            //             }
         }
 
         br.close();
@@ -223,7 +264,7 @@ public class CSVreader
 
         String line = "";
         ArrayList<Suggestion> temp = null;
-        
+
         //         for (int i=0; i<5; i++)
         //         {
         while ((line = br.readLine()) != null)
@@ -271,7 +312,7 @@ public class CSVreader
             {
                 line = in.nextLine();
                 if(line.equals(""))
-                break;
+                    break;
                 cats.add(line);
             }
 

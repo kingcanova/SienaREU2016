@@ -12,7 +12,7 @@ public class Suggestion implements Comparable<Suggestion>
     protected String title;
     protected double rate, latitude, longitude;
     protected ArrayList<String> category;
-    protected int score = 0;
+    protected Double score = 0.0;
 
     //constructors
     public Suggestion()
