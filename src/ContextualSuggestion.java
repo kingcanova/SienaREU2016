@@ -57,8 +57,16 @@ public class ContextualSuggestion
                 {
                     s.score += person.cat_count.get(cat);
                     System.out.println("\t" + cat + "\t" + person.cat_count.get(cat));
+                    s.count += 1;
                 }
-                
+            }
+
+            //taking the average of all the categories of the attraction, 
+            // rather than aggregate the score
+            if(s.count > 0)
+            {
+                s.score = s.score / s.count;
+                System.out.println("Score: " + s.score);
             }
         }
 
