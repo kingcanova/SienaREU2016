@@ -49,8 +49,8 @@ public class ContextualSuggestion
             //Add the score of each category to the current suggestion's score
             for (String cat : s.category)
             {
-                if(person.cat_count.get(cat) != null && !cat.equals("establishment") && !cat.equals("restaurant")
-                && !cat.equals("food"))
+                if(person.cat_count.get(cat) != null && !cat.equals("establishment")&& !cat.equals("restaurant")&& 
+                    !cat.equals("food"))
                 {
                     s.score += person.cat_count.get(cat);
                     System.out.println("\t" + cat + "\t" + person.cat_count.get(cat));
@@ -73,7 +73,7 @@ public class ContextualSuggestion
         System.out.println("50 Sorted Results: ");
         for (int k=0; k<50; k++)
         {
-            System.out.printf("%2d, %-35s %5.2f\n",
+            System.out.printf("%2d) %-35s %5.2f\n",
                               k+1, attractions.get(k).title, attractions.get(k).score);
         }
     }
