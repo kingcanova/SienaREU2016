@@ -38,7 +38,7 @@ public class ContextualSuggestion
         System.out.println("Running CSVReader");
         reader.run();
 
-        Profile person = profiles.get(26);
+        Profile person = profiles.get(Secret.me);
         ArrayList<Suggestion> attractions = theCollection.get(151);
 
         //Give each attraction a score based one the rating and frequency of a category
