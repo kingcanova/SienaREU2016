@@ -40,7 +40,7 @@ public class CSVreader
 
             //Reads in examples2014.csv which contains the attractions rated in the profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + pois).toFile()));
-            testBuildPOI();
+            bufferedtestBuildPOI();
             //testBuildPOI();
 
             //Reads in profiles2014-100.csv which contains all the example profiles
@@ -152,6 +152,31 @@ public class CSVreader
             index++;
             cats = new ArrayList<String>();
         }
+    }
+
+    public void bufferedtestBuildPOI() throws IOException
+    {
+        BufferedReader br = new BufferedReader(new FileReader(Paths.get("TestInputExamples.txt").toFile()));
+        String line = " ";
+        String name = "";
+        ArrayList<String> cats = new ArrayList<String>();
+        int index = 101;
+        //Read through the file
+        while( (line = br.readLine()) != null )
+        {
+            name = line;
+            System.out.println(name);
+            line = br.readLine();
+            while( line != null && !line.equals(""))
+            {
+                cats.add(line);
+                line = br.readLine();
+            }
+            ContextualSuggestion.pois.put(index, new Suggestion(name, 1, 2, 3, cats));
+            index++;
+            cats = new ArrayList<String>();
+        }
+        br.close();
     }
 
     /**
