@@ -68,7 +68,8 @@ public class ContextualSuggestion
         System.out.println("50 Sorted Results: ");
         for (int k=0; k<50; k++)
         {
-            System.out.println((k+1) + ". " + attractions.get(k).title + "\t" + attractions.get(k).score);
+            System.out.printf("%2d, %-35s %5.2f\n",
+                              k+1, attractions.get(k).title, attractions.get(k).score);
         }
 
         //     }
