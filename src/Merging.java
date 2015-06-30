@@ -24,11 +24,11 @@ public class Merging
      */
     public Suggestion searchFourSq(String ll, String name)
     {
-//                  System.out.println("Searching FourSquare for: " + name);
+        //                  System.out.println("Searching FourSquare for: " + name);
         try
         {
             Suggestion result = fsqApi.queryAPI(ll, name);
-//             result.print();
+            //             result.print();
             return result;
         }
         catch(Exception e)
@@ -46,11 +46,11 @@ public class Merging
      */
     public Suggestion searchYP(double lat, double lng, String name)
     {
-//                  System.out.println("Searching Yellow Pages for: " + name);
+        //                  System.out.println("Searching Yellow Pages for: " + name);
         try
         {
             Suggestion result = ypApi.performSearch(name, lat, lng);
-//             result.print();
+            //             result.print();
             return result;
         }
         catch(Exception e)
@@ -69,11 +69,11 @@ public class Merging
      */
     public Suggestion searchGoogle(double lat, double lng, String name) 
     {
-//                 System.out.println("Searching GooglePlaces for: " + name);
+        //                 System.out.println("Searching GooglePlaces for: " + name);
         try
         {
             Suggestion result = googleApi.performSearch(name, lat, lng);
-            
+
             //result.print();
             return result;
         }

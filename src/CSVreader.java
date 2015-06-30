@@ -139,6 +139,7 @@ public class CSVreader
         while (in.hasNextLine())
         {
             name = in.nextLine();
+            System.out.println(name);
             line = " ";
             //Check for the blank line after the list of categories
             while (!line.equals("") && in.hasNextLine())
@@ -189,7 +190,7 @@ public class CSVreader
 
             for(String cat : curr.category)
             {
-                if(t_rating >=3)
+                if(t_rating >= 3)
                 {
                     //Add 1 or 4 to the category total based on the rating
                     //add one to the category's frequency
@@ -220,32 +221,19 @@ public class CSVreader
                     }
                 }                              
             }         
-            //go through each category in the hash table and divide by its frequency to get avg
+
+        }
+        //go through each category in the hash table and divide by its frequency to get avg
+
+        Set<Integer> people = ContextualSuggestion.profiles.keySet();
+        for(Integer num : people)
+        {
+            Profile person = ContextualSuggestion.profiles.get(num);
             Set<String> keys = person.cat_occurance.keySet();
             for(String cat: keys)
             {
                 person.cat_count.put(cat, (person.cat_count.get(cat)/person.cat_occurance.get(cat)));
             }
-
-            //             for(String cat : curr.category)
-            //             {
-            //                 if(t_rating >=3)
-            //                 {
-            //                     //Add 1 or 4 to the category total based on the rating
-            //                     if (person.cat_count.get(cat) == null)
-            //                         person.cat_count.put(cat, ((t_rating-3)*3)+1);                        
-            //                     else                        
-            //                         person.cat_count.put(cat, person.cat_count.get(cat)+(((t_rating-3)*3)+1));                    
-            //                 }
-            //                 else if(t_rating <=1)
-            //                 { 
-            //                     //Subtract 1 or 4 to the category total based on the rating
-            //                     if (person.cat_count.get(cat) == null)
-            //                         person.cat_count.put(cat, ((t_rating-1)*3)-1);
-            //                     else
-            //                         person.cat_count.put(cat, person.cat_count.get(cat)+(((t_rating-1)*3)-1));
-            //                 }
-            //             }
         }
 
         br.close();
