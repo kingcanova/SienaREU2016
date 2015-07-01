@@ -215,7 +215,7 @@ public class CSVreader
             for (String cat : curr.category)
             {
                 if (person.cat_count.get(cat) == null)
-                    person.cat_count.put(cat, 0);
+                    person.cat_count.put(cat, 0.0);
 
                 if (t_rating >= 3)
                 {
