@@ -63,7 +63,7 @@ public class ContextualSuggestion
         }
 
         //Mergesorts the scored suggestion objects
-        Collections.sort(attractions, null);
+        Collections.sort(attractions);
 
         System.out.println("50 Sorted Results: ");
         for (int k=0; k<50; k++)
