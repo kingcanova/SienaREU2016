@@ -212,36 +212,36 @@ public class CSVreader
             //id attr rank is 0 or 1, place in negative catrgory array for profile
             Suggestion curr = ContextualSuggestion.pois.get(att_id);
 
-            for(String cat : curr.category)
+            for (String cat : curr.category)
             {
-                if(t_rating >= 3)
+                if (t_rating >= 3)
                 {
                     //Add 1 or 4 to the category total based on the rating
                     //add one to the category's frequency
                     if (person.cat_count.get(cat) == null)
                     {
-                        person.cat_count.put(cat, ((t_rating-3)*3)+1.0);
+                        person.cat_count.put(cat, t_rating == 4 ? 4.0 : 1.0);
                         person.cat_occurance.put(cat, 1);
                     }
                     else     
                     {
+                        person.cat_count.put(cat, person.cat_count.get(cat) + t_rating == 4 ? 4.0 : 1.0);
                         person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
-                        person.cat_count.put(cat, person.cat_count.get(cat)+((t_rating-3)*3)+1.0);
                     }
                 }
-                else if(t_rating <=1)
+                else if (t_rating <=1)
                 { 
                     //Subtract 1 or 4 to the category total based on the rating
                     //add one to the category's frequency
                     if (person.cat_count.get(cat) == null)
                     {
-                        person.cat_count.put(cat, ((t_rating-1)*3)-1.0);
+                        person.cat_count.put(cat, t_rating == 0 ? -1.0 : -4.0);
                         person.cat_occurance.put(cat, 1);
                     }
                     else
                     {
-                        person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
-                        person.cat_count.put(cat, person.cat_count.get(cat)+(((t_rating-1)*3)-1));
+                        person.cat_count.put(cat, person.cat_count.get(cat) + t_rating == 0 ? -1.0 : -4.0);
+                        person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);                        
                     }
                 }                              
             }         

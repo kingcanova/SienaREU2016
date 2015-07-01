@@ -50,7 +50,7 @@ public class ContextualSuggestion
             for (String cat : s.category)
             {
                 if(person.cat_count.get(cat) != null && !cat.equals("establishment")&& !cat.equals("restaurant")&& 
-                    !cat.equals("food"))
+                   !cat.equals("food"))
                 {
                     s.score += person.cat_count.get(cat);
                     System.out.println("\t" + cat + "\t" + person.cat_count.get(cat));

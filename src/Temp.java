@@ -35,11 +35,7 @@ public class Temp implements Comparable<Temp>
     }
     public boolean equals(Temp other)
     {
-        if(this.num_words == other.num_words)
-        {
-            return true;
-        }
-        return false;
+        return this.num_words == other.num_words;
     }
     public String toString()
     {
