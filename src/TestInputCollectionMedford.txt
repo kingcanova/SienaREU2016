@@ -1,0 +1,1488 @@
+2Hawk Winery
+winery
+
+42 Degrees
+pipes&smokersarticle
+glassblower
+
+4 Daughters Irish Pub
+irishrestaurant
+bar
+tavern
+takeoutrestaurant
+brewpub
+bar&grill
+restaurant
+irish
+night_club
+food
+establishment
+
+5 Star Taxi
+taxi
+
+5th Street Flowers
+florist
+flowershop
+
+Abbys Legendary Pizza
+pizza
+takeoutrestaurant
+restaurant
+meal_delivery
+food
+establishment
+
+Abigails Bed  Breakfast Inn
+bed&breakfast&inn
+lodging
+
+Able Drywall
+drywallcontractor
+
+Abundant Life Christian Fellowship
+christianchurche
+churches&placesofworship
+interdenominationalchurche
+church
+
+ACME Garage
+garagedoors&opener
+antique
+
+Acorn Storage
+storagehousehold&commercial
+coldstoragewarehouse
+selfstorage
+automobilestorage
+warehouses-merchandise
+storage
+
+Action Pest Control
+weedcontrolequipment&supplie
+
+Adams Deli  Catering
+delicatessen
+caterer
+coffee&espressorestaurant
+takeoutrestaurant
+sandwichshop
+restaurant
+
+Adit Public House
+bar
+tavern
+
+Advanced Indoor Diagnostics
+
+Advantage Tire
+tiredealer
+brakerepair
+wheelalignment-frame&axleservicing-automotive
+wheel
+shockabsorbers&strut
+automobileparts&supplie
+autorepair&service
+tirerecap,retread&repair
+wheels-aligning&balancing
+autooil&lube
+mufflers&exhaustsystem
+automobileairconditioningequipment-service&repair
+automotive
+store
+car_repair
+establishment
+
+Affordable Appliance
+
+Affordable Locksmiths
+
+Agate Ridge Vineyard
+winerie
+wine
+liquorstore
+fruit&vegetablegrowers&shipper
+beverage
+winery
+
+Ahuva New York Bagels
+bagel
+bakerie
+restaurant
+bakery
+
+Airport Chevrolet Buick GMC Cadillac
+newcardealer
+usedcardealer
+car_dealer
+car_repair
+store
+establishment
+
+Albertsons
+pharmacie
+grocerystore
+delicatessen
+bakerie
+grocery_or_supermarket
+pharmacy
+food
+store
+health
+establishment
+
+Alder Creek Veterinary
+
+Alice Lema
+
+Alis Thai Kitchen
+thairestaurant
+asianrestaurant
+takeoutrestaurant
+restaurant
+thai
+food
+establishment
+
+All Creatures Animal Hospital
+veterinaryclinics&hospital
+veterinarian
+veterinaryspecialtyservice
+
+All In One Rental Sales  Service
+rentalservicestores&yard
+officefurniture&equipment-renting&leasing
+lawnmower
+landscapingequipment&supplie
+realestaterentalservice
+contractorsequipmentrental
+industrialequipment&supplie
+partyfavors,supplies&service
+rentalvacancylistingservice
+hardware
+
+All Natural Pest Elimination
+pestcontrolservice
+
+Aloha Painting
+
+Alsafe Insurance
+
+Als Cycles  Hobbies
+bikeshop
+
+Alteration Center
+clothingalteration
+weddingsupplies&service
+shop
+establishment
+
+American Auto  Towing
+
+American Independent Movers
+mover
+movingservices-labor&material
+
+American Mercantile
+herb
+thrift/vintage
+
+American Red Cross
+socialserviceorganization
+communityorganization
+firstaid&safetyinstruction
+charitie
+emergencynotificationservice
+humanservicesorganization
+building
+
+Americas Best Contacts  Eyeglasses
+eyeglasse
+optician
+optical
+
+Americas Best Inn and Suites
+motel
+
+Americas Best Kids Sports Center
+gym
+
+America Taekwondo Center
+martialartsinstruction
+athletics&sport
+
+Ami Sushi  Japanese Restaurant
+
+Anderson Auto Body  Paint
+automobilebodyrepairing&painting
+carwash
+autorepair&service
+automobileelectricservice
+dentremoval
+windshieldrepair
+autooil&lube
+towing
+wheelalignment-frame&axleservicing-automotive
+automotivetuneupservice
+tiredealer
+automobiledetailing
+automotive
+car_repair
+establishment
+
+Angelica Day Spa  Boutique
+dayspa
+skincare
+
+Angelos Pizza Parlor
+pizza
+takeoutrestaurant
+italianrestaurant
+restaurant
+food
+establishment
+
+Animal Medical Hospital
+veterinarian
+
+Anna Maria Creekside
+assistedlivingfacilitie
+resthome
+residentialcarefacilitie
+assistedliving&eldercareservice
+retirementcommunitie
+
+Anytime Fitness
+healthclub
+health&fitnessprogramconsultant
+exercise&physicalfitnessprogram
+personalfitnesstrainer
+gym/fitnes
+gym
+health
+establishment
+
+Applebees
+takeoutrestaurant
+americanrestaurant
+restaurant
+bar&grill
+hamburgers&hotdog
+familystylerestaurant
+american
+bar
+food
+establishment
+
+Apple Peddler Restaurant
+restaurant
+food
+establishment
+
+Apple Service  Mac Repair Genius Support  Sales Consulting
+
+Arbor House
+assistedlivingfacilitie
+retirementcommunitie
+homes-institutional&aged
+elderlyhome
+assistedliving&eldercareservice
+american
+restaurant
+food
+establishment
+
+Arbys
+sandwichshop
+fastfoodrestaurant
+restaurant
+fastfood
+food
+establishment
+
+Army Navy Marine Store
+shop
+
+Artisan Bakery Cafe
+bakerie
+coffeeshop
+restaurant
+bakery
+store
+food
+establishment
+
+Aryons Open Door Cafe  Grill
+restaurant
+
+Asante Physician Partners Medford
+physicians&surgeons,familymedicine&generalpractice
+physicians&surgeon
+physicians&surgeons,publichealth
+doctor'soffice
+
+Asante Rogue Regional Medical Center
+occupationaltherapist
+physicaltherapist
+speech-languagepathologist
+rehabilitationservice
+hospital
+doctor
+health
+establishment
+
+Ascension Nail Boutique
+
+Ashland Hostel
+hostel
+lodging
+establishment
+
+Ashland Insurance Inc
+autoinsurance
+business&commercialinsurance
+homeownersinsurance
+healthinsurance
+insurance
+agricultureinsurance
+floodinsurance
+longtermcareinsurance
+motorcycleinsurance
+lifeinsurance
+workerscompensation&disabilityinsurance
+recreationalvehicleinsurance
+property&casualtyinsurance
+office
+
+Ashland Motor Company
+usedcardealer
+
+Asia Grocery Market
+grocerystore
+supermarkets&superstore
+
+Asian Grill
+asian
+restaurant
+food
+establishment
+
+Associates For Oral  Maxillofacial Surgery
+dentist'soffice
+
+Astral Games
+games&supplie
+toys&game
+book_store
+store
+establishment
+
+ATT
+cellulartelephoneequipment&supplie
+cellulartelephoneservice
+telephonecompanie
+salon/barbershop
+
+A to B Taxi
+taxi
+
+Audiology Associates of Southern Oregon
+
+Autozone
+automobileparts&supplie
+batterysupplie
+automobileaccessorie
+
+Avae Salon
+beautysalon
+salon/barbershop
+
+Aveda Gervais Day Spa  Salon
+
+Back Porch Bar  Grill
+barbecuerestaurant
+restaurant
+bar
+food
+establishment
+
+BackSavers Moving Service
+mover
+
+Bad Ass Coffee Company
+restaurant
+coffee&tea
+coffeeshop
+coffee&espressorestaurant
+cafe
+food
+establishment
+
+Bad Ass Coffee of Hawaii
+restaurant
+coffee&tea
+coffeeshop
+coffee&espressorestaurant
+cafe
+food
+establishment
+
+Balanced Massage
+massagestudio
+
+Bambu
+asianrestaurant
+takeoutrestaurant
+caterer
+chineserestaurant
+restaurant
+asian
+food
+establishment
+
+B  C Sun Control Window Tinting
+glasscoating&tintingmaterial
+
+Banfield Pet Hospital
+veterinarian
+veterinaryclinics&hospital
+petservice
+veterinarianemergencyservice
+petspecialtyservice
+veterinaryspecialtyservice
+animalhealthproduct
+
+Bangkoks Atchara
+thairestaurant
+asianrestaurant
+restaurant
+thai
+food
+establishment
+
+Barbwire Grill
+bar&grill
+restaurant
+
+Barnes  Noble Booksellers
+bookstore
+used&rarebook
+dvdsales&service
+giftshop
+toystore
+magazine
+musicstore
+
+Barnett Road Chevron
+
+Barneys Better Burgers
+hamburgers&hotdog
+pizza
+takeoutrestaurant
+fastfoodrestaurant
+restaurant
+burger
+food
+establishment
+
+Base One Plumbing  Construction
+plumber
+altering&remodelingcontractor
+waterheater
+homebuilder
+buildingcontractors-commercial&industrial
+bathtubs&sinks-repair&refinish
+garbagedisposalrepair
+plumbing-drain&sewercleaning
+waterheaterrepair
+bathroomremodeling
+leakdetectingservice
+backflowpreventiondevices&service
+pipethawing
+sewercleaners&repairer
+gaslines-installation&repairing
+plumbing,drains&sewerconsultant
+generalcontractor
+
+Basil  Berries
+vegetarianrestaurant
+caterer
+fastfoodrestaurant
+rice
+sandwiches-wholesale
+healthfoodrestaurant
+fooddeliveryservice
+boxlunche
+wholesalegrocer
+sandwiche
+
+BaskinRobbins 31 Ice Cream Stores
+icecream&frozendessert
+dessertrestaurant
+
+B Cazwells Floral Dezines
+florist
+flowershop
+store
+establishment
+
+Bear Creek Park
+park
+
+Beauty Biz Salon
+salon/barbershop
+
+Beerworks
+tavern
+bar
+beergarden
+
+Being Spoiled Salon  Spa
+discountstore
+varietystore
+
+Bella Union
+vegetarianrestaurant
+familystylerestaurant
+takeoutrestaurant
+italianrestaurant
+caterer
+fastfoodrestaurant
+mediterraneanrestaurant
+restaurant
+italian
+bar
+food
+establishment
+
+Benefit Brow Bar at Macys
+
+Bento Phoenix
+restaurant
+asian
+food
+establishment
+
+Bergs Bakery  Bistro
+bakerie
+breakfast,brunch&lunchrestaurant
+caterer
+weddingsupplies&service
+restaurant
+bakery
+
+Best Friends Animal Hospital
+veterinaryclinics&hospital
+veterinarian
+veterinaryspecialtyservice
+animalshelter
+veterinary_care
+establishment
+
+Best Friends Animal Hospital
+animalshelter
+veterinary_care
+establishment
+
+BEST WESTERN Horizon Inn
+hotel
+motel
+lodging
+corporatelodging
+meeting&eventplanningservice
+establishment
+
+Be Well Massage
+massagetherapist
+painmanagement
+massagestudio
+
+Big Als
+restaurant
+food
+establishment
+
+Bigfoot Chronicles
+
+Big R
+farmsupplie
+automobileparts&supplie
+houseware
+paint
+electricequipment&supplie
+tool
+dog&catgrooming&supplie
+petfood
+workclothe
+clothingstore
+sportinggood
+home_goods_store
+hardware_store
+store
+establishment
+
+Big Town Hero
+sandwichshop
+delicatessen
+caterer
+restaurant
+sandwiche
+meal_takeaway
+food
+establishment
+
+Bi Mart
+grocerystore
+departmentstore
+
+Birkenstock Footwear
+shoestore
+clothingstore
+shoe
+
+Bison Vision Center
+contactlense
+physicians&surgeons,ophthalmology
+opticalgood
+optometrist
+eyeglasse
+optician
+optical
+
+Black Bear Diner
+americanrestaurant
+restaurant
+breakfast,brunch&lunchrestaurant
+american
+food
+establishment
+
+Black Bird Shopping Center
+hardwarestore
+buildingmaterial
+liquorstore
+hardware_store
+food
+shoe_store
+store
+shopping_mall
+establishment
+
+Black Bird Shopping Center - Tubing - Medford , OR
+hardwarestore
+buildingmaterial
+
+Black Cat Mining
+miningcompanie
+
+Black Chapman Webber and Stevens
+personalinjurylawattorney
+attorney
+socialsecurity&disabilitylawattorney
+insuranceattorney
+productliabilitylawattorney
+criminallawattorney
+labor&employmentlawattorney
+domesticviolenceattorney
+employeebenefits&workercompensationattorney
+workerscompensationassistance
+malpracticelawattorney
+accident&propertydamageattorney
+wrongfuldeathattorney
+sexualharassmentattorney
+medicalmalpracticeattorney
+automobileaccidentattorney
+office
+
+Black Rock Coffee Bar
+coffeeshop
+cafe
+food
+establishment
+
+Blades  Company
+beautysalon
+
+Blossom Hills Child Development Center
+childcare
+school
+preschools&kindergarten
+nurseryschool
+
+Bobbios Pizza
+pizza
+restaurant
+food
+establishment
+
+Bob Thomas Automotive
+automotive
+store
+car_repair
+establishment
+
+Bonsai Teriyaki and Sushi 3
+asian
+
+Boomtown Saloon
+beautysalon
+bar
+
+Bravo Outings
+travelagency
+
+Breadboard Restaurant
+familystylerestaurant
+breakfast,brunch&lunchrestaurant
+takeoutrestaurant
+restaurant
+food
+establishment
+
+Brewed Awakenings
+coffeeshop
+breakfast,brunch&lunchrestaurant
+coffee&tea
+coffee&espressorestaurant
+
+BricktownE Brewing Company
+restaurant
+bar
+food
+establishment
+
+Britt Festivals
+spas&hottub
+saunaequipment&supplie
+
+Brookside Inn and Suites
+hotel
+lodging
+
+Buffalo Wild Wings
+bar&grill
+restaurant
+chickenrestaurant
+takeoutrestaurant
+sportsbar
+wing
+meal_takeaway
+bar
+food
+establishment
+
+Burger King
+hamburgers&hotdog
+restaurant
+fastfoodrestaurant
+fastfood
+food
+establishment
+
+Burger Spot
+takeoutrestaurant
+restaurant
+burger
+
+Busy Bee Media
+building
+
+Butcher Shop the
+
+Butler Ford
+newcardealer
+automobileparts&supplie
+usedcardealer
+autorepair&service
+cardealer
+car_repair
+car_dealer
+store
+establishment
+
+Butte Creek Mill
+flourmill
+gourmet
+
+Buttercloud Bakery  Cafe
+bakerie
+coffeeshop
+breakfast,brunch&lunchrestaurant
+restaurant
+bakery
+store
+meal_takeaway
+cafe
+food
+establishment
+
+Bybees Historic Inn
+bed&breakfast&inn
+motel
+lodging
+establishment
+
+Cafe Dejeuner
+cafeteria
+breakfast,brunch&lunchrestaurant
+caterer
+takeoutrestaurant
+restaurant
+food
+establishment
+
+Caffe Diem
+
+Calvery Temple
+church
+
+Candlewood Suites Extended Stay Hotel Medford
+
+Candy Tyme
+candy&confectionery
+bakerie
+candystore
+
+Capers
+restaurant
+italian
+food
+establishment
+
+Caprice Vineyards
+farm
+winerie
+winebar
+vineyard
+
+Caramel Corn
+restaurant
+dessert
+
+Carefree Buffalo
+accessorie
+
+Carls Jr
+restaurant
+mexicanrestaurant
+hamburgers&hotdog
+americanrestaurant
+fastfoodrestaurant
+fastfood
+food
+establishment
+
+La Fiesta
+mexicanrestaurant
+latinamericanrestaurant
+takeoutrestaurant
+restaurant
+mexican
+food
+establishment
+
+Land Of Paws
+petgrooming
+petfood
+petstore
+
+Landshark Bicycles
+bikeshop
+
+La Quinta Inn  Suites Ashland
+hotel
+lodging
+motel
+meeting&eventplanningservice
+establishment
+
+Larks Home Kitchen Cuisine
+american
+restaurant
+food
+establishment
+
+Las Morenas Taqueria
+mexicanrestaurant
+latinamericanrestaurant
+takeoutrestaurant
+caterer
+restaurant
+taco
+food
+establishment
+
+Las Palmas Mexican Restaurant
+mexicanrestaurant
+takeoutrestaurant
+latinamericanrestaurant
+caterer
+restaurant
+mexican
+
+Lassmans Fine Eyewear
+sunglasse
+opticalgood
+optician
+optometrist
+contactlense
+eyeglasse
+optical
+
+La Strada Boutique
+boutiqueitem
+clothingstore
+women'sclothing
+shop
+
+La Tapatia
+mexicanrestaurant
+latinamericanrestaurant
+restaurant
+mexican
+store
+food
+establishment
+
+Laury Daniel OB Gyn MD
+
+Lava Lanes
+bowling
+bar
+bowlingalley
+store
+bowling_alley
+establishment
+
+Ledger David Cellars
+winerie
+wine
+winery
+
+Lemon Grass Thai Cuisine
+thairestaurant
+seafoodrestaurant
+asianrestaurant
+takeoutrestaurant
+caterer
+restaurant
+thai
+food
+establishment
+
+Lemongrass Thai
+thai
+
+Les Schwab Tire Center
+tiredealer
+automobileparts&supplie
+autorepair&service
+brakerepair
+automobileaccessorie
+automotive
+store
+car_repair
+establishment
+
+Les Schwab Tire Center
+tiredealer
+automobileparts&supplie
+autorepair&service
+brakerepair
+automobileaccessorie
+automotive
+store
+car_repair
+establishment
+
+Lile North American Moving and Storage
+building
+
+Lillie Belle Farms
+farm
+ranche
+foodproduct
+candystore
+
+Lil Pantry and Deli
+
+Limestone Coffee Company
+coffeeroasting&handlingequipment
+coffeeshop
+
+Lindorfs Import Service Inc
+
+LineX of Southern Oregon
+coatings-protective
+truckaccessorie
+truckcaps,shells&liner
+
+Lings Chinese Restaurant
+chineserestaurant
+takeoutrestaurant
+asianrestaurant
+familystylerestaurant
+restaurant
+food
+establishment
+
+Lipperts Carpet One
+floormaterial
+carpet&rugdealer
+hardwoodfloor
+carpetinstallation
+furniture/home
+
+Liquor Stores
+liquorstore
+
+Lithia Body  Paint
+automobilebodyrepairing&painting
+newcardealer
+automotive
+
+Lithia Chrysler Jeep Dodge of Medford
+autorepair&service
+newcardealer
+usedcardealer
+road
+car_dealer
+store
+establishment
+
+Lithia Honda in Medford
+automobileparts&supplie
+newcardealer
+usedcardealer
+autorepair&service
+automobileaccessorie
+cardealer
+car_dealer
+store
+establishment
+
+Lithia Medford Volkswagen
+
+Lithia Park
+park
+
+Lithia Springs Resort
+bed&breakfast&inn
+banquethalls&receptionfacilitie
+resort
+lodging
+natural_feature
+establishment
+
+Lithia Toyota of Medford
+newcardealer
+automobileparts&supplie
+autorepair&service
+automobileaccessorie
+newtruckdealer
+usedcardealer
+brakerepair
+towing
+tiredealer
+cardealer
+car_repair
+car_dealer
+store
+establishment
+
+Little Caesars PizzaMedford Center
+pizza
+takeoutrestaurant
+restaurant
+
+Little Caesars PizzaMountain View Plaza
+
+Little Feet Childrens Shoes
+shoestore
+kidsstore
+
+Little Market
+conveniencestore
+
+Little Red Barn Montessori School
+privateschools(k-12)
+preschools&kindergarten
+childcare
+school
+establishment
+
+Living Opportunities
+career&vocationalcounseling
+socialserviceorganization
+office
+
+Lock House Hair Design
+
+Lone Pine Drug
+pharmacie
+pharmacy
+store
+health
+establishment
+
+Los Arcos Restaurant
+mexican
+
+Lowes
+majorappliance
+homecenter
+homeimprovement
+buildingmaterial
+tool
+hardwarestore
+gardencenter
+smallappliance
+paint
+hardware
+home_goods_store
+hardware_store
+store
+establishment
+
+Luigis Italian Sandwiches
+italianrestaurant
+sandwichshop
+delicatessen
+restaurant
+italian
+meal_takeaway
+food
+establishment
+
+Lumiere Image Makers
+
+LunchBox Bistro  Delivery
+
+Macys
+departmentstore
+houseware
+children&infantsclothing
+men'sclothing
+women'sclothing
+clothingstore
+department_store
+store
+establishment
+
+Madrone Mountain Tasting Room
+
+Magic Man Costume  Fun Shop
+magicianssupplie
+collectible
+pipes&smokersarticle
+poster
+sportinggood
+costume
+partyfavors,supplies&service
+smokeshop
+clothing_store
+store
+establishment
+
+Magination Images
+portraitphotographer
+photography&videography
+weddingphotography&videography
+
+Main Antique Mall the
+antique
+collectible
+
+Mai Thai
+thairestaurant
+chineserestaurant
+asianrestaurant
+takeoutrestaurant
+familystylerestaurant
+restaurant
+food
+establishment
+
+Manor Motel
+motel
+hotel
+lodging
+
+Maria Alexandra Photography
+establishment
+
+Martys Cycle and Moore
+bicyclerepair
+bicycleshop
+sportinggood
+bikeshop
+
+Mas Chinese  American Cuisine
+
+Master Automotive
+autorepair&service
+automobileelectricservice
+brakerepair
+enginerebuilding&exchange
+autosprings&suspension
+autotransmission
+autooil&lube
+autoenginerebuilding
+alternators&generators-automotiverepairing
+automobileairconditioningequipment-service&repair
+automobilediagnosticservice
+automotivetuneupservice
+autoenginesinstallation&exchange
+radiatorsautomotivesales&service
+emissionsinspectionstation
+
+Mattress Land
+mattresse
+bedding
+furniture/home
+furniture_store
+general_contractor
+home_goods_store
+store
+establishment
+
+Maynard Hadley AAA Towing
+
+Mazama Village General Store
+
+Mazatlan Grill
+mexicanrestaurant
+bar&grill
+latinamericanrestaurant
+banquethalls&receptionfacilitie
+takeoutrestaurant
+restaurant
+mexican
+food
+establishment
+
+McDonalds
+takeoutrestaurant
+hamburgers&hotdog
+restaurant
+fastfoodrestaurant
+fastfood
+food
+establishment
+
+McGraths Fish House
+seafoodrestaurant
+takeoutrestaurant
+restaurant
+seafood
+food
+establishment
+
+Medford AutoCare Center
+autorepair&service
+automobileelectricservice
+brakerepair
+autooil&lube
+automobilediagnosticservice
+wheels-aligning&balancing
+automobilemachineshop
+autotransmission
+radiatorsautomotivesales&service
+autosprings&suspension
+automobileairconditioningequipment
+automobileparts&supplie
+automobileconsultant
+autotransmissionpart
+automobilecustomizing
+automobileairconditioningequipment-service&repair
+automobileinspectionstations&service
+autoenginerebuilding
+automotivealternators&generator
+mufflers&exhaustsystem
+enginerebuilding&exchange
+autoenginesinstallation&exchange
+wheelalignment-frame&axleservicing-automotive
+emissionrepair-automobile&truck
+fuelinjectionrepair
+alternators&generators-automotiverepairing
+automotivetuneupservice
+clutche
+automotive
+
+Medford Automotive Service Center
+automotive
+car_repair
+health
+establishment
+
+Medford BMW
+tiredealer
+newcardealer
+usedcardealer
+autorepair&service
+brakerepair
+automobileaccessorie
+towing
+car_dealer
+car_repair
+store
+establishment
+
+Medford Family Chiropractic
+chiropractors&chiropracticservice
+chiropractor
+health
+establishment
+
+Medford Food Coop
+condiments&sauce
+grocerystore
+
+Medford Friends Church
+friendschurche
+churches&placesofworship
+church
+
+Medford Library
+used&rarebook
+bookstore
+
+Medford Mattress
+mattresses-wholesale&manufacturer
+mattresse
+beds-wholesale&manufacturer
+furniturestore
+homeofficefurniture
+futon
+bedding
+bedding-wholesale&manufacturer
+waterbed
+children'sfurniture
+chair
+furnituredesigners&custombuilder
+beds&bedroomset
+furniture/home
+furniture_store
+general_contractor
+home_goods_store
+store
+establishment
+
+Medford Oil Change
+autooil&lube
+automotivetuneupservice
+carwash
+building
+
+Medford Parks  Recreation Department
+nightlife
+
+
+salon/barbershop
+
+New Sammys Cowboy Bistro
+breakfast,brunch&lunchrestaurant
+continentalrestaurant
+restaurant
+american
+food
+establishment
+
+New Stage Collision
+automobilebodyrepairing&painting
+truckpainting&lettering
+autorepair&service
+automobilerestoration-antique&classic
+tiredealer
+windshieldrepair
+towing
+wheelalignment-frame&axleservicing-automotive
+automotive
+
+Noahs River Adventures
+travel_agency
+school
+establishment
+
+No Frills Flooring Brokers
+floormaterial
+carpet&rugpads,linings&accessorie
+carpet&rugdealer
+shop
+
+Nohos Hawaiian Cafe
+restaurant
+
+North Medford Liquor Store
+liquorstore
+
+North Pacific Financial Corporation
+financialplanningconsultant
+financialservice
+loan
+mortgage
+bank
+
+Northside Chiropractic Clinic
+chiropractors&chiropracticservice
+massagetherapist
+chiropractor
+
+Northwest College
+tradeschool
+
+Northwest Community Credit Union
+creditunion
+
+Northwest Outdoor Store
+generalmerchandise
+sportinggood
+
+Nui Kai Fish Co
+
+Ohs Osaka
+japanese
+restaurant
+food
+establishment
+
+Oilstop Drive Thru Oil Change
+autooil&lube
+carwash
+automotivetuneupservice
+autorepair&service
+
+Old Navy
+clothingstore
+men'sclothing
+women'sclothing
+boysclothing
+girlsclothing
+children&infantsclothing
+women'sfashionaccessorie
+apparel
+
+Olive Garden Italian Restaurant
+restaurant
+italianrestaurant
+americanrestaurant
+familystylerestaurant
+italian
+
+Ooblies Artisan Waffle Sandwiches
+fastfoodrestaurant
+takeoutrestaurant
+restaurant
+foodtruck
+
+Opal Tree Skin Care  Acne Clinic LLC
+beauty_salon
+establishment
+
+Opposition Brewing Company
+tavern
+bar
+brewery
+restaurant
+food
+establishment
