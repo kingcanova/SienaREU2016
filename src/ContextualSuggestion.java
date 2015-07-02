@@ -49,8 +49,8 @@ public class ContextualSuggestion
             //Add the score of each category to the current suggestion's score
             for (String cat : s.category)
             {
-                if(person.cat_count.get(cat) != null && !cat.equals("establishment")&& !cat.equals("restaurant")&& 
-                   !cat.equals("food"))
+                if(person.cat_count.get(cat) != null && !cat.equals("establishment") && !cat.equals("restaurant")
+                && !cat.equals("food") && !cat.equals("store") )
                 {
                     s.score += person.cat_count.get(cat);
                     System.out.println("\t" + cat + "\t" + person.cat_count.get(cat));
