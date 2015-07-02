@@ -215,7 +215,10 @@ public class CSVreader
             for (String cat : curr.category)
             {
                 if (person.cat_count.get(cat) == null)
+                {
                     person.cat_count.put(cat, 0.0);
+                    person.cat_occurance.put(cat,1);
+                }
 
                 if (t_rating >= 3)
                 {
@@ -235,7 +238,7 @@ public class CSVreader
             }         
 
         }
-        
+
         //go through each category in the hash table and divide by its frequency to get avg
         Set<Integer> people = ContextualSuggestion.profiles.keySet();
         for(Integer num : people)

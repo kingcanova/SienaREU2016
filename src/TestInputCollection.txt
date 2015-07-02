@@ -823,11 +823,6 @@ bar
 night_club
 establishment
 
-Hamilton Fish Recreation Center
-publicswimmingpool
-recreationcenter
-gym
-
 Moonstruck on Second
 sandwichshop
 dessertrestaurant
