@@ -217,22 +217,28 @@ public class CSVreader
                 if (person.cat_count.get(cat) == null)
                 {
                     person.cat_count.put(cat, 0.0);
-                    person.cat_occurance.put(cat,1);
+                    person.cat_occurance.put(cat, 0);
                 }
-
                 if (t_rating >= 3)
                 {
                     //Add 1 or 4 to the category total based on the rating
                     //add one to the category's frequency
-                    person.cat_count.put(cat, person.cat_count.get(cat) + t_rating == 4 ? 4.0 : 1.0);
+                    person.cat_count.put(cat, person.cat_count.get(cat) + t_rating == 4 ? 4.0 : 2.0);
                     person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
 
                 }
-                else if (t_rating <= 1)
+                else if(t_rating == 2)
+                {
+                    //Subtract 1 or 4 to the category total based on the rating
+                    //add one to the category's frequency
+                    person.cat_count.put(cat, person.cat_count.get(cat) + 1.0);
+                    person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
+                }
+                else if (t_rating >=0)
                 { 
                     //Subtract 1 or 4 to the category total based on the rating
                     //add one to the category's frequency
-                    person.cat_count.put(cat, person.cat_count.get(cat) + t_rating == 0 ? -1.0 : -4.0);
+                    person.cat_count.put(cat, person.cat_count.get(cat) + t_rating == 0 ? -4.0 : -1.0);
                     person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
                 }                              
             }         

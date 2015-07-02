@@ -59,7 +59,7 @@ public class ContextualSuggestion
             }
 
             //taking the average of all the categories of the attraction, 
-            // rather than aggregate the score
+            // rather than aggregate the score    
             if(s.count > 0)
             {
                 s.score = s.score / s.count;
