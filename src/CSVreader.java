@@ -40,9 +40,9 @@ public class CSVreader
 
             //Reads in examples2014.csv which contains the attractions rated in the profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + pois).toFile()));
-            bufferedtestBuildPOI();
+            //bufferedtestBuildPOI();
             //testBuildPOI();
-            //buildPOI(br);
+            buildPOI(br);
 
             //Reads in profiles2014-100.csv which contains all the example profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + profile100).toFile()));
@@ -215,34 +215,26 @@ public class CSVreader
 
             for (String cat : curr.category)
             {
+                if(cat.equals("bar") && person_id == 26)
+                {
+                    System.out.println("Bar: \t" + curr.title + "\t" + t_rating);
+                }
+
                 if (person.cat_count.get(cat) == null)
                 {
                     person.cat_count.put(cat, 0.0);
                     person.cat_occurance.put(cat, 0);
                 }
-                if (t_rating >= 3)
+                double[] scores = new double[]{-4.0, -2.0, 1.0, 2.0, 4.0};
+                if(t_rating != -1)
                 {
-                    //Add 1 or 4 to the category total based on the rating
-                    //add one to the category's frequency
-                    person.cat_count.put(cat, person.cat_count.get(cat) + t_rating == 4 ? 4.0 : 2.0);
+                    person.cat_count.put(cat, person.cat_count.get(cat) + scores[t_rating]);
                     person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
                 }
-                else if(t_rating == 2)
-                {
-                    //Subtract 1 or 4 to the category total based on the rating
-                    //add one to the category's frequency
-                    person.cat_count.put(cat, person.cat_count.get(cat) + 1.0);
-                    person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
-                }
-                else if (t_rating >= 0)
-                { 
-                    //Subtract 1 or 4 to the category total based on the rating
-                    //add one to the category's frequency
-                    person.cat_count.put(cat, person.cat_count.get(cat) + (t_rating == 0 ? -4.0 : -1.0));
-                    person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
-                }                              
+                System.out.println("\t\t" + scores[t_rating]);
+
             }      
-            
+
         }
 
         //go through each category in the hash table and divide by its frequency to get avg
