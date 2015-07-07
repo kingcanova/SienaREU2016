@@ -1,22 +1,25 @@
 Millennium Park
 recreationcenter
 park
+pointofinterest
 establishment
 
 Topolobampo/Frontera Grill
 mexicanrestaurant
-bar&grill
+bar
+grill
 latinamericanrestaurant
 restaurant
 mexican
 
 Alinea
 americanrestaurant
-finediningrestaurant
 familystylerestaurant
+finediningrestaurant
 restaurant
 moleculargastronomy
 food
+pointofinterest
 establishment
 
 Willis Tower
@@ -30,36 +33,41 @@ Billy Goat Tavern
 tavern
 bar
 americanrestaurant
-bar&grill
+grill
 caterer
 restaurant
+burger
 food
+pointofinterest
 establishment
 
 Hot Doug's
-hamburgers&hotdog
+hamburger
+hotdog
 takeoutrestaurant
 americanrestaurant
 familystylerestaurant
 restaurant
-hotdog
+food
+pointofinterest
+establishment
 
 Little Goat
 americanrestaurant
 bakerie
-bagel
-breakfast,brunch&lunchrestaurant
 coffeeshop
 takeoutrestaurant
 caterer
 restaurant
 diner
 food
+pointofinterest
 establishment
 
 Art Institute of Chicago
 museum
-office
+artmuseum
+pointofinterest
 establishment
 
 Longman & Eagle
@@ -73,24 +81,27 @@ nightclub
 restaurant
 newamerican
 food
+pointofinterest
 establishment
 
 Navy Pier
-touristinformation&attraction
+touristinformation
+attraction
 movietheater
 pier
-establishment
 
 Sweet Maple Cafe
 coffeeshop
-breakfast,brunch&lunchrestaurant
-takeoutrestaurant
+breakfast
+brunch
+lunchrestaurant
 americanrestaurant
+takeoutrestaurant
 fastfoodrestaurant
 familystylerestaurant
 restaurant
-breakfast
 food
+pointofinterest
 establishment
 
 Hoosier Mama Pie Company
@@ -102,26 +113,30 @@ pieshop
 bakery
 store
 food
+pointofinterest
 establishment
 
 Logan Hardware
 recordshop
 store
+pointofinterest
 establishment
 
 Hopleaf
-bar&grill
-tavern
 bar
+grill
+tavern
 takeoutrestaurant
 restaurant
 food
+pointofinterest
 establishment
 
 Signature Lounge
 lounge
-night_club
+nightclub
 bar
+pointofinterest
 establishment
 
 John Hancock Center
@@ -138,38 +153,44 @@ glassware
 american
 restaurant
 food
+pointofinterest
 establishment
 
 Hideout
 tavern
 bar
-bar&grill
 nightclub
+grill
 restaurant
 lounge
+pointofinterest
 establishment
 
 Lou Mitchell's
-breakfast,brunch&lunchrestaurant
+breakfast
+brunch
+lunchrestaurant
 steakhouse
 chickenrestaurant
 dessertrestaurant
 boxlunche
 caterer
-restaurantmenu
-hamburgers&hotdog
-familystylerestaurant
+hamburger
+hotdog
 caterersmenu
-americanrestaurant
-seafoodrestaurant
+restaurantmenu
+familystylerestaurant
 delicatessen
+seafoodrestaurant
+americanrestaurant
 restaurant
 diner
 bakery
 store
-meal_takeaway
+mealtakeaway
 cafe
 food
+pointofinterest
 establishment
 
 Andy's Thai Kitchen
@@ -179,114 +200,138 @@ asianrestaurant
 restaurant
 thai
 food
+pointofinterest
 establishment
 
 Crisp
 commerciallaundrie
-sandwiche
+friedchicken
 restaurant
 food
+pointofinterest
 establishment
 
 Green Mill
 restaurant
 bar
 pizza
-night_club
+nightclub
+pointofinterest
 establishment
 
 Old Town Ale House
 tavern
-bar&grill
 bar
+grill
 brewpub
 restaurant
 divebar
+pointofinterest
 establishment
 
 Buddy Guy's Legends
 socialserviceorganization
 musicvenue
-night_club
+nightclub
 bar
 restaurant
 food
+pointofinterest
 establishment
 
 Adler Planetarium & Astronomy Museum
 planetarium
-touristinformation&attraction
+touristinformation
+attraction
 placesofinterest
 observatorie
-meeting&eventplanningservice
+meeting
+eventplanningservice
 educationalservice
 
 Metro
 movietheater
-studentcenter
 bar
+pointofinterest
 establishment
 
 Clark Street Ale House
 tavern
-bar&grill
 bar
+grill
 nightclub
 brewpub
 restaurant
+pointofinterest
 establishment
 
 Shedd Aquarium
 publicaquarium
-weddingreceptionlocations&service
-weddingchapels&ceremonie
-meeting&eventplanningservice
+weddingreceptionlocation
+service
+weddingchapel
+ceremonie
+meeting
+eventplanningservice
 familystylerestaurant
 restaurant
 marketingconsultant
-aquariums&aquariumsupplie
-touristinformation&attraction
+aquarium
+aquariumsupplie
+touristinformation
+attraction
 dataprocessingservice
 historicalplace
-marketingprograms&service
+marketingprogram
 placesofinterest
-city
-aquarium
+pointofinterest
 establishment
 
 Field Museum of Natural History
 museum
 sciencemuseum
 historicalplace
-meeting&eventplanningservice
-artgalleries,dealers&consultant
-touristinformation&attraction
+meeting
+eventplanningservice
+artgallerie
+dealer
+consultant
+touristinformation
+attraction
 
 Humboldt Park
-seniorcitizensservices&organization
+seniorcitizensservice
+organization
 park
 library
+pointofinterest
 establishment
 
 Lincoln Park Zoo
 zoo
+pointofinterest
 establishment
 
 Willie Dixon's Blues Heaven
 historicsite
 
 Chicago Cultural Center
-halls,auditoriums&ballroom
+hall
+auditorium
+ballroom
 theatre
 governmentoffice
 movietheater
 museum
+pointofinterest
 establishment
 
 Graceland Cemetery
 cemeterie
-funeralsupplies&service
+funeralsupplie
+service
 cemetery
+pointofinterest
 establishment
 
 River North Galleries
@@ -294,11 +339,13 @@ River North Galleries
 Holy Name Cathedral
 religiousorganization
 church
-place_of_worship
+placeofworship
+pointofinterest
 establishment
 
 National Museum of Mexican Art
 museum
+pointofinterest
 establishment
 
 Merchandise Mart
@@ -307,42 +354,46 @@ physicaltherapist
 occupationaltherapist
 massagetherapist
 rehabilitationservice
-physicalfitnessconsultants&trainer
+physicalfitnessconsultant
+trainer
 building
-establishment
 
 Museum of Science & Industry
 museum
 sciencemuseum
-bus_station
-transit_station
-establishment
 
 Steppenwolf Theatre
 theatre
 theater
+pointofinterest
 establishment
 
 Garfield Park Conservatory
 historicalplace
-weddingreceptionlocations&service
-weddingchapels&ceremonie
-meeting&eventplanningservice
+weddingreceptionlocation
+service
+weddingchapel
+ceremonie
+meeting
+eventplanningservice
 botanicalgarden
-museum
 restaurant
-sunrooms&solarium
+museum
+sunroom
+solarium
 generalcontractor
 arboretum
 campingequipment
 sportinggood
-touristinformation&attraction
+touristinformation
+attraction
 governmentconsultant
 recreationcenter
 governmentoffice
 garden
 food
 park
+pointofinterest
 establishment
 
 Chicago White Sox
@@ -352,117 +403,143 @@ establishment
 Chicago Theatre
 movietheater
 theatre
-halls,auditoriums&ballroom
+hall
+auditorium
+ballroom
+theater
+pointofinterest
 establishment
 
 Moody Church
 evangelicalcovenantchurche
-churches&placesofworship
+churche
+placesofworship
 church
-place_of_worship
+placeofworship
+pointofinterest
 establishment
 
-Kuma’s Corner
+Kuma_��s Corner
+burger
 
 Chicago Cubs
-radiostations&broadcastcompanie
+radiostation
+broadcastcompanie
 establishment
 
 Magnificent Mile
 hotel
-weddingreceptionlocations&service
-weddingchapels&ceremonie
-meeting&eventplanningservice
+weddingreceptionlocation
+service
+weddingchapel
+ceremonie
+meeting
+eventplanningservice
 motel
 corporatelodging
 healthresort
 lodging
 resort
-banquethalls&receptionfacilitie
+banquethall
+receptionfacilitie
+pointofinterest
 establishment
 
 Neo
 nightclub
 bar
-office
-night_club
+fair
+pointofinterest
 establishment
 
-Rory Lake’s Karaoke Dreams
+Rory Lake's Karaoke Dreams
 
 Santa Fe Opera
 operacompanie
 operahouse
+pointofinterest
 establishment
 
 Georgia O'Keeffe Museum
 artmuseum
 
 Santa Fe Indian Market
-arts&entertainment
+art
+entertainment
 
 Cafe Pasqual's
 mexican
 restaurant
-art_gallery
+artgallery
 food
+pointofinterest
 establishment
 
-Coyote Café
+Coyote Cafթ
 newamerican
 
-San Marcos Café
+San Marcos Cafթ
 breakfast
 
 El Farol
 mexicanrestaurant
-bar&grill
+bar
+grill
 caterer
 latinamericanrestaurant
 mediterraneanrestaurant
 spanishrestaurant
 familystylerestaurant
-bar
 tavern
 restaurant
 tapa
 food
+pointofinterest
 establishment
 
 New Wave Rafting Co
 
 Ski Santa Fe
 skiarea
+store
+lodging
+pointofinterest
+establishment
 
 Loretto Chapel
-weddingchapels&ceremonie
+weddingchapel
+ceremonie
 marriageceremonie
-churches&placesofworship
+churche
+placesofworship
 church
-place_of_worship
+placeofworship
+pointofinterest
 establishment
 
 St Francis Cathedral
 catholicchurche
 religiousorganization
-churches&placesofworship
-clergy
+churche
+placesofworship
 romancatholicchurche
+clergy
 
 Rancho de las Golondrinas
 museum
-touristinformation&attraction
+touristinformation
+attraction
 historicalplace
 educationalservice
-meeting&eventplanningservice
+meeting
+eventplanningservice
 otheroutdoor
-food
-establishment
 
 Palace of the Governors
 museum
 plaza
 library
+pointofinterest
 establishment
 
 Museum of Fine Arts
@@ -470,87 +547,111 @@ Museum of Fine Arts
 Museum of International Folk Art
 museum
 artmuseum
-artgalleries,dealers&consultant
-meeting&eventplanningservice
+artgallerie
+dealer
+consultant
+meeting
+eventplanningservice
+pointofinterest
 establishment
 
 New Mexico Museum of Art
 museum
 governmentoffice
 artmuseum
+pointofinterest
 establishment
 
 Morning Star Gallery
+artgallerie
+dealer
+consultant
+antique
+giftshop
+commercialphotographer
+craftsupplie
 artgallery
-art_gallery
-store
-finance
-establishment
 
 Santa Fe Southern Railway
 railroad
 train
 establishment
 
-"A Well-Born Guide/Have PhD, Will Travel"
+A Well-Born Guide/Have PhD, Will Travel
 
 Compound
 american
 bar
 restaurant
 food
+pointofinterest
 establishment
 
 High Desert Angler
-fishingtackleparts&repair
+fishingtacklepart
+repair
 fishingbait
 fishingtackle
-fishingcharters&partie
-establishment
+fishingcharter
+partie
 
 SITE Santa Fe
 museum
-artgalleries,dealers&consultant
+artgallerie
+dealer
+consultant
 artgallery
-establishment
 
 Shidoni Foundry
-artgalleries,dealers&consultant
+artgallerie
+dealer
+consultant
 artgallery
 
 Cowgirl
-clothing-collectible,period,vintage
-restaurant
+clothingcollectible
+period
+vintage
+bbq
 bar
+restaurant
 food
+pointofinterest
 establishment
 
-Santacafé
+Santacafթ
 restaurant
+american
 
 Second Street Brewery
 brewpub
-bar&grill
-tavern
 bar
-beer&ale
+grill
+tavern
+beer
+ale
 familystylerestaurant
 restaurant
 brewery
 food
+pointofinterest
 establishment
 
 Tesuque Village Market
 grocerystore
 bakerie
-supermarkets&superstore
+supermarket
+superstore
 diner
 restaurant
 food
+pointofinterest
 establishment
 
 Canyon Rd
-artgalleries,dealers&consultant
+artgallerie
+dealer
+consultant
 artgallery
 
 Ristra
@@ -561,154 +662,159 @@ restaurant
 newamerican
 bar
 food
+pointofinterest
 establishment
 
 Gerald Peters Gallery
-artgalleries,dealers&consultant
-banquethalls&receptionfacilitie
-meeting&eventplanningservice
+artgallerie
+dealer
+consultant
+banquethall
+receptionfacilitie
+meeting
+eventplanningservice
 commercialphotographer
 artgallery
-art_gallery
-store
-establishment
 
-Nambé Foundry Outlet
+Nambթ Foundry Outlet
 
 Travel Bug
 travelagencie
 travel
-book_store
+bookstore
 store
 cafe
 food
+pointofinterest
 establishment
 
 Seret & Sons
 rug
-carpet&rugpads,linings&accessorie
-carpet&rugdealer
+carpet
+rugpad
+lining
+accessorie
+rugdealer
 floormaterial
-floormaterials-wholesale&manufacturer
-carpet&rugcleaner
+floormaterialswholesale
+manufacturer
+rugcleaner
 furniture/home
-home_goods_store
-furniture_store
-general_contractor
-store
-establishment
 
 Nedra Matteucci Galleries
-art_gallery
-establishment
 
 Museum of Contemporary Native Arts
 museum
 artmuseum
-store
-establishment
 
 Santa Fe Chamber Music Festival
 concerthall
-establishment
 
 Jackalope
 jeweler
 fleamarket
-home_goods_store
-book_store
-furniture_store
-general_contractor
+homegoodsstore
+bookstore
+furniturestore
+generalcontractor
 store
+pointofinterest
 establishment
 
 Santa Fe Baking Company
 
 Wheelwright Museum of the American Indian
 museum
+pointofinterest
 establishment
 
 Santa Fe Clay
-ceramics-equipment&supplie
+ceramicsequipment
+supplie
 decorativeceramicproduct
 artgallery
-art_gallery
-establishment
 
 Ten Thousand Waves
 resort
 lodging
 spa
 health
+pointofinterest
 establishment
 
 Rodeo de Santa Fe
 rodeo
-eventspace
-establishment
+stadium
 
 Santa Fe Desert Chorale
 musician
-entertainmentagencies&bureau
+entertainmentagencie
+bureau
 performingart
-establishment
 
 Harry's Roadhouse
 americanrestaurant
 takeoutrestaurant
 caterer
 mexicanrestaurant
-breakfast,brunch&lunchrestaurant
-bar&grill
+breakfast
+brunch
+lunchrestaurant
+bar
+grill
 restaurant
 american
 food
+pointofinterest
 establishment
 
 Kowboyz
-westernapparel&supplie
+westernapparel
+supplie
 bootstore
 hatshop
 clothingstore
 shoestore
 boutique
-clothing_store
-store
-establishment
 
 Nathalie
-arts&craft
+art
+craft
 
 Tea House
+tearoom
 
 The Den
 nightclub
-bar
-establishment
 
 Del Charro Saloon
 mexicanrestaurant
 bar
-bar&grill
+grill
 latinamericanrestaurant
 tavern
 pizza
-breakfast,brunch&lunchrestaurant
+breakfast
+brunch
+lunchrestaurant
 familystylerestaurant
 restaurant
 food
+pointofinterest
 establishment
 
 Jambo Cafe
 importer
 african
 cafe
-meal_takeaway
+mealtakeaway
 restaurant
 food
+pointofinterest
 establishment
 
 Ballroom Dance Chicago
 dancestudio
 school
+pointofinterest
 establishment

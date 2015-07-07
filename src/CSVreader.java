@@ -42,6 +42,7 @@ public class CSVreader
             br = new BufferedReader(new FileReader(Paths.get(trecData + pois).toFile()));
             bufferedtestBuildPOI();
             //testBuildPOI();
+            //buildPOI(br);
 
             //Reads in profiles2014-100.csv which contains all the example profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + profile100).toFile()));
@@ -240,8 +241,8 @@ public class CSVreader
                     person.cat_count.put(cat, person.cat_count.get(cat) + (t_rating == 0 ? -4.0 : -1.0));
                     person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
                 }                              
-            }         
-
+            }      
+            
         }
 
         //go through each category in the hash table and divide by its frequency to get avg

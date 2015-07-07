@@ -189,39 +189,71 @@ public class Merging
             for(String cat : yp.category)
             {
                 cat = cat.trim();
+                cat = cat.replaceAll("_","");
+                cat = cat.replaceAll("-","");
                 if (cat.endsWith("s"))
                     cat = cat.substring(0, cat.length()-1);
-                if(!cats.contains(cat))
+                if(cat.contains(",") || cat.contains ("&"))
                 {
-                    cats.add(cat);
+                    String[] splitCats = cat.split(",|&");
+                    for(String category : splitCats)
+                    {      
+                        if (category.endsWith("s"))
+                            category = category.substring(0, category.length()-1);
+                        if(!cats.contains(category))
+                            cats.add(category);
+                    }
                 }
+                else if(!cats.contains(cat))
+                    cats.add(cat);
             }
         }
         if(four_count == 0) {
             for(String cat : four.category)
             {
                 cat = cat.trim();
+                cat = cat.replaceAll("_","");
+                cat = cat.replaceAll("-","");
                 if (cat.endsWith("s"))
                     cat = cat.substring(0, cat.length()-1);
-                if(!cats.contains(cat))
+                if(cat.contains(",") || cat.contains ("&"))
                 {
-                    cats.add(cat);
+                    String[] splitCats = cat.split(",|&");
+                    for(String category : splitCats)
+                    {      
+                        if (category.endsWith("s"))
+                            category = category.substring(0, category.length()-1);
+                        if(!cats.contains(category))
+                            cats.add(category);
+                    }
                 }
+                else if(!cats.contains(cat))
+                    cats.add(cat);
             }
         }
         if(goog_count == 0) {
             for(String cat : goog.category)
             {
                 cat = cat.trim();
+                cat = cat.replaceAll("_","");
+                cat = cat.replaceAll("-","");
                 if (cat.endsWith("s"))
                     cat = cat.substring(0, cat.length()-1);
-                if(!cats.contains(cat))
+                if(cat.contains(",") || cat.contains ("&"))
                 {
-                    cats.add(cat);
+                    String[] splitCats = cat.split(",|&");
+                    for(String category : splitCats)
+                    {      
+                        if (category.endsWith("s"))
+                            category = category.substring(0, category.length()-1);
+                        if(!cats.contains(category))
+                            cats.add(category);
+                    }
                 }
+                else if(!cats.contains(cat))
+                    cats.add(cat);
             }
         }
-
         //create the unified suggestion
         Suggestion result = new Suggestion(name, rating, lat, lng, cats);
         result.print();
