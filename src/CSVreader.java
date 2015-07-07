@@ -40,9 +40,9 @@ public class CSVreader
 
             //Reads in examples2014.csv which contains the attractions rated in the profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + pois).toFile()));
-            //bufferedtestBuildPOI();
+            bufferedtestBuildPOI();
             //testBuildPOI();
-            buildPOI(br);
+            //buildPOI(br);
 
             //Reads in profiles2014-100.csv which contains all the example profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + profile100).toFile()));
@@ -215,7 +215,7 @@ public class CSVreader
 
             for (String cat : curr.category)
             {
-                if(cat.equals("bar") && person_id == 26)
+                if(cat.equals("bar") && person_id == Secret.me)
                 {
                     System.out.println("Bar: \t" + curr.title + "\t" + t_rating);
                 }
