@@ -14,7 +14,8 @@ public class ContextualSuggestion
     protected static Hashtable<Integer, Suggestion> pois = new Hashtable<Integer, Suggestion>();
     protected static Hashtable<Integer, Profile> profiles = new Hashtable<Integer, Profile>();
     protected static Hashtable<Integer, ArrayList<Suggestion>> theCollection = new Hashtable<Integer, ArrayList<Suggestion>>();
-
+    protected static ArrayList<String> ignoredCats = new ArrayList<String>();
+    
     protected String groupID = "Siena";
     protected String runID = "test";
 
@@ -31,10 +32,18 @@ public class ContextualSuggestion
      * 
      * Currently only prints for profile 700 for testing purposes
      */
-    public static void suggest()
+    public static void suggest() throws IOException
     {
         theCollection.clear();//resets scores since hashtables are static and are saved unless JVM is reset
         CSVreader reader = new CSVreader();
+        //fill up array with categories we want to ignore for scoring purposes
+        Scanner in = new Scanner(new File("UneccessaryCats.txt"));
+        String line = " ";
+        while (in.hasNextLine())
+        {
+            ignoredCats.add(in.nextLine());
+        }
+        
         System.out.println("Running CSVReader");
         reader.run();
 
@@ -46,11 +55,11 @@ public class ContextualSuggestion
         for (Suggestion s : attractions)
         {
             System.out.println(s.title);
-            //Add the score of each category to the current suggestion's score
+            //Add the score of each category to the current suggestion's score,
+            //if it was rated by the user and isn't an ignored category
             for (String cat : s.category)
             {
-                if(person.cat_count.get(cat) != null && !cat.equals("establishment") && !cat.equals("restaurant")
-                && !cat.equals("food") && !cat.equals("store") )
+                if(person.cat_count.get(cat) != null && !ignoredCats.contains(cat))
                 {
                     s.score += person.cat_count.get(cat);
                     System.out.println("\t" + cat + "\t" + person.cat_count.get(cat));
@@ -74,7 +83,7 @@ public class ContextualSuggestion
         for (int k=0; k<50; k++)
         {
             System.out.printf("%2d) %-35s %5.2f\n",
-                              k+1, attractions.get(k).title, attractions.get(k).score);
+                k+1, attractions.get(k).title, attractions.get(k).score);
         }
     }
 }
