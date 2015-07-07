@@ -74,7 +74,21 @@ public class ContextualSuggestion
         for (int k=0; k<50; k++)
         {
             System.out.printf("%2d) %-35s %5.2f\n",
-                              k+1, attractions.get(k).title, attractions.get(k).score);
+                              k+1, attractions.get(0).title, attractions.get(0).score);
+                              
+            Suggestion prev = attractions.remove(0);
+            for(Suggestion s : attractions)
+            {
+                for(String cat : s.category)
+                {
+                    if(prev.category.contains(cat))
+                    {
+                        s.score -= .5;
+                        break;
+                    }
+                }
+            }
+            Collections.sort(attractions);
         }
     }
 }
