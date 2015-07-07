@@ -14,7 +14,6 @@ public class ContextualSuggestion
     protected static Hashtable<Integer, Suggestion> pois = new Hashtable<Integer, Suggestion>();
     protected static Hashtable<Integer, Profile> profiles = new Hashtable<Integer, Profile>();
     protected static Hashtable<Integer, ArrayList<Suggestion>> theCollection = new Hashtable<Integer, ArrayList<Suggestion>>();
-    protected static ArrayList<String> ignoredCats = new ArrayList<String>();
 
     protected String groupID = "Siena";
     protected String runID = "test";
@@ -38,6 +37,7 @@ public class ContextualSuggestion
         CSVreader reader = new CSVreader();
         //fill up array with categories we want to ignore for scoring purposes
         Scanner in = new Scanner(new File("UneccessaryCats.txt"));
+        ArrayList<String> ignoredCats = new ArrayList<String>();
         String line = " ";
         while (in.hasNextLine())
         {
@@ -83,7 +83,7 @@ public class ContextualSuggestion
         for (int k=0; k<50; k++)
         {
             System.out.printf("%2d) %-35s %5.2f\n",
-                              k+1, attractions.get(0).title, attractions.get(0).score);
+                k+1, attractions.get(0).title, attractions.get(0).score);
 
             Suggestion prev = attractions.remove(0);
             for(Suggestion s : attractions)
