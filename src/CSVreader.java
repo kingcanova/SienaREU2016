@@ -215,11 +215,6 @@ public class CSVreader
 
             for (String cat : curr.category)
             {
-                if(cat.equals("bar") && person_id == Secret.me)
-                {
-                    System.out.println("Bar: \t" + curr.title + "\t" + t_rating);
-                }
-
                 if (person.cat_count.get(cat) == null)
                 {
                     person.cat_count.put(cat, 0.0);

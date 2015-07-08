@@ -57,14 +57,20 @@ public class ContextualSuggestion
             System.out.println(s.title);
             //Add the score of each category to the current suggestion's score,
             //if it was rated by the user and isn't an ignored category
-            for (String cat : s.category)
+            for(String cat : s.category)
             {
                 if(person.cat_count.get(cat) != null && !ignoredCats.contains(cat))
                 {
                     s.score += person.cat_count.get(cat);
-                    System.out.println("\t" + cat + "\t" + person.cat_count.get(cat));
+                    //System.out.println("\t" + cat + "\t" + person.cat_count.get(cat));
+                    System.out.printf( "\t %-25s %3.2f \n",cat, person.cat_count.get(cat));
                     s.count += 1;
                 }
+                else if(person.cat_count.get(cat) == null)
+                    System.out.printf( "\t %-25s %s \n",cat, "not rated");
+                //System.out.println("\t" + cat + "\t" + "not rated");
+                else
+                    System.out.printf( "\t %-25s %s \n",cat, "ignored");
             }
 
             //taking the average of all the categories of the attraction, 
@@ -72,8 +78,10 @@ public class ContextualSuggestion
             if(s.count > 0)
             {
                 s.score = s.score / s.count;
-                System.out.println("Score: " + s.score);
+                System.out.printf("\t %s %.2f\n\n","Score:", s.score );
             }
+            else
+                System.out.println();
         }
 
         //Mergesorts the scored suggestion objects
