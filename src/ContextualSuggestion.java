@@ -108,7 +108,7 @@ public class ContextualSuggestion
                 int max = 0;
                 for(String cat : s.category)
                 {
-                    if(prev.category.contains(cat))
+                    if(prev.category.contains(cat) && !ignoredCats.contains(cat))
                     {
                         s.score -= .5;
                         break;

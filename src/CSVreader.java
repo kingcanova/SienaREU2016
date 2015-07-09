@@ -166,7 +166,7 @@ public class CSVreader
         while( (line = br.readLine()) != null )
         {
             name = line;
-            System.out.println(name);
+            //System.out.println(name);
             line = br.readLine();
             while( line != null && !line.equals(""))
             {
@@ -283,7 +283,7 @@ public class CSVreader
      */
     public void testBuildCollection() throws IOException
     {
-        Scanner in = new Scanner(new File("TestInputCollection.txt"));
+        Scanner in = new Scanner(new File("TestInputCollectionAlbany.txt"));
         String line = " ";
         String name = "";
         ArrayList<Suggestion> temp = null;
