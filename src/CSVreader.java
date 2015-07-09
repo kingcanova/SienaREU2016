@@ -51,7 +51,8 @@ public class CSVreader
             //Reads in collection_2015.csv which contains all possible attractions to suggest
             br = new BufferedReader(new FileReader(Paths.get(trecData + collection).toFile()));
             //buildCollection(br);
-            testBuildCollection();
+            //testBuildCollection();
+            bufferedtestBuildCollection();
         }
         catch (FileNotFoundException e) 
         {
@@ -316,6 +317,46 @@ public class CSVreader
             }
             cats = new ArrayList<String>();
         }
+    }
+    
+    /**
+     * Read colleciton from a text file instead of querying the APIs
+     */
+    public void bufferedtestBuildCollection() throws IOException
+    {
+        BufferedReader br = new BufferedReader(new FileReader(
+                    Paths.get("TestInputCollectionAlbany.txt").toFile()));
+        //Scanner in = new Scanner(new File("TestInputCollectionAlbany.txt"));
+        String line = " ";
+        String name = "";
+        ArrayList<Suggestion> temp = null;
+        ArrayList<String> cats = new ArrayList<String>();
+        //Read through the file
+        while( (line = br.readLine()) != null )
+        {
+            name = line;
+            System.out.println(name);
+            line = br.readLine();
+            while( line != null && !line.equals(""))
+            {
+                cats.add(line);
+                line = br.readLine();
+            }
+            if (ContextualSuggestion.theCollection.get(151) == null)
+            {//If first spot is empty
+                temp = new ArrayList<Suggestion>();
+                temp.add(new Suggestion(name, 1, 2, 3, cats));
+                ContextualSuggestion.theCollection.put(151, temp);
+            }
+            else
+            {//Already contains an arraylist
+                temp = ContextualSuggestion.theCollection.get(151);
+                temp.add(new Suggestion(name, 1, 2, 3, cats));
+                ContextualSuggestion.theCollection.put(151, temp);
+            }
+            cats = new ArrayList<String>();
+        }
+        br.close();
     }
 
     /**
