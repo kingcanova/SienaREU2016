@@ -212,31 +212,26 @@ public class CSVreader
             //if attr rank is 3 or 4, place in positive category array for profile
             //id attr rank is 0 or 1, place in negative catrgory array for profile
             Suggestion curr = ContextualSuggestion.pois.get(att_id);
-
+            double[] scores = new double[]{-4.0, -2.0, 1.0, 2.0, 4.0};
             for (String cat : curr.category)
             {
-                if(cat.equals("bar") && person_id == Secret.me)
-                {
-                    System.out.println("Bar: \t" + curr.title + "\t" + t_rating);
-                }
-
+                //                 if(cat.equals("bar") && person_id == Secret.me)
+                //                 {
+                //                     System.out.println("Bar: \t" + curr.title + "\t" + t_rating);
+                //                     System.out.println("\t\t" + scores[t_rating]);
+                //                 }
                 if (person.cat_count.get(cat) == null)
                 {
                     person.cat_count.put(cat, 0.0);
                     person.cat_occurance.put(cat, 0);
                 }
-                double[] scores = new double[]{-4.0, -2.0, 1.0, 2.0, 4.0};
                 if(t_rating != -1)
                 {
                     person.cat_count.put(cat, person.cat_count.get(cat) + scores[t_rating]);
                     person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
                 }
-                System.out.println("\t\t" + scores[t_rating]);
-
             }      
-
         }
-
         //go through each category in the hash table and divide by its frequency to get avg
         Set<Integer> people = ContextualSuggestion.profiles.keySet();
         for(Integer num : people)

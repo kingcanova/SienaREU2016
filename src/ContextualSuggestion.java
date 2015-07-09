@@ -78,16 +78,26 @@ public class ContextualSuggestion
 
         //Mergesorts the scored suggestion objects
         Collections.sort(attractions);
-
+        for(int i = 0; i<attractions.size(); i++)
+        {
+            System.out.printf("%2d) %-35s %5.2f\n",
+                i+1, attractions.get(i).title, attractions.get(i).score);
+        }
+        for(int i = 75; i < attractions.size(); i++)
+        {
+            //attractions.remove(i);
+        }
         System.out.println("50 Sorted Results: ");
+        Hashtable<String, Integer> catCounter = new Hashtable<String, Integer>();
         for (int k=0; k<50; k++)
         {
             System.out.printf("%2d) %-35s %5.2f\n",
-                              k+1, attractions.get(0).title, attractions.get(0).score);
+                k+1, attractions.get(0).title, attractions.get(0).score);
 
             Suggestion prev = attractions.remove(0);
             for(Suggestion s : attractions)
             {
+                int max = 0;
                 for(String cat : s.category)
                 {
                     if(prev.category.contains(cat))
@@ -95,10 +105,23 @@ public class ContextualSuggestion
                         s.score -= .5;
                         break;
                     }
+                    //                     if(catCounter.get(cat) == null)
+                    //                     {
+                    //                         catCounter.put(cat, 1);
+                    //                     }
+                    //                     else
+                    //                     {
+                    //                         catCounter.put(cat, catCounter.get(cat) + 1);
+                    //                     }
+                    //                     if(prev.category.contains(cat))
+                    //                     {
+                    //                         s.score -= catCounter.get(cat)/10;
+                    //                         //max = Math.max(max, catCounter.get(cat));
+                    //                     }
                 }
+                //s.score -= max/10;
             }
             Collections.sort(attractions);
-
         }
     }
 }
