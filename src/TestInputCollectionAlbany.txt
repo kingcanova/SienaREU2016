@@ -1,0 +1,1282 @@
+Cheesecake Machismo
+bakery
+wholesalebakery
+takeoutrestaurant
+restaurant
+dessert
+store
+food
+pointofinterest
+establishment
+
+Karavalli
+indianrestaurant
+asianrestaurant
+middleeasternrestaurant
+caterer
+restaurant
+indian
+food
+pointofinterest
+establishment
+
+Hong Kong Bakery & Bistro
+bakery
+caterer
+restaurant
+dimsum
+food
+pointofinterest
+establishment
+
+Taiwan Noodle
+asianrestaurant
+restaurant
+ramen/noodle
+food
+pointofinterest
+establishment
+
+Saigon Pearl
+vietnameserestaurant
+asianrestaurant
+restaurant
+vietnamese
+
+The Phoenicians Restaurant
+familystylerestaurant
+takeoutrestaurant
+caterer
+middleeasternrestaurant
+restaurant
+mediterranean
+food
+pointofinterest
+establishment
+
+Sweet Basil
+thairestaurant
+asianrestaurant
+restaurant
+thai
+food
+pointofinterest
+establishment
+
+Ala Shanghai Chinese Cuisine
+chinese
+restaurant
+food
+pointofinterest
+establishment
+
+The Ginger Man
+bar
+restaurant
+americanrestaurant
+tavern
+winebar
+food
+pointofinterest
+establishment
+
+Anton's Greek Eatery
+greekrestaurant
+mediterraneanrestaurant
+sandwichshop
+restaurant
+
+Aashiana Restaurant
+middleeasternrestaurant
+caterer
+familystylerestaurant
+indianrestaurant
+asianrestaurant
+restaurant
+asian
+food
+pointofinterest
+establishment
+
+Madison Pour House
+bar
+grill
+tavern
+restaurant
+pub
+pointofinterest
+establishment
+
+Dave's Gourmet & Exotic Burgers
+burger
+restaurant
+food
+pointofinterest
+establishment
+
+Umana Restaurant and Wine Bar
+familystylerestaurant
+restaurant
+
+Cardona's Market
+fish
+seafoodmarket
+delicatessen
+meatmarket
+caterer
+grocerystore
+takeoutrestaurant
+deli/bodega
+groceryorsupermarket
+restaurant
+store
+food
+pointofinterest
+establishment
+
+Capital Q Smokehouse
+americanrestaurant
+barbecuerestaurant
+takeoutrestaurant
+caterer
+sandwichshop
+restaurant
+bbq
+food
+pointofinterest
+establishment
+
+Athos Restaurant
+finediningrestaurant
+veganrestaurant
+seafoodrestaurant
+vegetarianrestaurant
+takeoutrestaurant
+familystylerestaurant
+greekrestaurant
+mediterraneanrestaurant
+restaurant
+greek
+bar
+food
+pointofinterest
+establishment
+
+Van's Vietnamese Restaurant
+vietnameserestaurant
+asianrestaurant
+takeoutrestaurant
+familystylerestaurant
+restaurant
+vietnamese
+food
+pointofinterest
+establishment
+
+Nicole's Restaurant
+restaurant
+finediningrestaurant
+italianrestaurant
+takeoutrestaurant
+caterer
+italian
+food
+pointofinterest
+establishment
+
+Mr Pio Pio
+mexicanrestaurant
+latinamericanrestaurant
+takeoutrestaurant
+caterer
+restaurant
+latinamerican
+food
+pointofinterest
+establishment
+
+Blu Stone Bistro
+americanrestaurant
+banquethall
+receptionfacility
+breakfast
+brunch
+lunchrestaurant
+continentalrestaurant
+restaurant
+bistro
+cafe
+food
+pointofinterest
+establishment
+
+Caf_ Madison
+
+The Orchard Tavern & Restaurant
+tavern
+caterer
+bar
+nightclub
+familystylerestaurant
+restaurant
+american
+
+The Dutch Pot
+sandwichshop
+caterer
+healthfoodrestaurant
+restaurant
+caribbean
+food
+pointofinterest
+establishment
+
+Wolff's Biergarten
+brewpub
+restaurant
+beergarden
+bar
+pointofinterest
+establishment
+
+The City Beer Hall
+tavern
+bar
+grill
+nightclub
+caterer
+restaurant
+pub
+pointofinterest
+establishment
+
+The Hollow Bar + Kitchen
+concerthall
+bar
+nightclub
+restaurant
+caterer
+food
+pointofinterest
+establishment
+
+Sukhothai
+thairestaurant
+takeoutrestaurant
+asianrestaurant
+restaurant
+thai
+food
+pointofinterest
+establishment
+
+Hill Street Caf_
+pub
+
+The Olde English
+pub
+bar
+restaurant
+food
+pointofinterest
+establishment
+
+CUPZ
+americanrestaurant
+soulfoodrestaurant
+takeoutrestaurant
+caterer
+restaurant
+southern/soul
+
+D'Raymonds
+familystylerestaurant
+caterer
+takeoutrestaurant
+bar
+italianrestaurant
+mediterraneanrestaurant
+tavern
+restaurant
+italian
+
+Shogun
+sushibar
+japaneserestaurant
+asianrestaurant
+restaurant
+sushi
+bar
+food
+pointofinterest
+establishment
+
+Kinnaree
+thairestaurant
+familystylerestaurant
+asianrestaurant
+takeoutrestaurant
+restaurant
+thai
+food
+pointofinterest
+establishment
+
+The Merry Monk
+bar
+nightclub
+restaurant
+
+Iron Gate Caf_
+cafeteria
+breakfast
+brunch
+lunchrestaurant
+takeoutrestaurant
+caterer
+restaurant
+café
+
+Afghan Kabab Express
+
+Albany Pump Station
+beer
+alewholesale
+manufacturer
+beverage
+ale
+brewpub
+restaurant
+brewery
+bar
+food
+pointofinterest
+establishment
+
+Mr. Fuji Sushi
+sushibar
+takeoutrestaurant
+caterer
+japaneserestaurant
+asianrestaurant
+restaurant
+sushi
+food
+pointofinterest
+establishment
+
+The Point Restaurant and Lounge
+americanrestaurant
+caterer
+takeoutrestaurant
+restaurant
+
+Dan's Place Two
+restaurant
+diner
+
+Seoul Korean
+koreanrestaurant
+asianrestaurant
+restaurant
+korean
+
+Capital City Gastropub
+tavern
+bar
+restaurant
+gastropub
+food
+pointofinterest
+establishment
+
+El Charro Mexican Grill
+mexicanrestaurant
+latinamericanrestaurant
+restaurant
+mexican
+food
+pointofinterest
+establishment
+
+Sake Caf_
+sushi
+
+Junior's
+bar
+grill
+nightclub
+takeoutrestaurant
+caterer
+restaurant
+sportsbar
+
+Stella Del Mare
+grocerystore
+supermarket
+superstore
+
+Ralph's Tavern
+tavern
+caterer
+bar
+americanrestaurant
+restaurant
+food
+pointofinterest
+establishment
+
+Rain Modern Chinese
+chineserestaurant
+asianrestaurant
+restaurant
+chinese
+food
+pointofinterest
+establishment
+
+Capital City Diner
+takeoutrestaurant
+americanrestaurant
+coffeeshop
+caterer
+restaurant
+diner
+food
+pointofinterest
+establishment
+
+Chipotle Mexican Grill
+mexicanrestaurant
+restaurant
+takeoutrestaurant
+fastfoodrestaurant
+mexican
+
+The Cheese Traveler
+cheeseshop
+
+Kuma Ani
+restaurant
+asian
+
+The Standard Restaurant & Lounge
+cocktaillounge
+bar
+italianrestaurant
+nightclub
+grill
+tavern
+familystylerestaurant
+restaurant
+american
+food
+pointofinterest
+establishment
+
+Pepper Jack's
+sandwichshop
+delicatessen
+restaurant
+american
+food
+pointofinterest
+establishment
+
+Capital Thai
+thairestaurant
+asianrestaurant
+sushibar
+takeoutrestaurant
+restaurant
+food
+pointofinterest
+establishment
+
+Delmonico's Italian Steakhouse
+steakhouse
+italianrestaurant
+takeoutrestaurant
+caterer
+barbecuerestaurant
+banquethall
+receptionfacility
+restaurant
+food
+pointofinterest
+establishment
+
+Fountain Restaurant
+familystylerestaurant
+pizza
+takeoutrestaurant
+caterer
+italianrestaurant
+mediterraneanrestaurant
+restaurant
+american
+mealtakeaway
+food
+pointofinterest
+establishment
+
+LAX on Lark
+
+Samurai Japanese
+asian
+bar
+restaurant
+food
+pointofinterest
+establishment
+
+Little Anthony's
+pizza
+restaurant
+food
+pointofinterest
+establishment
+
+Bombers Burrito Bar
+mexicanrestaurant
+breakfast
+brunch
+lunchrestaurant
+takeoutrestaurant
+caterer
+bar
+latinamericanrestaurant
+restaurant
+burrito
+food
+pointofinterest
+establishment
+
+Burger 21
+hamburger
+hotdog
+americanrestaurant
+restaurant
+burger
+
+Ocean Palace
+seafoodrestaurant
+restaurant
+chinese
+
+Shalimar
+restaurant
+indian
+food
+pointofinterest
+establishment
+
+El Maricachi Mexican Restaurant II
+
+Caf_ 217
+
+Sake
+sushi
+
+Andy & Sons Importing Co
+delicatessen
+takeoutrestaurant
+caterer
+restaurant
+groceryorsupermarket
+food
+store
+pointofinterest
+establishment
+
+Blowfish
+japaneserestaurant
+restaurant
+sushi
+
+Ragonese Italian Imports
+italianrestaurant
+delicatessen
+gourmetshop
+caterer
+mediterraneanrestaurant
+takeoutrestaurant
+restaurant
+groceryorsupermarket
+food
+store
+pointofinterest
+establishment
+
+Euro Deli and Market
+delicatessen
+caterer
+restaurant
+easterneuropean
+store
+mealtakeaway
+food
+pointofinterest
+establishment
+
+Bonefish Grill
+americanrestaurant
+seafoodrestaurant
+bar
+grill
+restaurant
+steakhouse
+seafood
+food
+pointofinterest
+establishment
+
+Sitar
+indianrestaurant
+bar
+cocktaillounge
+caterer
+tavern
+asianrestaurant
+takeoutrestaurant
+fastfoodrestaurant
+grill
+middleeasternrestaurant
+banquethall
+receptionfacility
+familystylerestaurant
+restaurant
+indian
+food
+pointofinterest
+establishment
+
+The Cheesecake Factory
+restaurant
+takeoutrestaurant
+dessertrestaurant
+familystylerestaurant
+americanrestaurant
+american
+mealtakeaway
+food
+pointofinterest
+establishment
+
+Carrabba's
+italianrestaurant
+familystylerestaurant
+restaurant
+bar
+grill
+mediterraneanrestaurant
+italian
+food
+pointofinterest
+establishment
+
+DiBella's Old Fashioned Submarines
+sandwiche
+store
+mealtakeaway
+restaurant
+food
+pointofinterest
+establishment
+
+U Mundu E Ca
+italian
+
+Koto Japanese Steak House
+japaneserestaurant
+sushibar
+steakhouse
+familystylerestaurant
+asianrestaurant
+barbecuerestaurant
+takeoutrestaurant
+caterer
+restaurant
+japanese
+
+Mamoun's Falafel
+middleeasternrestaurant
+takeoutrestaurant
+caterer
+mediterraneanrestaurant
+familystylerestaurant
+restaurant
+falafel
+
+Namu
+businesscoache
+consultant
+korean
+
+Northeast Dumplings House
+restaurant
+food
+pointofinterest
+establishment
+
+City Line Bar and Grill
+bar
+
+Uncommon Grounds
+coffee
+tea
+grocerystore
+restaurant
+coffeeshop
+cafe
+food
+pointofinterest
+establishment
+
+Golden Grain Pizza
+pizza
+takeoutrestaurant
+americanrestaurant
+sandwichshop
+italianrestaurant
+restaurant
+
+Mexican Market
+wholesalegrocer
+grocerystore
+supermarket
+superstore
+foodproductswholesale
+
+Flavors Of India 
+restaurant
+indian
+
+The Capital American Eatery & Lounge
+
+The Washington Tavern
+tavern
+bar
+nightclub
+grill
+restaurant
+
+Silks Saratoga Bistro
+bar
+
+Texas Roadhouse
+barbecuerestaurant
+restaurant
+steakhouse
+americanrestaurant
+bar
+food
+pointofinterest
+establishment
+
+Paesans Pizza
+pizza
+caterer
+takeoutrestaurant
+americanrestaurant
+sandwichshop
+restaurant
+food
+pointofinterest
+establishment
+
+Bangkok Bistro
+thairestaurant
+breakfast
+brunch
+lunchrestaurant
+asianrestaurant
+continentalrestaurant
+japaneserestaurant
+sushibar
+restaurant
+thai
+food
+pointofinterest
+establishment
+
+Miranda's Deli
+sandwiche
+
+Scarboroughs Restaurant & Tavern
+american
+
+Druthers Brewing Co
+brewpub
+beer
+ale
+bar
+grill
+restaurant
+
+Via Fresca
+importer
+italian
+
+Hooters
+takeoutrestaurant
+americanrestaurant
+restaurant
+sportsbar
+bar
+grill
+wing
+food
+pointofinterest
+establishment
+
+Hana Japanese Steakhouse
+japaneserestaurant
+barbecuerestaurant
+steakhouse
+asianrestaurant
+takeoutrestaurant
+sushibar
+restaurant
+japanese
+
+Milano
+restaurant
+familystylerestaurant
+italianrestaurant
+mediterraneanrestaurant
+takeoutrestaurant
+caterer
+weddingsupply
+service
+weddingreceptionlocation
+italian
+food
+pointofinterest
+establishment
+
+Wings Over Albany
+chickenrestaurant
+barbecuerestaurant
+americanrestaurant
+restaurant
+wing
+
+Saati
+restaurant
+deli/bodega
+store
+food
+pointofinterest
+establishment
+
+Pizzeria Sapienza
+pizza
+restaurant
+food
+pointofinterest
+establishment
+
+Bob & Ron's Fish Fry
+seafoodrestaurant
+takeoutrestaurant
+fastfoodrestaurant
+restaurant
+seafood
+food
+pointofinterest
+establishment
+
+P.F. Chang's
+chineserestaurant
+restaurant
+asianrestaurant
+chinese
+mealtakeaway
+bar
+food
+pointofinterest
+establishment
+
+Pearl Street Diner
+americanrestaurant
+coffeeshop
+takeoutrestaurant
+caterer
+restaurant
+
+Parivar Spices and Food
+conveniencestore
+indian
+
+Ship's Pub
+tavern
+bar
+grill
+restaurant
+
+Across the Street Pub
+tavern
+bar
+nightclub
+restaurant
+pub
+food
+pointofinterest
+establishment
+
+Mild Wally's
+healthfoodrestaurant
+familystylerestaurant
+sandwichshop
+takeoutrestaurant
+breakfast
+brunch
+lunchrestaurant
+restaurant
+pizza
+food
+pointofinterest
+establishment
+
+El Loco
+mexicanrestaurant
+takeoutrestaurant
+latinamericanrestaurant
+americanrestaurant
+fastfoodrestaurant
+breakfast
+brunch
+lunchrestaurant
+cafeteria
+restaurant
+mexican
+cafe
+food
+pointofinterest
+establishment
+
+Spicy Mint
+indianrestaurant
+asianrestaurant
+restaurant
+indian
+
+Chicken Joe's 
+chickenrestaurant
+americanrestaurant
+caterer
+restaurant
+friedchicken
+mealtakeaway
+food
+pointofinterest
+establishment
+
+My Gyro Station
+greekrestaurant
+mediterraneanrestaurant
+fastfoodrestaurant
+restaurant
+greek
+
+Five Guy's Burgers and Fries
+hamburger
+hotdog
+restaurant
+fastfoodrestaurant
+burger
+
+76 Diner
+takeoutrestaurant
+fastfoodrestaurant
+breakfast
+brunch
+lunchrestaurant
+bakery
+caterer
+greekrestaurant
+mediterraneanrestaurant
+americanrestaurant
+coffeeshop
+restaurant
+
+Yang's
+sushi
+restaurant
+food
+pointofinterest
+establishment
+
+Treviso By Mallozzi's
+italianrestaurant
+mediterraneanrestaurant
+caterer
+restaurant
+italian
+food
+pointofinterest
+establishment
+
+O'Toole's Restaurant
+bar
+restaurant
+americanrestaurant
+takeoutrestaurant
+tavern
+pub
+
+The Barrel Saloon & Texas BBQ
+
+Panera Bread
+americanrestaurant
+coffeeshop
+sandwichshop
+restaurant
+takeoutrestaurant
+healthfoodrestaurant
+bakery
+store
+mealtakeaway
+cafe
+food
+pointofinterest
+establishment
+
+Macaroni Grill
+italianrestaurant
+restaurant
+italian
+mealtakeaway
+food
+pointofinterest
+establishment
+
+Philly Bar and Grill
+bar
+grill
+nightclub
+tavern
+restaurant
+sportsbar
+
+Madison's Pizza
+pizza
+americanrestaurant
+sandwichshop
+delicatessen
+takeoutrestaurant
+restaurant
+mealtakeaway
+food
+pointofinterest
+establishment
+
+La Empanada Llama
+latinamericanrestaurant
+restaurant
+peruvian
+
+Dragon City
+chineserestaurant
+asianrestaurant
+takeoutrestaurant
+familystylerestaurant
+restaurant
+chinese
+food
+pointofinterest
+establishment
+
+Sam's Italian & American Restaurant
+
+Caf_ Hollywood
+
+Lark Tavern
+tavern
+bar
+restaurant
+pointofinterest
+establishment
+
+Daily Grind
+coffeeshop
+coffee
+tea
+breakfast
+brunch
+lunchrestaurant
+cafeteria
+restaurant
+cafe
+food
+pointofinterest
+establishment
+
+Graney's Bar and Grill
+bar
+grill
+pizza
+tavern
+takeoutrestaurant
+restaurant
+wing
+
+Spinners Pizza and Subs
+pizza
+takeoutrestaurant
+caterer
+delicatessen
+restaurant
+
+Roman Pizza
+pizza
+restaurant
+
+Smashburger
+americanrestaurant
+hamburger
+hotdog
+restaurant
+burger
+food
+pointofinterest
+establishment
+
+D.P. Dough
+deliveryservice
+pizza
+takeoutrestaurant
+restaurant
+food
+pointofinterest
+establishment
+
+Submaker
+sandwichshop
+delicatessen
+takeoutrestaurant
+restaurant
+deli/bodega
+
+Buffalo Wagon
+sushibar
+takeoutrestaurant
+caterer
+japaneserestaurant
+asianrestaurant
+chineserestaurant
+restaurant
+asian
+food
+pointofinterest
+establishment
+
+The French Press Caf_ & Creperie
+
+A Better Bite
+restaurant
+sandwiche
+
+Shining Rainbow
+asianrestaurant
+takeoutrestaurant
+japaneserestaurant
+chineserestaurant
+restaurant
+asian
+food
+pointofinterest
+establishment
+
+Elbo Room
+tavern
+bar
+americanrestaurant
+grill
+caterer
+nightclub
+restaurant
+pub
+pointofinterest
+establishment
+
+Pho Yum
+vietnameserestaurant
+asianrestaurant
+restaurant
+food
+pointofinterest
+establishment
+
+AMO La Bella New York
+italianrestaurant
+caterer
+takeoutrestaurant
+familystylerestaurant
+mediterraneanrestaurant
+restaurant
+italian
+
+Red Robin Gourmet Burgers
+takeoutrestaurant
+americanrestaurant
+hamburger
+hotdog
+restaurant
+familystylerestaurant
+burger
+food
+pointofinterest
+establishment
+
+Everydays
+bar
+
+Hiro's
+japaneserestaurant
+asianrestaurant
+bar
+brewpub
+takeoutrestaurant
+sushibar
+familystylerestaurant
+restaurant
+japanese
+
+Riverfront Bar & Grill
+bar
+grill
+tavern
+restaurant
+food
+pointofinterest
+establishment
+
+Recovery Room Sports Grill
+bar
+grill
+tavern
+nightclub
+restaurant
+
+Bellini's Italian Eatery
+italianrestaurant
+mediterraneanrestaurant
+seafoodrestaurant
+takeoutrestaurant
+caterer
+restaurant
+italian
+mealtakeaway
+bar
+food
+pointofinterest
+establishment
+
+Sandwiches To Go
+sandwichshop
+delicatessen
+takeoutrestaurant
+restaurant
+sandwiche

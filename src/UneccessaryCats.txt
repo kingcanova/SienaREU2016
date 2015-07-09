@@ -14,3 +14,9 @@ store
 furniturestore
 generalcontractor
 service
+pointofinterest
+consultant
+dealer
+takeoutrestaurant
+restaurantmenu
+mealtakeaway

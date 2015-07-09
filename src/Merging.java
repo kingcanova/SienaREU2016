@@ -207,7 +207,7 @@ public class Merging
             }
         }
         if(four_count == 0) {
-            for(String cat : goog.category)
+            for(String cat : four.category)
             {
                 cat = cat.trim();
                 cat = cat.replaceAll("_","");
@@ -255,7 +255,7 @@ public class Merging
         System.out.println();
         return result;
     }
-    
+
     /**
      * Round value to specific decimal place
      */    

@@ -54,7 +54,7 @@ establishment
 
 Little Goat
 americanrestaurant
-bakerie
+bakery
 coffeeshop
 takeoutrestaurant
 caterer
@@ -105,12 +105,11 @@ pointofinterest
 establishment
 
 Hoosier Mama Pie Company
-bakerie
+bakery
 takeoutrestaurant
-wholesalebakerie
+wholesalebakery
 restaurant
 pieshop
-bakery
 store
 food
 pointofinterest
@@ -148,7 +147,7 @@ building
 establishment
 
 Ruxbin
-kitchenaccessorie
+kitchenaccessory
 glassware
 american
 restaurant
@@ -204,7 +203,7 @@ pointofinterest
 establishment
 
 Crisp
-commerciallaundrie
+commerciallaundry
 friedchicken
 restaurant
 food
@@ -215,6 +214,7 @@ Green Mill
 restaurant
 bar
 pizza
+jazzclub
 nightclub
 pointofinterest
 establishment
@@ -244,7 +244,7 @@ planetarium
 touristinformation
 attraction
 placesofinterest
-observatorie
+observatory
 meeting
 eventplanningservice
 educationalservice
@@ -270,14 +270,14 @@ publicaquarium
 weddingreceptionlocation
 service
 weddingchapel
-ceremonie
+ceremony
 meeting
 eventplanningservice
 familystylerestaurant
 restaurant
 marketingconsultant
 aquarium
-aquariumsupplie
+aquariumsupply
 touristinformation
 attraction
 dataprocessingservice
@@ -293,7 +293,7 @@ sciencemuseum
 historicalplace
 meeting
 eventplanningservice
-artgallerie
+artgallery
 dealer
 consultant
 touristinformation
@@ -327,10 +327,9 @@ pointofinterest
 establishment
 
 Graceland Cemetery
-cemeterie
-funeralsupplie
-service
 cemetery
+funeralsupply
+service
 pointofinterest
 establishment
 
@@ -373,12 +372,14 @@ historicalplace
 weddingreceptionlocation
 service
 weddingchapel
-ceremonie
+ceremony
 meeting
 eventplanningservice
 botanicalgarden
 restaurant
 museum
+communityorganization
+governmentconsultant
 sunroom
 solarium
 generalcontractor
@@ -387,7 +388,6 @@ campingequipment
 sportinggood
 touristinformation
 attraction
-governmentconsultant
 recreationcenter
 governmentoffice
 garden
@@ -419,12 +419,12 @@ placeofworship
 pointofinterest
 establishment
 
-Kuma_��s Corner
+Kuma_�_s Corner
 burger
 
 Chicago Cubs
 radiostation
-broadcastcompanie
+broadcastcompany
 establishment
 
 Magnificent Mile
@@ -432,7 +432,7 @@ hotel
 weddingreceptionlocation
 service
 weddingchapel
-ceremonie
+ceremony
 meeting
 eventplanningservice
 motel
@@ -441,7 +441,7 @@ healthresort
 lodging
 resort
 banquethall
-receptionfacilitie
+receptionfacility
 pointofinterest
 establishment
 
@@ -452,10 +452,10 @@ fair
 pointofinterest
 establishment
 
-Rory Lake's Karaoke Dreams
+Rory Lake_�_s Karaoke Dreams
 
 Santa Fe Opera
-operacompanie
+operacompany
 operahouse
 pointofinterest
 establishment
@@ -475,10 +475,10 @@ food
 pointofinterest
 establishment
 
-Coyote Cafթ
-newamerican
+Coyote Caf�
+mexican
 
-San Marcos Cafթ
+San Marcos Caf�
 breakfast
 
 El Farol
@@ -508,8 +508,8 @@ establishment
 
 Loretto Chapel
 weddingchapel
-ceremonie
-marriageceremonie
+ceremony
+marriageceremony
 churche
 placesofworship
 church
@@ -547,7 +547,7 @@ Museum of Fine Arts
 Museum of International Folk Art
 museum
 artmuseum
-artgallerie
+artgallery
 dealer
 consultant
 meeting
@@ -563,14 +563,13 @@ pointofinterest
 establishment
 
 Morning Star Gallery
-artgallerie
+artgallery
 dealer
 consultant
 antique
 giftshop
 commercialphotographer
-craftsupplie
-artgallery
+craftsupply
 
 Santa Fe Southern Railway
 railroad
@@ -593,20 +592,18 @@ repair
 fishingbait
 fishingtackle
 fishingcharter
-partie
+party
 
 SITE Santa Fe
 museum
-artgallerie
+artgallery
 dealer
 consultant
-artgallery
 
 Shidoni Foundry
-artgallerie
+artgallery
 dealer
 consultant
-artgallery
 
 Cowgirl
 clothingcollectible
@@ -619,7 +616,7 @@ food
 pointofinterest
 establishment
 
-Santacafթ
+Santacaf�
 restaurant
 american
 
@@ -639,7 +636,7 @@ establishment
 
 Tesuque Village Market
 grocerystore
-bakerie
+bakery
 supermarket
 superstore
 diner
@@ -649,10 +646,9 @@ pointofinterest
 establishment
 
 Canyon Rd
-artgallerie
+artgallery
 dealer
 consultant
-artgallery
 
 Ristra
 frenchrestaurant
@@ -666,20 +662,19 @@ pointofinterest
 establishment
 
 Gerald Peters Gallery
-artgallerie
+artgallery
 dealer
 consultant
 banquethall
-receptionfacilitie
+receptionfacility
 meeting
 eventplanningservice
 commercialphotographer
-artgallery
 
-Nambթ Foundry Outlet
+Namb� Foundry Outlet
 
 Travel Bug
-travelagencie
+travelagency
 travel
 bookstore
 store
@@ -693,7 +688,7 @@ rug
 carpet
 rugpad
 lining
-accessorie
+accessory
 rugdealer
 floormaterial
 floormaterialswholesale
@@ -730,7 +725,7 @@ establishment
 
 Santa Fe Clay
 ceramicsequipment
-supplie
+supply
 decorativeceramicproduct
 artgallery
 
@@ -748,7 +743,7 @@ stadium
 
 Santa Fe Desert Chorale
 musician
-entertainmentagencie
+entertainmentagency
 bureau
 performingart
 
@@ -770,7 +765,7 @@ establishment
 
 Kowboyz
 westernapparel
-supplie
+supply
 bootstore
 hatshop
 clothingstore

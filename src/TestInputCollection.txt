@@ -2,7 +2,7 @@ Fat Cat
 poolhall
 bar
 restaurant
-office
+pointofinterest
 establishment
 
 55 Bar
@@ -11,21 +11,26 @@ nightclub
 restaurant
 tavern
 jazzclub
+pointofinterest
 establishment
 
 Manitoba's
-bar&grill
+bar
+grill
 restaurant
 divebar
-bar
+pointofinterest
 establishment
 
 Nuyorican Poets Cafe
 cafeteria
-breakfast,brunch&lunchrestaurant
+breakfast
+brunch
+lunchrestaurant
 restaurant
 theater
 bar
+pointofinterest
 establishment
 
 Cafe Habana
@@ -35,64 +40,62 @@ caterer
 latinamericanrestaurant
 caribbeanrestaurant
 restaurant
-cuban
 cafe
 bar
 food
+pointofinterest
 establishment
 
 The Magician
 magician
 bar
+pointofinterest
 establishment
 
 The Cock
 gaybar
 bar
+pointofinterest
 establishment
 
 S.O.B.'s
-americanrestaurant
-sandwichshop
-healthfoodrestaurant
-caterer
 bar
-caribbeanrestaurant
-latinamericanrestaurant
-restaurant
 
 Irving Plaza
 bar
 tavern
 musicvenue
-night_club
+nightclub
+pointofinterest
 establishment
 
 Raoul's Restaurant
-restaurant
-finediningrestaurant
-frenchrestaurant
 french
 
 Paddy Reilly's Music Bar
 pub
+pointofinterest
 establishment
 
 Tartine
 frenchrestaurant
 steakhouse
-bakerie
-breakfast,brunch&lunchrestaurant
+bakery
+breakfast
+brunch
+lunchrestaurant
 restaurant
 french
 food
+pointofinterest
 establishment
 
 Jules Bistro
-breakfast,brunch&lunchrestaurant
-seafoodrestaurant
-takeoutrestaurant
+breakfast
+brunch
+lunchrestaurant
 familystylerestaurant
+takeoutrestaurant
 continentalrestaurant
 restaurant
 french
@@ -102,6 +105,8 @@ bar
 cocktaillounge
 nightclub
 restaurant
+cocktail
+pointofinterest
 establishment
 
 Tavern on Jane
@@ -109,56 +114,57 @@ tavern
 bar
 caterer
 americanrestaurant
-bar&grill
+grill
 restaurant
 american
 food
+pointofinterest
 establishment
 
 Han's Deli
 delicatessen
 restaurant
 deli/bodega
-food
-store
-establishment
 
 Casa
 brazilianrestaurant
 familystylerestaurant
-takeoutrestaurant
 latinamericanrestaurant
+takeoutrestaurant
 restaurant
-lounge
+italian
 bar
 food
+pointofinterest
 establishment
 
 Irving Farm Coffee Roasters
-coffee&tea
+coffee
+tea
 coffeeshop
 bakery
 store
-meal_takeaway
+mealtakeaway
 cafe
 restaurant
 food
+pointofinterest
 establishment
 
 Spring Lounge
 cocktaillounge
-tavern
 bar
-bar&grill
+grill
+tavern
 restaurant
-night_club
+nightclub
 food
+pointofinterest
 establishment
 
 Niagara
 bar
 restaurant
-establishment
 
 Off The Wagon Bar & Grill
 bar
@@ -169,17 +175,18 @@ Barrow Street Ale House
 bar
 brewpub
 tavern
-bar&grill
+grill
 nightclub
 restaurant
 sportsbar
 
 The Library
-bar&grill
 bar
+grill
 nightclub
 tavern
 restaurant
+pointofinterest
 establishment
 
 Macdougal St. Ale House
@@ -190,14 +197,17 @@ nightclub
 bar
 tavern
 restaurant
+pointofinterest
 establishment
 
 St. Dymphna's
 tavern
-bar&grill
-restaurant
 bar
+nightclub
+grill
+restaurant
 food
+pointofinterest
 establishment
 
 Garage Restaurant & Cafe
@@ -205,6 +215,7 @@ restaurant
 american
 bar
 food
+pointofinterest
 establishment
 
 Tomoe Sushi
@@ -214,24 +225,30 @@ takeoutrestaurant
 japaneserestaurant
 seafoodrestaurant
 restaurant
+sushi
 food
+pointofinterest
 establishment
 
 Pianos
-pianos&organ
+piano
+organ
 musicalinstrument
-musicschool
-night_club
+rockclub
+nightclub
 bar
+pointofinterest
 establishment
 
 Boxcar Lounge
+nightclub
 bar
+pointofinterest
 establishment
 
 Mustang Sally's
-bar&grill
 bar
+grill
 tavern
 nightclub
 takeoutrestaurant
@@ -239,49 +256,55 @@ caterer
 familystylerestaurant
 restaurant
 pub
-meal_takeaway
+mealtakeaway
 food
+pointofinterest
 establishment
 
 Lucy's
 clothingstore
-boutique
+latinamerican
 bar
-night_club
+nightclub
+pointofinterest
 establishment
 
 Once Upon a Tart
 caterer
-bakerie
+bakery
 dessertrestaurant
-breakfast,brunch&lunchrestaurant
+breakfast
+brunch
+lunchrestaurant
 familystylerestaurant
 restaurant
 sandwiche
-bakery
 store
 food
+pointofinterest
 establishment
 
 Trattoria Pesce Pasta
 italianrestaurant
-takeoutrestaurant
-pasta
 seafoodrestaurant
 mediterraneanrestaurant
+takeoutrestaurant
+pasta
 restaurant
 italian
 store
-meal_delivery
+mealdelivery
 food
+pointofinterest
 establishment
 
 Mona's
 tavern
 bar
 nightclub
-bar&grill
+grill
 restaurant
+pointofinterest
 establishment
 
 Le Jardin Bistro
@@ -292,29 +315,28 @@ restaurant
 
 Bleecker Street Records
 musicstore
-used&vintagemusicdealer
+used
+vintagemusicdealer
 recordshop
-clothing_store
+clothingstore
 store
+pointofinterest
 establishment
 
 Caffe Buon Gusto
 restaurant
 italian
-meal_takeaway
+mealtakeaway
 food
+pointofinterest
 establishment
 
 Yu Interiors
 homefurnishing
+interiordesigner
+decorator
 furniturestore
-interiordesigners&decorator
 design
-home_goods_store
-furniture_store
-general_contractor
-store
-establishment
 
 Parkside Lounge
 cocktaillounge
@@ -322,25 +344,25 @@ bar
 nightclub
 tavern
 restaurant
-night_club
+rockclub
+pointofinterest
 establishment
 
 Cafe Gitane at The Jane Hotel
-hotel
-lodging
-motel
-corporatelodging
 french
 
 Home Restaurant
 americanrestaurant
-familystylerestaurant
 takeoutrestaurant
-breakfast,brunch&lunchrestaurant
+breakfast
+brunch
+lunchrestaurant
+familystylerestaurant
 restaurant
 american
 bar
 food
+pointofinterest
 establishment
 
 Apizz Restaurant
@@ -356,13 +378,15 @@ caterer
 restaurant
 french
 food
+pointofinterest
 establishment
 
 Isa
 restaurant
-salon/barbershop
+american
 bar
 food
+pointofinterest
 establishment
 
 Tortilla Flats
@@ -375,39 +399,44 @@ restaurant
 taco
 bar
 food
+pointofinterest
 establishment
 
 O'Hanlon's Bar
-bar&grill
 bar
+grill
 brewpub
 tavern
 restaurant
 pub
 
 Lifethyme Natural Market
-health&dietfoodproduct
-vitamins&foodsupplement
+health
+dietfoodproduct
+vitamin
+foodsupplement
 grocerystore
 foodproduct
-coffee&tea
 healthfoodrestaurant
 organicgrocery
 
 Blue Water Grill
 seafoodrestaurant
-bar&grill
-takeoutrestaurant
+bar
+grill
 americanrestaurant
 japaneserestaurant
 sushibar
 asianrestaurant
-bar
-breakfast,brunch&lunchrestaurant
+takeoutrestaurant
+breakfast
+brunch
+lunchrestaurant
 nightclub
 restaurant
 seafood
 food
+pointofinterest
 establishment
 
 One & One
@@ -421,6 +450,7 @@ Washington Square Park
 park
 picnicground
 playground
+pointofinterest
 establishment
 
 East Japanese Restaurant (Japas 27)
@@ -432,20 +462,23 @@ restaurant
 bar
 
 Mulberry Street Bar
-bar&grill
 bar
+grill
 tavern
 restaurant
+pointofinterest
 establishment
 
 Madison Square Park
 park
+pointofinterest
 establishment
 
 McSwiggan's
 bar
 restaurant
 food
+pointofinterest
 establishment
 
 Dos Caminos
@@ -453,11 +486,14 @@ mexicanrestaurant
 latinamericanrestaurant
 bar
 italianrestaurant
-breakfast,brunch&lunchrestaurant
+breakfast
+brunch
+lunchrestaurant
 restaurant
 mexican
-night_club
+nightclub
 food
+pointofinterest
 establishment
 
 Cong Ly
@@ -468,15 +504,22 @@ asianrestaurant
 restaurant
 ramen/noodle
 food
+pointofinterest
 establishment
 
 New Wonjo
 korean
 restaurant
 food
+pointofinterest
 establishment
 
 Seoul Garden Restaurant
+chineserestaurant
+koreanrestaurant
+asianrestaurant
+takeoutrestaurant
+restaurant
 korean
 
 Landmarc
@@ -485,6 +528,7 @@ american
 bar
 restaurant
 food
+pointofinterest
 establishment
 
 Village Yokocho
@@ -495,26 +539,30 @@ takeoutrestaurant
 restaurant
 japanese
 food
+pointofinterest
 establishment
 
 East River Bar
-bar&grill
 bar
+grill
 tavern
 restaurant
 divebar
+pointofinterest
 establishment
 
 Taj II Lounge
 thai
 
 Ruby's Cafe
-coffee&espressorestaurant
+coffee
+espressorestaurant
 continentalrestaurant
 restaurant
 australian
 cafe
 food
+pointofinterest
 establishment
 
 Kabin
@@ -523,15 +571,20 @@ tavern
 cocktaillounge
 restaurant
 assistedliving
+pointofinterest
+establishment
 
 Le Singe Vert
 frenchrestaurant
-breakfast,brunch&lunchrestaurant
+breakfast
+brunch
+lunchrestaurant
 seafoodrestaurant
 restaurant
 french
 bar
 food
+pointofinterest
 establishment
 
 Chandni
@@ -542,6 +595,7 @@ caterer
 restaurant
 indian
 food
+pointofinterest
 establishment
 
 Black & White
@@ -550,12 +604,14 @@ bar
 nightclub
 restaurant
 divebar
+pointofinterest
 establishment
 
 Bembe
 restaurant
 nightclub
 bar
+pointofinterest
 establishment
 
 Pangea
@@ -565,6 +621,7 @@ italianrestaurant
 italian
 bar
 food
+pointofinterest
 establishment
 
 Spice Market
@@ -575,35 +632,40 @@ restaurant
 thai
 bar
 food
+pointofinterest
 establishment
 
 PUBLIC
-bar&grill
+bar
+grill
 restaurant
 library
 store
+pointofinterest
 establishment
 
 JHU Comic Books
 comicshop
-book_store
+bookstore
 store
+pointofinterest
 establishment
 
 St. Mark's Bookshop
 bookstore
-book_store
 store
+pointofinterest
 establishment
 
 St. Mark's Comics
 comicbook
-used&rarebook
+used
+rarebook
 bookstore
 collectible
 comicshop
-book_store
 store
+pointofinterest
 establishment
 
 Bianca
@@ -613,6 +675,7 @@ seafoodrestaurant
 restaurant
 italian
 food
+pointofinterest
 establishment
 
 Vol de Nuit
@@ -620,15 +683,16 @@ bar
 nightclub
 restaurant
 food
-night_club
+pointofinterest
 establishment
 
 Nowhere
-bar&grill
 bar
+grill
 tavern
 restaurant
 gaybar
+pointofinterest
 establishment
 
 EDRIS SALON
@@ -638,28 +702,32 @@ salon/barbershop
 Brooklyn Social
 tavern
 bar
-bar&grill
+grill
 restaurant
 cocktail
+pointofinterest
 establishment
 
 Hudson River Skate Park
 skatepark
+
+Pier 54 - Hudson River Park
 
 Fort Greene Park
 park
 picnicground
 tenniscourt
 playground
+pointofinterest
 establishment
 
 Panya Bakery
-bakerie
-restaurant
 bakery
+restaurant
 cafe
 store
 food
+pointofinterest
 establishment
 
 Lobo
@@ -671,10 +739,12 @@ restaurant
 mexican
 bar
 food
+pointofinterest
 establishment
 
 Upright Citizens Brigade Theatre
 comedyclub
+pointofinterest
 establishment
 
 GYM Sportsbar
@@ -682,6 +752,7 @@ gaybar
 bar
 restaurant
 food
+pointofinterest
 establishment
 
 BAM Rose Cinemas
@@ -690,29 +761,38 @@ theatre
 indietheater
 
 Artists Space
-artgalleries,dealers&consultant
 artgallery
+dealer
+consultant
 
 Pier 40
-amusementplaces&arcade
-touristinformation&attraction
+amusementplace
+arcade
+touristinformation
+attraction
 parking
+pointofinterest
 establishment
 
 Guitar Center
-musicalinstrumentsupplies&accessorie
+musicalinstrumentsupply
+accessory
 musicalinstrument
-guitars&amplifier
+guitar
+amplifier
 musicalinstrumentrental
 musicstore
 store
+pointofinterest
 establishment
 
 NYU Grey Art Gallery
-artgalleries,dealers&consultant
+artgallery
+dealer
+consultant
 
 Brooklyn Academy of Music (BAM)
-musicinstruction-instrumental
+musicinstructioninstrumental
 musicschool
 operahouse
 
@@ -724,8 +804,6 @@ gym
 Yankee Stadium
 employeebenefitconsultingservice
 baseball
-stadium
-establishment
 
 New York Sports Club
 healthclub
@@ -733,19 +811,25 @@ gym
 
 Secret Project Robot
 discjockey
-entertainmentagencies&bureau
+entertainmentagency
+bureau
 rockclub
 
 New Museum
 museum
 artmuseum
+pointofinterest
 establishment
 
-Rubin Museum of Art 
+Rubin Museum of Art
 museum
-artgalleries,dealers&consultant
+artgallery
+dealer
+consultant
 artmuseum
+pointofinterest
 establishment
+
 Versace for H&M Fashion Event
 nightlife
 
@@ -753,32 +837,40 @@ CLAY Health Club + Spa
 healthclub
 dayspa
 personalfitnesstrainer
-exercise&physicalfitnessprogram
+exercise
+physicalfitnessprogram
 gymnasium
 yogainstruction
-physicalfitnessconsultants&trainer
-pilatesinstruction&equipment
+physicalfitnessconsultant
+trainer
+pilatesinstruction
+equipment
 healthresort
 gym
 health
 spa
+pointofinterest
 establishment
 
 Barnes & Noble
 bookstore
 magazine
 musicstore
-dvdsales&service
-book_store
+dvdsale
+service
 store
+pointofinterest
 establishment
 
 Borough of Manhattan Community College (BMCC)
-artgalleries,dealers&consultant
+artgallery
+dealer
+consultant
 communitycollege
 
 Kraine Theater
 theater
+pointofinterest
 establishment
 
 SoHo Park
@@ -787,29 +879,40 @@ familystylerestaurant
 restaurant
 burger
 food
+pointofinterest
 establishment
 
 Chelsea Waterside Park  Playground
 
 Yoga to the People
 yogainstruction
-exercise&physicalfitnessprogram
+exercise
+physicalfitnessprogram
 sportsinstruction
 yogastudio
+pointofinterest
 establishment
 
 Academy Records & CDs
-used&vintagemusicdealer
+used
+vintagemusicdealer
 musicstore
 collectible
 recordshop
 store
+pointofinterest
 establishment
 
 Academy LPs
 recordshop
 
 New York Health and Racquet Club
+healthclub
+socialserviceorganization
+tennisinstruction
+racquetballcourt
+gymnasium
+tenniscourt
 gym
 
 NYU Bobst Library
@@ -820,20 +923,28 @@ concerthall
 ballroom
 musicvenue
 bar
-night_club
+nightclub
+pointofinterest
 establishment
+
+Hamilton Fish Recreation Center
+publicswimmingpool
+recreationcenter
+gym
 
 Moonstruck on Second
 sandwichshop
 dessertrestaurant
-hamburgers&hotdog
+hamburger
+hotdog
 healthfoodrestaurant
 restaurant
 diner
 
 Mixed Greens Gallery
-artgalleries,dealers&consultant
 artgallery
+dealer
+consultant
 
 Sky Tobacco Co. LLC
 smokeshop
@@ -848,8 +959,8 @@ boysclothing
 girlsclothing
 men'sclothing
 apparel
-clothing_store
 store
+pointofinterest
 establishment
 
 Oak Clothing
@@ -867,46 +978,53 @@ healthfoodstore
 
 Bagels by the Park
 bagel
-bakerie
+bakery
 delicatessen
 restaurant
-bakery
 store
-meal_takeaway
+mealtakeaway
 food
+pointofinterest
 establishment
 
 Ed's Lobster Bar
 seafoodrestaurant
 americanrestaurant
-bar&grill
-breakfast,brunch&lunchrestaurant
+bar
+grill
+breakfast
+brunch
+lunchrestaurant
 restaurant
 seafood
-bar
 food
+pointofinterest
 establishment
 
 Spoonbill & Sugartown Books
-used&rarebook
+used
+rarebook
 bookstore
-book_store
 store
+pointofinterest
 establishment
 
 Manhattan Fruit Exchange
-fruit&vegetablemarket
+fruit
+vegetablemarket
 grocerystore
 farmersmarket
 supermarket
-grocery_or_supermarket
+groceryorsupermarket
 food
 store
+pointofinterest
 establishment
 
 Tyler Rollins Fine Art
-artgalleries,dealers&consultant
 artgallery
+dealer
+consultant
 
 El Sol Brilliante Community Garden
 
@@ -914,12 +1032,13 @@ La Plaza Cultural Community Garden
 
 Cold Stone Creamery
 dessertrestaurant
-icecream&frozendessert
-coffeeshop
+icecream
+frozendessert
 bakery
 store
 restaurant
 food
+pointofinterest
 establishment
 
 Lucille Lortel Theatre
@@ -938,61 +1057,74 @@ Freemans Sporting Club
 men'sclothing
 clothingstore
 salon/barbershop
-clothing_store
 store
 health
-hair_care
+haircare
+pointofinterest
 establishment
 
 YogaWorks Soho
 yogainstruction
-exercise&physicalfitnessprogram
+exercise
+physicalfitnessprogram
 yogastudio
-clothing_store
+clothingstore
 store
+pointofinterest
 establishment
 
 Adidas Originals
 shoestore
 shoe
-shoe_store
-clothing_store
+clothingstore
 store
+pointofinterest
 establishment
 
 Atrium NYC
+apparel
 
 Levi's Store
 apparel
-clothing_store
+clothingstore
 store
+pointofinterest
 establishment
 
 Games Workshop
-games&supplie
-hobby&modelshop
-arts&craftssupplie
-hobby&modelsupplies-wholesalemanufacturer
-craftsupplie
-hobbie
+game
+supply
+hobby
+modelshop
+art
+craftssupply
+modelsupplieswholesalemanufacturer
+craftsupply
 store
+pointofinterest
 establishment
 
 David Barton Gym
 healthclub
-exercise&physicalfitnessprogram
+exercise
+physicalfitnessprogram
 gymnasium
-physicalfitnessconsultants&trainer
+physicalfitnessconsultant
+trainer
 gym
 health
+pointofinterest
 establishment
 
 Jane's Carousel
-amusementplaces&arcade
+amusementplace
+arcade
 amusementparkridesequipment
-touristinformation&attraction
+touristinformation
+attraction
 themepark
-amusement_park
+amusementpark
+pointofinterest
 establishment
 
 Governors Beach Club
@@ -1001,6 +1133,7 @@ musicvenue
 Federal Hall National Memorial
 historicsite
 museum
+pointofinterest
 establishment
 
 Star Dog Park
@@ -1008,16 +1141,20 @@ dogrun
 
 Ludlow Fitness
 healthclub
-exercise&physicalfitnessprogram
+exercise
+physicalfitnessprogram
 personalfitnesstrainer
 gymnasium
 yogainstruction
-physicalfitnessconsultants&trainer
+physicalfitnessconsultant
+trainer
 gym
 
 Tompkins Square Park Dog Run
 publicswimmingpool
-city,village&townshipgovernment
+city
+village
+townshipgovernment
 recreationcenter
 governmentoffice
 
@@ -1030,29 +1167,37 @@ seafoodrestaurant
 restaurant
 bar
 food
+pointofinterest
 establishment
 
 Barrow Street Theatre
 school
-privateschools(k-12)
+privateschools(k12)
 publicschool
-preschools&kindergarten
+preschool
+kindergarten
 childcare
 educationalservice
 theater
-movie_theater
+movietheater
+pointofinterest
 establishment
 
 Core Pilates NYC
-pilatesinstruction&equipment
-exercise&physicalfitnessprogram
-health&fitnessprogramconsultant
+pilatesinstruction
+equipment
+exercise
+physicalfitnessprogram
+health
+fitnessprogramconsultant
 sportsinstruction
 gym/fitnes
 
 Jalopy Theatre and School of Music
-theatricalagencie
-entertainmentagencies&bureau
+theatricalagency
+entertainmentagency
+bureau
 discjockey
 musicvenue
+pointofinterest
 establishment

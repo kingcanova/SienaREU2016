@@ -215,11 +215,6 @@ public class CSVreader
             double[] scores = new double[]{-4.0, -2.0, 1.0, 2.0, 4.0};
             for (String cat : curr.category)
             {
-                //                 if(cat.equals("bar") && person_id == Secret.me)
-                //                 {
-                //                     System.out.println("Bar: \t" + curr.title + "\t" + t_rating);
-                //                     System.out.println("\t\t" + scores[t_rating]);
-                //                 }
                 if (person.cat_count.get(cat) == null)
                 {
                     person.cat_count.put(cat, 0.0);
