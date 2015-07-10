@@ -70,7 +70,10 @@ public class ContextualSuggestion
                     System.out.printf( "\t %-25s %s \n",cat, "not rated");
                 //System.out.println("\t" + cat + "\t" + "not rated");
                 else
+                {
                     System.out.printf( "\t %-25s %s \n",cat, "ignored");
+                    //s.category.remove(cat);
+                }
             }
 
             //taking the average of all the categories of the attraction, 
@@ -106,26 +109,38 @@ public class ContextualSuggestion
             for(Suggestion s : attractions)
             {
                 int max = 0;
+                s.score = 0.0;
                 for(String cat : s.category)
                 {
-                    if(prev.category.contains(cat) && !ignoredCats.contains(cat))
+                    //                     if(prev.category.contains(cat) && !ignoredCats.contains(cat))
+                    //                     {
+                    //                         s.score -= .5;
+                    //                         break;
+                    //                     }
+                    if(!ignoredCats.contains(cat)) //if a valid category
                     {
-                        s.score -= .5;
-                        break;
+                        if(catCounter.get(cat) == null)
+                        {
+                            catCounter.put(cat, 1);
+                        }
+                        else
+                        {
+                            catCounter.put(cat, catCounter.get(cat) + 1);
+                        }
+                        if(person.cat_count.get(cat) != null)
+                        {
+                            if(prev.category.contains(cat))
+                            {
+                                person.cat_count.put(cat, person.cat_count.get(cat) - catCounter.get(cat)/10);
+                                //max = Math.max(max, catCounter.get(cat));
+                            }
+                            s.score += person.cat_count.get(cat);
+                        }
                     }
-                    //                     if(catCounter.get(cat) == null)
-                    //                     {
-                    //                         catCounter.put(cat, 1);
-                    //                     }
-                    //                     else
-                    //                     {
-                    //                         catCounter.put(cat, catCounter.get(cat) + 1);
-                    //                     }
-                    //                     if(prev.category.contains(cat))
-                    //                     {
-                    //                         s.score -= catCounter.get(cat)/10;
-                    //                         //max = Math.max(max, catCounter.get(cat));
-                    //                     }
+                }
+                if(s.count > 0)
+                {
+                    s.score = s.score / s.count;
                 }
                 //s.score -= max/10;
             }
