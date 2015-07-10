@@ -100,7 +100,8 @@ public class ContextualSuggestion
         }
         System.out.println("50 Sorted Results: ");
         Hashtable<String, Integer> catCounter = new Hashtable<String, Integer>();
-        for (int k=0; k<50; k++)
+        int size = attractions.size();
+        for (int k=0; k<size; k++)
         {
             System.out.printf("%2d) %-35s %5.2f\n",
                 k+1, attractions.get(0).title, attractions.get(0).score);
