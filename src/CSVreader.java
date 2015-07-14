@@ -284,7 +284,7 @@ public class CSVreader
      */
     public void testBuildCollection() throws IOException
     {
-        Scanner in = new Scanner(new File("TestInputCollectionAlbany.txt"));
+        Scanner in = new Scanner(new File("TestInputCollection.txt"));
         String line = " ";
         String name = "";
         ArrayList<Suggestion> temp = null;
@@ -325,7 +325,7 @@ public class CSVreader
     public void bufferedtestBuildCollection() throws IOException
     {
         BufferedReader br = new BufferedReader(new FileReader(
-                    Paths.get("TestInputCollectionAlbany.txt").toFile()));
+                    Paths.get("TestInputCollectionNewYork.txt").toFile()));
         //Scanner in = new Scanner(new File("TestInputCollectionAlbany.txt"));
         String line = " ";
         String name = "";

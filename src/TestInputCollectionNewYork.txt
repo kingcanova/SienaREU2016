@@ -1,0 +1,1203 @@
+Fat Cat
+poolhall
+bar
+restaurant
+pointofinterest
+establishment
+
+55 Bar
+bar
+nightclub
+restaurant
+tavern
+jazzclub
+pointofinterest
+establishment
+
+Manitoba's
+bar
+grill
+restaurant
+divebar
+pointofinterest
+establishment
+
+Nuyorican Poets Cafe
+cafeteria
+breakfast
+brunch
+lunchrestaurant
+restaurant
+theater
+bar
+pointofinterest
+establishment
+
+Cafe Habana
+cubanrestaurant
+takeoutrestaurant
+caterer
+latinamericanrestaurant
+caribbeanrestaurant
+restaurant
+cafe
+bar
+food
+pointofinterest
+establishment
+
+The Magician
+magician
+bar
+pointofinterest
+establishment
+
+The Cock
+gaybar
+bar
+pointofinterest
+establishment
+
+S.O.B.'s
+bar
+
+Irving Plaza
+bar
+tavern
+musicvenue
+nightclub
+pointofinterest
+establishment
+
+Raoul's Restaurant
+french
+
+Paddy Reilly's Music Bar
+pub
+pointofinterest
+establishment
+
+Tartine
+frenchrestaurant
+steakhouse
+bakery
+breakfast
+brunch
+lunchrestaurant
+restaurant
+french
+food
+pointofinterest
+establishment
+
+Jules Bistro
+breakfast
+brunch
+lunchrestaurant
+familystylerestaurant
+takeoutrestaurant
+continentalrestaurant
+restaurant
+french
+
+Temple Bar
+bar
+cocktaillounge
+nightclub
+restaurant
+cocktail
+pointofinterest
+establishment
+
+Tavern on Jane
+tavern
+bar
+caterer
+americanrestaurant
+grill
+restaurant
+american
+food
+pointofinterest
+establishment
+
+Han's Deli
+delicatessen
+restaurant
+deli/bodega
+
+Casa
+brazilianrestaurant
+familystylerestaurant
+latinamericanrestaurant
+takeoutrestaurant
+restaurant
+italian
+bar
+food
+pointofinterest
+establishment
+
+Irving Farm Coffee Roasters
+coffee
+tea
+coffeeshop
+bakery
+store
+mealtakeaway
+cafe
+restaurant
+food
+pointofinterest
+establishment
+
+Spring Lounge
+cocktaillounge
+bar
+grill
+tavern
+restaurant
+nightclub
+food
+pointofinterest
+establishment
+
+Niagara
+bar
+restaurant
+
+Off The Wagon Bar & Grill
+bar
+nightclub
+restaurant
+
+Barrow Street Ale House
+bar
+brewpub
+tavern
+grill
+nightclub
+restaurant
+sportsbar
+
+The Library
+bar
+grill
+nightclub
+tavern
+restaurant
+pointofinterest
+establishment
+
+Macdougal St. Ale House
+sportsbar
+
+Down the Hatch
+nightclub
+bar
+tavern
+restaurant
+pointofinterest
+establishment
+
+St. Dymphna's
+tavern
+bar
+nightclub
+grill
+restaurant
+food
+pointofinterest
+establishment
+
+Garage Restaurant & Cafe
+restaurant
+american
+bar
+food
+pointofinterest
+establishment
+
+Tomoe Sushi
+sushibar
+asianrestaurant
+takeoutrestaurant
+japaneserestaurant
+seafoodrestaurant
+restaurant
+sushi
+food
+pointofinterest
+establishment
+
+Pianos
+piano
+organ
+musicalinstrument
+rockclub
+nightclub
+bar
+pointofinterest
+establishment
+
+Boxcar Lounge
+nightclub
+bar
+pointofinterest
+establishment
+
+Mustang Sally's
+bar
+grill
+tavern
+nightclub
+takeoutrestaurant
+caterer
+familystylerestaurant
+restaurant
+pub
+mealtakeaway
+food
+pointofinterest
+establishment
+
+Lucy's
+clothingstore
+latinamerican
+bar
+nightclub
+pointofinterest
+establishment
+
+Once Upon a Tart
+caterer
+bakery
+dessertrestaurant
+breakfast
+brunch
+lunchrestaurant
+familystylerestaurant
+restaurant
+sandwiche
+store
+food
+pointofinterest
+establishment
+
+Trattoria Pesce Pasta
+italianrestaurant
+seafoodrestaurant
+mediterraneanrestaurant
+takeoutrestaurant
+pasta
+restaurant
+italian
+store
+mealdelivery
+food
+pointofinterest
+establishment
+
+Mona's
+tavern
+bar
+nightclub
+grill
+restaurant
+pointofinterest
+establishment
+
+Le Jardin Bistro
+frenchrestaurant
+americanrestaurant
+continentalrestaurant
+restaurant
+
+Bleecker Street Records
+musicstore
+used
+vintagemusicdealer
+recordshop
+clothingstore
+store
+pointofinterest
+establishment
+
+Caffe Buon Gusto
+restaurant
+italian
+mealtakeaway
+food
+pointofinterest
+establishment
+
+Yu Interiors
+homefurnishing
+interiordesigner
+decorator
+furniturestore
+design
+
+Parkside Lounge
+cocktaillounge
+bar
+nightclub
+tavern
+restaurant
+rockclub
+pointofinterest
+establishment
+
+Cafe Gitane at The Jane Hotel
+french
+
+Home Restaurant
+americanrestaurant
+takeoutrestaurant
+breakfast
+brunch
+lunchrestaurant
+familystylerestaurant
+restaurant
+american
+bar
+food
+pointofinterest
+establishment
+
+Apizz Restaurant
+familystylerestaurant
+pizza
+italianrestaurant
+restaurant
+italian
+
+26 Seats
+frenchrestaurant
+caterer
+restaurant
+french
+food
+pointofinterest
+establishment
+
+Isa
+restaurant
+american
+bar
+food
+pointofinterest
+establishment
+
+Tortilla Flats
+latinamericanrestaurant
+mexicanrestaurant
+takeoutrestaurant
+americanrestaurant
+caterer
+restaurant
+taco
+bar
+food
+pointofinterest
+establishment
+
+O'Hanlon's Bar
+bar
+grill
+brewpub
+tavern
+restaurant
+pub
+
+Lifethyme Natural Market
+health
+dietfoodproduct
+vitamin
+foodsupplement
+grocerystore
+foodproduct
+healthfoodrestaurant
+organicgrocery
+
+Blue Water Grill
+seafoodrestaurant
+bar
+grill
+americanrestaurant
+japaneserestaurant
+sushibar
+asianrestaurant
+takeoutrestaurant
+breakfast
+brunch
+lunchrestaurant
+nightclub
+restaurant
+seafood
+food
+pointofinterest
+establishment
+
+One & One
+cocktaillounge
+bar
+nightclub
+restaurant
+pub
+
+Washington Square Park
+park
+picnicground
+playground
+pointofinterest
+establishment
+
+East Japanese Restaurant (Japas 27)
+sushi
+
+B-Side
+pizza
+restaurant
+bar
+
+Mulberry Street Bar
+bar
+grill
+tavern
+restaurant
+pointofinterest
+establishment
+
+Madison Square Park
+park
+pointofinterest
+establishment
+
+McSwiggan's
+bar
+restaurant
+food
+pointofinterest
+establishment
+
+Dos Caminos
+mexicanrestaurant
+latinamericanrestaurant
+bar
+italianrestaurant
+breakfast
+brunch
+lunchrestaurant
+restaurant
+mexican
+nightclub
+food
+pointofinterest
+establishment
+
+Cong Ly
+vietnameserestaurant
+takeoutrestaurant
+familystylerestaurant
+asianrestaurant
+restaurant
+ramen/noodle
+food
+pointofinterest
+establishment
+
+New Wonjo
+korean
+restaurant
+food
+pointofinterest
+establishment
+
+Seoul Garden Restaurant
+chineserestaurant
+koreanrestaurant
+asianrestaurant
+takeoutrestaurant
+restaurant
+korean
+
+Landmarc
+nointernetheadingassigned
+american
+bar
+restaurant
+food
+pointofinterest
+establishment
+
+Village Yokocho
+japaneserestaurant
+seafoodrestaurant
+familystylerestaurant
+takeoutrestaurant
+restaurant
+japanese
+food
+pointofinterest
+establishment
+
+East River Bar
+bar
+grill
+tavern
+restaurant
+divebar
+pointofinterest
+establishment
+
+Taj II Lounge
+thai
+
+Ruby's Cafe
+coffee
+espressorestaurant
+continentalrestaurant
+restaurant
+australian
+cafe
+food
+pointofinterest
+establishment
+
+Kabin
+bar
+tavern
+cocktaillounge
+restaurant
+assistedliving
+pointofinterest
+establishment
+
+Le Singe Vert
+frenchrestaurant
+breakfast
+brunch
+lunchrestaurant
+seafoodrestaurant
+restaurant
+french
+bar
+food
+pointofinterest
+establishment
+
+Chandni
+middleeasternrestaurant
+indianrestaurant
+takeoutrestaurant
+caterer
+restaurant
+indian
+food
+pointofinterest
+establishment
+
+Black & White
+cocktaillounge
+bar
+nightclub
+restaurant
+divebar
+pointofinterest
+establishment
+
+Bembe
+restaurant
+nightclub
+bar
+pointofinterest
+establishment
+
+Pangea
+restaurant
+restaurantmenu
+italianrestaurant
+italian
+bar
+food
+pointofinterest
+establishment
+
+Spice Market
+familystylerestaurant
+asianrestaurant
+mongolianrestaurant
+restaurant
+thai
+bar
+food
+pointofinterest
+establishment
+
+PUBLIC
+bar
+grill
+restaurant
+library
+store
+pointofinterest
+establishment
+
+JHU Comic Books
+comicshop
+bookstore
+store
+pointofinterest
+establishment
+
+St. Mark's Bookshop
+bookstore
+store
+pointofinterest
+establishment
+
+St. Mark's Comics
+comicbook
+used
+rarebook
+bookstore
+collectible
+comicshop
+store
+pointofinterest
+establishment
+
+Bianca
+familystylerestaurant
+italianrestaurant
+seafoodrestaurant
+restaurant
+italian
+food
+pointofinterest
+establishment
+
+Vol de Nuit
+bar
+nightclub
+restaurant
+food
+pointofinterest
+establishment
+
+Nowhere
+bar
+grill
+tavern
+restaurant
+gaybar
+pointofinterest
+establishment
+
+EDRIS SALON
+beautysalon
+salon/barbershop
+
+Brooklyn Social
+tavern
+bar
+grill
+restaurant
+cocktail
+pointofinterest
+establishment
+
+Hudson River Skate Park
+skatepark
+
+Pier 54 - Hudson River Park
+
+Fort Greene Park
+park
+picnicground
+tenniscourt
+playground
+pointofinterest
+establishment
+
+Panya Bakery
+bakery
+restaurant
+cafe
+store
+food
+pointofinterest
+establishment
+
+Lobo
+mexicanrestaurant
+latinamericanrestaurant
+takeoutrestaurant
+restaurantdeliveryservice
+restaurant
+mexican
+bar
+food
+pointofinterest
+establishment
+
+Upright Citizens Brigade Theatre
+comedyclub
+pointofinterest
+establishment
+
+GYM Sportsbar
+gaybar
+bar
+restaurant
+food
+pointofinterest
+establishment
+
+BAM Rose Cinemas
+movietheater
+theatre
+indietheater
+
+Artists Space
+artgallery
+dealer
+consultant
+
+Pier 40
+amusementplace
+arcade
+touristinformation
+attraction
+parking
+pointofinterest
+establishment
+
+Guitar Center
+musicalinstrumentsupply
+accessory
+musicalinstrument
+guitar
+amplifier
+musicalinstrumentrental
+musicstore
+store
+pointofinterest
+establishment
+
+NYU Grey Art Gallery
+artgallery
+dealer
+consultant
+
+Brooklyn Academy of Music (BAM)
+musicinstructioninstrumental
+musicschool
+operahouse
+
+Hamilton Fish Recreation Center
+publicswimmingpool
+recreationcenter
+gym
+
+Yankee Stadium
+employeebenefitconsultingservice
+baseball
+
+New York Sports Club
+healthclub
+gym
+
+Secret Project Robot
+discjockey
+entertainmentagency
+bureau
+rockclub
+
+New Museum
+museum
+artmuseum
+pointofinterest
+establishment
+
+Rubin Museum of Art
+museum
+artgallery
+dealer
+consultant
+artmuseum
+pointofinterest
+establishment
+
+Versace for H&M Fashion Event
+nightlife
+
+CLAY Health Club + Spa
+healthclub
+dayspa
+personalfitnesstrainer
+exercise
+physicalfitnessprogram
+gymnasium
+yogainstruction
+physicalfitnessconsultant
+trainer
+pilatesinstruction
+equipment
+healthresort
+gym
+health
+spa
+pointofinterest
+establishment
+
+Barnes & Noble
+bookstore
+magazine
+musicstore
+dvdsale
+service
+store
+pointofinterest
+establishment
+
+Borough of Manhattan Community College (BMCC)
+artgallery
+dealer
+consultant
+communitycollege
+
+Kraine Theater
+theater
+pointofinterest
+establishment
+
+SoHo Park
+delicatessen
+familystylerestaurant
+restaurant
+burger
+food
+pointofinterest
+establishment
+
+Chelsea Waterside Park  Playground
+
+Yoga to the People
+yogainstruction
+exercise
+physicalfitnessprogram
+sportsinstruction
+yogastudio
+pointofinterest
+establishment
+
+Academy Records & CDs
+used
+vintagemusicdealer
+musicstore
+collectible
+recordshop
+store
+pointofinterest
+establishment
+
+Academy LPs
+recordshop
+
+New York Health and Racquet Club
+healthclub
+socialserviceorganization
+tennisinstruction
+racquetballcourt
+gymnasium
+tenniscourt
+gym
+
+NYU Bobst Library
+library
+
+Highline Ballroom
+concerthall
+ballroom
+musicvenue
+bar
+nightclub
+pointofinterest
+establishment
+
+Hamilton Fish Recreation Center
+publicswimmingpool
+recreationcenter
+gym
+
+Moonstruck on Second
+sandwichshop
+dessertrestaurant
+hamburger
+hotdog
+healthfoodrestaurant
+restaurant
+diner
+
+Mixed Greens Gallery
+artgallery
+dealer
+consultant
+
+Sky Tobacco Co. LLC
+smokeshop
+
+Steuben Playground
+
+American Apparel
+clothingstore
+women'sclothing
+shoestore
+boysclothing
+girlsclothing
+men'sclothing
+apparel
+store
+pointofinterest
+establishment
+
+Oak Clothing
+clothingstore
+men'sclothing
+generalmerchandise
+women'sclothing
+apparel
+
+The Greene Space at WNYC
+entertainment
+
+Eva's Supplements NYC
+healthfoodstore
+
+Bagels by the Park
+bagel
+bakery
+delicatessen
+restaurant
+store
+mealtakeaway
+food
+pointofinterest
+establishment
+
+Ed's Lobster Bar
+seafoodrestaurant
+americanrestaurant
+bar
+grill
+breakfast
+brunch
+lunchrestaurant
+restaurant
+seafood
+food
+pointofinterest
+establishment
+
+Spoonbill & Sugartown Books
+used
+rarebook
+bookstore
+store
+pointofinterest
+establishment
+
+Manhattan Fruit Exchange
+fruit
+vegetablemarket
+grocerystore
+farmersmarket
+supermarket
+groceryorsupermarket
+food
+store
+pointofinterest
+establishment
+
+Tyler Rollins Fine Art
+artgallery
+dealer
+consultant
+
+El Sol Brilliante Community Garden
+
+La Plaza Cultural Community Garden
+
+Cold Stone Creamery
+dessertrestaurant
+icecream
+frozendessert
+bakery
+store
+restaurant
+food
+pointofinterest
+establishment
+
+Lucille Lortel Theatre
+theatre
+movietheater
+theater
+
+Landmark Vintage Bicycles
+movietheater
+bikeshop
+
+Chelsea Gardens Barber Shop
+salon/barbershop
+
+Freemans Sporting Club
+men'sclothing
+clothingstore
+salon/barbershop
+store
+health
+haircare
+pointofinterest
+establishment
+
+YogaWorks Soho
+yogainstruction
+exercise
+physicalfitnessprogram
+yogastudio
+clothingstore
+store
+pointofinterest
+establishment
+
+Adidas Originals
+shoestore
+shoe
+clothingstore
+store
+pointofinterest
+establishment
+
+Atrium NYC
+apparel
+
+Levi's Store
+apparel
+clothingstore
+store
+pointofinterest
+establishment
+
+Games Workshop
+game
+supply
+hobby
+modelshop
+art
+craftssupply
+modelsupplieswholesalemanufacturer
+craftsupply
+store
+pointofinterest
+establishment
+
+David Barton Gym
+healthclub
+exercise
+physicalfitnessprogram
+gymnasium
+physicalfitnessconsultant
+trainer
+gym
+health
+pointofinterest
+establishment
+
+Jane's Carousel
+amusementplace
+arcade
+amusementparkridesequipment
+touristinformation
+attraction
+themepark
+amusementpark
+pointofinterest
+establishment
+
+Governors Beach Club
+musicvenue
+
+Federal Hall National Memorial
+historicsite
+museum
+pointofinterest
+establishment
+
+Star Dog Park
+dogrun
+
+Ludlow Fitness
+healthclub
+exercise
+physicalfitnessprogram
+personalfitnesstrainer
+gymnasium
+yogainstruction
+physicalfitnessconsultant
+trainer
+gym
+
+Tompkins Square Park Dog Run
+publicswimmingpool
+city
+village
+townshipgovernment
+recreationcenter
+governmentoffice
+
+Wolfgang's Steakhouse
+steakhouse
+barbecuerestaurant
+takeoutrestaurant
+americanrestaurant
+seafoodrestaurant
+restaurant
+bar
+food
+pointofinterest
+establishment
+
+Barrow Street Theatre
+school
+privateschools(k12)
+publicschool
+preschool
+kindergarten
+childcare
+educationalservice
+theater
+movietheater
+pointofinterest
+establishment
+
+Core Pilates NYC
+pilatesinstruction
+equipment
+exercise
+physicalfitnessprogram
+health
+fitnessprogramconsultant
+sportsinstruction
+gym/fitnes
+
+Jalopy Theatre and School of Music
+theatricalagency
+entertainmentagency
+bureau
+discjockey
+musicvenue
+pointofinterest
+establishment 
