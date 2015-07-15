@@ -49,16 +49,18 @@ public class ContextualSuggestion
 
         Profile person = profiles.get(Secret.me);
         ArrayList<Suggestion> attractions = theCollection.get(151);
-
+        ArrayList<Suggestion> ignoredAttractions = new ArrayList<Suggestion>();;
         //Give each attraction a score based one the rating and frequency of a category
         System.out.println("Scoring Attractions");
         for (Suggestion s : attractions)
         {
             System.out.println(s.title);
+            boolean hasCategories = false; 
             //Add the score of each category to the current suggestion's score,
             //if it was rated by the user and isn't an ignored category
             for(String cat : s.category)
             {
+                hasCategories = true;
                 if(person.cat_count.get(cat) != null && !ignoredCats.contains(cat))
                 {
                     s.score += person.cat_count.get(cat);
@@ -77,15 +79,25 @@ public class ContextualSuggestion
             }
 
             //taking the average of all the categories of the attraction, 
-            // rather than aggregate the score    
+            // rather than aggregate the score   
             if(s.count > 0)
             {
                 s.score = s.score / s.count;
                 System.out.printf("\t %s %.2f\n\n","Score:", s.score );
             }
-            else
-                System.out.println();
+
+            //remove all attractions from list that have no rated score
+            //             else if(s.count == 0)
+            //                 ignoredAttractions.add(s);
+
+            //remove all attractions from list that have 0 categories
+            else if(!hasCategories)
+                ignoredAttractions.add(s);
         }
+
+        //remove all the categories from the attraction list that were just stored in ignored attractions ^
+        for(Suggestion attr: ignoredAttractions)
+            attractions.remove(attr);
 
         //Mergesorts the scored suggestion objects
         Collections.sort(attractions);
