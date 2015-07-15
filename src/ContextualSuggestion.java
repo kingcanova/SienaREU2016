@@ -95,7 +95,7 @@ public class ContextualSuggestion
                 ignoredAttractions.add(s);
         }
 
-        //remove all the categories from the attraction list that were just stored in ignored attractions ^
+        //remove all the suggestions from list that were previously just stored in ignoredAttractions ^
         for(Suggestion attr: ignoredAttractions)
             attractions.remove(attr);
 
