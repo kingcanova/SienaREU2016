@@ -47,117 +47,125 @@ public class ContextualSuggestion
         System.out.println("Running CSVReader");
         reader.run();
 
-        Profile person = profiles.get(Secret.me);
-        ArrayList<Suggestion> attractions = theCollection.get(151);
-        ArrayList<Suggestion> ignoredAttractions = new ArrayList<Suggestion>();;
-        //Give each attraction a score based one the rating and frequency of a category
-        System.out.println("Scoring Attractions");
-        for (Suggestion s : attractions)
+        Set<Integer> people = profiles.keySet();
+        for(Integer num : people)
         {
-            System.out.println(s.title);
-            boolean hasCategories = false; 
-            //Add the score of each category to the current suggestion's score,
-            //if it was rated by the user and isn't an ignored category
-            for(String cat : s.category)
+            Profile person = profiles.get(num);
+            ArrayList<Suggestion> attractions = new ArrayList<Suggestion>();
+
+            for (Suggestion sug : theCollection.get(person.context_id)) 
             {
-                hasCategories = true;
-                if(person.cat_count.get(cat) != null && !ignoredCats.contains(cat))
-                {
-                    s.score += person.cat_count.get(cat);
-                    //System.out.println("\t" + cat + "\t" + person.cat_count.get(cat));
-                    System.out.printf( "\t %-25s %3.2f \n",cat, person.cat_count.get(cat));
-                    s.count += 1;
-                }
-                else if(person.cat_count.get(cat) == null)
-                    System.out.printf( "\t %-25s %s \n",cat, "not rated");
-                //System.out.println("\t" + cat + "\t" + "not rated");
-                else
-                {
-                    System.out.printf( "\t %-25s %s \n",cat, "ignored");
-                    //s.category.remove(cat);
-                }
+                if (person.candidates.contains(sug.id))
+                    attractions.add(sug);
             }
-
-            //taking the average of all the categories of the attraction, 
-            // rather than aggregate the score   
-            if(s.count > 0)
+                ;
+            ArrayList<Suggestion> ignoredAttractions = new ArrayList<Suggestion>();;;;;;;;
+            //Give each attraction a score based one the rating and frequency of a category
+            System.out.println("Scoring Attractions");
+            for (Suggestion s : attractions)
             {
-                s.score = s.score / s.count;
-                System.out.printf("\t %s %.2f\n\n","Score:", s.score );
-            }
-
-            //remove all attractions from list that have no rated score
-            //             else if(s.count == 0)
-            //                 ignoredAttractions.add(s);
-
-            //remove all attractions from list that have 0 categories
-            else if(!hasCategories)
-                ignoredAttractions.add(s);
-        }
-
-        //remove all the suggestions from list that were previously just stored in ignoredAttractions ^
-        for(Suggestion attr: ignoredAttractions)
-            attractions.remove(attr);
-
-        //Mergesorts the scored suggestion objects
-        Collections.sort(attractions);
-        for(int i = 0; i<attractions.size(); i++)
-        {
-            System.out.printf("%2d) %-35s %5.2f\n",
-                i+1, attractions.get(i).title, attractions.get(i).score);
-        }
-        for(int i = 75; i < attractions.size(); i++)
-        {
-            //attractions.remove(i);
-        }
-        System.out.println("50 Sorted Results: ");
-        Hashtable<String, Integer> catCounter = new Hashtable<String, Integer>();
-        int size = attractions.size();
-        for (int k=0; k<size; k++)
-        {
-            System.out.printf("%2d) %-35s %5.2f\n",
-                k+1, attractions.get(0).title, attractions.get(0).score);
-
-            Suggestion prev = attractions.remove(0);
-            for(Suggestion s : attractions)
-            {
-                int max = 0;
-                s.score = 0.0;
+                System.out.println(s.title);
+                boolean hasCategories = false; 
+                //Add the score of each category to the current suggestion's score,
+                //if it was rated by the user and isn't an ignored category
                 for(String cat : s.category)
                 {
-                    //                     if(prev.category.contains(cat) && !ignoredCats.contains(cat))
-                    //                     {
-                    //                         s.score -= .5;
-                    //                         break;
-                    //                     }
-                    if(!ignoredCats.contains(cat)) //if a valid category
+                    hasCategories = true;
+                    if(person.cat_count.get(cat) != null && !ignoredCats.contains(cat))
                     {
-                        if(catCounter.get(cat) == null)
-                        {
-                            catCounter.put(cat, 1);
-                        }
-                        else
-                        {
-                            catCounter.put(cat, catCounter.get(cat) + 1);
-                        }
-                        if(person.cat_count.get(cat) != null)
-                        {
-                            if(prev.category.contains(cat))
-                            {
-                                person.cat_count.put(cat, person.cat_count.get(cat) - catCounter.get(cat)/10);
-                                //max = Math.max(max, catCounter.get(cat));
-                            }
-                            s.score += person.cat_count.get(cat);
-                        }
+                        s.score += person.cat_count.get(cat);
+                        //System.out.println("\t" + cat + "\t" + person.cat_count.get(cat));
+                        System.out.printf( "\t %-25s %3.2f \n",cat, person.cat_count.get(cat));
+                        s.count += 1;
+                    }
+                    else if(person.cat_count.get(cat) == null)
+                        System.out.printf( "\t %-25s %s \n",cat, "not rated");
+                    //System.out.println("\t" + cat + "\t" + "not rated");
+                    else
+                    {
+                        System.out.printf( "\t %-25s %s \n",cat, "ignored");
+                        //s.category.remove(cat);
                     }
                 }
+
+                //taking the average of all the categories of the attraction, 
+                // rather than aggregate the score   
                 if(s.count > 0)
                 {
                     s.score = s.score / s.count;
+                    System.out.printf("\t %s %.2f\n\n","Score:", s.score );
                 }
-                //s.score -= max/10;
+
+                //remove all attractions from list that have no rated score
+                //             else if(s.count == 0)
+                //                 ignoredAttractions.add(s);
+
+                //remove all attractions from list that have 0 categories
+                else if(!hasCategories)
+                    ignoredAttractions.add(s);
             }
+
+            //remove all the suggestions from list that were previously just stored in ignoredAttractions ^
+            for(Suggestion attr: ignoredAttractions)
+                attractions.remove(attr);
+
+            //Mergesorts the scored suggestion objects
             Collections.sort(attractions);
+            for(int i = 0; i<attractions.size(); i++)
+            {
+                System.out.printf("%2d) %-35s %5.2f\n",
+                    i+1, attractions.get(i).title, attractions.get(i).score);
+            }
+            
+            System.out.println("Sorted Results:");
+            Hashtable<String, Integer> catCounter = new Hashtable<String, Integer>();
+            int size = attractions.size();
+            for (int k=0; k<size; k++)
+            {
+                System.out.printf("%2d) %-35s %5.2f\n",
+                    k+1, attractions.get(0).title, attractions.get(0).score);
+
+                Suggestion prev = attractions.remove(0);
+                for(Suggestion s : attractions)
+                {
+                    int max = 0;
+                    s.score = 0.0;
+                    for(String cat : s.category)
+                    {
+                        //                     if(prev.category.contains(cat) && !ignoredCats.contains(cat))
+                        //                     {
+                        //                         s.score -= .5;
+                        //                         break;
+                        //                     }
+                        if(!ignoredCats.contains(cat)) //if a valid category
+                        {
+                            if(catCounter.get(cat) == null)
+                            {
+                                catCounter.put(cat, 1);
+                            }
+                            else
+                            {
+                                catCounter.put(cat, catCounter.get(cat) + 1);
+                            }
+                            if(person.cat_count.get(cat) != null)
+                            {
+                                if(prev.category.contains(cat))
+                                {
+                                    person.cat_count.put(cat, person.cat_count.get(cat) - catCounter.get(cat)/10);
+                                    //max = Math.max(max, catCounter.get(cat));
+                                }
+                                s.score += person.cat_count.get(cat);
+                            }
+                        }
+                    }
+                    if(s.count > 0)
+                    {
+                        s.score = s.score / s.count;
+                    }
+                    //s.score -= max/10;
+                }
+                Collections.sort(attractions);
+            }
         }
     }
 }
