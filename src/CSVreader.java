@@ -194,7 +194,6 @@ public class CSVreader
     {
         System.out.println("Building Profiles, ratings");
         String line = "";
-
         JSONParser parser = new JSONParser();
         JSONObject response = null;
         while((line = br.readLine())!=null)
@@ -217,61 +216,70 @@ public class CSVreader
             String season = body.get("season").toString();
             String trip_type = body.get("trip_type").toString();
             String duration = body.get("duration").toString();
-            JSONObject person = (JSONObject) body.get("person");
-            String gender = person.get("gender").toString();
-            int age = (Integer)person.get("age");
-            int person_id = (Integer)person.get("id");
+            JSONObject individual = (JSONObject) body.get("person");
+            String gender = individual.get("gender").toString();
+            int age = (Integer)individual.get("age");
+            int person_id = (Integer)individual.get("id");
             ContextualSuggestion.profiles.put(person_id, new Profile(person_id));
 
-            JSONArray preferences = (JSONArray) person.get("preferences");
-            //used to get batch_examples.txt
+            JSONArray preferences = (JSONArray) individual.get("preferences");
+            ContextualSuggestion.profiles.put(person_id, new Profile(person_id));
+            Profile person = ContextualSuggestion.profiles.get(person_id);
+            //used to get batch_examples.txt      
             for(int i = 0; i<preferences.size(); i++)
             {
                 JSONObject pref = (JSONObject)preferences.get(i);
-                System.out.println(pref.get("documentId"));
-            }
+                String trec_id = pref.get("documentId").toString();
+                String[] elem = trec_id.split("-");
+                int att_id = Integer.parseInt(elem[1]);
+                int rating = Integer.parseInt(pref.get("rating").toString());
+                JSONArray tags = (JSONArray) pref.get("tags");
+                person.attr_ratings.put(att_id,rating);
+                Suggestion curr = ContextualSuggestion.pois.get(att_id);
+                double[] scores = new double[]{-4.0, -2.0, 1.0, 2.0, 4.0};
+                for (Object t : (JSONArray)tags)
+                {
+                    String tag = t.toString();
+                    if (person.cat_count.get(tag) == null)
+                    {
+                        person.cat_count.put(tag, 0.0);
+                        person.cat_occurance.put(tag, 0);
+                    }
+                    if(rating != -1)
+                    {
+                        person.cat_count.put(tag, person.cat_count.get(tag) + scores[rating]);
+                        person.cat_occurance.put(tag, person.cat_occurance.get(tag) +1);
+                    }
+                }      
+                for (String cat : curr.category)
+                {
+                    if (person.cat_count.get(cat) == null)
+                    {
+                        person.cat_count.put(cat, 0.0);
+                        person.cat_occurance.put(cat, 0);
+                    }
+                    if(rating != -1)
+                    {
+                        person.cat_count.put(cat, person.cat_count.get(cat) + scores[rating]);
+                        person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
+                    }
+                }      
+            }         
         }
 
-        //             int temp = Integer.parseInt(context[0]);
-        //             if(temp != person_id)
-        //             {
-        //                 person_id = temp;
-        //                 ContextualSuggestion.profiles.put(person_id, new Profile(person_id));
-        //             }
-        //             int att_id = Integer.parseInt(context[1]);
-        //             int t_rating = Integer.parseInt(context[2]);
-        //             int u_rating = Integer.parseInt(context[3]);
-        //             Profile person = ContextualSuggestion.profiles.get(person_id);
-        //             person.attr_ratings.put(att_id, t_rating); //only title rating for now
-        //
-        //             Suggestion curr = ContextualSuggestion.pois.get(att_id);
-        //             double[] scores = new double[]{-4.0, -2.0, 1.0, 2.0, 4.0};
-        //             for (String cat : curr.category)
-        //             {
-        //                 if (person.cat_count.get(cat) == null)
-        //                 {
-        //                     person.cat_count.put(cat, 0.0);
-        //                     person.cat_occurance.put(cat, 0);
-        //                 }
-        //                 if(t_rating != -1)
-        //                 {
-        //                     person.cat_count.put(cat, person.cat_count.get(cat) + scores[t_rating]);
-        //                     person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
-        //                 }
-        //             }      
-        //         }
-        //         //go through each category in the hash table and divide by its frequency to get avg
-        //         Set<Integer> people = ContextualSuggestion.profiles.keySet();
-        //         for(Integer num : people)
-        //         {
-        //             Profile person = ContextualSuggestion.profiles.get(num);
-        //             Set<String> keys = person.cat_occurance.keySet();
-        //             for(String cat: keys)
-        //             {
-        //                 person.cat_count.put(cat, (person.cat_count.get(cat)/person.cat_occurance.get(cat)));
-        //             }
-        //         }
-        //         br.close();
+
+        //go through each category in the hash table and divide by its frequency to get avg
+        Set<Integer> people = ContextualSuggestion.profiles.keySet();
+        for(Integer num : people)
+        {
+            Profile person = ContextualSuggestion.profiles.get(num);
+            Set<String> keys = person.cat_occurance.keySet();
+            for(String cat: keys)
+            {
+                person.cat_count.put(cat, (person.cat_count.get(cat)/person.cat_occurance.get(cat)));
+            }
+        }
+        br.close();
     }
 
     /**
