@@ -18,6 +18,8 @@ public class Profile
     protected String gender;//male,female
     protected String duration;//Night out, Day trip, Weekend trip, Longer
     protected String tripType;//Business, Holiday, Other
+    protected int context_id;
+    ArrayList<Integer> candidates;
     
     //saves the ratings of each profile example attraction
     protected Hashtable<Integer, Integer> attr_ratings = new Hashtable<Integer, Integer>();
@@ -25,7 +27,7 @@ public class Profile
     protected Hashtable<String, Double> cat_count = new Hashtable<String, Double>();
     protected Hashtable<String, Integer> cat_occurance = new Hashtable<String, Integer>();
 
-    public Profile(int id, int responseId, int age, String group, String season, String gender, String duration, String tripType )
+    public Profile(int id, int responseId, int contextId, int age, String group, String season, String gender, String duration, String tripType, ArrayList<Integer> candidates )
     {
         this.user_id = id;
         this.age = age;
@@ -35,6 +37,8 @@ public class Profile
         this.duration = duration;
         this.tripType = tripType;
         this.response_id = response_id;
+        this.context_id = contextId;
+        this.candidates = candidates;
         for (int[] p : ratings)
         {
             Arrays.fill(p, -1);

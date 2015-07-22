@@ -24,14 +24,14 @@ public class CSVreader
     {
         String trecData = "../TRECData/";
         //String collection = "collection_2015.csv";
-        String collection = "collection_nyc.csv";//NYC subset used for testing
+        String collection = "fullBatchCollection.csv";//NYC subset used for testing
         //id, city, state, lat, long
         String locations = "contexts2015.csv";
         String coordinates = "contexts2015coordinates.csv";
         //id, attraction, description, website
         String profiles = "batch_requests.json";//2014 used for testing
         //id, title, description, url
-        String pois = "examples2014.csv";//2014 used for testing
+        String pois = "fullBatchExamples.csv";//2014 used for testing
 
         BufferedReader br = null;
         BufferedReader br2 = null;
@@ -40,13 +40,13 @@ public class CSVreader
             //br for context csv and br2 for coordinates csv
             br = new BufferedReader(new FileReader(Paths.get(trecData + locations).toFile()));
             br2 = new BufferedReader(new FileReader(Paths.get(trecData + coordinates).toFile()));
-            //buildLocation(br, br2);
+            buildLocation(br, br2);
 
             //Reads in examples2014.csv which contains the attractions rated in the profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + pois).toFile()));
             //bufferedtestBuildPOI();
             //testBuildPOI();
-            //buildPOI(br);
+            buildPOI(br);
 
             //Reads in profiles2014-100.csv which contains all the example profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + profiles).toFile()));
@@ -54,7 +54,7 @@ public class CSVreader
 
             //Reads in collection_2015.csv which contains all possible attractions to suggest
             br = new BufferedReader(new FileReader(Paths.get(trecData + collection).toFile()));
-            //buildCollection(br);
+            buildCollection(br);
             //testBuildCollection();
             //bufferedtestBuildCollection();
         }
@@ -198,6 +198,7 @@ public class CSVreader
         JSONObject response = null;
         while((line = br.readLine())!=null)
         {
+            //JSON parsing for response JSON file given to us by TREC
             try {
                 response = (JSONObject) parser.parse(line);
             } catch (ParseException pe) {
@@ -208,35 +209,53 @@ public class CSVreader
             catch (NullPointerException e) {
                 System.err.println("Error: null pointer" + e);
             }
-            String[] profTerms = new String[]{"group", "season", "person",
-                    "trip_type", "duration", "location", "candidates"};
-            //JSONArray candidates = (JSONArray) response.get("candidates");
+
+            JSONArray cands = (JSONArray) response.get("candidates");
+            ArrayList<Integer> candidates = new ArrayList<Integer>();
+            for(int i=0;i<cands.size();i++)
+            {
+                String trec_id = cands.get(i).toString();
+                String[] elements = trec_id.split("-");
+                candidates.add(Integer.parseInt(elements[1]));
+            }
+
             JSONObject body = (JSONObject) response.get("body");
             int response_id = (Integer)response.get("id");
             String group = body.get("group").toString();
             String season = body.get("season").toString();
             String trip_type = body.get("trip_type").toString();
             String duration = body.get("duration").toString();
+            JSONObject location = (JSONObject) body.get("location");
+            int contextId = (Integer)location.get("id");
             JSONObject individual = (JSONObject) body.get("person");
             String gender = individual.get("gender").toString();
             int age = (Integer)individual.get("age");
             int person_id = (Integer)individual.get("id");
-            Profile person = new Profile(person_id, response_id, age, group, season, gender,duration,trip_type);
+            //declare new profile object with parsed information
+            Profile person = new Profile(person_id, response_id, contextId, age, group, 
+                                        season, gender,duration,trip_type, candidates);
+            //populate hashtable assiging the person's id number to its matching profile                          
             ContextualSuggestion.profiles.put(person_id, person);
+
+            //Preferences is an array containing the list of attractions a profile rated
+            //This cycles through the array, grabbing the attraction ID and rating, also
+            //obtaining the tags and categories for an attraction and assigning them scores
             JSONArray preferences = (JSONArray) individual.get("preferences");
-            
-            //used to get batch_examples.txt      
             for(int i = 0; i<preferences.size(); i++)
             {
+                //obtain TREC id and parse out the attraction id
                 JSONObject pref = (JSONObject)preferences.get(i);
                 String trec_id = pref.get("documentId").toString();
                 String[] elem = trec_id.split("-");
                 int att_id = Integer.parseInt(elem[1]);
                 int rating = Integer.parseInt(pref.get("rating").toString());
                 JSONArray tags = (JSONArray) pref.get("tags");
+                //populate hashtable with assiging an attraction id to its rating
                 person.attr_ratings.put(att_id,rating);
+                //retrieve the suggestion corresponding to the attr id 
                 Suggestion curr = ContextualSuggestion.pois.get(att_id);
                 double[] scores = new double[]{-4.0, -2.0, 1.0, 2.0, 4.0};
+                //treat tags of examples as more categories,and assign them a score based on rating
                 for (Object t : (JSONArray)tags)
                 {
                     String tag = t.toString();
@@ -251,6 +270,7 @@ public class CSVreader
                         person.cat_occurance.put(tag, person.cat_occurance.get(tag) +1);
                     }
                 }      
+                //give categories of the attraction their scores based on rating
                 for (String cat : curr.category)
                 {
                     if (person.cat_count.get(cat) == null)
@@ -266,7 +286,8 @@ public class CSVreader
                 }      
             }         
         }      
-        //go through each category in the hash table and divide by its frequency to get avg
+
+        //go through each category/tag in the hash table and divide by its frequency to get avg
         Set<Integer> people = ContextualSuggestion.profiles.keySet();
         for(Integer num : people)
         {
