@@ -212,6 +212,7 @@ public class CSVreader
                     "trip_type", "duration", "location", "candidates"};
             //JSONArray candidates = (JSONArray) response.get("candidates");
             JSONObject body = (JSONObject) response.get("body");
+            int response_id = (Integer)response.get("id");
             String group = body.get("group").toString();
             String season = body.get("season").toString();
             String trip_type = body.get("trip_type").toString();
@@ -220,11 +221,10 @@ public class CSVreader
             String gender = individual.get("gender").toString();
             int age = (Integer)individual.get("age");
             int person_id = (Integer)individual.get("id");
-            ContextualSuggestion.profiles.put(person_id, new Profile(person_id));
-
+            Profile person = new Profile(person_id, response_id, age, group, season, gender,duration,trip_type);
+            ContextualSuggestion.profiles.put(person_id, person);
             JSONArray preferences = (JSONArray) individual.get("preferences");
-            ContextualSuggestion.profiles.put(person_id, new Profile(person_id));
-            Profile person = ContextualSuggestion.profiles.get(person_id);
+            
             //used to get batch_examples.txt      
             for(int i = 0; i<preferences.size(); i++)
             {
@@ -265,9 +265,7 @@ public class CSVreader
                     }
                 }      
             }         
-        }
-
-
+        }      
         //go through each category in the hash table and divide by its frequency to get avg
         Set<Integer> people = ContextualSuggestion.profiles.keySet();
         for(Integer num : people)
