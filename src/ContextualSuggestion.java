@@ -179,7 +179,7 @@ public class ContextualSuggestion
 
                 Collections.sort(attractions);
             }
-            pw.print("]}, \"groupid\": \"Siena_SUCCESS\", \"id\": " + person.response_id +
+            pw.print("]}, \"groupid\": \"Siena_SUCCESS\", \"id\": " + num +
                 ", \"runid\": \"runA\"}");
             pw.println();
         }
