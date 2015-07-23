@@ -48,11 +48,8 @@ public class ContextualSuggestion
         reader.run();
 
         Set<Integer> people = profiles.keySet();
-        int count = 0;
         for(Integer num : people)
         {
-            System.out.println(++count + "\t" + num);
-            
             Profile person = profiles.get(num);
             ArrayList<Suggestion> attractions = new ArrayList<Suggestion>();
 
@@ -64,10 +61,10 @@ public class ContextualSuggestion
             ;
             ArrayList<Suggestion> ignoredAttractions = new ArrayList<Suggestion>();;;;;;;;;
             //Give each attraction a score based one the rating and frequency of a category
-            System.out.println("Scoring Attractions");
+            //System.out.println("Scoring Attractions");
             for (Suggestion s : attractions)
             {
-                System.out.println(s.title);
+                //System.out.println(s.title);
                 boolean hasCategories = false; 
                 //Add the score of each category to the current suggestion's score,
                 //if it was rated by the user and isn't an ignored category
@@ -98,7 +95,7 @@ public class ContextualSuggestion
                 if(s.count > 0)
                 {
                     s.score = s.score / s.count;
-                    System.out.printf("\t %s %.2f\n\n","Score:", s.score );
+                    //System.out.printf("\t %s %.2f\n\n","Score:", s.score );
                 }
 
                 //remove all attractions from list that have no rated score
@@ -118,11 +115,11 @@ public class ContextualSuggestion
             Collections.sort(attractions);
             for(int i = 0; i<attractions.size(); i++)
             {
-                System.out.printf("%2d) %-35s %5.2f\n",
-                    i+1, attractions.get(i).title, attractions.get(i).score);
+                //System.out.printf("%2d) %-35s %5.2f\n",
+                //    i+1, attractions.get(i).title, attractions.get(i).score);
             }
 
-            System.out.println("Sorted Results:");
+            System.out.println("Sorted Results:     " + person.user_id);
             Hashtable<String, Integer> catCounter = new Hashtable<String, Integer>();
             int size = attractions.size();
             for (int k=0; k<size; k++)
