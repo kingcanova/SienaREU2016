@@ -48,8 +48,11 @@ public class ContextualSuggestion
         reader.run();
 
         Set<Integer> people = profiles.keySet();
+        int count = 0;
         for(Integer num : people)
         {
+            System.out.println(++count + "\t" + num);
+            
             Profile person = profiles.get(num);
             ArrayList<Suggestion> attractions = new ArrayList<Suggestion>();
 
@@ -58,8 +61,8 @@ public class ContextualSuggestion
                 if (person.candidates.contains(sug.id))
                     attractions.add(sug);
             }
-                ;
-            ArrayList<Suggestion> ignoredAttractions = new ArrayList<Suggestion>();;;;;;;;
+            ;
+            ArrayList<Suggestion> ignoredAttractions = new ArrayList<Suggestion>();;;;;;;;;
             //Give each attraction a score based one the rating and frequency of a category
             System.out.println("Scoring Attractions");
             for (Suggestion s : attractions)
@@ -75,15 +78,17 @@ public class ContextualSuggestion
                     {
                         s.score += person.cat_count.get(cat);
                         //System.out.println("\t" + cat + "\t" + person.cat_count.get(cat));
-                        System.out.printf( "\t %-25s %3.2f \n",cat, person.cat_count.get(cat));
+                        //System.out.printf( "\t %-25s %3.2f \n",cat, person.cat_count.get(cat));
                         s.count += 1;
                     }
                     else if(person.cat_count.get(cat) == null)
-                        System.out.printf( "\t %-25s %s \n",cat, "not rated");
+                       // System.out.printf( "\t %-25s %s \n",cat, "not rated");
+                        System.out.print("");
                     //System.out.println("\t" + cat + "\t" + "not rated");
                     else
                     {
-                        System.out.printf( "\t %-25s %s \n",cat, "ignored");
+                        //System.out.printf( "\t %-25s %s \n",cat, "ignored");
+                        System.out.print("");
                         //s.category.remove(cat);
                     }
                 }
@@ -116,7 +121,7 @@ public class ContextualSuggestion
                 System.out.printf("%2d) %-35s %5.2f\n",
                     i+1, attractions.get(i).title, attractions.get(i).score);
             }
-            
+
             System.out.println("Sorted Results:");
             Hashtable<String, Integer> catCounter = new Hashtable<String, Integer>();
             int size = attractions.size();

@@ -20,3 +20,4 @@ dealer
 takeoutrestaurant
 restaurantmenu
 mealtakeaway
+caterer

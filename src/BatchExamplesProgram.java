@@ -29,10 +29,12 @@ public class BatchExamplesProgram
             String nameEx = temp[3].replace("\"", "");
             String[] trecID = temp[0].split("-");
             String attId = trecID[1];
+            String contextId = trecID[2];
 
             if(name.equals(nameEx))
             {
                 pw.println(attId);
+                pw.println(contextId);
                 count++;
             }
             else

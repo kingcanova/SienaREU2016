@@ -8,12 +8,12 @@ import java.util.*;
  */
 public class Suggestion implements Comparable<Suggestion>
 {
-    protected String url, phone, address,id, placeId, vicinity;
-    protected String title;
+    protected String url, phone, address, placeId, vicinity, title, idOld;
     protected double rate, latitude, longitude;
     protected ArrayList<String> category;
     protected Double score = 0.0;
     protected int count = 0;
+    protected int id;
 
     //constructors
     public Suggestion()
@@ -33,14 +33,21 @@ public class Suggestion implements Comparable<Suggestion>
         longitude = d;
         category = e;
     }
+    
+    public Suggestion(String a, ArrayList<String> e, int conID) //merged suggestion
+    {
+        title = a;
+        category = e;
+        id = conID;
+    }
 
     public Suggestion(String nameIn, String ratingIn, String typesIn, String vicinityIn, 
     String idIn, String placeIdIn, String latIn, String lngIn) //GooglePlacesAPI
     {
         latitude = Double.parseDouble(latIn);
         longitude = Double.parseDouble(lngIn);
-        idIn = idIn.replaceAll("\"", "");
-        id = idIn;
+        //idIn = idIn.replaceAll("\"", "");
+        idOld = idIn;
         nameIn = nameIn.replaceAll("\"", "");
         title = nameIn;
         placeIdIn = placeIdIn.replaceAll("\"", "");
@@ -64,7 +71,7 @@ public class Suggestion implements Comparable<Suggestion>
         title = nameIn;
         latitude = Double.parseDouble(latIn);
         longitude = Double.parseDouble(lngIn);
-        id = idIn;
+        //id = idIn;
         phone = contact;
         category = new ArrayList<String>(Arrays.asList(types));
         url = "";
@@ -95,7 +102,7 @@ public class Suggestion implements Comparable<Suggestion>
         url = "";
         address = "";
         phone = "";
-        id = ""; 
+        //id = ""; 
 
     }
 

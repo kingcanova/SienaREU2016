@@ -44,19 +44,19 @@ public class CSVreader
 
             //Reads in examples2014.csv which contains the attractions rated in the profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + pois).toFile()));
-           // bufferedtestBuildPOI();
+            bufferedtestBuildPOI();
             //testBuildPOI();
             //buildPOI(br);
 
             //Reads in profiles2014-100.csv which contains all the example profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + profiles).toFile()));
-            //buildProfile(br);
+            buildProfile(br);
 
             //Reads in collection_2015.csv which contains all possible attractions to suggest
             br = new BufferedReader(new FileReader(Paths.get(trecData + collection).toFile()));
-            buildCollection(br);
+            //buildCollection(br);
             //testBuildCollection();
-            //bufferedtestBuildCollection();
+            bufferedtestBuildCollection();
         }
         catch (FileNotFoundException e) 
         {
@@ -164,25 +164,32 @@ public class CSVreader
 
     public void bufferedtestBuildPOI() throws IOException
     {
-        BufferedReader br = new BufferedReader(new FileReader(Paths.get("BatchExamplesCategorized.txt").toFile()));
+        BufferedReader br = new BufferedReader(new FileReader(Paths.get("batchExamplesCategorizedWithId.txt").toFile()));
         String line = " ";
         String name = "";
         ArrayList<String> cats = new ArrayList<String>();
-        int index = 101;
+        int index = 0;
         //Read through the file
-        while( (line = br.readLine()) != null )
-        {
-            name = line;
-            //System.out.println(name);
-            line = br.readLine();
-            while( line != null && !line.equals(""))
+        try{
+            while( (line = br.readLine()) != null )
             {
-                cats.add(line);
+                name = line;
+                index = Integer.parseInt(br.readLine());
                 line = br.readLine();
+                while( line != null && !line.equals(""))
+                {
+                    cats.add(line);
+                    line = br.readLine();
+                }
+                ContextualSuggestion.pois.put(index, new Suggestion(name, 1, 2, 3, cats));
+                index++;
+                cats = new ArrayList<String>();
             }
-            ContextualSuggestion.pois.put(index, new Suggestion(name, 1, 2, 3, cats));
-            index++;
-            cats = new ArrayList<String>();
+        }
+        catch(Exception e)
+        {
+            System.err.print(e);
+            System.out.println(index);
         }
         br.close();
     }
@@ -223,21 +230,22 @@ public class CSVreader
 
             JSONObject body = (JSONObject) response.get("body");
             int response_id = ((Long)response.get("id")).intValue();
-            String group = body.get("group").toString();
-            String season = body.get("season").toString();
-            String trip_type = body.get("trip_type").toString();
-            String duration = body.get("duration").toString();
+            //             String group = body.get("group").toString();
+            //             String season = body.get("season").toString();
+            //             String trip_type = body.get("trip_type").toString();
+            //             String duration = body.get("duration").toString();
             JSONObject location = (JSONObject) body.get("location");
             int contextId = ((Long)location.get("id")).intValue();
             JSONObject individual = (JSONObject) body.get("person");
-            String gender = individual.get("gender").toString();
+            //             String gender = individual.get("gender").toString();
             Double age = (Double)individual.get("age");
             int person_id = ((Long)individual.get("id")).intValue();
+            
             //declare new profile object with parsed information
-            Profile person = new Profile(person_id, response_id, contextId, age, group, 
-                                        season, gender,duration,trip_type, candidates);
+            Profile person = new Profile(person_id, response_id, contextId, age, "", 
+                    "", "", "","", candidates);
             //populate hashtable assiging the person's id number to its matching profile                          
-            ContextualSuggestion.profiles.put(person_id, person);
+            ContextualSuggestion.profiles.put(response_id, person);
 
             //Preferences is an array containing the list of attractions a profile rated
             //This cycles through the array, grabbing the attraction ID and rating, also
@@ -258,34 +266,40 @@ public class CSVreader
                 Suggestion curr = ContextualSuggestion.pois.get(att_id);
                 double[] scores = new double[]{-4.0, -2.0, 1.0, 2.0, 4.0};
                 //treat tags of examples as more categories,and assign them a score based on rating
-                for (Object t : (JSONArray)tags)
+                if (tags != null)
                 {
-                    String tag = t.toString();
-                    if (person.cat_count.get(tag) == null)
+                    for (Object t : (JSONArray)tags)
                     {
-                        person.cat_count.put(tag, 0.0);
-                        person.cat_occurance.put(tag, 0);
-                    }
-                    if(rating != -1)
-                    {
-                        person.cat_count.put(tag, person.cat_count.get(tag) + scores[rating]);
-                        person.cat_occurance.put(tag, person.cat_occurance.get(tag) +1);
-                    }
-                }      
+                        String tag = t.toString();
+                        if (person.cat_count.get(tag) == null)
+                        {
+                            person.cat_count.put(tag, 0.0);
+                            person.cat_occurance.put(tag, 0);
+                        }
+                        if(rating != -1)
+                        {
+                            person.cat_count.put(tag, person.cat_count.get(tag) + scores[rating]);
+                            person.cat_occurance.put(tag, person.cat_occurance.get(tag) +1);
+                        }
+                    }      
+                }
                 //give categories of the attraction their scores based on rating
-                for (String cat : curr.category)
+                if (curr != null)
                 {
-                    if (person.cat_count.get(cat) == null)
+                    for (String cat : curr.category)
                     {
-                        person.cat_count.put(cat, 0.0);
-                        person.cat_occurance.put(cat, 0);
-                    }
-                    if(rating != -1)
-                    {
-                        person.cat_count.put(cat, person.cat_count.get(cat) + scores[rating]);
-                        person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
-                    }
-                }      
+                        if (person.cat_count.get(cat) == null)
+                        {
+                            person.cat_count.put(cat, 0.0);
+                            person.cat_occurance.put(cat, 0);
+                        }
+                        if(rating != -1)
+                        {
+                            person.cat_count.put(cat, person.cat_count.get(cat) + scores[rating]);
+                            person.cat_occurance.put(cat, person.cat_occurance.get(cat) +1);
+                        }
+                    }      
+                }
             }         
         }      
 
@@ -345,7 +359,7 @@ public class CSVreader
      */
     public void testBuildCollection() throws IOException
     {
-        Scanner in = new Scanner(new File("TestInputCollection.txt"));
+        Scanner in = new Scanner(new File("batchCollectionCategorizedWithId.txt"));
         String line = " ";
         String name = "";
         ArrayList<Suggestion> temp = null;
@@ -386,34 +400,36 @@ public class CSVreader
     public void bufferedtestBuildCollection() throws IOException
     {
         BufferedReader br = new BufferedReader(new FileReader(
-                    Paths.get("TestInputCollectionNewYork.txt").toFile()));
+                    Paths.get("batchCollectionCategorizedWithId.txt").toFile()));
         //Scanner in = new Scanner(new File("TestInputCollectionAlbany.txt"));
         String line = " ";
         String name = "";
+        int attrID, conID;
         ArrayList<Suggestion> temp = null;
         ArrayList<String> cats = new ArrayList<String>();
         //Read through the file
         while( (line = br.readLine()) != null )
         {
             name = line;
-            System.out.println(name);
+            attrID = Integer.parseInt(br.readLine());
+            conID = Integer.parseInt(br.readLine());
             line = br.readLine();
             while( line != null && !line.equals(""))
             {
                 cats.add(line);
                 line = br.readLine();
-            }
-            if (ContextualSuggestion.theCollection.get(151) == null)
+            }            
+            if (ContextualSuggestion.theCollection.get(conID) == null)
             {//If first spot is empty
                 temp = new ArrayList<Suggestion>();
-                temp.add(new Suggestion(name, 1, 2, 3, cats));
-                ContextualSuggestion.theCollection.put(151, temp);
+                temp.add(new Suggestion(name, cats, attrID));
+                ContextualSuggestion.theCollection.put(conID, temp);
             }
             else
             {//Already contains an arraylist
-                temp = ContextualSuggestion.theCollection.get(151);
-                temp.add(new Suggestion(name, 1, 2, 3, cats));
-                ContextualSuggestion.theCollection.put(151, temp);
+                temp = ContextualSuggestion.theCollection.get(conID);
+                temp.add(new Suggestion(name, cats, attrID));
+                ContextualSuggestion.theCollection.put(conID, temp);
             }
             cats = new ArrayList<String>();
         }
