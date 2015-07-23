@@ -44,13 +44,13 @@ public class CSVreader
 
             //Reads in examples2014.csv which contains the attractions rated in the profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + pois).toFile()));
-            bufferedtestBuildPOI();
+           // bufferedtestBuildPOI();
             //testBuildPOI();
             //buildPOI(br);
 
             //Reads in profiles2014-100.csv which contains all the example profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + profiles).toFile()));
-            buildProfile(br);
+            //buildProfile(br);
 
             //Reads in collection_2015.csv which contains all possible attractions to suggest
             br = new BufferedReader(new FileReader(Paths.get(trecData + collection).toFile()));
