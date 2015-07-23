@@ -12,7 +12,7 @@ public class Profile
     protected int[][] ratings = new int[100][1];
     protected int user_id;
     protected int response_id;
-    protected int age;
+    protected Double age;
     protected String group; //Alone,Friends,Family,Other
     protected String season;//Winter, Summer, Autumn, Spring
     protected String gender;//male,female
@@ -27,7 +27,7 @@ public class Profile
     protected Hashtable<String, Double> cat_count = new Hashtable<String, Double>();
     protected Hashtable<String, Integer> cat_occurance = new Hashtable<String, Integer>();
 
-    public Profile(int id, int responseId, int contextId, int age, String group, String season, String gender, String duration, String tripType, ArrayList<Integer> candidates )
+    public Profile(int id, int responseId, int contextId, Double age, String group, String season, String gender, String duration, String tripType, ArrayList<Integer> candidates )
     {
         this.user_id = id;
         this.age = age;

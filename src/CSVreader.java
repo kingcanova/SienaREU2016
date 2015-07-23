@@ -44,9 +44,9 @@ public class CSVreader
 
             //Reads in examples2014.csv which contains the attractions rated in the profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + pois).toFile()));
-            //bufferedtestBuildPOI();
+            bufferedtestBuildPOI();
             //testBuildPOI();
-            buildPOI(br);
+            //buildPOI(br);
 
             //Reads in profiles2014-100.csv which contains all the example profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + profiles).toFile()));
@@ -124,8 +124,10 @@ public class CSVreader
             //separate string by commas, place data into "context" array
             String[] context = new String[5];
             context = CSVSplitter.split(line, 5);
+            String trecID = context[0];
+            String[] elements = trecID.split("-");
             //populate hashtable using attr ID as a key to reference the merged Suggestion object
-            ContextualSuggestion.pois.put(Integer.parseInt(context[0]), Merging.merge(context[2], Integer.parseInt(context[1])));
+            ContextualSuggestion.pois.put(Integer.parseInt(elements[1]), Merging.merge(context[3], Integer.parseInt(context[1])));
         }
         br.close();
     }
@@ -162,7 +164,7 @@ public class CSVreader
 
     public void bufferedtestBuildPOI() throws IOException
     {
-        BufferedReader br = new BufferedReader(new FileReader(Paths.get("TestInputExamples.txt").toFile()));
+        BufferedReader br = new BufferedReader(new FileReader(Paths.get("BatchExamplesCategorized.txt").toFile()));
         String line = " ";
         String name = "";
         ArrayList<String> cats = new ArrayList<String>();
@@ -220,17 +222,17 @@ public class CSVreader
             }
 
             JSONObject body = (JSONObject) response.get("body");
-            int response_id = (Integer)response.get("id");
+            int response_id = ((Long)response.get("id")).intValue();
             String group = body.get("group").toString();
             String season = body.get("season").toString();
             String trip_type = body.get("trip_type").toString();
             String duration = body.get("duration").toString();
             JSONObject location = (JSONObject) body.get("location");
-            int contextId = (Integer)location.get("id");
+            int contextId = ((Long)location.get("id")).intValue();
             JSONObject individual = (JSONObject) body.get("person");
             String gender = individual.get("gender").toString();
-            int age = (Integer)individual.get("age");
-            int person_id = (Integer)individual.get("id");
+            Double age = (Double)individual.get("age");
+            int person_id = ((Long)individual.get("id")).intValue();
             //declare new profile object with parsed information
             Profile person = new Profile(person_id, response_id, contextId, age, group, 
                                         season, gender,duration,trip_type, candidates);
