@@ -33,6 +33,8 @@ public class ContextualSuggestion
      */
     public static void suggest() throws IOException
     {
+        PrintWriter pw = new PrintWriter("SienaFinalOutput.json");
+
         theCollection.clear();//resets scores since hashtables are static and are saved unless JVM is reset
         CSVreader reader = new CSVreader();
         //fill up array with categories we want to ignore for scoring purposes
@@ -44,7 +46,7 @@ public class ContextualSuggestion
             ignoredCats.add(in.nextLine());
         }
 
-        System.out.println("Running CSVReader");
+        //System.out.println("Running CSVReader");
         reader.run();
 
         Set<Integer> people = profiles.keySet();
@@ -58,8 +60,8 @@ public class ContextualSuggestion
                 if (person.candidates.contains(sug.id))
                     attractions.add(sug);
             }
-            ;
-            ArrayList<Suggestion> ignoredAttractions = new ArrayList<Suggestion>();;;;;;;;;
+
+            ArrayList<Suggestion> ignoredAttractions = new ArrayList<Suggestion>();
             //Give each attraction a score based one the rating and frequency of a category
             //System.out.println("Scoring Attractions");
             for (Suggestion s : attractions)
@@ -79,7 +81,7 @@ public class ContextualSuggestion
                         s.count += 1;
                     }
                     else if(person.cat_count.get(cat) == null)
-                       // System.out.printf( "\t %-25s %s \n",cat, "not rated");
+                    // System.out.printf( "\t %-25s %s \n",cat, "not rated");
                         System.out.print("");
                     //System.out.println("\t" + cat + "\t" + "not rated");
                     else
@@ -119,13 +121,21 @@ public class ContextualSuggestion
                 //    i+1, attractions.get(i).title, attractions.get(i).score);
             }
 
-            System.out.println("Sorted Results:     " + person.user_id);
+            //System.out.println("Sorted Results:     " + person.user_id);
+
+            pw.print("{\"body\": {\"suggestions\": [");
+
             Hashtable<String, Integer> catCounter = new Hashtable<String, Integer>();
             int size = attractions.size();
             for (int k=0; k<size; k++)
             {
-                System.out.printf("%2d) %-35s %5.2f\n",
-                    k+1, attractions.get(0).title, attractions.get(0).score);
+                //                 System.out.printf("%2d) %-35s %5.2f\n",
+                //                     k+1, attractions.get(0).title, attractions.get(0).score);
+                int currID = attractions.get(0).id;
+                String id = "00000000" + currID;
+                id = id.substring(id.length()-8);
+                pw.print("\"TRECCS-" + id + "-" + person.context_id + "\"");
+                if(attractions.size() > 1) {pw.print(",");}
 
                 Suggestion prev = attractions.remove(0);
                 for(Suggestion s : attractions)
@@ -166,8 +176,13 @@ public class ContextualSuggestion
                     }
                     //s.score -= max/10;
                 }
+
                 Collections.sort(attractions);
             }
+            pw.print("]}, \"groupid\": \"Siena_SUCCESS\", \"id\": " + person.response_id +
+                ", \"runid\": \"runA\"}");
+            pw.println();
         }
+        pw.close();
     }
 }

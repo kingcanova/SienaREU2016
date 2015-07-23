@@ -88,7 +88,7 @@ public class CSVreader
      */
     public void buildLocation(BufferedReader br, BufferedReader br2) throws IOException
     {
-        System.out.println("Building Contexts");
+        //System.out.println("Building Contexts");
 
         String line = "";
         //read in parameters to ignore them and jump to next line 
@@ -115,7 +115,7 @@ public class CSVreader
      */
     public void buildPOI(BufferedReader br) throws IOException
     {
-        System.out.println("Building Examples");
+        //System.out.println("Building Examples");
         String line = "";
         //read in paramters to skip them
         br.readLine();
@@ -201,7 +201,7 @@ public class CSVreader
      */
     public void buildProfile(BufferedReader br) throws IOException
     {
-        System.out.println("Building Profiles, ratings");
+        //System.out.println("Building Profiles, ratings");
         String line = "";
         JSONParser parser = new JSONParser();
         JSONObject response = null;
