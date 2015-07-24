@@ -12,21 +12,22 @@ public class TrecTransfer
     {
         try{
             Scanner batchCollection = new Scanner(new File("batch_collection.txt"));
-            //Scanner examples = new Scanner(new File("batch_examples.txt"));
-            BufferedReader collection = new BufferedReader(new FileReader("batch_collection.txt"));
+            Scanner examples = new Scanner(new File("batch_examples.txt"));
+            BufferedReader collection = new BufferedReader(new FileReader("partialCollection.txt"));
             ArrayList<String> idListCollection = new ArrayList<String>();
-            //ArrayList<String> idListExamples = new ArrayList<String>();
+            ArrayList<String> idListExamples = new ArrayList<String>();
             while (batchCollection.hasNextLine())
                 idListCollection.add(batchCollection.nextLine());
-            //while (examples.hasNextLine())
-            //    idListExamples.add(examples.nextLine());
+            while (examples.hasNextLine())
+                idListExamples.add(examples.nextLine());
             String[] idArrayCollection = idListCollection.toArray(new String[0]);
-            //String[] idArrayExamples = idListExamples.toArray(new String[0]);
+            String[] idArrayExamples = idListExamples.toArray(new String[0]);
             Arrays.sort(idArrayCollection);
-            //Arrays.sort(idArrayExamples);
+            Arrays.sort(idArrayExamples);
 
-            FileWriter ftw = new FileWriter("fullBatchCollection3.csv");
-            //FileWriter ftw2 = new FileWriter("fullBatchExamples2.csv");
+            PrintWriter ftw = new PrintWriter("fullBatchCollectionFinal2.csv");
+            FileWriter ftw2 = new FileWriter("fullBatchExamplesFinal.csv");
+            
             String line;
             String[] content;
             while ((line = collection.readLine()) != null)
@@ -40,11 +41,17 @@ public class TrecTransfer
                 if (Arrays.binarySearch(idArrayCollection, content[0]) > -1)
                     ftw.write(String.format("%s,%s,%s,%s\n",
                             content[0], content[1], content[2], content[3]));
-                //if (Arrays.binarySearch(idArrayExamples, content[0]) > -1)
-                //    ftw2.write(String.format("%s,%s,%s,%s\n",
-                //            content[0], content[1], content[2], content[3]));
+                if (Arrays.binarySearch(idArrayExamples, content[0]) > -1)
+                    ftw2.write(String.format("%s,%s,%s,%s\n",
+                            content[0], content[1], content[2], content[3]));
 
             }
+
+            ftw.close();
+            ftw2.close();
+            batchCollection.close();
+            examples.close();
+            collection.close();
         }
         catch(Exception e)
         {
@@ -66,5 +73,6 @@ public class TrecTransfer
         {
             fw.write(cur + "\n");
         }
+        fw.close();
     }
 }
