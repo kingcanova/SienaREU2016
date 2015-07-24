@@ -106,12 +106,12 @@ public class ContextualSuggestion
 
                 //remove all attractions from list that have 0 categories
                 else if(!hasCategories)
-                    ignoredAttractions.add(s);
+                    s.score = Double.MIN_VALUE;
             }
 
             //remove all the suggestions from list that were previously just stored in ignoredAttractions ^
-            for(Suggestion attr: ignoredAttractions)
-                attractions.remove(attr);
+//             for(Suggestion attr: ignoredAttractions)
+//                 attractions.remove(attr);
 
             //Mergesorts the scored suggestion objects
             Collections.sort(attractions);
