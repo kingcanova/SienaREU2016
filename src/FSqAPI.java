@@ -123,6 +123,7 @@ public class FSqAPI
 
     public static void main(String[] args) throws ParseException, IOException, URISyntaxException
     {
+        //test example
         FSqAPI f = new FSqAPI();
         Suggestion s = f.queryAPI("42.652580, -73.756233","Bombers");
         s.print();

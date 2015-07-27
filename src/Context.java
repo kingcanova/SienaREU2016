@@ -1,11 +1,7 @@
 import java.util.*;
 
 /**
- * Context also known as a City has a name and id num.
- * For each city there is a list of POI's 
- * 
- * @author Siena - Aidan
- * @version May
+ * A context can be thought of as a location. It includes a city, state, long and lat coordinates, and an ID number
  */
 public class Context
 {

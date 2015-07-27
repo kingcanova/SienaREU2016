@@ -1,10 +1,8 @@
 
 /**
  * Point of Interest, or Attraction. 
- * Each attraction as a name, description, and url.
- * These POI will then be ranked 1-50
- * 
- * @author Siena - Aidan
+ * Each attraction has a name, description, url, and ID number
+ * These POIs will later be ranked based on someone's profile 
  * @version May
  */
 public class POI
@@ -13,7 +11,7 @@ public class POI
     protected String title;
     protected String description;
     protected String url;
-    protected int context = 101;
+    protected int context = 101;//ignore, used for testing purposes
     public POI(int id, String title, String description, String url)
     {
         this.id_num = id;

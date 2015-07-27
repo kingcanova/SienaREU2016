@@ -9,8 +9,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 /**
- * Reads in all the neccesary csv files and loads the data into the 
- * 
+ * Reads in all the neccesary csv files and loads the data into the API's and hash tables
  * @author Aidan, Tom, Kevin, Zach
  * @version Final
  */
@@ -37,15 +36,14 @@ public class CSVreader
         BufferedReader br2 = null;
 
         try {
-            //br for context csv and br2 for coordinates csv
+            //br for context.csv and br2 for coordinates.csv
             br = new BufferedReader(new FileReader(Paths.get(trecData + locations).toFile()));
             br2 = new BufferedReader(new FileReader(Paths.get(trecData + coordinates).toFile()));
             buildLocation(br, br2);
 
             //Reads in examples2014.csv which contains the attractions rated in the profiles
             br = new BufferedReader(new FileReader(Paths.get(trecData + pois).toFile()));
-            bufferedtestBuildPOI();
-            //testBuildPOI();
+            testBuildPOI();
             //buildPOI(br);
 
             //Reads in profiles2014-100.csv which contains all the example profiles
@@ -55,8 +53,7 @@ public class CSVreader
             //Reads in collection_2015.csv which contains all possible attractions to suggest
             br = new BufferedReader(new FileReader(Paths.get(trecData + collection).toFile()));
             //buildCollection(br);
-            //testBuildCollection();
-            bufferedtestBuildCollection();
+            testBuildCollection();
         }
         catch (FileNotFoundException e) 
         {
@@ -133,36 +130,10 @@ public class CSVreader
     }
 
     /**
-     * Read examples from a text file instead of querying the APIs
+     * Read examples from a text file with attraction categories instead of querying the APIs
      */
-    public void testBuildPOI() throws IOException
-    {
-        Scanner in = new Scanner(new File("TestInputExamples.txt"));
-        String line = " ";
-        String name = "";
-        ArrayList<String> cats = new ArrayList<String>();
-        int index = 101;
-        //Read through the file
-        while (in.hasNextLine())
-        {
-            name = in.nextLine();
-            System.out.println(name);
-            line = " ";
-            //Check for the blank line after the list of categories
-            while (!line.equals("") && in.hasNextLine())
-            {            
-                if(line.equals(""))
-                    break;
-                line = in.nextLine();
-                cats.add(line);
-            }
-            ContextualSuggestion.pois.put(index, new Suggestion(name, 1, 2, 3, cats));
-            index++;
-            cats = new ArrayList<String>();
-        }
-    }
 
-    public void bufferedtestBuildPOI() throws IOException
+    public void testBuildPOI() throws IOException
     {
         BufferedReader br = new BufferedReader(new FileReader(Paths.get("batchExamplesCategorizedWithId.txt").toFile()));
         String line = " ";
@@ -218,16 +189,19 @@ public class CSVreader
             catch (NullPointerException e) {
                 System.err.println("Error: null pointer" + e);
             }
-
+            
+            //obtain JSON array of candidate TREC ID's
             JSONArray cands = (JSONArray) response.get("candidates");
             ArrayList<Integer> candidates = new ArrayList<Integer>();
             for(int i=0;i<cands.size();i++)
             {
+                //split TREC ID to place the attraction ID's into a person's candidate list
                 String trec_id = cands.get(i).toString();
                 String[] elements = trec_id.split("-");
                 candidates.add(Integer.parseInt(elements[1]));
             }
 
+            //obtain all other information from JSON response and store in instance variables
             JSONObject body = (JSONObject) response.get("body");
             int response_id = ((Long)response.get("id")).intValue();
             //             String group = body.get("group").toString();
@@ -240,28 +214,31 @@ public class CSVreader
             //             String gender = individual.get("gender").toString();
             Double age = (Double)individual.get("age");
             int person_id = ((Long)individual.get("id")).intValue();
-            
+
             //declare new profile object with parsed information
             Profile person = new Profile(person_id, response_id, contextId, age, "", 
                     "", "", "","", candidates);
             //populate hashtable assiging the person's id number to its matching profile                          
             ContextualSuggestion.profiles.put(response_id, person);
 
-            //Preferences is an array containing the list of attractions a profile rated
+            //Preferences is a JSON Array containing the list of attractions a profile rated
             //This cycles through the array, grabbing the attraction ID and rating, also
             //obtaining the tags and categories for an attraction and assigning them scores
             JSONArray preferences = (JSONArray) individual.get("preferences");
             for(int i = 0; i<preferences.size(); i++)
             {
-                //obtain TREC id and parse out the attraction id
+                //obtain TREC ID and parse out the attraction id and rating, store in instance variables
                 JSONObject pref = (JSONObject)preferences.get(i);
                 String trec_id = pref.get("documentId").toString();
                 String[] elem = trec_id.split("-");
                 int att_id = Integer.parseInt(elem[1]);
                 int rating = Integer.parseInt(pref.get("rating").toString());
+                //obtain JSON Array of tags(reasons why person liked attraction)
+                //we will treat these as more categories and merge them with the API returned categories
                 JSONArray tags = (JSONArray) pref.get("tags");
                 //populate hashtable with assiging an attraction id to its rating
                 person.attr_ratings.put(att_id,rating);
+                
                 //retrieve the suggestion corresponding to the attr id 
                 Suggestion curr = ContextualSuggestion.pois.get(att_id);
                 double[] scores = new double[]{-4.0, -2.0, 1.0, 2.0, 4.0};
@@ -271,11 +248,15 @@ public class CSVreader
                     for (Object t : (JSONArray)tags)
                     {
                         String tag = t.toString();
+                        //if category/tag isnt in the count(score) table yet, 
+                        //put it in the count and occurance tables
                         if (person.cat_count.get(tag) == null)
                         {
                             person.cat_count.put(tag, 0.0);
                             person.cat_occurance.put(tag, 0);
                         }
+                        //if category is given a rating, add the appropriate score to its value in the
+                       //score table. Also add 1 to its occurance value. 
                         if(rating != -1)
                         {
                             person.cat_count.put(tag, person.cat_count.get(tag) + scores[rating]);
@@ -283,7 +264,8 @@ public class CSVreader
                         }
                     }      
                 }
-                //give categories of the attraction their scores based on rating
+                //repeat the same process as above, using the same tables. However, instead of
+                //using the tags, use the categories returned by the API's
                 if (curr != null)
                 {
                     for (String cat : curr.category)
@@ -303,7 +285,7 @@ public class CSVreader
             }         
         }      
 
-        //go through each category/tag in the hash table and divide by its frequency to get avg
+        //go through each category/tag in the hash table and divide the score by its frequency to get avg
         Set<Integer> people = ContextualSuggestion.profiles.keySet();
         for(Integer num : people)
         {
@@ -357,47 +339,11 @@ public class CSVreader
     /**
      * Read colleciton from a text file instead of querying the APIs
      */
-    public void testBuildCollection() throws IOException
-    {
-        Scanner in = new Scanner(new File("batchCollectionCategorizedWithId.txt"));
-        String line = " ";
-        String name = "";
-        ArrayList<Suggestion> temp = null;
-        ArrayList<String> cats = new ArrayList<String>();
-        //Read through the file
-        while (in.hasNextLine())
-        {
-            name = in.nextLine();
-            line = " ";
-            //Check for the blank line after the list of categories
-            while (!line.equals("") && in.hasNextLine())
-            {
-                line = in.nextLine();
-                if(line.equals(""))
-                    break;
-                cats.add(line);
-            }
-
-            if (ContextualSuggestion.theCollection.get(151) == null)
-            {//If first spot is empty
-                temp = new ArrayList<Suggestion>();
-                temp.add(new Suggestion(name, 1, 2, 3, cats));
-                ContextualSuggestion.theCollection.put(151, temp);
-            }
-            else
-            {//Already contains an arraylist
-                temp = ContextualSuggestion.theCollection.get(151);
-                temp.add(new Suggestion(name, 1, 2, 3, cats));
-                ContextualSuggestion.theCollection.put(151, temp);
-            }
-            cats = new ArrayList<String>();
-        }
-    }
 
     /**
      * Read colleciton from a text file instead of querying the APIs
      */
-    public void bufferedtestBuildCollection() throws IOException
+    public void testBuildCollection() throws IOException
     {
         BufferedReader br = new BufferedReader(new FileReader(
                     Paths.get("batchCollectionCategorizedWithId.txt").toFile()));
@@ -434,45 +380,6 @@ public class CSVreader
             cats = new ArrayList<String>();
         }
         br.close();
-    }
-
-    /**
-     * csv file must be sorted 
-     */
-    public static ArrayList<String> getLocations(String id, File csvFile) throws IOException
-    {
-        // TODO: binary-serachify this
-        String line;
-        ArrayList<String> arr = new ArrayList<>();
-        Scanner s = new Scanner(csvFile);
-        while (s.hasNextLine()) {
-            line = s.nextLine();
-            String lineID = getCSVElement(1, line);
-            if (id.compareTo(lineID) < 0) // passed ID 
-                break;
-            else if (id.equals(lineID))
-                arr.add(line);
-        }
-        s.close();
-        return arr;
-    }
-
-    /**
-     * Get the n'th element of a csv line starting at zero (no quotes)
-     * @param elemIndex n
-     * @param csvLine csv line
-     * @return the n'th element of a csv line starting at zero
-     */
-    public static String getCSVElement(int elemIndex, String csvLine)
-    {
-        return csvLine.split(",", elemIndex + 2)[elemIndex];
-    }
-
-    public static void test() throws IOException {
-        ArrayList<String> lol = getLocations("777", new File("../collection_sorted_2015.csv"));
-        for (String lel : lol)
-            System.out.println(lel);
-        System.out.println("done");
     }
 
     public static void main(String[] args) 

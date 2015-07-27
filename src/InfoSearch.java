@@ -7,10 +7,8 @@ import org.jsoup.select.*;
 import org.jsoup.helper.*;
 import javax.swing.*;
 /**
- * Write a description of class InfoSearch here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * beginning of program that would retrieve information from an attraction's url
+ * not used by our final project
  */
 public class InfoSearch
 {

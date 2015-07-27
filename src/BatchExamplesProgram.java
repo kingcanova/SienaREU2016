@@ -2,20 +2,27 @@ import java.util.*;
 import java.io.*;
 import java.nio.*;
 import java.nio.file.*;
+/**
+ * This program takes in a text file that has an attraction name and categories underneath it.
+ * It grabs the associated attraction ID from our subset collection and writes it to the previously
+ * mentioned file.
+ * This new text file with attraction name, ID, and categories is what our testBuildPOI and 
+ * testBuildCollection methods use inside of the CSVreader class
+ */
 public class BatchExamplesProgram
 {
     public static void main(String[] args)throws Exception 
     {
         BufferedReader br, br2, br3 = null;
-        PrintWriter pw = new PrintWriter("batchCollectionCategorizedWithId.txt");
+        PrintWriter pw = new PrintWriter("batchCollectionCategorizedWithId2.txt");
         String examples = "fullBatchExamples.csv";
-        String collection = "fullBatchCollection.csv";
+        String collection = "fullBatchCollection2.csv";
         //Hashtable<String, String> table = new Hashtable<String, String>();
         String line = "";
 
         //br = new BufferedReader(new FileReader(Paths.get("../TRECData/" + examples).toFile()));
         br = new BufferedReader(new FileReader(Paths.get("../TRECData/" + collection).toFile()));
-        br3 = new BufferedReader(new FileReader(Paths.get("./" + "BatchCollectionCategorized.txt").toFile()));
+        br3 = new BufferedReader(new FileReader(Paths.get("../TRECData/" + "72AttractionsCategorized.txt").toFile()));
         //br.readLine();
         int count = 0;
         int curr = 0;

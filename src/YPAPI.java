@@ -102,6 +102,7 @@ public class YPAPI
     public static void main(String[] args)
     throws ParseException, IOException, URISyntaxException
     {
+        //test example
         YPAPI g = new YPAPI();
         Suggestion s = g.performSearch("Bostons Restaurant  Sports Bar",  47.492874, -111.295362);
         s.print();

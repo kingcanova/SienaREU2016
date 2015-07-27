@@ -106,7 +106,7 @@ public class Suggestion implements Comparable<Suggestion>
 
     }
 
-    public void print() //for merged suggestion
+    public void print() 
     {
         System.out.println(title.replaceAll("\"", ""));
         //System.out.println("Rating: " + rate);

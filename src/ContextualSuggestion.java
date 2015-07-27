@@ -2,11 +2,10 @@ import java.util.*;
 import java.io.*;
 
 /**
- * Read in a profile ratings, cities, and attractions and return a CSV file of 
- * suggested POI's
+ * Our project's run file.
  * 
- * @author Siena - Aidan 
- * @version May
+ * Read in a JSON file of hundreds of requests for profiles, cities, and attractions and return a JSON file of responses 
+ * that include ranked suggested POI's for each request
  */
 public class ContextualSuggestion
 {
@@ -15,29 +14,17 @@ public class ContextualSuggestion
     protected static Hashtable<Integer, Profile> profiles = new Hashtable<Integer, Profile>();
     protected static Hashtable<Integer, ArrayList<Suggestion>> theCollection = new Hashtable<Integer, ArrayList<Suggestion>>();
 
-    protected String groupID = "Siena";
-    protected String runID = "test";
-
     /**
-     * Returns an arraylist of all the attractions located in a certain city
-     */
-    public ArrayList<Suggestion> getNearbyVenues(Integer cityID)
-    {
-        return theCollection.get(cityID);
-    }
-
-    /**
-     * Print the top 50 suggestions for each user profile
-     * 
-     * Currently only prints for profile 700 for testing purposes
+     * main run method for project, returns our final JSON file for submission to TREC
      */
     public static void suggest() throws IOException
     {
         PrintWriter pw = new PrintWriter("SienaFinalOutput.json");
-
-        theCollection.clear();//resets scores since hashtables are static and are saved unless JVM is reset
+        //reset scores in hashtable since it's static and are saved unless JVM is reset
+        theCollection.clear();      
         CSVreader reader = new CSVreader();
-        //fill up array with categories we want to ignore for scoring purposes
+
+        //fill up array with categories we want to ignore for scoring purposes i.e. establishment, point of interest, etc
         Scanner in = new Scanner(new File("UneccessaryCats.txt"));
         ArrayList<String> ignoredCats = new ArrayList<String>();
         String line = " ";
@@ -49,12 +36,14 @@ public class ContextualSuggestion
         //System.out.println("Running CSVReader");
         reader.run();
 
+        //cycles through the profiles in the hashtable
         Set<Integer> people = profiles.keySet();
         for(Integer num : people)
         {
             Profile person = profiles.get(num);
             ArrayList<Suggestion> attractions = new ArrayList<Suggestion>();
-
+            //get the list of all attractions from the location being suggested to the person,
+            //and add to the attractions array if it's one of the person's candidates
             for (Suggestion sug : theCollection.get(person.context_id)) 
             {
                 if (person.candidates.contains(sug.id))
@@ -64,15 +53,18 @@ public class ContextualSuggestion
             ArrayList<Suggestion> ignoredAttractions = new ArrayList<Suggestion>();
             //Give each attraction a score based one the rating and frequency of a category
             //System.out.println("Scoring Attractions");
+
+            //cycle through the person's candidates
             for (Suggestion s : attractions)
             {
                 //System.out.println(s.title);
                 boolean hasCategories = false; 
-                //Add the score of each category to the current suggestion's score,
-                //if it was rated by the user and isn't an ignored category
                 for(String cat : s.category)
                 {
+                    //the current attraction must have categories if this loop is entered into
                     hasCategories = true;
+                    //Add the score of each category to the current suggestion's total score,
+                    //if it was rated by the user and isn't an ignored category
                     if(person.cat_count.get(cat) != null && !ignoredCats.contains(cat))
                     {
                         s.score += person.cat_count.get(cat);
@@ -104,22 +96,26 @@ public class ContextualSuggestion
                 //             else if(s.count == 0)
                 //                 ignoredAttractions.add(s);
 
-                //remove all attractions from list that have 0 categories
+                //place the attractions that don't have categories at the very end of the suggested list
                 else if(!hasCategories)
-                    s.score = Double.MIN_VALUE;
+                    s.score = -Double.MAX_VALUE;
             }
 
             //remove all the suggestions from list that were previously just stored in ignoredAttractions ^
-//             for(Suggestion attr: ignoredAttractions)
-//                 attractions.remove(attr);
+            //             for(Suggestion attr: ignoredAttractions)
+            //                 attractions.remove(attr);
 
             //Mergesorts the scored suggestion objects
+
+            //sort attractions before the penalty function
             Collections.sort(attractions);
-            for(int i = 0; i<attractions.size(); i++)
-            {
-                //System.out.printf("%2d) %-35s %5.2f\n",
-                //    i+1, attractions.get(i).title, attractions.get(i).score);
-            }
+
+            //print out the attrations and their scores before the penalty function
+            //             for(int i = 0; i<attractions.size(); i++)
+            //             {
+            //                 //System.out.printf("%2d) %-35s %5.2f\n",
+            //                 //    i+1, attractions.get(i).title, attractions.get(i).score);
+            //             }
 
             //System.out.println("Sorted Results:     " + person.user_id);
 
@@ -127,6 +123,7 @@ public class ContextualSuggestion
 
             Hashtable<String, Integer> catCounter = new Hashtable<String, Integer>();
             int size = attractions.size();
+            //PENALTY FUNCTION
             for (int k=0; k<size; k++)
             {
                 //                 System.out.printf("%2d) %-35s %5.2f\n",
@@ -142,6 +139,7 @@ public class ContextualSuggestion
                 {
                     int max = 0;
                     s.score = 0.0;
+                    boolean hasCategories = false;
                     for(String cat : s.category)
                     {
                         //                     if(prev.category.contains(cat) && !ignoredCats.contains(cat))
@@ -149,6 +147,7 @@ public class ContextualSuggestion
                         //                         s.score -= .5;
                         //                         break;
                         //                     }
+                        hasCategories = true;
                         if(!ignoredCats.contains(cat)) //if a valid category
                         {
                             if(catCounter.get(cat) == null)
@@ -167,20 +166,24 @@ public class ContextualSuggestion
                                     //max = Math.max(max, catCounter.get(cat));
                                 }
                                 s.score += person.cat_count.get(cat);
-                            }
-                        }
+                            }                      
+                        }                        
                     }
                     if(s.count > 0)
-                    {
+                    {                        
                         s.score = s.score / s.count;
+                    }
+                    else if(!hasCategories)
+                    {
+                        s.score = -Double.MAX_VALUE;
                     }
                     //s.score -= max/10;
                 }
-
+                //sort attractions after the penalty function
                 Collections.sort(attractions);
             }
             pw.print("]}, \"groupid\": \"Siena_SUCCESS\", \"id\": " + num +
-                ", \"runid\": \"runA\"}");
+                ", \"runid\": \"SCIAIrunA\"}");
             pw.println();
         }
         pw.close();
