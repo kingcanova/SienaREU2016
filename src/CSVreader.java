@@ -21,16 +21,16 @@ public class CSVreader
      */
     public void run() 
     {
-        String trecData = "../TRECData/";
+        String trecData = "";  //"../TRECData/";
         //String collection = "collection_2015.csv";
-        String collection = "fullBatchCollection.csv";//NYC subset used for testing
+        String collection = "fullBatchCollectionFinal.csv";//NYC subset used for testing
         //id, city, state, lat, long
         String locations = "contexts2015.csv";
         String coordinates = "contexts2015coordinates.csv";
         //id, attraction, description, website
         String profiles = "batch_requests.json";//2014 used for testing
         //id, title, description, url
-        String pois = "fullBatchExamples.csv";//2014 used for testing
+        String pois = "fullBatchExamplesFinal.csv";//2014 used for testing
 
         BufferedReader br = null;
         BufferedReader br2 = null;
